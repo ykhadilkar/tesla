@@ -7,7 +7,7 @@ env:
   - TEST_DIR=application/backend
 before_script:
   - 'npm install -g bower grunt-cli'
-  - 'bower install'
+  - 'cd $TEST_DIR && bower install'
 script: cd $TEST_DIR && npm install && npm test
 
 notifications:
