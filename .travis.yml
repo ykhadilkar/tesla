@@ -5,10 +5,9 @@ services:
 env:
   - TEST_DIR=application/frontend
   - TEST_DIR=application/backend
-before_script:
+install:
   - 'npm install -g bower grunt-cli'
-script: cd $TEST_DIR && bower install && npm install && npm test
-
+script: ./application/run-tests.sh
 notifications:
   email: true
 branches:
