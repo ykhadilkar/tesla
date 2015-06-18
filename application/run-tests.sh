@@ -8,3 +8,5 @@ fi
 
 npm install
 npm test
+
+exit 0
