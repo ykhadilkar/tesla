@@ -1,0 +1,19 @@
+{
+  "main": "index.js",
+  "dependencies": {
+  "body-parser": "^1.6.6",
+  "mongodb": "^1.4.9",
+	"hapi": "^6.8.1",
+	"good": "^2.3.0",
+	"joi":"^4.6.x",
+  "boom": "~2.6.1",
+  "lodash":"~2.4.1",
+  "underscore.string": "~2.4.0",
+  "moment": "~2.8.3",
+  "waterline": "~0.10.21",
+  "dogwater": "~0.4.6",
+  "sails-mongo" : "~0.10.6",
+  "bedwetter" : "~1.8.1",
+  "glob":"~5.0.5"  
+  }
+}

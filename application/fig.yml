@@ -1,0 +1,10 @@
+mongodb:
+  image: mongo:2.6
+  
+backend:
+  build: ./backend
+  ports:
+    - "3000:3000"
+  links:
+    - mongodb
+
