@@ -2,7 +2,14 @@ language: node_js
 node_js:
 - '0.12'
 services:
+env:
+  - TEST_DIR=application/frontend
+  - TEST_DIR=application/backend
 before_script:
+  - 'npm install -g bower grunt-cli'
+  - 'bower install'
+script: cd $TEST_DIR && npm install && npm test
+
 notifications:
   email: true
 branches:
