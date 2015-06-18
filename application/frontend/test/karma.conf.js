@@ -35,6 +35,12 @@ module.exports = function(config) {
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/bootstrap-material-design/dist/js/material.js',
       'bower_components/bootstrap-material-design/dist/js/ripples.js',
+      'bower_components/angular-material/angular-material.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/angular-local-storage/dist/angular-local-storage.js',
+      'bower_components/d3/d3.js',
+      'bower_components/moment/moment.js',
+      'bower_components/n3-line-chart/build/line-chart.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
