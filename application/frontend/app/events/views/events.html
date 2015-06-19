@@ -1,9 +1,22 @@
-<p>This is the partial for Events.</p>
+<h1>
+    {{todo.user}}'s To Do List
+    <span class="label label-default">{{todo.items.length}}</span>
+</h1>
 
-
-    <p>The ID is {{greeting.id}}</p>
-    <p>The content is {{greeting.content}}</p>
-
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in todo.items.results">
+        <td>{{item.time}}</td>
+        <td>{{item.count}}</td>
+    </tr>
+    </tbody>
+</table>
 
 <p>
     {{ 'Current version is v%VERSION%.' | interpolate }}
