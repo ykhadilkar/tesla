@@ -7,7 +7,4 @@ angular.module('teslaApp', [
     'teslaApp.search',
     'teslaApp.events',
     'teslaApp.version'
-]).
-    config(['$routeProvider', function($routeProvider) {
-        $routeProvider.otherwise({redirectTo: '/home'});
-    }]);
+]);
