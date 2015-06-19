@@ -6,7 +6,7 @@ env:
   - TEST_DIR=application/frontend
   - TEST_DIR=application/backend
 install:
-  - 'npm install -g bower grunt-cli'
+  - 'npm install -g bower grunt-cli compass'
 script: ./application/run-tests.sh
 notifications:
   email: true
