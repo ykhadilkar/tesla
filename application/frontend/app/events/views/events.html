@@ -1,8 +1,12 @@
-<h1>
-    {{todo.user}}'s To Do List
-    <span class="label label-default">{{todo.items.length}}</span>
-</h1>
-
+<h3>
+    Total number of FDA events <span class="label label-default">{{todo.items.results.length}}</span>
+</h3>
+<div class="input-group">
+    <input class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">Search</button>
+            </span>
+</div>
 <table class="table table-striped">
     <thead>
     <tr>

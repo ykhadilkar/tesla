@@ -1,7 +1,6 @@
 'use strict';
 var events_data = {}
 var model = {
-    user: "Adam"
 };
 
 var teslaApp = angular.module('teslaApp.events', ['ngRoute']);
