@@ -1,12 +1,12 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('teslaApp', [
     'ngRoute',
-    'myApp.home',
-    'myApp.search',
-    'myApp.events',
-    'myApp.version'
+    'teslaApp.home',
+    'teslaApp.search',
+    'teslaApp.events',
+    'teslaApp.version'
 ]).
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.otherwise({redirectTo: '/home'});
