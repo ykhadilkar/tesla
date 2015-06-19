@@ -45,7 +45,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= appConfig.app %>/styles/{,*/}*.css'],
+        files: ['<%= appConfig.app %>/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },
       gruntfile: {
@@ -57,7 +57,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= appConfig.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
+          'dist/styles/{,*/}*.css',
           '<%= appConfig.app %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -76,14 +76,14 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
+              connect.static('dist'),
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
               ),
               connect().use(
-                '/app/styles',
-                connect.static('./app/styles')
+                '/app/assets/styles',
+                connect.static('./app/assets/styles')
               ),
               connect.static(appConfig.app)
             ];
@@ -95,7 +95,7 @@ module.exports = function (grunt) {
           port: 9001,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
+              connect.static('dist'),
               connect.static('test'),
               connect().use(
                 '/bower_components',
@@ -140,13 +140,13 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '.tmp',
+            'dist',
             '<%= appConfig.dist %>/{,*/}*',
             '!<%= appConfig.dist %>/.git{,*/}*'
           ]
         }]
       },
-      server: '.tmp'
+      server: 'dist'
     },
 
     // Add vendor prefixed styles
@@ -160,17 +160,17 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: 'dist/styles/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: 'dist/styles/'
         }]
       },
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: 'dist/styles/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: 'dist/styles/'
         }]
       }
     },
@@ -249,27 +249,29 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= appConfig.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= appConfig.dist %>/scripts/scripts.js': [
-    //         '<%= appConfig.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+     cssmin: {
+       dist: {
+         files: {
+           '<%= appConfig.dist %>/styles/main.css': [
+             'assets/styles/{,*/}*.css'
+           ]
+         }
+       }
+     },
+     uglify: {
+       dist: {
+         files: {
+           '<%= appConfig.dist %>/scripts/scripts.js': [
+             '<%= appConfig.app %>/assets/scripts/components/version/*.js',
+             '<%= appConfig.app %>/{,*/}/{,*/}/*.js',
+             '<%= appConfig.app %>/*.js'
+           ]
+         }
+       }
+     },
+     concat: {
+       dist: {}
+     },
 
     imagemin: {
       dist: {
@@ -333,9 +335,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat/scripts',
+          cwd: 'dist/concat/scripts',
           src: '*.js',
-          dest: '.tmp/concat/scripts'
+          dest: 'dist/concat/scripts'
         }]
       }
     },
@@ -359,26 +361,28 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            '{,*/}views/{,*/}*.html',
+            'assets/images/{,*/}*.{webp}',
+            'assets/fonts/{,*/}*.*'
           ]
         }, {
           expand: true,
-          cwd: '.tmp/images',
+          cwd: 'dist/images',
           dest: '<%= appConfig.dist %>/images',
           src: ['generated/*']
-        }, {
-          expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
-          dest: '<%= appConfig.dist %>'
-        }]
+        }
+//        ,{
+//          expand: true,
+//          cwd: 'bower_components/bootstrap/dist',
+//          src: 'fonts/*',
+//          dest: '<%= appConfig.dist %>'
+//        }
+       ]
       },
       styles: {
         expand: true,
-        cwd: '<%= appConfig.app %>/styles',
-        dest: '.tmp/styles/',
+        cwd: '<%= appConfig.app %>/assets/styles',
+        dest: 'dist/styles/',
         src: '{,*/}*.css'
       }
     },
@@ -404,6 +408,27 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+//    },
+//
+//    //Include dynamically JS/CSS into index.html page
+//    includeSource: {
+//      options: {
+//        // Task-specific options go here. 
+//        basePath: 'app',
+//        baseUrl: 'assets/',
+//        templates: {
+//          html: {
+//            js: '<script src="{filePath}"></script>',
+//            css: '<link rel="stylesheet" type="text/css" href="{filePath}" />',
+//          },
+//        },
+//      },
+//      dist: {
+//        // Target-specific file lists and/or options go here. 
+//        files: {
+//          'dist/index.html': 'app/index.html'
+//        }
+//      },
     }
   });
 
