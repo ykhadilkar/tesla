@@ -2,7 +2,7 @@
 set -ev
 cd ${TEST_DIR}
 
-if [ -f /tmp/foo.txt ]; then
+if [ -f bower.json ]; then
     bower install
 fi
 
