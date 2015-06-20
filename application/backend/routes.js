@@ -1,6 +1,7 @@
 var bedwetter = require('bedwetter');
 
 var options = {maxLimit:100};
+var eventsController = require('./controllers/events');
 
 exports.endpoints = [
 
@@ -10,5 +11,5 @@ exports.endpoints = [
 	{method: 'POST',path: '/test',handler:{bedwetter: {}}},
 	{method: 'PATCH',path: '/test/{id}',handler:{bedwetter: {}}},
 
-
+    {method: 'GET',path: '/events',handler:eventsController.find}
 ];

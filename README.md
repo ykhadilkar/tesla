@@ -7,6 +7,7 @@
 - grunt serve
 
 ##### Backend
+- brew install mongodb
 - npm install
 - Start mongodb
 - Run node app.js

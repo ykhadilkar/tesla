@@ -13,7 +13,7 @@ module.exports = {
 				adapter: 'mongo',
 				username: '<dbusername>',
 				password: '<dbpassword>',
-				url: 'mongodb://mongodb_1:27017/API',
+				url: 'mongodb://localhost:27017/API',
 				database: 'API'
 			}
 		},
