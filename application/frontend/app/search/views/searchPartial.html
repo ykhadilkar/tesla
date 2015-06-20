@@ -1,5 +1,16 @@
-<p>This is the partial for view 2.</p>
-<p>
-    Showing of 'interpolate' filter:
-    {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<md-input-container>
+  <label>Symptom</label>
+  <input ng-model="formSymptom">
+  <md-button ng-click="onSearchClick()">Search</md-button>
+</md-input-container>
+<md-list>
+  <md-subheader class="md-no-sticky">Results</md-subheader>
+  <md-list-item class="md-3-line" ng-repeat="result in results">
+    <div class="md-list-item-text">
+      {{ result.first }}
+      {{ result.last }}
+    </div>
+  </md-list-item>
+</md-list>
+{{factorySymptom}}
+{{formSymptom}}

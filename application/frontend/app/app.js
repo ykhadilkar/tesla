@@ -1,13 +1,13 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('teslaApp', [
+var teslaApp = angular.module('teslaApp', [
     'ngRoute',
     'ngAnimate',
     'ngAria',
     'ngMaterial',
     'teslaApp.home',
     'teslaApp.search',
-    'teslaApp.events',
-    'teslaApp.version'
+    'teslaApp.events'
+//    'teslaApp.version'
 ]);
