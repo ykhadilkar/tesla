@@ -14,6 +14,7 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+  require('grunt-include-source')(grunt);
 
   // Configurable paths for the application
   var appConfig = {
@@ -34,7 +35,11 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= appConfig.app %>/{,*/}*.js'],
+        files: [
+            '<%= appConfig.app %>/{,*/}/{,*/}/*.js', 
+            '<%= appConfig.app %>/{,*/}*.js', 
+            '<%= appConfig.app %>/*.js'
+        ],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -45,7 +50,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= appConfig.app %>/{,*/}*.css'],
+        files: ['<%= appConfig.app %>/assets/styles/*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },
       gruntfile: {
@@ -390,15 +395,18 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles'
+        'copy:styles',
+        'includeSource'
       ],
       test: [
-        'copy:styles'
+        'copy:styles',
+        'includeSource'
       ],
       dist: [
         'copy:styles',
         'imagemin',
-        'svgmin'
+        'svgmin',
+        'includeSource'
       ]
     },
 
@@ -408,27 +416,27 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-//    },
-//
-//    //Include dynamically JS/CSS into index.html page
-//    includeSource: {
-//      options: {
-//        // Task-specific options go here. 
-//        basePath: 'app',
-//        baseUrl: 'assets/',
-//        templates: {
-//          html: {
-//            js: '<script src="{filePath}"></script>',
-//            css: '<link rel="stylesheet" type="text/css" href="{filePath}" />',
-//          },
-//        },
-//      },
-//      dist: {
-//        // Target-specific file lists and/or options go here. 
-//        files: {
-//          'dist/index.html': 'app/index.html'
-//        }
-//      },
+    },
+
+    //Include dynamically JS/CSS into index.html page
+    includeSource: {
+      options: {
+        // Task-specific options go here. 
+        basePath: 'app',
+        baseUrl: '/',
+        templates: {
+          html: {
+            js: '<script src="{filePath}"></script>',
+            css: '<link rel="stylesheet" type="text/css" href="{filePath}" />',
+          },
+        },
+      },
+      dist: {
+        // Target-specific file lists and/or options go here. 
+        files: {
+          'dist/index.html': 'app/index.html'
+        }
+      },
     }
   });
 
