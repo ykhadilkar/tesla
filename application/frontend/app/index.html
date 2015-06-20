@@ -18,21 +18,37 @@
     <!-- endbuild -->
 
     <!-- build:css({.tmp,dist,app}) /styles/main.css -->
-        <link rel="stylesheet" href="assets/styles/app.css">
+        <!-- Inc important assets/CSS -->
+        <!-- include: "type": "css", "files": "**/*.css" -->
+        
+        <!-- important for uglify/compressed CSS when we build dist (ONLY PROD) -->
+        <!-- include: "type": "css", "files": "styles/*.js" -->
     <!-- endbuild -->
 </head>
-<body>
-<ul class="menu">
-    <li><a href="#/">Home</a></li>
-    <li><a href="#/search">Search</a></li>
-    <li><a href="#/events">Events</a></li>
-</ul>
+<body ng-app="frontendApp" layout="column">
+
+    <md-toolbar layout="row">
+        <md-button class="menu" hide-gt-sm aria-label="Show User List">
+            <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <h1 id='logo'>FBO <span>OPEN</span></h1>
+        <div id='header-nav' layout-margin>
+            <md-button flex href='#/search'>Browse by Category</md-button>
+            <md-button flex href='#/events'>Browse by <span class='bold'>NAICS</span></md-button>
+            <md-button flex href='#/'>Explore by <span class='bold'>RESOURCES</span></md-button>
+
+        </div>
+    </md-toolbar>
+    <md-card class='search' layout='row'>
+        <input type='search' placeholder="Search ..."></input>
+        <md-button class='md-raised'>SEARCH</md-button>
+    </md-card>
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div ng-view></div>
+<div ng-view class='wrapper'></div>
 
 
 <!-- build:js(.) scripts/vendor.js -->
@@ -52,9 +68,9 @@
 <script src="bower_components/d3/d3.js"></script>
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/n3-line-chart/build/line-chart.min.js"></script>
+<script src="bower_components/elastic.js/dist/elastic.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
-
 
 <!-- build:js({.tmp,dist,app}) /scripts/application.js -->
 <!-- entry point -->
