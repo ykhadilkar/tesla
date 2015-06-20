@@ -8,7 +8,7 @@ function EventsController(){};
 EventsController.prototype = (function() {
     return {
         find: function find(request, reply) {
-            Wreck.get(uri, function (err, res, payload) {
+            Wreck.get(uri+search, function (err, res, payload) {
                 reply(payload);
             });
         }
