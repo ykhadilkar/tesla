@@ -1,14 +1,14 @@
 "use strict";
 
 var Wreck = require('wreck');
-var uri = "https://api.fda.gov/drug/event.json";
-var search = "?search=receivedate:[20140101+TO+20150101]&count=receivedate"
+var drugs_event_search_uri = "https://api.fda.gov/drug/event.json?search=";
 
 function EventsController(){};
 EventsController.prototype = (function() {
     return {
         find: function find(request, reply) {
-            Wreck.get(uri+search, function (err, res, payload) {
+            var search = request.params.search;
+            Wreck.get(drugs_event_search_uri + search, function (err, res, payload) {
                 reply(payload);
             });
         }
