@@ -414,6 +414,12 @@ module.exports = function (grunt) {
         // Task-specific options go here. 
         basePath: 'app',
         baseUrl: '/',
+        templates: {
+          html: {
+            js: '<script src="{filePath}"></script>',
+            css: '<link rel="stylesheet" type="text/css" href="{filePath}" />',
+          },    
+        },
       },
       server: {
         files: {
