@@ -19,20 +19,33 @@
 
     <!-- build:css({.tmp,dist,app}) /styles/main.css -->
         <link rel="stylesheet" href="assets/styles/app.css">
+        <link rel="stylesheet" href="assets/styles/fonts.css">
     <!-- endbuild -->
 </head>
-<body>
-<ul class="menu">
-    <li><a href="#/">Home</a></li>
-    <li><a href="#/search">Search</a></li>
-    <li><a href="#/events">Events</a></li>
-</ul>
+<body ng-app="frontendApp" layout="column">
+
+    <md-toolbar layout="row">
+        <md-button class="menu" hide-gt-sm aria-label="Show User List">
+            <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <h1 id='logo'>FBO <span>OPEN</span></h1>
+        <div id='header-nav' layout-margin>
+            <md-button flex href='#/search'>Browse by Category</md-button>
+            <md-button flex href='#/events'>Browse by <span class='bold'>NAICS</span></md-button>
+            <md-button flex href='#/'>Explore by <span class='bold'>RESOURCES</span></md-button>
+
+        </div>
+    </md-toolbar>
+    <md-card class='search' layout='row'>
+        <input type='search' placeholder="Search ..."></input>
+        <md-button class='md-raised'>SEARCH</md-button>
+    </md-card>
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div ng-view></div>
+<div ng-view class='wrapper'></div>
 
 
 <!-- build:js(.) scripts/vendor.js -->
@@ -56,22 +69,10 @@
 <!-- endbower -->
 <!-- endbuild -->
 
+<link rel="stylesheet" href="assets/scripts/global.js">
 
 <!-- build:js({.tmp,dist,app}) /scripts/application.js -->
 <!-- entry point -->
-
-<!--include everything in scripts/ except files directly inside scripts (without subdirectory) -->
-
-<!-- Inc important JS (app/route) -->
-<!-- include: "type": "js", "files": "*.js" -->
-
-<!-- Inc modules JS -->
-<!-- include: "type": "js", "files": ["**/*.js", "!app.js", "!route.js"] -->
-
-<!-- important for uglify/compressed JS when we build dist (ONLY PROD) -->
-<!-- include: "type": "js", "files": ["scripts/**/*.js", "!scripts/**/scripts.*.js"] -->
-
-<!-- endbuild -->
 
 <!--include everything in scripts/ except files directly inside scripts (without subdirectory) -->
 
