@@ -36,6 +36,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: [
+            '<%= appConfig.app %>/assets/scripts/{,*/}/{,*/}/*.js', 
             '<%= appConfig.app %>/{,*/}/{,*/}/*.js', 
             '<%= appConfig.app %>/{,*/}*.js', 
             '<%= appConfig.app %>/*.js'
@@ -62,9 +63,13 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= appConfig.app %>/{,*/}*.html',
-          'dist/styles/{,*/}*.css',
+          '.tmp/styles/{,*/}*.css',
           '<%= appConfig.app %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      },
+      includeSource: {
+        files: ['<%= appConfig.app %>/index.html'],
+        tasks: ['includeSource:server']
       }
     },
 
@@ -81,7 +86,7 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              connect.static('dist'),
+              connect.static('.tmp'),
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
@@ -100,7 +105,7 @@ module.exports = function (grunt) {
           port: 9001,
           middleware: function (connect) {
             return [
-              connect.static('dist'),
+              connect.static('.tmp'),
               connect.static('test'),
               connect().use(
                 '/bower_components',
@@ -145,13 +150,13 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            'dist',
+            '.tmp',
             '<%= appConfig.dist %>/{,*/}*',
             '!<%= appConfig.dist %>/.git{,*/}*'
           ]
         }]
       },
-      server: 'dist'
+      server: '.tmp'
     },
 
     // Add vendor prefixed styles
@@ -165,17 +170,17 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'dist/styles/',
+          cwd: '.tmp/styles/',
           src: '{,*/}*.css',
-          dest: 'dist/styles/'
+          dest: '.tmp/styles/'
         }]
       },
       dist: {
         files: [{
           expand: true,
-          cwd: 'dist/styles/',
+          cwd: '.tmp/styles/',
           src: '{,*/}*.css',
-          dest: 'dist/styles/'
+          dest: '.tmp/styles/'
         }]
       }
     },
@@ -242,9 +247,7 @@ module.exports = function (grunt) {
       options: {
         assetsDirs: [
           '<%= appConfig.dist %>',
-//          '<%= appConfig.dist %>/images',
-          '<%= appConfig.dist %>/home/images',
-          '<%= appConfig.dist %>/search/images',
+          '<%= appConfig.dist %>/images',
           '<%= appConfig.dist %>/styles'
         ]
       }
@@ -258,7 +261,7 @@ module.exports = function (grunt) {
        dist: {
          files: {
            '<%= appConfig.dist %>/styles/main.css': [
-             'assets/styles/{,*/}*.css'
+             '.tmp/styles/{,*/}*.css'
            ]
          }
        }
@@ -267,6 +270,7 @@ module.exports = function (grunt) {
        dist: {
          files: {
            '<%= appConfig.dist %>/scripts/scripts.js': [
+             //'<%= appConfig.dist %>/scripts/scripts.js'
              '<%= appConfig.app %>/assets/scripts/components/version/*.js',
              '<%= appConfig.app %>/{,*/}/{,*/}/*.js',
              '<%= appConfig.app %>/*.js'
@@ -282,19 +286,11 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-//          cwd: '<%= appConfig.app %>/images',
-          cwd: '<%= appConfig.app %>/home/images',
+          //cwd: '<%= appConfig.app %>/images',
+          cwd: '<%= appConfig.app %>/*/images',
           src: '{,*/}*.{png,jpg,jpeg,gif}',
-//          dest: '<%= appConfig.dist %>/images'
-          dest: '<%= appConfig.dist %>/home/images',
-        },
-        {
-          expand: true,
-//          cwd: '<%= appConfig.app %>/images',
-          cwd: '<%= appConfig.app %>/search/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-//          dest: '<%= appConfig.dist %>/images'
-          dest: '<%= appConfig.dist %>/search/images'
+          dest: '<%= appConfig.dist %>/*/images'
+          //dest: '<%= appConfig.dist %>/images'
         }]
       }
     },
@@ -303,15 +299,11 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= appConfig.app %>/home/images',
+          //cwd: '<%= appConfig.app %>/images',
+          cwd: '<%= appConfig.app %>/*/images',
           src: '{,*/}*.svg',
-          dest: '<%= appConfig.dist %>/home/images',
-        },
-        {
-          expand: true,
-          cwd: '<%= appConfig.app %>/search/images',
-          src: '{,*/}*.svg',
-          dest: '<%= appConfig.dist %>/search/images'
+          //dest: '<%= appConfig.dist %>/images'
+          dest: '<%= appConfig.dist %>/*/images'
         }]
       }
     },
@@ -328,6 +320,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= appConfig.dist %>',
+          //src: ['*.html', 'views/{,*/}*.html'],
           src: ['*.html', '{,*/}/views/{,*/}*.html'],
           dest: '<%= appConfig.dist %>'
         }]
@@ -340,9 +333,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: 'dist/concat/scripts',
+          cwd: '.tmp/concat/scripts',
           src: '*.js',
-          dest: 'dist/concat/scripts'
+          dest: '.tmp/concat/scripts'
         }]
       }
     },
@@ -372,7 +365,7 @@ module.exports = function (grunt) {
           ]
         }, {
           expand: true,
-          cwd: 'dist/images',
+          cwd: '.tmp/images',
           dest: '<%= appConfig.dist %>/images',
           src: ['generated/*']
         }
@@ -387,7 +380,7 @@ module.exports = function (grunt) {
       styles: {
         expand: true,
         cwd: '<%= appConfig.app %>/assets/styles',
-        dest: 'dist/styles/',
+        dest: '.tmp/styles/',
         src: '{,*/}*.css'
       }
     },
@@ -395,18 +388,15 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles',
-        'includeSource'
+        'copy:styles'
       ],
       test: [
-        'copy:styles',
-        'includeSource'
+        'copy:styles'
       ],
       dist: [
         'copy:styles',
         'imagemin',
-        'svgmin',
-        'includeSource'
+        'svgmin'
       ]
     },
 
@@ -424,19 +414,18 @@ module.exports = function (grunt) {
         // Task-specific options go here. 
         basePath: 'app',
         baseUrl: '/',
-        templates: {
-          html: {
-            js: '<script src="{filePath}"></script>',
-            css: '<link rel="stylesheet" type="text/css" href="{filePath}" />',
-          },
-        },
+      },
+      server: {
+        files: {
+          '.tmp/index.html': '<%= appConfig.app %>/index.html'
+        }
       },
       dist: {
         // Target-specific file lists and/or options go here. 
         files: {
-          'dist/index.html': 'app/index.html'
+          '<%= appConfig.dist %>/index.html': '<%= appConfig.app %>/index.html'
         }
-      },
+      }
     }
   });
 
@@ -473,6 +462,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'includeSource:dist',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
