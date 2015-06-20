@@ -18,8 +18,11 @@
     <!-- endbuild -->
 
     <!-- build:css({.tmp,dist,app}) /styles/main.css -->
-        <link rel="stylesheet" href="assets/styles/app.css">
-        <link rel="stylesheet" href="assets/styles/fonts.css">
+        <!-- Inc important assets/CSS -->
+        <!-- include: "type": "css", "files": "**/*.css" -->
+        
+        <!-- important for uglify/compressed CSS when we build dist (ONLY PROD) -->
+        <!-- include: "type": "css", "files": "styles/*.js" -->
     <!-- endbuild -->
 </head>
 <body ng-app="frontendApp" layout="column">
