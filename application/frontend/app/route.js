@@ -7,10 +7,6 @@ angular.module('teslaApp').config(['$routeProvider',
         templateUrl: 'home/views/homePartial.html',
         controller: 'HomeCtrl'
       }).
-      when('/events', {
-        templateUrl: 'events/views/eventsPartial.html',
-        controller: 'EventsCtrl'
-      }).
       when('/search', {
         templateUrl: 'search/views/searchPartial.html',
         controller: 'SearchCtrl'
