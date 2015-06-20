@@ -5,6 +5,8 @@ EXPOSE 3000
 
 ADD . /backend	
 
-RUN npm install -g nodemon 
+RUN rm -rf node_install \
+&& npm install -g nodemon \
+&& npm install 
 
 CMD ["node", "index.js"]
