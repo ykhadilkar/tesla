@@ -14,7 +14,7 @@
     "angular-material": "^0.10.0",
     "angular-ui-router": "^0.2.15",
     "angular-local-storage": "^0.1.4",
-    "font-awesome": "^4.3.0",
+    "font-awesome": "*",
     "n3-line-chart": "^1.1.0",
     "html5-boilerplate": "~5.2.0"
   },
