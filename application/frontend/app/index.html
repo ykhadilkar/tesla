@@ -58,17 +58,17 @@
 
 <!-- build:js({.tmp,dist,app}) /scripts/application.js -->
 <!-- entry point -->
-<script src="app.js"></script>
-<script src="route.js"></script>
-<script src="home/controllers/homeCtrl.js"></script>
-<script src="search/controllers/searchCtrl.js"></script>
-<script src="events/controllers/eventsCtrl.js"></script>
-<script src="assets/scripts/components/version/version.js"></script>
-<script src="assets/scripts/components/version/version-directive.js"></script>
-<script src="assets/scripts/components/version/interpolate-filter.js"></script>
 
 <!--include everything in scripts/ except files directly inside scripts (without subdirectory) -->
-<!-- include: "type": "js", "files": ["home/**/*.js", "events/**/*.js", "search/**/*.js", "!scripts/*.js"] -->
+
+<!-- Inc important JS (app/route) -->
+<!-- include: "type": "js", "files": "*.js" -->
+
+<!-- Inc modules JS -->
+<!-- include: "type": "js", "files": ["**/*.js", "!app.js", "!route.js"] -->
+
+<!-- important for uglify/compressed JS when we build dist (ONLY PROD) -->
+<!-- include: "type": "js", "files": ["scripts/**/*.js", "!scripts/**/scripts.*.js"] -->
 
 <!-- endbuild -->
 
