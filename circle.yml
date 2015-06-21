@@ -1,0 +1,36 @@
+machine:
+  node:
+    version: 0.12
+  timezone:
+    America/New_York
+
+  environment:
+    appname: tesla
+    frontend-dir=application/frontend
+    backend-dir=application/backend
+
+  hosts:
+    dev-tesla.reisys.com:  127.0.0.1
+    uat-tesla.reisys.com:  127.0.0.1
+    tesla.reisys.com:      127.0.0.1
+
+  services:
+    - elasticsearch
+    - mongodb-server
+
+dependencies:
+  pre:
+  - npm install -g bower grunt-cli'
+  - gem install sass'
+  - gem install compass'
+
+
+deployment:
+  production:
+    branch: master
+  staging:
+    branch: develop
+
+test:
+  pre:
+    - bower install
