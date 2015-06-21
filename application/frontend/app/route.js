@@ -11,6 +11,10 @@ angular.module('teslaApp').config(['$routeProvider',
         templateUrl: 'search/views/searchPartial.html',
         controller: 'SearchCtrl'
       }).
+      when('/fda', {
+        templateUrl: 'fda/views/fda.html',
+        controller: 'FdaCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });
