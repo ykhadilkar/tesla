@@ -28,8 +28,12 @@ dependencies:
 deployment:
   production:
     branch: master
+    commands:
+      - grunt clean coffee package publish:"$CIRCLE_BRANCH"
   staging:
     branch: develop
+    commands:
+      - grunt clean coffee package publish:"$CIRCLE_BRANCH"
 
 test:
   pre:
