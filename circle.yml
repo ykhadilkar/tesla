@@ -6,8 +6,6 @@ machine:
 
   environment:
     appname: tesla
-    frontend-dir: application/frontend
-    backend-dir:  application/backend
 
   hosts:
     dev-tesla.reisys.com:  127.0.0.1
@@ -17,6 +15,10 @@ machine:
   services:
     - elasticsearch
     - mongodb
+
+general:  
+  artifacts:
+    - artifacts/testing
 
 dependencies:
   pre:
@@ -30,11 +32,12 @@ deployment:
     branch: master
     commands:
       - grunt clean coffee package publish:"$CIRCLE_BRANCH"
+         
   staging:
     branch: develop
     commands:
       - grunt clean coffee package publish:"$CIRCLE_BRANCH"
 
 test:
-  pre:
-    - bower install
+   commands:
+      - ./application/run-tests2.sh
