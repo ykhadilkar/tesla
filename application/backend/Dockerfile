@@ -1,4 +1,4 @@
-FROM node:0.10
+FROM node:0.12
 
 WORKDIR /backend
 EXPOSE 3000
