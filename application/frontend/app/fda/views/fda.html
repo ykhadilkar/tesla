@@ -9,6 +9,17 @@
     </div>
   </div>
 
+  <div ng-if="reports2004">
+    <h3>Adverse drug event reports (last 10 records only)</h3>
+    <div>
+      <ul>
+        <li ng-repeat="report in reports2004 |orderBy: '-time' | limitTo:10">
+          <strong>{{report.time}}</strong>: {{report.count}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <div ng-if="apiStatus">
     <h3>FDA API Status</h3>
 

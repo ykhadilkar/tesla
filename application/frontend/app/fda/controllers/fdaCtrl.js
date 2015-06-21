@@ -7,7 +7,11 @@ TeslaApp.controller('FdaCtrl', ['fdaApiService', '$scope', function (fdaApiServi
     $scope.apiStatus = data;
   });
 
-  fdaApiService.getDrugRecall('', function (data) {
+  fdaApiService.getDrugRecall(fdaApiService.queryBuilder().searchString('motrin'), function (data) {
     $scope.drugRecalls = data;
+  });
+
+  fdaApiService.getDrugEvent(fdaApiService.queryBuilder().searchString('receivedate:[20040101+TO+20160101]').setCount('receivedate'), function (data) {
+    $scope.reports2004 = data.results;
   });
 }]);
