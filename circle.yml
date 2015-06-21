@@ -6,8 +6,8 @@ machine:
 
   environment:
     appname: tesla
-    frontend-dir=application/frontend
-    backend-dir=application/backend
+    frontend-dir: application/frontend
+    backend-dir:  application/backend
 
   hosts:
     dev-tesla.reisys.com:  127.0.0.1
