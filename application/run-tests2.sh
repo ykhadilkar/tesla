@@ -10,7 +10,7 @@ fi
 npm install
 npm test
 
-cd applicaiton/backend
+cd application/backend
 
 if [ -f bower.json ]; then
     bower install
