@@ -1,41 +1,36 @@
 'use strict';
 
-TeslaApp.service('fdaApiService', function(){
+TeslaApp.factory('fdaApiService', ['$http', '$q', function ($http, $q) {
   var baseUrl = '//api.fda.gov';
   ///drug/event.json?api_key=MQcYBmlcJ41XLzrsgZyaRGlpDwEgm80uWtvxtAUi&search=headache';
 
-  var drugApiPrefix = '/drug/event';
-  var deviceApiPrefix = '/device/event';
-  var foodsApiPrefix = '/food/enforcement';
+  var endPoints = {
+    'apiStatus' : '/status',
+    'drugRecall' : '/drug/enforcement.json',
+    'drugEvent' : '/drug/event.json',
+    'drugLabel' : '/drug/label.json',
+    'deviceRecall' : '/device/enforcement.json',
+    'deviceEvent' : '/device/event.json',
+    'foodRecall' : '/food/enforcement.json'
+  }
 
   var apiKey = 'MQcYBmlcJ41XLzrsgZyaRGlpDwEgm80uWtvxtAUi';  //  free api key
-
-  this.apiStatus = function(){
-    var result = null;
-    var test = $http.get(baseUrl + '/status')
-      .success(function(response){result = response;});
-    console.log(test);
-  };
-
-  this.getDrugEvents = function(){
-
-  };
-});
+  var apiPrefix = '?api_key=' + apiKey + '&search=';
 
 
-//
-//
-//teslaApp.service('fdaDrugs', function($http, fdaServiceSkeleton){
-//  fdaServiceSkeleton['method_four'] = function(){};
-//  return BasicService;
-//}
-//
-//
-//  .factory('ExtendedService', function($http, BasicService){
-//
-//    var extended = angular.extend(BasicService, {})
-//    extended.method = function() {
-//      // ...
-//    }
-//    return extended;
-//  }
+  return {
+    apiStatus: function(callback) {
+      $http.get(baseUrl + endPoints.apiStatus).success(function(data) {
+        callback(data);
+      });
+    },
+    getDrugRecalls: function(query, callback) {
+      $http.get(
+        baseUrl + endPoints.drugRecall + apiPrefix + query
+      ).success(function(data) {
+        callback(data);
+      });
+    }
+  }
+
+}]);

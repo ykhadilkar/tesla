@@ -1,0 +1,23 @@
+<div ng-controller="SearchCtrl">
+  <div ng-if="drugRecalls">
+    <h3>Drug Recalls</h3>
+    <div>
+      <ul>
+        <li><strong>Last Updated:</strong> {{drugRecalls.meta.last_updated|date:'mediumDate'}}</li>
+        <li><strong>Total:</strong> {{drugRecalls.meta.results.total}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div ng-if="apiStatus">
+    <h3>FDA API Status</h3>
+
+    <div ng-repeat="server in apiStatus">
+      <ul>
+        <li ng-repeat="(key,value) in server">
+          <strong>{{key}}</strong>: {{value}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
