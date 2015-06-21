@@ -16,7 +16,7 @@ machine:
 
   services:
     - elasticsearch
-    - mongodb-server
+    - mongodb
 
 dependencies:
   pre:
