@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 set -ev
-cd ${TEST_DIR}
-
 
 cd application/frontend
 
@@ -12,7 +10,7 @@ fi
 npm install
 npm test
 
-cd application/backend
+cd applicaiton/backend
 
 if [ -f bower.json ]; then
     bower install
