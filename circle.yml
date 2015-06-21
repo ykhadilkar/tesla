@@ -39,5 +39,5 @@ deployment:
       - grunt clean coffee package publish:"$CIRCLE_BRANCH"
 
 test:
-   commands:
+   override:
       - ./application/run-tests2.sh
