@@ -24,7 +24,6 @@ TeslaApp.service('fdaApiService', ['$http', function ($http) {
   var apiCall = function (endpoint, query, callback) {
     if ('object' == typeof query) {
       query = query.build();
-      console.log(query);
     }
     $http.get(
       baseUrl + endpoint + apiPrefix + query
