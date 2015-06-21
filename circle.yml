@@ -15,6 +15,7 @@ machine:
   services:
     - elasticsearch
     - mongodb
+    - docker
 
 general:  
   artifacts:
@@ -25,18 +26,6 @@ dependencies:
   - npm install -g bower grunt-cli
   - gem install sass
   - gem install compass
-
-
-deployment:
-  production:
-    branch: master
-    commands:
-      - grunt clean coffee package publish:"$CIRCLE_BRANCH"
-         
-  staging:
-    branch: develop
-    commands:
-      - grunt clean coffee package publish:"$CIRCLE_BRANCH"
 
 test:
    override:
