@@ -1,6 +1,6 @@
 'use strict';
 
-teslaApp.factory('teslaFactory', function(){
+TeslaApp.factory('teslaFactory', function(){
   var symptom = "testSymp";
 
   var results = [

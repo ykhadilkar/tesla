@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('teslaApp', [
+var TeslaApp = angular.module('teslaApp', [
     'ngRoute',
     'ngAnimate',
     'ngAria',
@@ -12,8 +12,7 @@ angular.module('teslaApp', [
     'teslaApp.version'
 ]);
 //   // Slide out menu
-  angular 
-    .module('frontendApp')
+TeslaApp
     .controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
       $scope.toggleRight = buildToggler('right');
       /**
