@@ -1,0 +1,8 @@
+frontend:
+  image: nginx
+backend:
+  image: tutum.co/miams_reisys/application_backend:latest
+  links:
+    - "mongo:mongo"
+mongo:
+  image: mongo

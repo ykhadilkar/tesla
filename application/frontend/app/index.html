@@ -20,7 +20,7 @@
     <!-- build:css({.tmp,dist,app}) /styles/main.css -->
         <!-- Inc important assets/CSS -->
         <!-- include: "type": "css", "files": "**/*.css" -->
-        
+
         <!-- important for uglify/compressed CSS when we build dist (ONLY PROD) -->
         <!-- include: "type": "css", "files": "styles/*.js" -->
     <!-- endbuild -->
@@ -31,18 +31,37 @@
         <md-button class="menu" hide-gt-sm aria-label="Show User List">
             <md-icon md-svg-icon="menu" ></md-icon>
         </md-button>
-        <h1 id='logo'>FBO <span>OPEN</span></h1>
+        <h1 id='logo'>DRUGS<span>wiki</span><span id='sub-logo'>powered by FDA Open</span></h1>
+        <md-card class='search' layout='row'>
+            <span><i class='fa fa-search fa-lg'></i></span>
+            <input type='search' placeholder="Search ..." ng-model="formSymptom">
+                <md-chips>
+                    <md-chip-template>
+                        {{$chips}}
+                        test
+                    </md-chip-template>
+                </md-chips>
+            </input>
+            <md-button>
+                <i class='fa fa-times fa-2x'></i>
+            </md-button>
+            <!-- <md-button class='md-raised' ng-click="onSearchClick()">SEARCH</md-button> -->
+        </md-card>
         <div id='header-nav' layout-margin>
-            <md-button flex href='#/search'>Browse by Category</md-button>
+            <i class='fa fa-bars fa-3x'></i>
+            <md-sidenav class=''>
+                Main menu sidenav
+            </md-sidenav>
+            <!-- <md-button flex href='#/search'>Browse by Category</md-button>
             <md-button flex href='#/events'>Browse by <span class='bold'>NAICS</span></md-button>
-            <md-button flex href='#/'>Explore by <span class='bold'>RESOURCES</span></md-button>
+            <md-button flex href='#/'>Explore by <span class='bold'>RESOURCES</span></md-button> -->
 
         </div>
     </md-toolbar>
-    <md-card class='search' layout='row'>
+ <!--   <md-card class='search' layout='row'>
         <input type='search' placeholder="Search ..."></input>
         <md-button class='md-raised'>SEARCH</md-button>
-    </md-card>
+    </md-card> --!>
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -70,10 +89,9 @@
 <script src="bower_components/n3-line-chart/build/line-chart.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
-
 <!-- build:js({.tmp,dist,app}) /scripts/application.js -->
 <!-- entry point -->
-
+<script src="bower_components/underscore/underscore.js"></script>
 <!--include everything in scripts/ except files directly inside scripts (without subdirectory) -->
 
 <!-- Inc important JS (app/route) -->

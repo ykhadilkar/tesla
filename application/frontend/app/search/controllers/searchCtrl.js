@@ -2,12 +2,17 @@
 
 angular.module('teslaApp.search', ['ngRoute'])
 
-  .controller('SearchCtrl', ['teslaFactory', 'fdaApiService', '$scope', function (teslaFactory, fdaApiService, $scope) {
+  .controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope',
+    function (teslaFactory, searchFactory, fdaApiService, $scope) {
     // When the search page is initiated, grab the symptom search term from the teslaFactory
     $scope.factorySymptom = teslaFactory.getSymptom();
 
     // Default the form value to the previously set search symptom
     $scope.formSymptom = $scope.factorySymptom;
+    $scope.sortResultsBySafe = true;
+
+
+    var searchString = 'drugindication:' + $scope.formSymptom;
 
     // ****
     // onSearchClick - Search button click handler from the search page
@@ -17,20 +22,10 @@ angular.module('teslaApp.search', ['ngRoute'])
       teslaFactory.setSymptom($scope.formSymptom);
       $scope.factorySymptom = $scope.formSymptom;
 
-      // TO DO : Add API call here
-      //$scope.results = [
-      //  {
-      //    "first":"Bob",
-      //    "last":"Weber"
-      //  },
-      //  {
-      //    "first":"John",
-      //    "last":"Smith"
-      //  },
-      //  {
-      //    "first":"Joe",
-      //    "last":"Public"
-      //  }];
-
+      $scope.drugResults = searchFactory.getDrugsBySymptom($scope.formSymptom, function(results) {
+        console.log('in Ctrl');
+        $scope.drugResults = results;
+        console.log($scope.drugResults);
+      });
     };
   }]);

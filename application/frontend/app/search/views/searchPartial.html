@@ -1,5 +1,9 @@
 <div flex layout='row' layout-sm='column' class='wrapper' layout-fill layout-padding>
     <md-card flex id='left-column' layout-padding>
+      <md-card class='search' layout='row'>
+        <input type='search' placeholder="Search ..." ng-model="formSymptom"></input>
+        <md-button class='md-raised' ng-click="onSearchClick()">SEARCH</md-button>
+      </md-card>
         <div id='results-info' flex layout='row'>
             <h3><b>270</b> Results</h3>
             <div id='dropdown-wrapper'>
@@ -9,43 +13,21 @@
                     <md-option value='2'>Two</md-option>
                     <md-option value='3'>Three</md-option>
                     <md-option value='4'>Four</md-option>
-                </ms-select>
+                </md-select>
             </div>
         </div>
         <div id='results'>
-            <div class='result' layout-padding>
+            <md-card class='result' layout-padding ng-repeat="result in drugResults">
                 <div class='results-header'>
-                    <h4>PLUMBING COMPONENTS</h4>
-                    <i>Department of the Interior</i>
-                    <div class='date-wrapper'>
-                        <label>Due</label>
-                        <div class='date'>
-                            <p>APR 13TH, 2015</p>
-                        </div>
-                    </div>
-                    <p>The Department of Mathematics and Statistics at Minnesota State University, Mankato currently has one (1) fixed-term vacancy, for the 2015-2016 academic year. The standard teaching load is twelve (12) credit hours per semester.</p>
-                    <md-button>READ MORE</md-button>
+                    <h2>{{result.drug}}</h2>
+                    Adverse Events : {{result.eventCount}}
                 </div>
-            </div>
+            </md-card>
             <md-divider></md-divider>
-            <div class='result' layout-padding>
-                <div class='results-header'>
-                    <h4>PLUMBING COMPONENTS</h4>
-                    <i>Department of the Interior</i>
-                    <div class='date-wrapper'>
-                        <label>Due</label>
-                        <div class='date'>
-                            <p>APR 13TH, 2015</p>
-                        </div>
-                    </div>
-                    <p>The Department of Mathematics and Statistics at Minnesota State University, Mankato currently has one (1) fixed-term vacancy, for the 2015-2016 academic year. The standard teaching load is twelve (12) credit hours per semester.</p>
-                    <md-button>READ MORE</md-button>
-                </div>
-            </div>
-            <md-divider></md-divider>
+
         </div>
     </md-card>
-    <div ng-controller='AppCtrl'>
+    <!-- <div ng-controller='AppCtrl'>
         <md-button ng-click='toggleRight()' hide-gt-md>
             Open
         </md-button>
@@ -63,13 +45,14 @@
                             <md-checkbox class='md-primary'>test 3</md-checkbox>
                             <md-checkbox class='md-primary'>test 4</md-checkbox>
                         </div>
-                        <h3>PERIOD OF PERFORMANCE</h3>
+                        <h3>Sort Drugs by:</h3>
                         <div>
-                            <md-slider>Content goes here</md-slider>
+                          <div layout="row">Safest<md-switch ng-model="sortResultsBySafe" aria-label="Sort Results By"></md-switch>Most Effective</div>
+                          <div layout="row">Safest<md-slider flex min="0" max="1" ng-model="sortBySlider"></md-slider>Most Effective</div>
                         </div>
                     </div>
                 </md-content>
             </md-sidenav>
         </md-card>
-    </div>
+    </div> -->
 </div>

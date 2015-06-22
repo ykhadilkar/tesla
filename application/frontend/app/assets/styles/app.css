@@ -140,20 +140,30 @@ a{
   text-decoration: none;
 }
 md-toolbar.md-default-theme{
-  background-color: #ff4909;
+  background-color: #3eb6ce;
   padding: 45px;
+}
+.fa-bars{
+  cursor: pointer;
 }
 /*Header*/
 #logo{
-  font-family: novecento_sans_wide_bookbold, sans-serif;
+  font-family: open_sansextrabold, sans-serif;
   line-height: 80%;
   margin: 0;
+  font-size: 47px;
 
 }
 #logo span{
-  display: block;
   font-family: novecento_sans_widelight, sans-serif;
   margin-left: -1px;
+  font-size: 60px;
+}
+#logo #sub-logo{
+  font-family: open_sansitalic;
+  clear: both;
+  display: block;
+  font-size: 27px;
 }
 #header-nav{
   right: 10%;
@@ -172,19 +182,18 @@ md-toolbar.md-default-theme{
   font-family: novecento_sans_wide_bookbold, sans-serif;
   display: block;
 }
-.search{
-  margin-top: 0;  
-  width:980px;
-  margin: 0 auto 8px auto;
+.fa-search{
+  color: #ccc;
+  padding: 25px 0 25px 13px;
 }
 .search md-input-container{
   padding: 0;
 }
 .search input[type='search']{
-  width: 720px;
+  width: 650px;
   border: 0;
   float: left;
-  padding: 30px;
+  padding: 30px 30px 30px 10px;
   height: 10px;
   font-size: 16px;
 }
@@ -195,6 +204,9 @@ md-toolbar.md-default-theme{
   float: right;
   border-radius: 0;
   height:70px;
+}
+.fa-times{
+  color: #455c96;
 }
 .md-button.md-default-theme.md-raised:not([disabled]):hover, 
 .md-button.md-default-theme.md-raised:not([disabled]):focus{
@@ -252,4 +264,8 @@ md-slider.md-default-theme .md-track.md-track-fill{
   content: '\f107';
   font-size: 26px;
   color: #1a237e;
+ }
+ .results-header h4{
+  font-family: open_sansextrabold;
+  font-size: 40px
  }
