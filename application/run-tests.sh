@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ev
+# set -ev
 
 cd application/frontend
 
