@@ -30,7 +30,6 @@ dependencies:
 test:
    override:
       - sh ./application/run-tests.sh
-      - sh ./application/run-tests2.sh
 
 deployment:
   tutum:
