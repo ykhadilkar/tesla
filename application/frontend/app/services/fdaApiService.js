@@ -1,6 +1,6 @@
 'use strict';
 
-TeslaApp.service('fdaApiService', ['$http', function ($http) {
+TeslaApp.service('fdaApiService', ['$http', '$q', function ($http, $q) {
   var baseUrl = 'https://api.fda.gov';
 
   var apiKey = 'MQcYBmlcJ41XLzrsgZyaRGlpDwEgm80uWtvxtAUi';  //  free api key
@@ -25,13 +25,17 @@ TeslaApp.service('fdaApiService', ['$http', function ($http) {
     if ('object' == typeof query) {
       query = query.build();
     }
+
+    var deferred = $q.defer();
     $http.get(
       baseUrl + endpoint + apiPrefix + query
     ).success(function (data) {
-        callback(data);
+        deferred.resolve(data);
       }).error(function (data, status) {
+        deferred.reject(data)
         console.log(status + ": could not get api data. Reason: " + data);
       });
+    return deferred.promise;
   };
 
   var fdaQueryBuilder = function () {
@@ -73,31 +77,31 @@ TeslaApp.service('fdaApiService', ['$http', function ($http) {
 
   //  Drug APIs
   this.getDrugRecall = function (query, callback) {
-    apiCall(endPoints.drugRecall, query, callback);
+    //apiCall(endPoints.drugRecall, query, callback);
   };
-  this.getDrugEvent = function (query, callback) {
-    apiCall(endPoints.drugEvent, query, callback);
+  this.getDrugEvent = function (query) {
+    return apiCall(endPoints.drugEvent, query);
   };
-  this.getDrugLabel = function (query, callback) {
-    apiCall(endPoints.drugLabel, query, callback);
+  this.getDrugLabel = function (query) {
+    return apiCall(endPoints.drugLabel, query);
   };
 
   //  Device APIs
   this.getDeviceRecall = function (query, callback) {
-    apiCall(endPoints.deviceRecall, query, callback);
+    //apiCall(endPoints.deviceRecall, query, callback);
   };
   this.getDeviceEvent = function (query, callback) {
-    apiCall(endPoints.deviceEvent, query, callback);
+    //apiCall(endPoints.deviceEvent, query, callback);
   };
 
   //  Food APIs
   this.getFoodRecall = function (query, callback) {
-    apiCall(endPoints.foodRecall, query, callback);
+    //apiCall(endPoints.foodRecall, query, callback);
   };
 
   //  FDA API status
   this.getApiStatus = function (callback) {
-    apiCall(endPoints.apiStatus, '', callback);
+    //apiCall(endPoints.apiStatus, '', callback);
   };
 
   this.endpoints = endPoints;

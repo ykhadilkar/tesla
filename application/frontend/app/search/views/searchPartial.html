@@ -17,25 +17,17 @@
             </div>
         </div>
         <div id='results'>
-            <div class='result' layout-padding ng-repeat="result in results">
+            <md-card class='result' layout-padding ng-repeat="result in drugResults">
                 <div class='results-header'>
-                    <h4>{{result.patient.drug[0].medicinalproduct}}</h4>
-                    <i>Department of the Interior</i>
-                    <div class='date-wrapper'>
-                        <label>Due</label>
-                        <div class='date'>
-                            <p>APR 13TH, 2015</p>
-                        </div>
-                    </div>
-                    <p>The Department of Mathematics and Statistics at Minnesota State University, Mankato currently has one (1) fixed-term vacancy, for the 2015-2016 academic year. The standard teaching load is twelve (12) credit hours per semester.</p>
-                    <md-button>READ MORE</md-button>
+                    <h2>{{result.drug}}</h2>
+                    Adverse Events : {{result.eventCount}}
                 </div>
-            </div>
+            </md-card>
             <md-divider></md-divider>
 
         </div>
     </md-card>
-    <div ng-controller='AppCtrl'>
+    <!-- <div ng-controller='AppCtrl'>
         <md-button ng-click='toggleRight()' hide-gt-md>
             Open
         </md-button>
@@ -62,5 +54,5 @@
                 </md-content>
             </md-sidenav>
         </md-card>
-    </div>
+    </div> -->
 </div>
