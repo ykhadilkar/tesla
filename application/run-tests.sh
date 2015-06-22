@@ -2,7 +2,7 @@
 
 pwd
 
-cd application/frontend
+cd ./application/frontend
 
 bower install
 npm install
