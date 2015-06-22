@@ -21,14 +21,11 @@ angular.module('teslaApp.search', ['ngRoute'])
       // Update the factory first to reflect the new search term
       teslaFactory.setSymptom($scope.formSymptom);
       $scope.factorySymptom = $scope.formSymptom;
-      var searchString = 'drugindication:' + $scope.formSymptom;
-      console.log(searchString);
-      searchFactory.getDrugsBySymptom(searchString, function(data){
-       console.log('Ctrl Results');
-       $scope.results = data;
-       console.log($scope.results);
 
-     });
-
+      $scope.drugResults = searchFactory.getDrugsBySymptom($scope.formSymptom, function(results) {
+        console.log('in Ctrl');
+        $scope.drugResults = results;
+        console.log($scope.drugResults);
+      });
     };
   }]);
