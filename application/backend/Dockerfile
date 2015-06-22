@@ -1,12 +1,13 @@
 FROM node:0.12
 
-WORKDIR /backend
 EXPOSE 3000
 
-ADD . /backend	
+RUN mkdir -p /var/tesla-api
 
-RUN rm -rf node_install \
-&& npm install -g nodemon \
-&& npm install 
+COPY . /var/tesla-api
 
-CMD ["node", "index.js"]
+WORKDIR /var/tesla-api
+
+RUN rm -rf node_install && npm install -g nodemon && npm install
+
+CMD ["nodemon", "index.js"]
