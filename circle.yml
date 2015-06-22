@@ -31,11 +31,9 @@ test:
    override:
       - sh ./application/run-tests.sh
 
+     
 deployment:
-  tutum:
-    branch: develop
+  dockerhub:
+    branch: master
     commands:
-      - docker login -e $TUTUM_EMAIL -u $TUTUM_USER -p $TUTUM_PASS tutum.co
-      - docker build -t $TUTUM_USER/application_backend ./application/backend
-      - docker tag application_backend tutum.co/$TUTUM_USER/application_backend
-      - docker push tutum.co/$TUTUM_USER/application_backend
+      - $TRIGGER_DOCKER_HUB_BUILD
