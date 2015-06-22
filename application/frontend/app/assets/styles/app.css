@@ -265,3 +265,7 @@ md-slider.md-default-theme .md-track.md-track-fill{
   font-size: 26px;
   color: #1a237e;
  }
+ .results-header h4{
+  font-family: open_sansextrabold;
+  font-size: 40px
+ }
