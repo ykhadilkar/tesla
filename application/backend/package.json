@@ -23,9 +23,11 @@
   "name": "tesla-backend",
   "version": "1.0.0",
   "description": "service api",
-  "devDependencies": {},
+  "devDependencies": {
+    "coveralls": "^2.11.1"
+  },
   "scripts": {
-    "test": "./node_modules/lab/bin/lab -t 80 && ./node_modules/lab/bin/lab -r html -o ./test/coverage.html",
+    "test": "make test-lcov",
     "start": "node index.js",
     "coverage": "./node_modules/lab/bin/lab -r lcov -o ./test/lcov.info && CODECLIMATE_REPO_TOKEN=c1fd44b286100ffb10e243fd0a8efb7421adbfa77bb0198c8fce92e0baeb55bf ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./test/lcov.info"
   },
