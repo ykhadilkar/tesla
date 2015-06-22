@@ -4,7 +4,7 @@ module.exports = {
 	mongo: {
 		username: '<dbusername>',
 		password: '<dbpassword>',
-		url: 'mongodb_1:27017',
+		url: 'mongodb://localhost:27017',
 		database: 'API'
 	},	
 	dogwaterOptions : {
