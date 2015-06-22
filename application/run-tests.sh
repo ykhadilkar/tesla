@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 # set -ev
 
-cd application/frontend
+cd frontend
 
 bower install
 npm install
 npm test
 
-cd ../backend
+cd backend
 
 npm install
 npm test
 
 exit 0
-
-
