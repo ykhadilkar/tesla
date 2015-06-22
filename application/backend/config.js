@@ -21,6 +21,7 @@ module.exports = {
 		models : require('./models/dogwater.model.definitions.js') 		
 	},
 	server: {
+        address: "127.0.0.1",
 		port: 3000
 	},
 	serverOptions: {
@@ -28,9 +29,11 @@ module.exports = {
 			headers :['Authorization', 'Content-Type', 'If-None-Match','If-Modified-Since']
 		}
 	},
-	logOptions: {
-		subscribers: {
-        'console': ['request', 'log', 'error']
-        }
-	}	
+	logOptions : {
+        opsInterval: 1000,
+        reporters: [{
+            reporter: require('good-console'),
+            events: { log: '*', response: '*' }
+        }]
+    }
 };
