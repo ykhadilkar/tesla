@@ -34,6 +34,6 @@ test:
      
 deployment:
   dockerhub:
-    branch: master
+    branch: develop
     commands:
       - $TRIGGER_DOCKER_HUB_BUILD
