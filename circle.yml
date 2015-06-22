@@ -40,4 +40,7 @@ deployment:
       - docker build -t $TUTUM_USER/application_backend ./application/backend
       - docker tag $TUTUM_USER/application_backend tutum.co/$TUTUM_USER/application_backend
       - docker push tutum.co/$TUTUM_USER/application_backend
+      - docker build -t $TUTUM_USER/application_frontend ./application/frontend
+      - docker tag $TUTUM_USER/application_frontend tutum.co/$TUTUM_USER/application_frontend
+      - docker push tutum.co/$TUTUM_USER/application_frontend
 
