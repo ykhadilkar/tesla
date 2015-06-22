@@ -1,3 +1,3 @@
 FROM nginx
 
-COPY ./app /var/www/html
+COPY ./app /usr/share/nginx/html
