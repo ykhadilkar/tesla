@@ -8,7 +8,7 @@ var OpenFda = function () {
     this.apiKey = 'E4ZOf76Q248IRnZ2107BhDYK0GrvPUCxFbL9BHvU';
 };
 
-OpenFda.prototype.search = function search(entity, relationship,  query) {
+OpenFda.prototype.search = function search(entity, relationship,  query, count, limit, skip ) {
     var deferred = Q.defer();
 
     if ( entity !== 'drug' || entity !== 'device' || entity !== 'food' ) {
@@ -27,7 +27,21 @@ OpenFda.prototype.search = function search(entity, relationship,  query) {
         deferred.reject(new Error('Invalid OpenFda Api entity food relationship'));
     }
 
-    Wreck.get(this.provider + entity + '/' + relationship + '.json?api_key=' + this.apiKey + '&search' + query, function (err, res, payload) {
+    var uri = this.provider + entity + '/' + relationship + '.json?api_key=' + this.apiKey + '&search' + query;
+
+    if ( count ) {
+        uri += '&count='+count;
+    }
+
+    if ( limit ) {
+        uri += '&limit='+limit;
+    }
+
+    if ( skip ) {
+        uri += '&skip='+skip;
+    }
+
+    Wreck.get(uri, function (err, res, payload) {
         if (err) {
             deferred.reject(err);
         } else {
