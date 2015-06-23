@@ -1,7 +1,7 @@
 'use strict';
 
 TeslaApp.factory('teslaFactory', function(){
-  var symptom = "headache";
+  var symptom = "";
 
 
   return {
