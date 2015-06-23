@@ -48,7 +48,7 @@ deployment:
       - docker build -t $TUTUM_USER/application_frontend ./application/frontend
       - docker tag $TUTUM_USER/application_frontend tutum.co/$TUTUM_USER/application_frontend
       - docker push tutum.co/$TUTUM_USER/application_frontend
-      - docker build -t $TUTUM_USER/lb ./infrastructure/lb/^M
+      - docker build -t $TUTUM_USER/lb ./infrastructure/lb^M
       - docker tag $TUTUM_USER/lb tutum.co/$TUTUM_USER/lb^M
       - docker push tutum.co/$TUTUM_USER/lb^M
 
