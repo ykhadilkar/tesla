@@ -6,6 +6,7 @@
     "boom": "~2.6.1",
     "code": "^1.4.1",
     "dogwater": "~0.4.6",
+    "elasticsearch": "^5.0.0",
     "glob": "~5.0.5",
     "good": "^6.x.x",
     "good-console": "^5.0.x",
