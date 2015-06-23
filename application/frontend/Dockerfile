@@ -1,3 +1,3 @@
 FROM nginx
 
-ADD app /usr/share/nginx/html/
+ADD dist /usr/share/nginx/html/
