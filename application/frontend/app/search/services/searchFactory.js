@@ -1,7 +1,7 @@
 'use strict';
 
 TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFactory', '$q', function(fdaApiService, rxNormApiService, teslaFactory, $q){
-  var symptom = "headache";
+  var symptom = "";
 
 
   return {

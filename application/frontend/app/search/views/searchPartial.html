@@ -6,11 +6,9 @@
       </md-card>
         <div id='results-info' flex layout='row'>
             <div id='dropdown-wrapper'>
-                <md-select placeholder='Sort by: Set Asides' ng-model='someValue' flex class='test'>
-                    <md-option value='1'>One</md-option>
-                    <md-option value='2'>Two</md-option>
-                    <md-option value='3'>Three</md-option>
-                    <md-option value='4'>Four</md-option>
+                <md-select placeholder=""{{(someValue ? someValue : 'Sort By :')}}" ng-model='someValue' flex class='test'>
+                    <md-option value='Safest'>Safest</md-option>
+                    <md-option value='Most Effective'>Most Effective</md-option>
                 </md-select>
             </div>
             <md-button class='md-raised' >
@@ -18,7 +16,7 @@
             </md-button>
             <md-button class='md-raised active' >
                 Generic
-            </md-button>    
+            </md-button>
         </div>
         <div id='results'>
             <md-card class='result' layout-padding ng-repeat="result in drugResults">
@@ -28,8 +26,11 @@
                 <div class='results-body'>
                     Adverse Events : {{result.eventCount}}
                 </div>
+              <div>
+              Top 5 Popular Brands : <ul><li ng-repeat="brand in result.popularBrands | limitTo:5">{{brand}}</li></ul>
+              </div>
             </md-card>
-            
+
         </div>
     </md-card>
     <!-- <div ng-controller='AppCtrl'>

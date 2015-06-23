@@ -21,7 +21,7 @@
         <!-- include: "type": "css", "files": "assets/styles/*.css" -->
     <!-- endbuild -->
 </head>
-<body ng-app="frontendApp" layout="column">
+<body ng-app="TeslaApp" layout="column">
 
     <md-toolbar layout="row">
         <div class='header-wrapper' layout='row' flex>
@@ -29,21 +29,21 @@
                 <md-icon md-svg-icon="menu" ></md-icon>
             </md-button> -->
             <h1 id='logo'>DRUGS<span>SAFE</span><span id='sub-logo'>powered by FDA Open</span></h1>
-            <md-card class='search' layout='row' hide-sm flex='66'>
-                <span><i class='fa fa-search fa-lg'></i></span>
-                <input type='search' placeholder="Search ..." ng-model="formSymptom" flex='79'>
-                    <md-chips>
-                        <md-chip-template>
-                            {{$chips}}
-                            test
-                        </md-chip-template>
-                    </md-chips>
-                </input>
-                <md-button>
-                    <i class='fa fa-times fa-2x'></i>
-                </md-button>
-                <!-- <md-button class='md-raised' ng-click="onSearchClick()">SEARCH</md-button> -->
-            </md-card>
+          <!--<md-card class='search' layout='row' hide-sm flex='66'>
+              <span><i class='fa fa-search fa-lg'></i></span>
+              <input type='search' placeholder="{{symptom}}" ng-model="formSymptom"  flex='79'>
+                  <md-chips>
+                      <md-chip-template>
+                          {{$chips}}
+                          test
+                      </md-chip-template>
+                  </md-chips>
+              </input>
+              <md-button>
+                  <i class='fa fa-times fa-2x'></i>
+              </md-button>
+              <md-button class='md-raised' ng-click="onSearchClick()">SEARCH</md-button>
+            </md-card>-->
             <div id='header-nav' layout-margin>
                 <i class='fa fa-bars fa-2x'></i>
                 <md-sidenav class=''>
