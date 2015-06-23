@@ -6,20 +6,20 @@ var DrugController = function() {
 
 };
 
-DrugController.prototype.symptoms = function symptoms(request, reply) {
+DrugController.prototype.symptom = function symptom(request, reply) {
 
 
 };
 
-DrugController.prototype.events = function events(request, reply) {
+DrugController.prototype.event = function event(request, reply) {
     reply(OpenFDA.search('drug','event',request.url.search));
 };
 
-DrugController.prototype.labels = function labels(request, reply) {
+DrugController.prototype.label = function label(request, reply) {
     reply(OpenFDA.search('drug','label',request.url.search));
 };
 
-DrugController.prototype.enforcements = function enforcements(request, reply) {
+DrugController.prototype.enforcement = function enforcement(request, reply) {
     reply(OpenFDA.search('drug','enforcement',request.url.search));
 };
 
