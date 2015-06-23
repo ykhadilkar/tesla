@@ -1,5 +1,5 @@
 {
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "bedwetter": "~1.8.1",
     "body-parser": "^1.6.6",
@@ -9,9 +9,9 @@
     "glob": "~5.0.5",
     "good": "^6.x.x",
     "good-console": "^5.0.x",
-    "hapi": "^8.2.x",
+    "hapi": "^8.6.1",
     "joi": "^4.6.x",
-    "lab": "^5.10.0",
+    "lab": "^5.11.0",
     "lodash": "~2.4.1",
     "moment": "~2.8.3",
     "mongodb": "^1.4.9",
@@ -28,7 +28,7 @@
     "coveralls": "^2.11.1"
   },
   "scripts": {
-    "test": "make test-lcov",
+    "test": "make test",
     "start": "node server.js",
     "coverage": "./node_modules/lab/bin/lab -r lcov -o ./test/lcov.info && CODECLIMATE_REPO_TOKEN=c1fd44b286100ffb10e243fd0a8efb7421adbfa77bb0198c8fce92e0baeb55bf ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./test/lcov.info"
   },
