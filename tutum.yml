@@ -1,7 +1,7 @@
 lb:
-  image: jwilder/nginx-proxy^M
-  ports:^M
-    - "8080:8080"^M
+  image: jwilder/nginx-proxy
+  ports:
+    - "8080:8080"
 frontend:
   image: nginx
   ports:
