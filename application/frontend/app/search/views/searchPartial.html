@@ -5,26 +5,31 @@
         <md-button class='md-raised' ng-click="onSearchClick()">SEARCH</md-button>
       </md-card>
         <div id='results-info' flex layout='row'>
-            <h3><b>270</b> Results</h3>
             <div id='dropdown-wrapper'>
-                <label>Sort By:</label>
-                <md-select placeholder='Set Asides' ng-model='someValue' flex>
+                <md-select placeholder='Sort by: Set Asides' ng-model='someValue' flex class='test'>
                     <md-option value='1'>One</md-option>
                     <md-option value='2'>Two</md-option>
                     <md-option value='3'>Three</md-option>
                     <md-option value='4'>Four</md-option>
                 </md-select>
             </div>
+            <md-button class='md-raised' >
+                Brand Name
+            </md-button>
+            <md-button class='md-raised active' >
+                Generic
+            </md-button>    
         </div>
         <div id='results'>
             <md-card class='result' layout-padding ng-repeat="result in drugResults">
                 <div class='results-header'>
                     <h2>{{result.drug}}</h2>
+                </div>
+                <div class='results-body'>
                     Adverse Events : {{result.eventCount}}
                 </div>
             </md-card>
-            <md-divider></md-divider>
-
+            
         </div>
     </md-card>
     <!-- <div ng-controller='AppCtrl'>

@@ -44,6 +44,8 @@ md-list .md-button {
 /* Primary content area */
 .wrapper{
   position: relative;
+  max-width: 960px;
+  margin: 0 auto;
 }
 #content {
   overflow: hidden;
@@ -151,19 +153,19 @@ md-toolbar.md-default-theme{
   font-family: open_sansextrabold, sans-serif;
   line-height: 80%;
   margin: 0;
-  font-size: 47px;
+  font-size: 23px;
 
 }
 #logo span{
   font-family: novecento_sans_widelight, sans-serif;
-  margin-left: -1px;
-  font-size: 60px;
+  margin-left: 6px;
+  font-size: 29px;
 }
 #logo #sub-logo{
   font-family: open_sansitalic;
   clear: both;
   display: block;
-  font-size: 27px;
+  font-size: 14px;
 }
 #header-nav{
   right: 10%;
@@ -186,6 +188,9 @@ md-toolbar.md-default-theme{
   color: #ccc;
   padding: 25px 0 25px 13px;
 }
+.search{
+  height: 100%;
+}
 .search md-input-container{
   padding: 0;
 }
@@ -204,6 +209,7 @@ md-toolbar.md-default-theme{
   float: right;
   border-radius: 0;
   height:70px;
+  margin: 0;
 }
 .fa-times{
   color: #455c96;
@@ -233,6 +239,28 @@ md-toolbar.md-default-theme{
   max-height: 60px;
   clear: both;
 }
+#results-info button.md-button{
+  border-radius: 0;
+  border: solid 1px #9a9a9a;
+  font-family: open_sansextrabold;
+  font-size: 12px;
+  color: #7a7a7a;
+  margin: 0 10px;
+}
+#results-info button.md-button span{
+  color: #7a7a7a;
+}
+#results-info button.md-button.active{
+  border: solid 1px #5a75c4; 
+  color: #5a75c4;
+}
+#results-info button.md-button.active span{
+  color: #3758b7;
+}
+#results-info .md-button.md-default-theme.md-raised:not([disabled]):hover, 
+#results-info .md-button.md-default-theme.md-raised:not([disabled]):focus{
+  background-color: rgba(250, 250, 250, 1);
+}
 md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked .md-icon{
   background-color: rgba(26, 35, 126, 0.8);
 }
@@ -249,10 +277,13 @@ md-slider.md-default-theme .md-track.md-track-fill{
 #results-info{
   position: relative;
   border: solid 1px #dcdcdc;
+  margin: 7px;
 }
-#dropdown-wrapper{
-  position: absolute;
-  right: 0;
+#results-info #dropdown-wrapper{
+  border: solid 1px #3758b7;
+}
+#results-info #dropdown-wrapper md-select{
+  padding: 6px 20px 12px;
 
 }
  md-select.md-default-theme .md-select-label,
@@ -263,9 +294,25 @@ md-slider.md-default-theme .md-track.md-track-fill{
   font-family: 'FontAwesome';
   content: '\f107';
   font-size: 26px;
-  color: #1a237e;
+  color: #3758b7;
  }
- .results-header h4{
+ .md-select-label span{
+  color: #3758b7;
   font-family: open_sansextrabold;
-  font-size: 40px
+  font-size: 12px;
+ }
+ .results-header{
+  background-color: #d8eae5;
+  padding: 10px;
+ }
+ .results-header h2{
+  font-family: open_sansextrabold;
+  font-size: 26px;
+  margin: 0;
+  text-transform: capitalize;
+  color: #3e5ba9;
+ }
+ .results-body{
+  background-color: #f5f5f5;
+  padding: 15px;
  }
