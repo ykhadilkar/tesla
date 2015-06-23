@@ -10,4 +10,4 @@ WORKDIR /var/tesla-api
 
 RUN rm -rf node_install && npm install -g nodemon && npm install
 
-CMD ["nodemon", "index.js"]
+CMD ["nodemon", "server.js"]

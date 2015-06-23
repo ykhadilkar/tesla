@@ -6,7 +6,7 @@
 var Code = require('code');   // assertion library
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
-var server = require('../');
+var server = require('../server');
 
 lab.experiment("Basic HTTP Tests", function(done) {
     // test device event end point
@@ -38,4 +38,4 @@ lab.experiment("Basic HTTP Tests", function(done) {
             done();                                                     // done() callback is required to end the test.
         });
     });
-})
+});

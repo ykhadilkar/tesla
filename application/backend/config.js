@@ -1,12 +1,6 @@
 var Path = require('path');
 var db_host = process.env.MONGO_ENV_TUTUM_SERVICE_HOSTNAME;
 module.exports = {
-	mongo: {
-		username: '<dbusername>',
-		password: '<dbpassword>',
-		url: 'mongodb://localhost:27017',
-		database: 'API'
-	},	
 	dogwaterOptions : {
 		connections : {
 			mongoConnection: {
@@ -20,6 +14,9 @@ module.exports = {
 		adapters : {mongo: 'sails-mongo' },
 		models : require('./models/dogwater.model.definitions.js') 		
 	},
+    fizzOptions: {
+
+    },
 	server: {
         address: "127.0.0.1",
 		port: 3000
