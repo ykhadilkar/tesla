@@ -24,34 +24,36 @@
 <body ng-app="frontendApp" layout="column">
 
     <md-toolbar layout="row">
-        <md-button class="menu" hide-gt-sm aria-label="Show User List">
-            <md-icon md-svg-icon="menu" ></md-icon>
-        </md-button>
-        <h1 id='logo'>DRUGS<span>wiki</span><span id='sub-logo'>powered by FDA Open</span></h1>
-        <md-card class='search' layout='row'>
-            <span><i class='fa fa-search fa-lg'></i></span>
-            <input type='search' placeholder="Search ..." ng-model="formSymptom">
-                <md-chips>
-                    <md-chip-template>
-                        {{$chips}}
-                        test
-                    </md-chip-template>
-                </md-chips>
-            </input>
-            <md-button>
-                <i class='fa fa-times fa-2x'></i>
-            </md-button>
-            <!-- <md-button class='md-raised' ng-click="onSearchClick()">SEARCH</md-button> -->
-        </md-card>
-        <div id='header-nav' layout-margin>
-            <i class='fa fa-bars fa-2x'></i>
-            <md-sidenav class=''>
-                Main menu sidenav
-            </md-sidenav>
-            <!-- <md-button flex href='#/search'>Browse by Category</md-button>
-            <md-button flex href='#/events'>Browse by <span class='bold'>NAICS</span></md-button>
-            <md-button flex href='#/'>Explore by <span class='bold'>RESOURCES</span></md-button> -->
+        <div class='header-wrapper' layout='row' flex layout-padding>
+            <!-- <md-button class="menu" hide-gt-sm aria-label="Show User List">
+                <md-icon md-svg-icon="menu" ></md-icon>
+            </md-button> -->
+            <h1 id='logo'>DRUGS<span>wiki</span><span id='sub-logo'>powered by FDA Open</span></h1>
+            <md-card class='search' layout='row' hide-sm flex='66'>
+                <span><i class='fa fa-search fa-lg'></i></span>
+                <input type='search' placeholder="Search ..." ng-model="formSymptom" flex='80'>
+                    <md-chips>
+                        <md-chip-template>
+                            {{$chips}}
+                            test
+                        </md-chip-template>
+                    </md-chips>
+                </input>
+                <md-button>
+                    <i class='fa fa-times fa-2x'></i>
+                </md-button>
+                <!-- <md-button class='md-raised' ng-click="onSearchClick()">SEARCH</md-button> -->
+            </md-card>
+            <div id='header-nav' layout-margin>
+                <i class='fa fa-bars fa-2x'></i>
+                <md-sidenav class=''>
+                    Main menu sidenav
+                </md-sidenav>
+                <!-- <md-button flex href='#/search'>Browse by Category</md-button>
+                <md-button flex href='#/events'>Browse by <span class='bold'>NAICS</span></md-button>
+                <md-button flex href='#/'>Explore by <span class='bold'>RESOURCES</span></md-button> -->
 
+            </div>
         </div>
     </md-toolbar>
  <!--   <md-card class='search' layout='row'>
