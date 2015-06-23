@@ -7,12 +7,12 @@ module.exports = {
 				adapter: 'mongo',
 				username: '<dbusername>',
 				password: '<dbpassword>',
-				url: 'mongodb://'+db_host+':27017/API',
+				url: 'mongodb://mongo:27017/API',
 				database: 'API'
 			}
 		},
 		adapters : {mongo: 'sails-mongo' },
-		models : require('./models/dogwater.model.definitions.js') 		
+		models : require('./models/dogwater.model.definitions.js')
 	},
     fizzOptions: {
 
