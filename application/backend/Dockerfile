@@ -2,7 +2,7 @@ FROM node:0.12
 
 EXPOSE 3000
 
-RUN apt-get install telnet
+RUN apt-get install telnet --yes
 
 RUN mkdir -p /var/tesla-api
 
