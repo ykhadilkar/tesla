@@ -312,3 +312,7 @@ md-slider.md-default-theme .md-track.md-track-fill{
   text-transform: capitalize;
   color: #3e5ba9;
  }
+ .results-body{
+  background-color: #f5f5f5;
+  padding: 15px;
+ }
