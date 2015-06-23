@@ -8,8 +8,6 @@ var TeslaApp = angular.module('teslaApp', [
     'ngMaterial',
     'teslaApp.home',
     'teslaApp.search',
-    'teslaApp.events',
-    //'teslaApp.version'
 ]);
 //   // Slide out menu
 TeslaApp
