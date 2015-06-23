@@ -206,7 +206,7 @@ md-toolbar.md-default-theme{
   /*width: 650px;*/
   border: 0;
   float: left;
-  padding: 30px 30px 30px 50px;
+  padding: 30px 30px 30px 10px;
   height: 10px;
   font-size: 16px;
 }
@@ -229,18 +229,13 @@ md-toolbar.md-default-theme{
 /*End header*/
 
 /*General*/
-#content{
-  width: 980px;
-  padding: 70px 20px;
-  margin: 0 auto;
-  font-family: open_sansregular, serif;
-  color: #424242;
+b{
+  font-family: open_sansbold;
 }
-.tags{
-  font-family: novecento_sans_widelight, sans-serif;
-  font-size: 30px;
-  color:#1a237e;
-  text-align: center;
+#content{
+  margin-top: 100px;
+  opacity: .8;
+  padding-bottom: 75px;
 }
 #footer{
   background-color: #444;
@@ -280,6 +275,30 @@ md-slider.md-default-theme .md-track.md-track-fill{
  background-color: rgb(26, 35, 126); 
 }
 /*End general*/
+
+/*Home page*/
+.home {
+  background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.home p{
+  font-size: 6vw;
+  font-family: open_sanslight;
+  color: #12c36a;
+  line-height: 100%;
+}
+.home #content .md-button{
+  font-family: open_sansextrabold;
+  font-size: 23px;
+  padding: 30px 50px;
+  background-color: #3eb6ce;
+  color: #fff;
+  opacity: 1;
+}
+/*End Home Page*/
 
 /*Search results*/ 
 #results-info{

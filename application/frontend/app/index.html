@@ -17,19 +17,19 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:css(app) styles/main.css -->
+    <!-- build:css({.tmp,app}) styles/styles.css -->
         <!-- include: "type": "css", "files": "assets/styles/*.css" -->
     <!-- endbuild -->
 </head>
 <body ng-app="TeslaApp" layout="column">
 
-    <md-toolbar layout="row">
+<md-toolbar layout="row">
         <div class='header-wrapper' layout='row' flex>
             <!-- <md-button class="menu" hide-gt-sm aria-label="Show User List">
                 <md-icon md-svg-icon="menu" ></md-icon>
             </md-button> -->
             <h1 id='logo'>DRUGS<span>SAFE</span><span id='sub-logo'>powered by FDA Open</span></h1>
-          <!--<md-card class='search' layout='row' hide-sm flex='66'>
+          <md-card class='search' layout='row' hide-sm flex='66'>
               <span><i class='fa fa-search fa-lg'></i></span>
               <input type='search' placeholder="{{symptom}}" ng-model="formSymptom"  flex='79'>
                   <md-chips>
@@ -43,7 +43,7 @@
                   <i class='fa fa-times fa-2x'></i>
               </md-button>
               <md-button class='md-raised' ng-click="onSearchClick()">SEARCH</md-button>
-            </md-card>-->
+            </md-card>
             <div id='header-nav' layout-margin>
                 <i class='fa fa-bars fa-2x'></i>
                 <md-sidenav class=''>
@@ -65,7 +65,7 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div ng-view class='wrapper'></div>
+<div ng-view class=''></div>
 
 
 <!-- build:js(.) scripts/vendor.js -->
@@ -89,17 +89,9 @@
 <!-- endbower -->
 <!-- endbuild -->
 
-<!-- build:js(app) scripts/application.js -->
-<!-- entry point -->
-
-<!--include everything in scripts/ except files directly inside scripts (without subdirectory) -->
-
-<!-- Inc important JS (app/route) -->
+<!-- build:js({.tmp,app}) scripts/application.js -->
 <!-- include: "type": "js", "files": "*.js" -->
-
-<!-- Inc modules JS -->
 <!-- include: "type": "js", "files": ["**/*.js", "!app.js", "!route.js"] -->
-
 <!-- endbuild -->
 
 </body>
