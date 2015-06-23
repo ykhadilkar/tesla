@@ -14,7 +14,6 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-  require('grunt-include-source')(grunt);
 
   // Configurable paths for the application
   var appConfig = {
@@ -225,7 +224,7 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: '<%= appConfig.app %>/index.html',
+      html: '.tmp/index.html', //important to read from .tmp after include-source add js/css
       options: {
         dest: '<%= appConfig.dist %>',
         flow: {
@@ -280,7 +279,7 @@ module.exports = function (grunt) {
      },
      concat: {
        dist: {}
-     },
+    },
 
     imagemin: {
       dist: {
@@ -358,7 +357,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
-            '*.html',
+            //'*.html',
             '{,*/}views/{,*/}*.html',
             'assets/images/{,*/}*.{webp}',
             'assets/fonts/{,*/}*.*'
@@ -429,7 +428,7 @@ module.exports = function (grunt) {
       dist: {
         // Target-specific file lists and/or options go here. 
         files: {
-          '<%= appConfig.dist %>/index.html': '<%= appConfig.app %>/index.html'
+          '<%= appConfig.dist %>/index.html': '.tmp/index.html' //important to write index.html into .tmp after include-source add js/css
         }
       }
     }
@@ -470,6 +469,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'includeSource:server', //important to make index.html ready in .tmp with js/css included through include-source
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
