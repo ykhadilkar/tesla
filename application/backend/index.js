@@ -17,10 +17,10 @@ server.register([
     }
 ], function (err) {
     if (err) {
-        throw err; // something bad happened loading the plugin
-        console.log('error loading plugin');
+        throw err;
     }
 });
+
 server.route(Routes.endpoints);
 server.start(function () {
     console.info('Server running at: ' + server.info.uri);
