@@ -206,7 +206,7 @@ md-toolbar.md-default-theme{
   /*width: 650px;*/
   border: 0;
   float: left;
-  padding: 30px 30px 30px 50px;
+  padding: 30px 30px 30px 10px;
   height: 10px;
   font-size: 16px;
 }
