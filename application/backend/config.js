@@ -1,5 +1,5 @@
 var Path = require('path');
-
+var db_host = process.env.MONGO_ENV_TUTUM_SERVICE_HOSTNAME;
 module.exports = {
 	mongo: {
 		username: '<dbusername>',
@@ -13,7 +13,7 @@ module.exports = {
 				adapter: 'mongo',
 				username: '<dbusername>',
 				password: '<dbpassword>',
-				url: 'mongodb://localhost:27017/API',
+				url: 'mongodb://'+db_host+':27017/API',
 				database: 'API'
 			}
 		},
