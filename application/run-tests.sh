@@ -12,5 +12,6 @@ cd ../frontend
 bower install
 npm install
 npm test
-
+grunt build
+grunt test
 exit 0
