@@ -2,14 +2,14 @@
 
 pwd
 
-cd ./application/frontend
+cd ./application/backend
 
-bower install
 npm install
 npm test
 
-cd ../backend
+cd ../frontend
 
+bower install
 npm install
 npm test
 
