@@ -17,12 +17,8 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:css({.tmp,dist,app}) /styles/main.css -->
-        <!-- Inc important assets/CSS -->
-        <!-- include: "type": "css", "files": "**/*.css" -->
-
-        <!-- important for uglify/compressed CSS when we build dist (ONLY PROD) -->
-        <!-- include: "type": "css", "files": "styles/*.js" -->
+    <!-- build:css(app) styles/main.css -->
+        <!-- include: "type": "css", "files": "assets/styles/*.css" -->
     <!-- endbuild -->
 </head>
 <body ng-app="frontendApp" layout="column">
@@ -87,11 +83,13 @@
 <script src="bower_components/d3/d3.js"></script>
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/n3-line-chart/build/line-chart.min.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
-<!-- build:js({.tmp,dist,app}) /scripts/application.js -->
+
+<!-- build:js(app) scripts/application.js -->
 <!-- entry point -->
-<script src="bower_components/underscore/underscore.js"></script>
+
 <!--include everything in scripts/ except files directly inside scripts (without subdirectory) -->
 
 <!-- Inc important JS (app/route) -->
@@ -99,9 +97,6 @@
 
 <!-- Inc modules JS -->
 <!-- include: "type": "js", "files": ["**/*.js", "!app.js", "!route.js"] -->
-
-<!-- important for uglify/compressed JS when we build dist (ONLY PROD) -->
-<!-- include: "type": "js", "files": ["scripts/**/*.js", "!scripts/**/scripts.*.js"] -->
 
 <!-- endbuild -->
 

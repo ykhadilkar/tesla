@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 0.12
+    version: 0.11
   timezone:
     America/New_York
 
@@ -20,6 +20,11 @@ machine:
 general:  
   artifacts:
     - artifacts/testing
+    
+notify:
+  webhooks:
+    # auto deploy nginx frontend
+    - url: https://dashboard.tutum.co/api/v1/service/33f7ae14-2bc8-40d0-804a-8febf2984baf/trigger/88e8a003-add5-43e6-9bd3-d7a1f7ad02d0/call/
 
 dependencies:
   pre:

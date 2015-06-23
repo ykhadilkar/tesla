@@ -36,8 +36,8 @@ module.exports = function (grunt) {
       },
       js: {
         files: [
-            '<%= appConfig.app %>/assets/scripts/{,*/}/{,*/}/*.js', 
-            '<%= appConfig.app %>/{,*/}/{,*/}/*.js', 
+            '<%= appConfig.app %>/assets/scripts/{,*/}/{,*/}*.js', 
+            '<%= appConfig.app %>/{,*/}/{,*/}*.js', 
             '<%= appConfig.app %>/{,*/}*.js', 
             '<%= appConfig.app %>/*.js'
         ],
@@ -272,7 +272,7 @@ module.exports = function (grunt) {
            '<%= appConfig.dist %>/scripts/scripts.js': [
              //'<%= appConfig.dist %>/scripts/scripts.js'
              '<%= appConfig.app %>/assets/scripts/components/version/*.js',
-             '<%= appConfig.app %>/{,*/}/{,*/}/*.js',
+             '<%= appConfig.app %>/{,*/}/{,*/}*.js',
              '<%= appConfig.app %>/*.js'
            ]
          }
@@ -470,13 +470,13 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'includeSource:dist',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
     'concat',
     'ngAnnotate',
     'copy:dist',
+    'includeSource:dist',
     'cdnify',
     'cssmin',
     'uglify',
