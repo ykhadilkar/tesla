@@ -281,6 +281,16 @@ md-slider.md-default-theme .md-track.md-track-fill{
 }
 /*End general*/
 
+/*Home page*/
+.home {
+  background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+/*End Home Page*/
+
 /*Search results*/ 
 #results-info{
   position: relative;
