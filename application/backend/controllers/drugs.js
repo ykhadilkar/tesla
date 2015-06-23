@@ -2,25 +2,25 @@
 
 var OpenFDA = require('../models/openfda');
 
-var DrugsController = function() {
+var DrugController = function() {
 
 };
 
-DrugsController.prototype.symptoms = function symptoms(request, reply) {
+DrugController.prototype.symptoms = function symptoms(request, reply) {
 
 
 };
 
-DrugsController.prototype.events = function events(request, reply) {
+DrugController.prototype.events = function events(request, reply) {
     reply(OpenFDA.search('drug','event',request.url.search));
 };
 
-DrugsController.prototype.labels = function labels(request, reply) {
+DrugController.prototype.labels = function labels(request, reply) {
     reply(OpenFDA.search('drug','label',request.url.search));
 };
 
-DrugsController.prototype.enforcements = function enforcements(request, reply) {
+DrugController.prototype.enforcements = function enforcements(request, reply) {
     reply(OpenFDA.search('drug','enforcement',request.url.search));
 };
 
-module.exports = new DrugsController();
+module.exports = new DrugController();
