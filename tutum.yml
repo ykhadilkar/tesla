@@ -3,7 +3,7 @@ lb:
   ports:
     - "8080:8080"
 frontend:
-  image: nginx
+  image: tutum.co/miams_reisys/nginx
   ports:
     - "80:80"
 backend:
