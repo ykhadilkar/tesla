@@ -5,7 +5,7 @@ angular.module('teslaApp.home', [])
 
    $scope.symptom = "My Symptom";
    $scope.drug = "";
-
+   
     console.log('InHomeCtrl');
 
     $scope.searchGo = function(keyEvent){
@@ -17,4 +17,4 @@ angular.module('teslaApp.home', [])
       }
     };
 
-    }]);
+}]);
