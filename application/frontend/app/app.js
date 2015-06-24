@@ -8,6 +8,8 @@ var TeslaApp = angular.module('teslaApp', [
     'ngMaterial',
     'teslaApp.home',
     'teslaApp.search',
+    'angulartics', 
+    'angulartics.google.analytics',
 ]);
 //   // Slide out menu
 TeslaApp
