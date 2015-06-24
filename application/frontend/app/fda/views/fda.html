@@ -1,6 +1,7 @@
 <div ng-controller="SearchCtrl">
   <div ng-if="drugRecalls">
     <h3>Drug Recalls</h3>
+
     <div>
       <ul>
         <li><strong>Last Updated:</strong> {{drugRecalls.meta.last_updated|date:'mediumDate'}}</li>
@@ -11,6 +12,7 @@
 
   <div ng-if="reports2004">
     <h3>Adverse drug event reports (last 10 records only)</h3>
+
     <div>
       <ul>
         <li ng-repeat="report in reports2004 |orderBy: '-time' | limitTo:10">

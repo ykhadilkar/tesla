@@ -1,64 +1,68 @@
 <div flex layout='row' layout-sm='column' class='wrapper' layout-fill>
-    <md-card flex id='left-column' layout='column'>
-      <md-card class='search' layout='row' flex>
-        <input type='search' placeholder="Search ..." ng-model="formSymptom" flex='71' layout-fill />
-        <md-button class='md-raised' ng-click="onSearchClick()" layout-fill>SEARCH</md-button>
-      </md-card>
-        <div id='results-info' flex layout='row'>
-            <div id='dropdown-wrapper'>
-                <md-select placeholder="{{(someValue ? someValue : 'Sort By :')}}" ng-model='someValue' flex class='test'>
-                    <md-option value='Safest'>Safest</md-option>
-                    <md-option value='Most Effective'>Most Effective</md-option>
-                </md-select>
-            </div>
-            <md-button class='md-raised' >
-                Brand Name
-            </md-button>
-            <md-button class='md-raised active' >
-                Generic
-            </md-button>
-        </div>
-        <div id='results'>
-            <md-card class='result' layout-padding ng-repeat="result in drugResults">
-                <div class='results-header'>
-                    <h2>{{result.drug}}</h2>
-                </div>
-                <div class='results-body'>
-                    Adverse Events : {{result.eventCount}}
-                </div>
-              <div>
-              Top 5 Popular Brands : <ul><li ng-repeat="brand in result.popularBrands | limitTo:5">{{brand}}</li></ul>
-              </div>
-            </md-card>
-
-        </div>
+  <md-card flex id='left-column' layout='column'>
+    <md-card class='search' layout='row' flex>
+      <input type='search' placeholder="Search ..." ng-model="formSymptom" flex='71' layout-fill/>
+      <md-button class='md-raised' ng-click="onSearchClick()" layout-fill>SEARCH</md-button>
     </md-card>
-    <!-- <div ng-controller='AppCtrl'>
-        <md-button ng-click='toggleRight()' hide-gt-md>
-            Open
-        </md-button>
-        <md-card>
-            <md-sidenav layout-padding layout-fill class='md-sidenav-right md-whiteframe-z2' md-component-id='right' md-is-locked-open='$mdMedia("gt-md")' flex id='sidebar'>Sidebar
-                <md-content ng-controller='RightCtrl'>
-                    <md-button ng-click='close()' class='md-primary' hide-gt-md>
-                        Close
-                    </md-button>
-                    <div id='accordion'>
-                        <h3>SET ASIDES</h3>
-                        <div>
-                            <md-checkbox class='md-primary'>test</md-checkbox>
-                            <md-checkbox class='md-primary'>test 2</md-checkbox>
-                            <md-checkbox class='md-primary'>test 3</md-checkbox>
-                            <md-checkbox class='md-primary'>test 4</md-checkbox>
-                        </div>
-                        <h3>Sort Drugs by:</h3>
-                        <div>
-                          <div layout="row">Safest<md-switch ng-model="sortResultsBySafe" aria-label="Sort Results By"></md-switch>Most Effective</div>
-                          <div layout="row">Safest<md-slider flex min="0" max="1" ng-model="sortBySlider"></md-slider>Most Effective</div>
-                        </div>
-                    </div>
-                </md-content>
-            </md-sidenav>
-        </md-card>
-    </div> -->
+    <div id='results-info' flex layout='row'>
+      <div id='dropdown-wrapper'>
+        <md-select placeholder="{{(someValue ? someValue : 'Sort By :')}}" ng-model='someValue' flex
+                   class='test'>
+          <md-option value='Safest'>Safest</md-option>
+          <md-option value='Most Effective'>Most Effective</md-option>
+        </md-select>
+      </div>
+      <md-button class='md-raised'>
+        Brand Name
+      </md-button>
+      <md-button class='md-raised active'>
+        Generic
+      </md-button>
+    </div>
+    <div id='results'>
+      <md-card class='result' layout-padding ng-repeat="result in drugResults">
+        <div class='results-header'>
+          <h2>{{result.drug}}</h2>
+        </div>
+        <div class='results-body'>
+          Adverse Events : {{result.eventCount}}
+        </div>
+        <div>
+          Top 5 Popular Brands :
+          <ul>
+            <li ng-repeat="brand in result.popularBrands | limitTo:5">{{brand}}</li>
+          </ul>
+        </div>
+      </md-card>
+
+    </div>
+  </md-card>
+  <!-- <div ng-controller='AppCtrl'>
+      <md-button ng-click='toggleRight()' hide-gt-md>
+          Open
+      </md-button>
+      <md-card>
+          <md-sidenav layout-padding layout-fill class='md-sidenav-right md-whiteframe-z2' md-component-id='right' md-is-locked-open='$mdMedia("gt-md")' flex id='sidebar'>Sidebar
+              <md-content ng-controller='RightCtrl'>
+                  <md-button ng-click='close()' class='md-primary' hide-gt-md>
+                      Close
+                  </md-button>
+                  <div id='accordion'>
+                      <h3>SET ASIDES</h3>
+                      <div>
+                          <md-checkbox class='md-primary'>test</md-checkbox>
+                          <md-checkbox class='md-primary'>test 2</md-checkbox>
+                          <md-checkbox class='md-primary'>test 3</md-checkbox>
+                          <md-checkbox class='md-primary'>test 4</md-checkbox>
+                      </div>
+                      <h3>Sort Drugs by:</h3>
+                      <div>
+                        <div layout="row">Safest<md-switch ng-model="sortResultsBySafe" aria-label="Sort Results By"></md-switch>Most Effective</div>
+                        <div layout="row">Safest<md-slider flex min="0" max="1" ng-model="sortBySlider"></md-slider>Most Effective</div>
+                      </div>
+                  </div>
+              </md-content>
+          </md-sidenav>
+      </md-card>
+  </div> -->
 </div>
