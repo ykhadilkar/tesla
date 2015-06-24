@@ -29,9 +29,9 @@
                 <md-icon md-svg-icon="menu" ></md-icon>
             </md-button> -->
             <h1 id='logo'>DRUGS<span>SAFE</span><span id='sub-logo'>powered by FDA Open</span></h1>
-          <md-card class='search' layout='row' hide-sm flex='66'>
+          <md-card class='search' layout='row' hide-sm flex='66' ng-controller="SearchCtrl">
               <span><i class='fa fa-search fa-lg'></i></span>
-              <input type='search' placeholder="{{symptom}}" ng-model="formSymptom"  flex='79'>
+              <input type='search' placeholder="{{symptom}}" ng-model="formSymptom" ng-keypress="onHomeSearchClick()" flex='79'>
                   <md-chips>
                       <md-chip-template>
                           {{$chips}}

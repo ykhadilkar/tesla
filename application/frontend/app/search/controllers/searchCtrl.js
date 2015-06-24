@@ -7,7 +7,6 @@ angular.module('teslaApp.search', ['ngRoute'])
             // When the search page is initiated, grab the symptom search term from the teslaFactory
             $scope.factorySymptom = teslaFactory.getSymptom();
 
-            console.log('SearchCtrl init');
             // Default the form value to the previously set search symptom
             $scope.formSymptom = $scope.factorySymptom;
             $scope.sortResultsBySafe = true;
@@ -48,11 +47,10 @@ angular.module('teslaApp.search', ['ngRoute'])
 
                 if ( $scope.formSymptom ) {
                     $scope.drugResults = searchFactory.getDrugsBySymptom($scope.formSymptom, function (results) {
-                        console.log('in Ctrl');
                         $scope.drugResults = results;
-                        console.log($scope.drugResults);
                     });
                 }
+
             };
 
         }]);
