@@ -347,3 +347,7 @@ md-slider.md-default-theme .md-track.md-track-fill{
  .wrapper .search{
     max-width: 900px;
  }
+ 
+ [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

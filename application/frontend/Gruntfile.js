@@ -303,6 +303,14 @@ module.exports = function (grunt) {
           src: '{,*/}*.svg',
           //dest: '<%= appConfig.dist %>/images'
           dest: '<%= appConfig.dist %>/*/images'
+        },
+        {
+          expand: true,
+          //cwd: '<%= appConfig.app %>/images',
+          cwd: '<%= appConfig.app %>/assets/svg',
+          src: '{,*/}*.svg',
+          //dest: '<%= appConfig.dist %>/images'
+          dest: '<%= appConfig.dist %>/svg'
         }]
       }
     },
