@@ -3,7 +3,7 @@
 TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFactory', '$q', function(fdaApiService, rxNormApiService, teslaFactory, $q){
 
   return {
-    getDrugsBySymptom: function(symptom, callback) {
+    getDrugsBySymptom: function (symptom, callback) {
 
       // Initialize an empty array to store the promises for the 2 OpenFDA API calls. These can be run in parallel.
       var promises = [];
@@ -22,7 +22,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
 
       // When both OpenFDA API calls are complete, execute the remainder of the code.
       $q.all(promises).then(
-        function(datasets){
+        function (datasets) {
           // Dataset 0 is the response for drug events
           var eventDrugs = datasets[0].results;
           // Dataset 1 is the response for drug labels
@@ -30,7 +30,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
 
           var eventDrugList = _.pluck(eventDrugs, 'term');
           var labelDrugList = _.pluck(labelDrugs, 'term');
-          var mergedDrugList = _.intersection(eventDrugList,labelDrugList);
+          var mergedDrugList = _.intersection(eventDrugList, labelDrugList);
 
           // Remove terms we know are not really drug names.
           mergedDrugList = _.without(mergedDrugList, 'acid', 'sodium', 'sulfate', 'calcium', 'unspecified');
@@ -40,7 +40,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
           // Initialize array to store the promises from each RXNorm API Call
           var RXNormPromises = [];
 
-          angular.forEach(mergedDrugList, function(drug) {
+          angular.forEach(mergedDrugList, function (drug) {
 
             var rxNormSearchString = 'name=' + drug;
 
@@ -50,8 +50,8 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
 
           var drugResults = [];
           $q.all(RXNormPromises).then(
-            function(rxDataSets){
-              angular.forEach(rxDataSets, function(rxDataset){
+            function (rxDataSets) {
+              angular.forEach(rxDataSets, function (rxDataset) {
 
                 console.log('DataSet');
                 console.log(rxDataset);
@@ -69,25 +69,50 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
                 var popularBrands = _.chain(brandNames)
                   .countBy()
                   .pairs()
-                  .sortBy(function (c) { return -c[1] })
-                  .map(function (c) { return c[0] })
+                  .sortBy(function (c) {
+                    return -c[1]
+                  })
+                  .map(function (c) {
+                    return c[0]
+                  })
                   .value();
 
 
-                var matchedRecord = _.findWhere(eventDrugs, {"term": drug} );
+                var matchedRecord = _.findWhere(eventDrugs, {"term": drug});
                 var drugCap = drug.charAt(0).toUpperCase() + drug.slice(1);
-                drugResults.push({"drug":drugCap, "eventCount":matchedRecord.count, "popularBrands":popularBrands} );
+                drugResults.push({"drug": drugCap, "eventCount": matchedRecord.count, "popularBrands": popularBrands});
 
               });
 
             });
 
-            callback(drugResults);
+          callback(drugResults);
 
         }
       )
+    },
+    getDrugEvents: function (drug, gender, ageGroup) {
+
+      var drugData = {};
+      var drugEventSearchString = "substance_name:" + drug;
+
+      var eventsPromise = fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
+        .searchString(drugEventSearchString).setCount('reactionmeddrapt'));
+
+      eventsPromise.then(function (eventResult) {
+
+        var resultsArray = eventResult.results;
+
+        resultsArray = _.reject(resultsArray, function(effect){ console.log(effect); return (effect.term == 'drug' || effect.term == 'disorder' ||
+          effect.term == 'increased' || effect.term == 'decreased' || effect.term == 'in' || effect.term == 'of' ||
+          effect.term == 'upper' || effect.term == 'lower' || effect.term == 'back' || effect.term == 'feeling' ||
+        effect.term == 'event')});
+
+        drugData.effectResults = resultsArray;
+
+        callback(drugData);
+      });
     }
   };
+}]);
 
-  }
-]);

@@ -1,0 +1,46 @@
+backend-prod:
+  image: 'tutum.co/miams_reisys/application_backend:latest'
+  autoredeploy: true
+  environment:
+    - VIRTUAL_HOST=tesla-api.devopsplatform.com
+  links:
+    - mongo-prod
+  ports:
+    - '3000:3000'
+  tags:
+    - production
+
+frontend-prod:
+  image: 'tutum.co/miams_reisys/application_frontend:latest'
+  environment:
+    - VIRTUAL_HOST=tesla-web.devopsplatform.com
+  ports:
+    - '8080:80'
+  tags:
+    - production
+
+lb-prod:
+  image: 'jwilder/nginx-proxy:latest'
+  links:
+    - backend-prod
+    - frontend-prod
+  ports:
+    - '80:80'
+  volumes:
+    - '/var/run/docker.sock:/tmp/docker.sock'
+  tags:
+    - production
+
+mongo-prod:
+  image: 'mongo:latest'
+  ports:
+    - '27017:27017'
+  tags:
+    - production
+    
+textdb-prod:
+  image: 'tutum.co/miams_reisys/infrastructure_textdb:latest'
+  ports:
+    - '9200:9200'
+  tags:
+    - production

@@ -1,11 +1,16 @@
 'use strict';
 
 var OpenFDA = require('../models/openfda');
+var Fizz = require('../models/fizz');
+
 
 var SymptomController = function() {};
 
 SymptomController.prototype.search = function search(request, reply) {
-    var data = [];
+
+    var data = Fizz.search(request.url.query.search);
+
+    console.log(data);
     reply(data);
 };
 
