@@ -18,7 +18,7 @@ TeslaApp.service('rxNormApiService', ['$http', '$q', function ($http, $q) {
     ).success(function (data) {
         deferred.resolve(data);
       }).error(function (data, status) {
-        deferred.reject(data)
+        deferred.reject(data);
         console.log(status + ": could not get api data. Reason: " + data);
       });
     return deferred.promise;

@@ -23,7 +23,7 @@ TeslaApp.service('fdaApiService', ['$http', '$q', function ($http, $q) {
 
     this.endpoints = endPoints;
 
-    var apiCall = function (endpoint, query, callback) {
+    var apiCall = function (endpoint, query) {
         if ('object' == typeof query) {
             query = query.build();
         }
@@ -94,21 +94,21 @@ TeslaApp.service('fdaApiService', ['$http', '$q', function ($http, $q) {
 
     //  Device APIs
     this.getDeviceRecall = function (query, callback) {
-        //apiCall(endPoints.deviceRecall, query, callback);
+        apiCall(endPoints.deviceRecall, query);
     };
 
     this.getDeviceEvent = function (query, callback) {
-        //apiCall(endPoints.deviceEvent, query, callback);
+        apiCall(endPoints.deviceEvent, query);
     };
 
     //  Food APIs
     this.getFoodRecall = function (query, callback) {
-        //apiCall(endPoints.foodRecall, query, callback);
+        apiCall(endPoints.foodRecall, query);
     };
 
     //  FDA API status
     this.getApiStatus = function (callback) {
-        //apiCall(endPoints.apiStatus, '', callback);
+        apiCall(endPoints.apiStatus, '');
     };
 
     this.queryBuilder = function () {

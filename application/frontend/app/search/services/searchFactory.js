@@ -1,8 +1,6 @@
 'use strict';
 
 TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFactory', '$q', function(fdaApiService, rxNormApiService, teslaFactory, $q){
-  var symptom = "";
-
 
   return {
     getDrugsBySymptom: function(symptom, callback) {

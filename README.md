@@ -2,9 +2,9 @@
 ###Welcome to SAFEDRUG Info
 [![Circle CI](https://circleci.com/gh/REI-Systems/tesla/tree/develop.svg?style=svg&circle-token=ca8740acccdd84614021be6f9e709c7f2bdd34aa)](https://circleci.com/gh/REI-Systems/tesla/tree/develop) [![Coverage Status](https://coveralls.io/repos/REI-Systems/tesla/badge.svg?branch=develop&t=X87JNV)](https://coveralls.io/r/REI-Systems/tesla?branch=develop)
 
+### **SA**fe, **F**ast & **E**fficient **D**rug **R**eal-time **U**ser **G**uide Information (SAFEDRUG Info)
 
-###**SA** fe, **F** ast & **E** fficient **D** rug **R** eal-time **U** ser **G** uide Information (SAFEDRUG Info)
-#####***– A Prototype Tool Developed for GSA 18F by REI Systems, Inc. –***
+##### ***– A Prototype Tool Developed for GSA 18F by REI Systems, Inc. –***
 
 **SAFEDRUG Info** provides data from [open.fda.gov](http://open.fda.gov) about the safety of alternative drugs/devices in a way that consumers and health care providers find easy to access as they choose drugs to prescribe or purchase. (It allows search based upon a health condition or symptom, indication of need, or drug name – rather than requiring that the user know the drug name.)
 

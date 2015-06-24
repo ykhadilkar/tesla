@@ -18,14 +18,13 @@ TeslaApp
        * report completion in console
        */
       function buildToggler(navID) {
-        var debounceFn =  $mdUtil.debounce(function(){
+        return $mdUtil.debounce(function(){
               $mdSidenav(navID)
                 .toggle()
                 .then(function () {
                   $log.debug("toggle " + navID + " is done");
                 });
             },300);
-        return debounceFn;
       }
     })
     .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {

@@ -14,7 +14,7 @@ angular.module('teslaApp.search', ['ngRoute'])
             $scope.someValue = 'Safest';
 
 
-            var searchString = 'drugindication:' + $scope.formSymptom;
+            //var searchString = 'drugindication:' + $scope.formSymptom;
 
             // ****
             // onSearchClick - Search button click handler from the search page
