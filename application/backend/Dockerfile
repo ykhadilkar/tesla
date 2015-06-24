@@ -10,4 +10,4 @@ WORKDIR /var/tesla-api
 
 RUN rm -rf node_install && npm install -g pm2 && npm install
 
-CMD ["pm2 start", "server.js"]
+CMD ["pm2", "start", "server.js", "--no-daemon"]
