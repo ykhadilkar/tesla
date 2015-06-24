@@ -7,17 +7,17 @@ describe('teslaApp', function () {
     module('teslaApp');
   });
 
-  describe('HomeCtrl', function () {
+  describe('SearchCtrl', function () {
     beforeEach(inject(function ($rootScope, $controller) {
       scope = $rootScope.$new();
-      controller = $controller('HomeCtrl', {
+      controller = $controller('SearchCtrl', {
         '$scope': scope
       });
     }));
 
     it('variables are set', function () {
-      expect(scope.symptom).toBe('My Symptom');
-      expect(scope.drug.length).toBe(0)
+      expect(scope.someValue).toBe('Safest');
+      expect(scope.sortResultsBySafe).toBe(true);
     });
   });
 });
