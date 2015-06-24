@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var OpenFDA = require('../models/openfda');
 
