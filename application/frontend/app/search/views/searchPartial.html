@@ -1,19 +1,5 @@
 <div flex layout='row' layout-sm='column' class='wrapper' layout-fill>
     <md-card flex id='left-column' layout='column'>
-       <div id='results-info' flex layout='row'>
-            <div id='dropdown-wrapper'>
-                <md-select placeholder="{{(someValue ? someValue : 'Sort By :')}}" ng-model='someValue' flex class='test'>
-                    <md-option value='Safest'>Safest</md-option>
-                    <md-option value='Most Effective'>Most Effective</md-option>
-                </md-select>
-            </div>
-            <md-button class='md-raised' >
-                Brand Name
-            </md-button>
-            <md-button class='md-raised active' >
-                Generic
-            </md-button>
-        </div>
         <div id='results'>
             <md-card class='result' layout-padding ng-repeat="result in drugResults">
                 <div class='results-header'>
