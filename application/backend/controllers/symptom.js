@@ -2,25 +2,18 @@
 
 var OpenFDA = require('../models/openfda');
 var Fizz = require('../models/fizz');
+var logger = require('../utils/logger');
 
 
 var SymptomController = function() {};
 
 SymptomController.prototype.search = function search(request, reply) {
-
     var data = Fizz.search(request.url.query.search);
-
-    console.log(data);
     reply(data);
 };
 
-SymptomController.prototype.findSynonym = function findSynonym(request, reply) {
-
-    var data = [];
-    data.push('High Blood Pressure');
-    data.push('Hypertension');
-    data.push('HBP');
-    data.push('HTP');
+SymptomController.prototype.autocomplete = function autocomplete(request, reply) {
+    var data = Fizz.autocomplete(request.url.query.search);
 
     reply(data);
 };

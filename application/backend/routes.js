@@ -13,9 +13,9 @@ exports.endpoints = [
     },
     {
         method: 'GET',
-        path: '/symptom/synonym.json',
+        path: '/symptom/autocomplete.json',
         config: {
-            handler: symptomController.findSynonym
+            handler: symptomController.autocomplete
         }
     },
 	{
