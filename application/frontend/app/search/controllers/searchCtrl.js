@@ -12,7 +12,9 @@ angular.module('teslaApp.search', ['ngRoute'])
             $scope.sortResultsBySafe = true;
             $scope.someValue = 'Safest';
 
-
+            searchFactory.getDrugInteractions('ibuprofen', function(data){
+              console.log(data);
+            })
             //var searchString = 'drugindication:' + $scope.formSymptom;
 
             //****

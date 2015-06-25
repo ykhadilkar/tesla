@@ -152,7 +152,37 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                 callback(results);
             }
 
-        }
+        },
+        getDrugInteractions: function(drug, callback){
+
+          var rxNormSearchString = 'name=' + drug;
+
+          rxNormApiService.getDrugInfo(rxNormApiService.queryBuilder()
+            .searchString(rxNormSearchString)).then(function(rxNormResults)
+            {
+              var rxcui = rxNormResults.drugGroup.conceptGroup[0].conceptProperties[0].rxcui
+
+              var interactionSearchString = 'rxcui=' + rxcui;
+              rxNormApiService.getDrugInteractions(interactionSearchString).then(function(intResults)
+              {
+                var finalInteractions = [];
+                angular.forEach(intResults.interactionTypeGroup[0].interactionType[0].interactionPair, function(intPair){
+                  var intDescription = intPair.description;
+
+                  var intDrug = intPair.interactionConcept[1].minConceptItem.name;
+                  finalInteractions.push({'drug':intDrug, 'interaction':intDescription});
+                });
+
+                callback(finalInteractions);
+
+              })// rxNormApiService.getDrugInteractions
+
+            })//rxNormApiService.getDrugInfo
+
+
+
+
+        } // getDrugInteractions
     };
 }]);
 

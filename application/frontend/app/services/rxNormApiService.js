@@ -48,7 +48,7 @@ TeslaApp.service('rxNormApiService', ['$http', '$q', function ($http, $q) {
   };
 
   this.getDrugInteractions = function (query) {
-    return apiCall(endpoints.interactions, query);
+    return apiCall(endPoints.interactions, query);
   };
 
 
