@@ -17,31 +17,30 @@ angular.module('teslaApp.search', ['ngRoute'])
             //****
             // xClick - Clear the search form
             //****
-            $scope.xClick = function() {
-              $scope.formSymptom = "";
+            $scope.xClick = function () {
+                $scope.formSymptom = "";
             };
 
             // ****
             // onSearchClick - Search button click handler from the search page
             // ****
             $scope.onSearchKeypress = function (event) {
-              console.log(event.which);
-              if(event.which === 13)
-              {
-                console.log('enter');
-                // Update the factory first to reflect the new search term
-                teslaFactory.setSymptom($scope.formSymptom);
-                $scope.factorySymptom = $scope.formSymptom;
+                console.log(event.which);
+                if (event.which === 13) {
+                    console.log('enter');
+                    // Update the factory first to reflect the new search term
+                    teslaFactory.setSymptom($scope.formSymptom);
+                    $scope.factorySymptom = $scope.formSymptom;
 
-                if($location.path() == '/search'){
-                  runSearch();
+                    if ($location.path() == '/search') {
+                        runSearch();
+                    }
+                    else {
+                        $location.path('/search');
+                    }
+
+
                 }
-                else{
-                  $location.path('/search');
-                }
-
-
-              }
             };
 
             // ****
@@ -60,7 +59,7 @@ angular.module('teslaApp.search', ['ngRoute'])
 
             var runSearch = function () {
 
-                if ( $scope.formSymptom ) {
+                if ($scope.formSymptom) {
                     searchFactory.getDrugsBySymptom($scope.formSymptom, function (results) {
                         $scope.drugResults = results;
                     });
@@ -68,6 +67,6 @@ angular.module('teslaApp.search', ['ngRoute'])
 
             };
 
-          runSearch();
+            runSearch();
 
         }]);

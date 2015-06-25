@@ -138,6 +138,24 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                 callback(drugData);
             });
         },
+
+        /**
+         *
+         * @param drug
+         * @param callback
+         */
+        getDrugRecalls: function (drug, callback){
+            var drugData = {};
+            var drugRecallsSearchString = "product_description:" + drug;
+            var recallsPromise = fdaApiService.getDrugRecall(fdaApiService.queryBuilder()
+                .searchString(drugRecallsSearchString));
+
+            recallsPromise.then(function (eventResult) {
+                var resultsArray = eventResult.results;
+                drugData.effectResults = resultsArray;
+                callback(drugData);
+            });
+        },
         /**
          *
          * @param symptom
@@ -153,35 +171,36 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             }
 
         },
+
+        /**
+         *
+         * @param drug
+         * @param callback
+         */
         getDrugInteractions: function(drug, callback){
 
-          var rxNormSearchString = 'name=' + drug;
+            var rxNormSearchString = 'name=' + drug;
 
-          rxNormApiService.getRxCUI(rxNormApiService.queryBuilder()
-            .searchString(rxNormSearchString)).then(function(rxNormResults)
+            rxNormApiService.getRxCUI(rxNormApiService.queryBuilder()
+                .searchString(rxNormSearchString)).then(function(rxNormResults)
             {
-              var rxcui = rxNormResults.idGroup.rxnormId[0];
+                var rxcui = rxNormResults.idGroup.rxnormId[0];
 
-              var interactionSearchString = 'rxcui=' + rxcui;
-              rxNormApiService.getDrugInteractions(interactionSearchString).then(function(intResults)
-              {
-                var finalInteractions = [];
-                angular.forEach(intResults.interactionTypeGroup[0].interactionType[0].interactionPair, function(intPair){
-                  var intDescription = intPair.description;
+                var interactionSearchString = 'rxcui=' + rxcui;
+                rxNormApiService.getDrugInteractions(interactionSearchString).then(function(intResults)
+                {
+                    var finalInteractions = [];
+                    angular.forEach(intResults.interactionTypeGroup[0].interactionType[0].interactionPair, function(intPair){
+                        var intDescription = intPair.description;
 
-                  var intDrug = intPair.interactionConcept[1].minConceptItem.name;
-                  finalInteractions.push({'drug':intDrug, 'interaction':intDescription});
-                });
+                        var intDrug = intPair.interactionConcept[1].minConceptItem.name;
+                        finalInteractions.push({'drug':intDrug, 'interaction':intDescription});
+                    });
 
-                callback(finalInteractions);
+                    callback(finalInteractions);
 
-              })// rxNormApiService.getDrugInteractions
-
+                })// rxNormApiService.getDrugInteractions
             })//rxNormApiService.getDrugInfo
-
-
-
-
         } // getDrugInteractions
     };
 }]);
