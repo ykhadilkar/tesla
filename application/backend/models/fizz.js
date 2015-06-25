@@ -2,7 +2,7 @@ var elasticsearch = require('elasticsearch');
 
 var Fizz = function () {
     this.client = new elasticsearch.Client({
-        host: 'localhost:9200',
+        host: (process.env.TEXTDB_1_ENV_TUTUM_SERVICE_HOSTNAME || '127.0.0.1' )+':9200',
         log: 'error'
     });
 };
