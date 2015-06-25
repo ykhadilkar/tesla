@@ -1,4 +1,8 @@
 {
+  "name": "tesla-backend",
+  "version": "1.0.0",
+  "description": "service api",
+  "private": true,
   "main": "server.js",
   "dependencies": {
     "bedwetter": "~1.8.1",
@@ -22,9 +26,6 @@
     "waterline": "~0.10.21",
     "wreck": "^5.6.0"
   },
-  "name": "tesla-backend",
-  "version": "1.0.0",
-  "description": "service api",
   "devDependencies": {
     "coveralls": "^2.11.1"
   },
