@@ -17,7 +17,7 @@ angular.module('teslaApp').config(['$routeProvider',
       }).
       when('/events', {
         templateUrl: 'events/views/eventsPartial.html',
-        controller: 'eventsController.js'
+        controller: 'EventsCtrl'
       }).
       otherwise({
         redirectTo: '/'

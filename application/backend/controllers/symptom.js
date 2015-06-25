@@ -1,6 +1,5 @@
 'use strict';
 
-var OpenFDA = require('../models/openfda');
 var Fizz = require('../models/fizz');
 var logger = require('../utils/logger');
 

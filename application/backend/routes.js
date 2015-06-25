@@ -2,6 +2,7 @@ var drugController = require('./controllers/drug');
 var deviceController = require('./controllers/device');
 var foodController = require('./controllers/food');
 var symptomController = require('./controllers/symptom');
+var homeController = require('./controllers/home');
 
 exports.endpoints = [
     {
@@ -50,7 +51,7 @@ exports.endpoints = [
         method: 'GET',
         path: '/device/enforcement.json',
         config: {
-            handler:deviceController.enforcement
+            handler: deviceController.enforcement
         }
     },
     {
@@ -59,5 +60,12 @@ exports.endpoints = [
         config: {
             handler:foodController.enforcement
         }
-    }
+    },
+    {
+        method: 'GET',
+        path: '/',
+        config: {
+            handler:homeController.routes
+        }
+    },
 ];

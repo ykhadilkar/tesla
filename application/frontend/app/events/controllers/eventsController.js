@@ -7,6 +7,10 @@ angular.module('teslaApp.events', ['ngRoute'])
       // When the search page is initiated, grab the symptom search term from the teslaFactory
       $scope.factorySymptom = teslaFactory.getSymptom();
 
-
+        searchFactory.getDrugInteractions('aspirin', function(result){
+          $scope.interactions = result;
+        });
+//      console.log('in control');
+  //    teslaFactory.getDrugInteractions('ibuprofen');
     }]);
 
