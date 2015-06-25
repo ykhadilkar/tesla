@@ -5,6 +5,7 @@ backend-prod:
     - VIRTUAL_HOST=tesla-api.devopsplatform.com
   links:
     - mongo-prod
+    - textdb-prod
   ports:
     - '3000:3000'
   tags:
