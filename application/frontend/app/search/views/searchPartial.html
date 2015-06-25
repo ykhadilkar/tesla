@@ -1,10 +1,6 @@
 <div flex layout='row' layout-sm='column' class='wrapper' layout-fill>
     <md-card flex id='left-column' layout='column'>
-      <md-card class='search' layout='row' flex>
-        <input type='search' placeholder="Search ..." ng-model="formSymptom" flex='71' layout-fill />
-        <md-button class='md-raised' ng-click="onSearchClick()" layout-fill>SEARCH</md-button>
-      </md-card>
-        <div id='results-info' flex layout='row'>
+       <div id='results-info' flex layout='row'>
             <div id='dropdown-wrapper'>
                 <md-select placeholder="{{(someValue ? someValue : 'Sort By :')}}" ng-model='someValue' flex class='test'>
                     <md-option value='Safest'>Safest</md-option>

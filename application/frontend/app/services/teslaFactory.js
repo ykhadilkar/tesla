@@ -1,17 +1,17 @@
 'use strict';
 
-TeslaApp.factory('teslaFactory', function(){
+TeslaApp.factory('teslaFactory', function () {
   var symptom = "";
 
 
   return {
-    getSymptom: function(){
+    getSymptom: function () {
       return symptom;
     },
-    setSymptom: function(value){
+    setSymptom: function (value) {
       symptom = value;
     },
-    getResults: function(){
+    getResults: function () {
       return results;
     }
   }

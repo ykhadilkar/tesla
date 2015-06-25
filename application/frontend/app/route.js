@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('teslaApp').config(['$routeProvider',
-  function($routeProvider) {
+  function ($routeProvider) {
     $routeProvider.
       when('/', {
         templateUrl: 'home/views/homePartial.html',
