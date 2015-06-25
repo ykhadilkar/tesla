@@ -8,6 +8,7 @@
 
 **SAFEDRUG Info** provides data from [open.fda.gov](http://open.fda.gov) about the safety of alternative drugs/devices in a way that consumers and health care providers find easy to access as they choose drugs to prescribe or purchase. (It allows search based upon a health condition or symptom, indication of need, or drug name – rather than requiring that the user know the drug name.)
 
+
 ####**DESIGN CRITERIA:**
  1. Bob Weber was assigned and accountable to lead design and development of SAFEDRUG Info based on his extensive successful agile and engineering experience.
  2. Multidisciplinary collaborative team members include: Product Manager, Technical Architect, Content Strategist, Visual Designer, Business Analyst, Front-End Web Developer, Back-End Web Developers, DevOps Engineer, and SME (pharma).
