@@ -27,6 +27,9 @@ md-toolbar{
   max-height: 100px;
   height: 100%;
 }
+.header-wrapper a:visited{
+  color: #fff
+}
 /* Sidenav area */
 
 md-list .md-button {
@@ -229,6 +232,16 @@ md-toolbar.md-default-theme{
 /*End header*/
 
 /*General*/
+.content{
+  min-height: calc(100vh - 80 px)
+}
+.footer{
+  height: 80px;
+  background-color: #444;
+}
+.footer .wrapper{
+  text-align: center;
+}
 b{
   font-family: open_sansbold;
 }
@@ -285,7 +298,7 @@ md-slider.md-default-theme .md-track.md-track-fill{
   background-size: cover;
 }
 .home p{
-  font-size: 6vw;
+  font-size: 5vw;
   font-family: open_sanslight;
   color: #12c36a;
   line-height: 100%;

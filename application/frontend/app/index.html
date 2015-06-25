@@ -10,25 +10,25 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- build:css(.) styles/vendor.css -->
+    <!-- build:css(.) assets/styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:css({.tmp,app}) styles/styles.css -->
+    <!-- build:css({.tmp,app}) assets/styles/styles.css -->
         <!-- include: "type": "css", "files": "assets/styles/*.css" -->
     <!-- endbuild -->
 </head>
-<body ng-app="TeslaApp" layout="column" ng-cloak>
+<body ng-app="TeslaApp" ng-cloak>
 
 <md-toolbar layout="row">
         <div class='header-wrapper' layout='row' flex>
             <!-- <md-button class="menu" hide-gt-sm aria-label="Show User List">
                 <md-icon md-svg-icon="menu" ></md-icon>
             </md-button> -->
-            <h1 id='logo'>DRUGS<span>SAFE</span><span id='sub-logo'>powered by FDA Open</span></h1>
+            <a href='#/'><h1 id='logo'>DRUGS<span>SAFE</span><span id='sub-logo'>powered by FDA Open</span></h1></a>
           <md-card class='search' layout='row' hide-sm flex='66' ng-controller="SearchCtrl">
               <span><i class='fa fa-search fa-lg'></i></span>
               <input type='search' placeholder="{{symptom}}" ng-model="formSymptom" ng-keypress="onSearchKeypress($event)" flex='79'>
@@ -65,11 +65,18 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div ng-view class=''></div>
+<div ng-view class='content'></div>
+<div class='footer'>
+    <div class='wrapper' layout='row'>
+        <a href='#'>Git</a>
+        <a href='#'>Twitter</a>
+        <a href='#'>Mail</a>
+    </div>
+</div>
 
-
-<!-- build:js(.) scripts/vendor.js -->
+<!-- build:js(.) assets/scripts/vendor.js -->
 <!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
@@ -86,10 +93,29 @@
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/n3-line-chart/build/line-chart.min.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/waypoints/waypoints.js"></script>
+<script src="bower_components/SHA-1/sha1.js"></script>
+<script src="bower_components/angulartics/src/angulartics.js"></script>
+<script src="bower_components/angulartics/src/angulartics-adobe.js"></script>
+<script src="bower_components/angulartics/src/angulartics-chartbeat.js"></script>
+<script src="bower_components/angulartics/src/angulartics-cnzz.js"></script>
+<script src="bower_components/angulartics/src/angulartics-flurry.js"></script>
+<script src="bower_components/angulartics/src/angulartics-ga-cordova.js"></script>
+<script src="bower_components/angulartics/src/angulartics-ga.js"></script>
+<script src="bower_components/angulartics/src/angulartics-gtm.js"></script>
+<script src="bower_components/angulartics/src/angulartics-kissmetrics.js"></script>
+<script src="bower_components/angulartics/src/angulartics-mixpanel.js"></script>
+<script src="bower_components/angulartics/src/angulartics-piwik.js"></script>
+<script src="bower_components/angulartics/src/angulartics-scroll.js"></script>
+<script src="bower_components/angulartics/src/angulartics-segmentio.js"></script>
+<script src="bower_components/angulartics/src/angulartics-splunk.js"></script>
+<script src="bower_components/angulartics/src/angulartics-woopra.js"></script>
+<script src="bower_components/angulartics/src/angulartics-marketo.js"></script>
+<script src="bower_components/angulartics/src/angulartics-intercom.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
-<!-- build:js({.tmp,app}) scripts/application.js -->
+<!-- build:js({.tmp,app}) assets/scripts/application.js -->
 <!-- include: "type": "js", "files": "*.js" -->
 <!-- include: "type": "js", "files": ["**/*.js", "!app.js", "!route.js"] -->
 <!-- endbuild -->

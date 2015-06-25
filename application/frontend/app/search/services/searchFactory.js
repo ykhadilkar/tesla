@@ -1,6 +1,6 @@
 'use strict';
 
-TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFactory', '$q', function(fdaApiService, rxNormApiService, teslaFactory, $q){
+TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFactory', '$q', function (fdaApiService, rxNormApiService, teslaFactory, $q) {
 
   return {
     getDrugsBySymptom: function (symptom, callback) {
@@ -57,8 +57,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
                 console.log(rxDataset);
                 var drug = rxDataset.drugGroup.name;
                 // Grab the full list of brands returned from RXNorm available for this substance.
-                var groupArray = [];
-                groupArray = rxDataset.drugGroup.conceptGroup[2].conceptProperties;
+                var groupArray = rxDataset.drugGroup.conceptGroup[2].conceptProperties;
                 var groupNames = _.pluck(groupArray, 'name');
                 var brandNames = [];
                 angular.forEach(groupNames, function (value) {
@@ -80,7 +79,11 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
 
                 var matchedRecord = _.findWhere(eventDrugs, {"term": drug});
                 var drugCap = drug.charAt(0).toUpperCase() + drug.slice(1);
-                drugResults.push({"drug": drugCap, "eventCount": matchedRecord.count, "popularBrands": popularBrands});
+                drugResults.push({
+                  "drug": drugCap,
+                  "eventCount": matchedRecord.count,
+                  "popularBrands": popularBrands
+                });
 
               });
 
@@ -103,10 +106,13 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
 
         var resultsArray = eventResult.results;
 
-        resultsArray = _.reject(resultsArray, function(effect){ console.log(effect); return (effect.term == 'drug' || effect.term == 'disorder' ||
+        resultsArray = _.reject(resultsArray, function (effect) {
+          console.log(effect);
+          return (effect.term == 'drug' || effect.term == 'disorder' ||
           effect.term == 'increased' || effect.term == 'decreased' || effect.term == 'in' || effect.term == 'of' ||
           effect.term == 'upper' || effect.term == 'lower' || effect.term == 'back' || effect.term == 'feeling' ||
-        effect.term == 'event')});
+          effect.term == 'event')
+        });
 
         drugData.effectResults = resultsArray;
 

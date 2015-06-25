@@ -212,10 +212,10 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= appConfig.dist %>/{,*/}*.js',
-          '<%= appConfig.dist %>/styles/{,*/}*.css',
-          '<%= appConfig.dist %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= appConfig.dist %>/styles/fonts/*'
+          '<%= appConfig.dist %>/assets/{,*/}*.js',
+          '<%= appConfig.dist %>/assets/styles/{,*/}*.css',
+          '<%= appConfig.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= appConfig.dist %>/assets/fonts/*'
         ]
       }
     },
@@ -242,12 +242,14 @@ module.exports = function (grunt) {
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
       html: ['<%= appConfig.dist %>/{,*/}*.html'],
-      css: ['<%= appConfig.dist %>/styles/{,*/}*.css'],
+      css: ['<%= appConfig.dist %>/assets/styles/*.css'],
+      js: ['<%= appConfig.dist %>/assets/scripts/*.js'],
       options: {
         assetsDirs: [
-          '<%= appConfig.dist %>',
-          '<%= appConfig.dist %>/images',
-          '<%= appConfig.dist %>/styles'
+          '<%= appConfig.dist %>/',
+          '<%= appConfig.dist %>/assets',
+          '<%= appConfig.dist %>/assets/images',
+          '<%= appConfig.dist %>/assets/styles'
         ]
       }
     },
@@ -259,7 +261,7 @@ module.exports = function (grunt) {
      cssmin: {
        dist: {
          files: {
-           '<%= appConfig.dist %>/styles/main.css': [
+           '<%= appConfig.dist %>/assets/styles/main.css': [
              '.tmp/styles/{,*/}*.css'
            ]
          }
@@ -268,7 +270,7 @@ module.exports = function (grunt) {
      uglify: {
        dist: {
          files: {
-           '<%= appConfig.dist %>/scripts/scripts.js': [
+           '<%= appConfig.dist %>/assets/scripts/scripts.js': [
              //'<%= appConfig.dist %>/scripts/scripts.js'
              '<%= appConfig.app %>/assets/scripts/components/version/*.js',
              '<%= appConfig.app %>/{,*/}/{,*/}*.js',
@@ -288,7 +290,7 @@ module.exports = function (grunt) {
           //cwd: '<%= appConfig.app %>/images',
           cwd: '<%= appConfig.app %>/assets/images',
           src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= appConfig.dist %>/images'
+          dest: '<%= appConfig.dist %>/assets/images'
           //dest: '<%= appConfig.dist %>/images'
         }]
       }
@@ -299,10 +301,10 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           //cwd: '<%= appConfig.app %>/images',
-          cwd: '<%= appConfig.app %>/*/images',
+          cwd: '<%= appConfig.app %>/assets/images',
           src: '{,*/}*.svg',
           //dest: '<%= appConfig.dist %>/images'
-          dest: '<%= appConfig.dist %>/*/images'
+          dest: '<%= appConfig.dist %>/assets/images'
         },
         {
           expand: true,
@@ -310,7 +312,7 @@ module.exports = function (grunt) {
           cwd: '<%= appConfig.app %>/assets/svg',
           src: '{,*/}*.svg',
           //dest: '<%= appConfig.dist %>/images'
-          dest: '<%= appConfig.dist %>/svg'
+          dest: '<%= appConfig.dist %>/assets/svg'
         }]
       }
     },
@@ -376,12 +378,12 @@ module.exports = function (grunt) {
           dest: '<%= appConfig.dist %>/images',
           src: ['generated/*']
         }
-//        ,{
-//          expand: true,
-//          cwd: 'bower_components/bootstrap/dist',
-//          src: 'fonts/*',
-//          dest: '<%= appConfig.dist %>'
-//        }
+        ,{
+          expand: true,
+          cwd: 'bower_components/font-awesome',
+          src: 'fonts/*',
+          dest: '<%= appConfig.dist %>/assets'
+        }
        ]
       },
       styles: {

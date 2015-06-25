@@ -48,7 +48,7 @@ TeslaApp.service('rxNormApiService', ['$http', '$q', function ($http, $q) {
 
 
   this.endpoints = endPoints;
-  this.queryBuilder = function() {
+  this.queryBuilder = function () {
     return new rxNormQueryBuilder();
   };
 
