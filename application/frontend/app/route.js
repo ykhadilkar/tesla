@@ -15,6 +15,10 @@ angular.module('teslaApp').config(['$routeProvider',
         templateUrl: 'fda/views/fda.html',
         controller: 'FdaCtrl'
       }).
+      when('/events', {
+        templateUrl: 'events/views/eventsPartial.html',
+        controller: 'eventsController.js'
+      }).
       otherwise({
         redirectTo: '/'
       });
