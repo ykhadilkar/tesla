@@ -18,15 +18,16 @@ angular.module('teslaApp.search', ['ngRoute'])
             // ****
             // onSearchClick - Search button click handler from the search page
             // ****
-            $scope.onHomeSearchClick = function () {
+            $scope.onSearchKeypress = function (event) {
 
-
+              if(event.which === 13)
+              {
                 // Update the factory first to reflect the new search term
                 teslaFactory.setSymptom($scope.formSymptom);
                 $scope.factorySymptom = $scope.formSymptom;
 
                 $location.path('/search');
-
+              }
             };
 
             // ****
@@ -52,5 +53,7 @@ angular.module('teslaApp.search', ['ngRoute'])
                 }
 
             };
+
+          runSearch();
 
         }]);
