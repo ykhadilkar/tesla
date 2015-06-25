@@ -1,6 +1,6 @@
 'use strict';
 
-TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFactory', '$q', function (fdaApiService, rxNormApiService, teslaFactory, $q) {
+TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backendApiService', 'teslaFactory', '$q', function (fdaApiService, rxNormApiService, backendApiService, teslaFactory, $q) {
 
   return {
     getDrugsBySymptom: function (symptom, callback) {
@@ -14,6 +14,11 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
       // Build the API search string for label search for usage
       var labelSearchString = "indications_and_usage:" + symptom;
 
+      var synonymsPromise = backendApiService.getConditionSynonyms(symptom);
+
+      synonymsPromise.then(function (synonymResult) {
+        console.log(synonymResult);
+      });
 
       promises.push(fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
         .searchString(drugEventSearchString).setCount('medicinalproduct')));
@@ -94,7 +99,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
         }
       )
     },
-    getDrugEvents: function (drug, gender, ageGroup) {
+    getDrugEvents: function (drug, gender, ageGroup, callback) {
 
       var drugData = {};
       var drugEventSearchString = "substance_name:" + drug;
@@ -118,6 +123,16 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'teslaFa
 
         callback(drugData);
       });
+    },
+    getConditionSynonyms: function (symptom, callback){
+      backendApiService.getConditionSynonyms(symptom).then(results)
+      {
+        console.log('inCtrlbackend :');
+        console.log(results);
+
+        callback(results);
+      }
+
     }
   };
 }]);
