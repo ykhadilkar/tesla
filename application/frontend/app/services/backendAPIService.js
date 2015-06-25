@@ -1,7 +1,7 @@
 'use strict';
 
 TeslaApp.service('backendApiService', ['$http', '$q', function ($http, $q) {
-  var baseUrl = 'http://tesla-api.devopsplatform.com';
+  var baseUrl = 'http://52.1.147.83:3000';
 
   var endPoints = {
     "synonym": '/symptom/synonym.json'
@@ -14,8 +14,11 @@ TeslaApp.service('backendApiService', ['$http', '$q', function ($http, $q) {
   //    query = query.build();
     //}
 
+    console.log('In Backend API apiCall');
     var deferred = $q.defer();
     $http.get(baseUrl + endpoint).success(function (data) {
+      console.log('in API Call Success');
+      console.log(data);
       deferred.resolve(data);
     }).error(function (data, status) {
       deferred.reject(data);

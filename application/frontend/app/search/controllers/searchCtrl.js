@@ -47,7 +47,7 @@ angular.module('teslaApp.search', ['ngRoute'])
             var runSearch = function () {
 
                 if ( $scope.formSymptom ) {
-                    $scope.drugResults = searchFactory.getDrugsBySymptom($scope.formSymptom, function (results) {
+                    searchFactory.getDrugsBySymptom($scope.formSymptom, function (results) {
                         $scope.drugResults = results;
                     });
                 }

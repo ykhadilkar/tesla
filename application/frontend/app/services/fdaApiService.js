@@ -27,7 +27,7 @@ TeslaApp.service('fdaApiService', ['$http', '$q', function ($http, $q) {
     if ('object' == typeof query) {
       query = query.build();
     }
-
+    console.log(query);
     var deferred = $q.defer();
     $http.get(baseUrl + endpoint + apiPrefix + query).success(function (data) {
       deferred.resolve(data);

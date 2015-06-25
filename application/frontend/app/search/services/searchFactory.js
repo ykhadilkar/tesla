@@ -8,67 +8,74 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
       // Initialize an empty array to store the promises for the 2 OpenFDA API calls. These can be run in parallel.
       var promises = [];
 
-      // Build the API search string for search by symptom
-      var drugEventSearchString = "drugindication:" + symptom;
-
       // Build the API search string for label search for usage
       var labelSearchString = "indications_and_usage:" + symptom;
 
       var synonymsPromise = backendApiService.getConditionSynonyms(symptom);
 
       synonymsPromise.then(function (synonymResult) {
-        console.log(synonymResult);
-      });
 
-      promises.push(fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
-        .searchString(drugEventSearchString).setCount('medicinalproduct')));
-      promises.push(fdaApiService.getDrugLabel(fdaApiService.queryBuilder()
-        .searchString(labelSearchString).setCount('substance_name')));
+        var conditionString = '"' + symptom + '"';
 
-      // When both OpenFDA API calls are complete, execute the remainder of the code.
-      $q.all(promises).then(
-        function (datasets) {
-          // Dataset 0 is the response for drug events
-          var eventDrugs = datasets[0].results;
-          // Dataset 1 is the response for drug labels
-          var labelDrugs = datasets[1].results;
+        _.each(synonymResult, function(syn){ conditionString = conditionString + '+"' + syn + '"' });
 
-          var eventDrugList = _.pluck(eventDrugs, 'term');
-          var labelDrugList = _.pluck(labelDrugs, 'term');
-          var mergedDrugList = _.intersection(eventDrugList, labelDrugList);
+        // Build the API search string for search by symptom
+        var drugEventSearchString = "drugindication:" + conditionString;
+        var labelSearchString = "indications_and_usage:" + conditionString;
 
-          // Remove terms we know are not really drug names.
-          mergedDrugList = _.without(mergedDrugList, 'acid', 'sodium', 'sulfate', 'calcium', 'unspecified');
+        promises.push(fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
+          .searchString(drugEventSearchString).setCount('medicinalproduct')));
+        promises.push(fdaApiService.getDrugLabel(fdaApiService.queryBuilder()
+          .searchString(labelSearchString).setCount('substance_name')));
 
-          console.log('filteredMergedDrugList : ', mergedDrugList);
+        // When both OpenFDA API calls are complete, execute the remainder of the code.
+        $q.all(promises).then(
+          function (datasets) {
+            // Dataset 0 is the response for drug events
+            var eventDrugs = datasets[0].results;
+            // Dataset 1 is the response for drug labels
+            var labelDrugs = datasets[1].results;
 
-          // Initialize array to store the promises from each RXNorm API Call
-          var RXNormPromises = [];
+            var eventDrugList = _.pluck(eventDrugs, 'term');
+            var labelDrugList = _.pluck(labelDrugs, 'term');
+            var mergedDrugList = _.intersection(eventDrugList, labelDrugList);
 
-          angular.forEach(mergedDrugList, function (drug) {
+            // Remove terms we know are not really drug names.
+            mergedDrugList = _.without(mergedDrugList, 'acid', 'sodium', 'sulfate', 'calcium', 'unspecified');
 
-            var rxNormSearchString = 'name=' + drug;
+            console.log('filteredMergedDrugList : ', mergedDrugList);
 
-            RXNormPromises.push(rxNormApiService.getDrugInfo(rxNormApiService.queryBuilder()
-              .searchString(rxNormSearchString)));
-          });
+            // Initialize array to store the promises from each RXNorm API Call
+            var RXNormPromises = [];
 
-          var drugResults = [];
-          $q.all(RXNormPromises).then(
-            function (rxDataSets) {
-              angular.forEach(rxDataSets, function (rxDataset) {
+            angular.forEach(mergedDrugList, function (drug) {
 
-                console.log('DataSet');
-                console.log(rxDataset);
-                var drug = rxDataset.drugGroup.name;
-                // Grab the full list of brands returned from RXNorm available for this substance.
-                var groupArray = rxDataset.drugGroup.conceptGroup[2].conceptProperties;
-                var groupNames = _.pluck(groupArray, 'name');
+              var rxNormSearchString = 'name=' + drug;
+
+              RXNormPromises.push(rxNormApiService.getDrugInfo(rxNormApiService.queryBuilder()
+                .searchString(rxNormSearchString)));
+            });
+
+            var drugResults = [];
+            $q.all(RXNormPromises).then(
+              function (rxDataSets) {
                 var brandNames = [];
-                angular.forEach(groupNames, function (value) {
-                  var words = value.match(/[^[\]]+(?=])/g);
-                  brandNames.push(words[0]);
-                });
+                angular.forEach(rxDataSets, function (rxDataset) {
+
+                  console.log('DataSet');
+                  console.log(rxDataset);
+                  var drug = rxDataset.drugGroup.name;
+
+                  // Grab the full list of brands returned from RXNorm available for this substance.
+                  if(!_.isUndefined(rxDataset.drugGroup.conceptGroup)){
+                      var groupArray = rxDataset.drugGroup.conceptGroup[2].conceptProperties;
+                      var groupNames = _.pluck(groupArray, 'name');
+                      angular.forEach(groupNames, function (value) {
+                        var words = value.match(/[^[\]]+(?=])/g);
+                        brandNames.push(words[0]);
+                      });
+                  }
+
 
                 var popularBrands = _.chain(brandNames)
                   .countBy()
@@ -89,16 +96,18 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                   "eventCount": matchedRecord.count,
                   "popularBrands": popularBrands
                 });
+                });
 
               });
-
+            callback(drugResults);
             });
 
-          callback(drugResults);
 
-        }
-      )
-    },
+
+          }
+        )
+      },
+
     getDrugEvents: function (drug, gender, ageGroup, callback) {
 
       var drugData = {};

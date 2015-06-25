@@ -4,7 +4,8 @@ TeslaApp.service('rxNormApiService', ['$http', '$q', function ($http, $q) {
   var baseUrl = 'http://rxnav.nlm.nih.gov/REST';
 
   var endPoints = {
-    'drugInfo': '/drugs?'
+    'drugInfo': '/drugs?',
+    'interactions':'interaction/interaction.json?'
   };
 
   var apiCall = function (endpoint, query) {
@@ -44,6 +45,10 @@ TeslaApp.service('rxNormApiService', ['$http', '$q', function ($http, $q) {
   //  Drug APIs
   this.getDrugInfo = function (query) {
     return apiCall(endPoints.drugInfo, query);
+  };
+
+  this.getDrugInteractions = function (query) {
+    //return apiCall(endpoints.)
   };
 
 
