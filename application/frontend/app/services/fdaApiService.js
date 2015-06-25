@@ -45,10 +45,10 @@ TeslaApp.service('fdaApiService', ['$http', '$q', function ($http, $q) {
     this.search = '';
   };
 
-  fdaQueryBuilder.prototype.setLimit = function (num) {
-    this.limit = num;
-    return this;
-  };
+  //fdaQueryBuilder.prototype.setLimit = function (num) {
+  //  this.limit = num;
+  //  return this;
+  //};
 
   fdaQueryBuilder.prototype.setOffset = function (num) {
     this.offset = num;
@@ -60,10 +60,10 @@ TeslaApp.service('fdaApiService', ['$http', '$q', function ($http, $q) {
     return this;
   };
 
-  fdaQueryBuilder.prototype.setCountExact = function (countField) {
-    this.count = countField + '.exact';
-    return this;
-  };
+  //fdaQueryBuilder.prototype.setCountExact = function (countField) {
+  //  this.count = countField + '.exact';
+  //  return this;
+  //};
 
   fdaQueryBuilder.prototype.searchString = function (str) {
     this.search = str;
@@ -92,19 +92,19 @@ TeslaApp.service('fdaApiService', ['$http', '$q', function ($http, $q) {
     return apiCall(endPoints.drugLabel, query);
   };
 
-  //  Device APIs
-  this.getDeviceRecall = function (query) {
-    return apiCall(endPoints.deviceRecall, query);
-  };
-
-  this.getDeviceEvent = function (query) {
-    return apiCall(endPoints.deviceEvent, query);
-  };
-
-  //  Food APIs
-  this.getFoodRecall = function (query) {
-    return apiCall(endPoints.foodRecall, query);
-  };
+  ////  Device APIs
+  //this.getDeviceRecall = function (query) {
+  //  return apiCall(endPoints.deviceRecall, query);
+  //};
+  //
+  //this.getDeviceEvent = function (query) {
+  //  return apiCall(endPoints.deviceEvent, query);
+  //};
+  //
+  ////  Food APIs
+  //this.getFoodRecall = function (query) {
+  //  return apiCall(endPoints.foodRecall, query);
+  //};
 
   //  FDA API status
   this.getApiStatus = function () {
