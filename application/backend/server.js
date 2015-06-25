@@ -1,24 +1,38 @@
 var Hapi = require('hapi');
 var Routes = require('./routes');
 var Config = require('./config');
-var Good = require('good');
+var GoodWinston = require('good-winston');
+var logger = require('./utils/logger');
 
 var server = new Hapi.Server();
+
 server.connection({ host: Config.server.address, port: Config.server.port, routes:Config.serverOptions });
+
 server.register([
     {
-        register: Good,
-        options: Config.logOptions
+        register: require('good'),
+        options: {
+            opsInterval: 300000,
+            reporters: [
+                new GoodWinston({
+                    ops: '*',
+                    request: '*',
+                    response: '*',
+                    log: '*',
+                    error: '*'
+                }, logger)
+            ]
+        }
     }
 ], function (err) {
     if (err) {
-        throw err;
+        return server.log(['error'], 'good load error: ' + err);
     }
 });
 
 server.route(Routes.endpoints);
 server.start(function () {
-    console.info('Server running at: ' + server.info.uri);
+    server.log('info','Server running at: ' + server.info.uri);
 });
 
 module.exports = server;

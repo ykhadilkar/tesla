@@ -10,3 +10,4 @@
 .idea
 .vagrant
 **/*.log
+**/logs
