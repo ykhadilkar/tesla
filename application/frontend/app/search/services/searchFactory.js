@@ -157,10 +157,10 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
 
           var rxNormSearchString = 'name=' + drug;
 
-          rxNormApiService.getDrugInfo(rxNormApiService.queryBuilder()
+          rxNormApiService.getRxCUI(rxNormApiService.queryBuilder()
             .searchString(rxNormSearchString)).then(function(rxNormResults)
             {
-              var rxcui = rxNormResults.drugGroup.conceptGroup[0].conceptProperties[0].rxcui
+              var rxcui = rxNormResults.idGroup.rxnormId[0];
 
               var interactionSearchString = 'rxcui=' + rxcui;
               rxNormApiService.getDrugInteractions(interactionSearchString).then(function(intResults)

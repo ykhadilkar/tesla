@@ -10,12 +10,10 @@
 	<md-slider flex md-descrete ng-model='' step='1' min='1' max='5' arial-label='age group'></md-slider>
 </div>
 <div class='percentOfAdverse'>
-  <ul>
-    <li ng-repeat="int in interactions">
-      {{int.drug}} - {{int.interaction}}
-    </li>
-  </ul>
-
-
 </div>
 </div>
+<ul>
+  <li ng-repeat="int in interactions">
+    {{int.drug}} - {{int.interaction}}
+  </li>
+</ul>
