@@ -1,20 +1,7 @@
 var Path = require('path');
 
 module.exports = {
-	dogwaterOptions : {
-		connections : {
-			mongoConnection: {
-				adapter: 'mongo',
-				username: '<dbusername>',
-				password: '<dbpassword>',
-				url: 'mongodb://' + (process.env.MONGO_ENV_TUTUM_SERVICE_HOSTNAME || 'localhost') +':27017',
-				database: 'API'
-			}
-		},
-		adapters : {mongo: 'sails-mongo' },
-		models : require('./models/dogwater.model.definitions.js')
-	},
-    fizzOptions: {
+	fizzOptions: {
 
     },
 	server: {
