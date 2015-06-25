@@ -5,7 +5,7 @@ TeslaApp.service('rxNormApiService', ['$http', '$q', function ($http, $q) {
 
   var endPoints = {
     'drugInfo': '/drugs?',
-    'interactions':'interaction/interaction.json?'
+    'interactions':'/interaction/interaction.json?'
   };
 
   var apiCall = function (endpoint, query) {
@@ -48,7 +48,7 @@ TeslaApp.service('rxNormApiService', ['$http', '$q', function ($http, $q) {
   };
 
   this.getDrugInteractions = function (query) {
-    //return apiCall(endpoints.)
+    return apiCall(endpoints.interactions, query);
   };
 
 

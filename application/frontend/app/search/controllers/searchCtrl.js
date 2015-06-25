@@ -15,18 +15,33 @@ angular.module('teslaApp.search', ['ngRoute'])
 
             //var searchString = 'drugindication:' + $scope.formSymptom;
 
+            //****
+            // xClick - Clear the search form
+            //****
+            $scope.xClick = function() {
+              $scope.formSymptom = "";
+            };
+
             // ****
             // onSearchClick - Search button click handler from the search page
             // ****
             $scope.onSearchKeypress = function (event) {
-
+              console.log(event.which);
               if(event.which === 13)
               {
+                console.log('enter');
                 // Update the factory first to reflect the new search term
                 teslaFactory.setSymptom($scope.formSymptom);
                 $scope.factorySymptom = $scope.formSymptom;
 
-                $location.path('/search');
+                if($location.path() == '/search'){
+                  runSearch();
+                }
+                else{
+                  $location.path('/search');
+                }
+
+
               }
             };
 
