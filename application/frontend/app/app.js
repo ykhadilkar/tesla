@@ -8,7 +8,7 @@ var TeslaApp = angular.module('teslaApp', [
   'ngMaterial',
   'config',
   'teslaApp.home',
-  'TeslaApp.search',
+  'teslaApp.search',
   'teslaApp.events',
   'angulartics',
   'angulartics.google.analytics'
