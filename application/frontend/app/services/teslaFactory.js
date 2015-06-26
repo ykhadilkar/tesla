@@ -1,18 +1,18 @@
 'use strict';
 
 TeslaApp.factory('teslaFactory', function () {
-  var symptom = "";
+    var symptom = "";
 
 
-  return {
-    getSymptom: function () {
-      return symptom;
-    },
-    setSymptom: function (value) {
-      symptom = value;
-    },
-    getResults: function () {
-      return results;
+    return {
+        getSymptom: function () {
+            return symptom;
+        },
+        setSymptom: function (value) {
+            symptom = value;
+        },
+        getResults: function () {
+            return results;
+        }
     }
-  }
 });

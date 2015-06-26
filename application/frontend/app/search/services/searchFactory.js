@@ -22,7 +22,9 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
 
                     var conditionString = '"' + symptom + '"';
 
-                    _.each(synonymResult, function(syn){ conditionString = conditionString + '+"' + syn + '"' });
+                    _.each(synonymResult, function (syn) {
+                        conditionString = conditionString + '+"' + syn + '"'
+                    });
 
                     // Build the API search string for search by symptom
                     var drugEventSearchString = "drugindication:" + conditionString;
@@ -72,7 +74,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                                         var drug = rxDataset.drugGroup.name;
 
                                         // Grab the full list of brands returned from RXNorm available for this substance.
-                                        if(!_.isUndefined(rxDataset.drugGroup.conceptGroup)){
+                                        if (!_.isUndefined(rxDataset.drugGroup.conceptGroup)) {
                                             var groupArray = rxDataset.drugGroup.conceptGroup[2].conceptProperties;
                                             var groupNames = _.pluck(groupArray, 'name');
                                             angular.forEach(groupNames, function (value) {
@@ -108,7 +110,6 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                         });
 
 
-
                 }
             )
         },
@@ -126,7 +127,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             var drugData = {};
             var drugEventSearchDrug = "patient.drug.medicinalproduct:" + drug;
             var drugEventSearchGender = "patient.patientsex:" + gender;
-            var drugEventSearchAgeGroup = "patient.patientonsetage:["+ ageMin +"+TO+"+ ageMax +"]";
+            var drugEventSearchAgeGroup = "patient.patientonsetage:[" + ageMin + "+TO+" + ageMax + "]";
             var drugEventSearchString = drugEventSearchDrug + "+AND+" + drugEventSearchGender + "+AND+" + drugEventSearchAgeGroup;
 
             var eventsPromise = fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
@@ -144,7 +145,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
          * @param drug
          * @param callback
          */
-        getDrugRecalls: function (drug, callback){
+        getDrugRecalls: function (drug, callback) {
             var drugData = {};
             var drugRecallsSearchString = "product_description:" + drug;
             var recallsPromise = fdaApiService.getDrugRecall(fdaApiService.queryBuilder()
@@ -161,7 +162,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
          * @param symptom
          * @param callback
          */
-        getConditionSynonyms: function (symptom, callback){
+        getConditionSynonyms: function (symptom, callback) {
             backendApiService.getConditionSynonyms(symptom).then(results)
             {
                 console.log('inCtrlbackend :');
@@ -177,24 +178,22 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
          * @param drug
          * @param callback
          */
-        getDrugInteractions: function(drug, callback){
+        getDrugInteractions: function (drug, callback) {
 
             var rxNormSearchString = 'name=' + drug;
 
             rxNormApiService.getRxCUI(rxNormApiService.queryBuilder()
-                .searchString(rxNormSearchString)).then(function(rxNormResults)
-            {
+                .searchString(rxNormSearchString)).then(function (rxNormResults) {
                 var rxcui = rxNormResults.idGroup.rxnormId[0];
 
                 var interactionSearchString = 'rxcui=' + rxcui;
-                rxNormApiService.getDrugInteractions(interactionSearchString).then(function(intResults)
-                {
+                rxNormApiService.getDrugInteractions(interactionSearchString).then(function (intResults) {
                     var finalInteractions = [];
-                    angular.forEach(intResults.interactionTypeGroup[0].interactionType[0].interactionPair, function(intPair){
+                    angular.forEach(intResults.interactionTypeGroup[0].interactionType[0].interactionPair, function (intPair) {
                         var intDescription = intPair.description;
 
                         var intDrug = intPair.interactionConcept[1].minConceptItem.name;
-                        finalInteractions.push({'drug':intDrug, 'interaction':intDescription});
+                        finalInteractions.push({'drug': intDrug, 'interaction': intDescription});
                     });
 
                     callback(finalInteractions);

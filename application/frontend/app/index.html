@@ -18,44 +18,44 @@
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) assets/styles/styles.css -->
-        <!-- include: "type": "css", "files": "assets/styles/*.css" -->
+    <!-- include: "type": "css", "files": "assets/styles/*.css" -->
     <!-- endbuild -->
 </head>
 <body ng-app="teslaApp">
 
 <md-toolbar layout="row" ng-cloak>
-        <div class='header-wrapper' layout='row' flex>
-            <!-- <md-button class="menu" hide-gt-sm aria-label="Show User List">
-                <md-icon md-svg-icon="menu" ></md-icon>
-            </md-button> -->
-            <a href='/#/'><h1 id='logo'>DRUGS<span>SAFE</span><span id='sub-logo'>powered by FDA Open</span></h1></a>
-          <md-card class='search' layout='row' hide-sm flex='66' ng-controller="SearchCtrl">
-              <span><i class='fa fa-search fa-lg'></i></span>
-              <input type='search' placeholder="{{symptom}}" ng-model="formSymptom" ng-keypress="onSearchKeypress($event)" flex='79'>
-                  <md-chips>
-                      <md-chip-template>
-                          {{$chips}}
-                          test
-                      </md-chip-template>
-                  </md-chips>
-              </input>
-              <md-button ng-click="xClick()">
-                  <i class='fa fa-times fa-2x'></i>
-              </md-button>
-            </md-card>
-            <div id='header-nav' layout-margin>
-                <i class='fa fa-bars fa-2x'></i>
-                <md-sidenav class=''>
-                    Main menu sidenav
-                </md-sidenav>
-                <!-- <md-button flex href='#/search'>Browse by Category</md-button>
-                <md-button flex href='#/events'>Browse by <span class='bold'>NAICS</span></md-button>
-                <md-button flex href='#/'>Explore by <span class='bold'>RESOURCES</span></md-button> -->
+    <div class='header-wrapper' layout='row' flex>
+        <!-- <md-button class="menu" hide-gt-sm aria-label="Show User List">
+            <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button> -->
+        <a href='/#/'><h1 id='logo'>DRUGS<span>SAFE</span><span id='sub-logo'>powered by FDA Open</span></h1></a>
+        <md-card class='search' layout='row' hide-sm flex='66' ng-controller="SearchCtrl">
+            <span><i class='fa fa-search fa-lg'></i></span>
+            <input type='search' placeholder="{{symptom}}" ng-model="formSymptom" ng-keypress="onSearchKeypress($event)" flex='79'>
+            <md-chips>
+                <md-chip-template>
+                    {{$chips}}
+                    test
+                </md-chip-template>
+            </md-chips>
+            </input>
+            <md-button ng-click="xClick()">
+                <i class='fa fa-times fa-2x'></i>
+            </md-button>
+        </md-card>
+        <div id='header-nav' layout-margin>
+            <i class='fa fa-bars fa-2x'></i>
+            <md-sidenav class=''>
+                Main menu sidenav
+            </md-sidenav>
+            <!-- <md-button flex href='#/search'>Browse by Category</md-button>
+            <md-button flex href='#/events'>Browse by <span class='bold'>NAICS</span></md-button>
+            <md-button flex href='#/'>Explore by <span class='bold'>RESOURCES</span></md-button> -->
 
-            </div>
         </div>
-    </md-toolbar>
- <!--   <md-card class='search' layout='row'>
+    </div>
+</md-toolbar>
+<!--   <md-card class='search' layout='row'>
         <input type='search' placeholder="Search ..."></input>
         <md-button class='md-raised'>SEARCH</md-button>
     </md-card> --!>

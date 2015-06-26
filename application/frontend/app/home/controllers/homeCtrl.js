@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('teslaApp.home', [])
-  .controller('HomeCtrl', ['$scope', function ($scope) {
+    .controller('HomeCtrl', ['$scope', function ($scope) {
 
-    $scope.symptom = "My Symptom";
-    $scope.drug = "";
-  }]);
+        $scope.symptom = "My Symptom";
+        $scope.drug = "";
+    }]);
