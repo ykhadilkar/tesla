@@ -214,7 +214,9 @@ md-toolbar.md-default-theme {
     color: #ccc;
     padding: 25px 0 25px 13px;
 }
-
+.header-wrapper md-card{
+  border: 1px solid #8fb0c6;
+}
 .search {
     height: 100%;
     max-width: 640px;
@@ -316,14 +318,16 @@ md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked .md-icon {
 }
 
 md-slider.md-default-theme .md-thumb:after {
-    background-color: rgb(255, 73, 9);
-    border-color: rgb(255, 73, 9);
+    background-color: #3758b7;
+    border-color: #3758b7;
 }
 
 md-slider.md-default-theme .md-track.md-track-fill {
-    background-color: rgb(26, 35, 126);
+    background-color: #3758b7;
 }
-
+md-slider .md-focus-ring{
+  border-color: #ff5151;
+}
 /*End general*/
 
 /*Home page*/
@@ -409,6 +413,17 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
   border-radius: 0;
   width: 70px;
   height: 70px;
+}
+.slider-wrapper label{
+  margin-left: 10px;
+  font-family: open_sanslight_italic;
+  color: #808181;
+}
+.slider-wrapper label.selected{
+  color:#3758b7;
+}
+.slider-wrapper label:nth-child(1){
+  margin-left: 0;
 }
 /*Temporary*/
 .wrapper .search {
