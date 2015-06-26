@@ -30,6 +30,7 @@
     "grunt-usemin": "*",
     "grunt-wiredep": "*",
     "grunt-include-source": "*",
+    "grunt-ng-constant": "*",
     "jasmine-core": "*",
     "jshint-stylish": "*",
     "karma": "*",

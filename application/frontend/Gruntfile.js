@@ -27,8 +27,47 @@ module.exports = function (grunt) {
     // Project settings
     appConfig: appConfig,
 
+    ngconstant: {
+        // Options for all targets
+        options: {
+          space: '  ',
+          wrap: '"use strict";\n\n {%= __ngModule %}',
+          name: 'config',
+        },
+        // Environment targets
+        dev: {
+          options: {
+            dest: '<%= appConfig.app %>/assets/scripts/config.js'
+          },
+          constants: {
+            ENV: {
+              BACKEND_API: 'http://tesla.local:3000/',
+            }
+          }
+        },
+        dist: {
+          options: {
+            dest: '<%= appConfig.app %>/assets/scripts/config.js'
+          },
+          constants: {
+            ENV: {
+              BACKEND_API: 'Hello prod',
+            }
+          }
+        },
+        test: {
+          options: {
+            dest: '<%= appConfig.app %>/assets/scripts/config.js'
+          },
+          constants: {
+            ENV: {
+              BACKEND_API: 'Hello test',
+            }
+          }
+        },
+    },
     // Watches files for changes and runs tasks based on the changed files
-    watch: {
+        watch: {
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
@@ -451,6 +490,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'ngconstant:dev',
       'clean:server',
       'wiredep',
       'includeSource:server',
@@ -467,6 +507,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
+    'ngconstant:test',
     'clean:server',
     'wiredep',
     'includeSource:server',
@@ -477,6 +518,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'ngconstant:dist',
     'clean:dist',
     'wiredep',
     'includeSource:server', //important to make index.html ready in .tmp with js/css included through include-source
