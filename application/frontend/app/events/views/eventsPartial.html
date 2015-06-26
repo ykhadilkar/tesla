@@ -1,4 +1,4 @@
-<div flex layout='row' layout-sm='column' class='wrapper' layout-fill>
+<div flex layout='column' layout-sm='column' class='wrapper' layout-fill>
     <div class='filters' layout='row'>
         <h2>{{drugSelected}}</h2>
         <div class='rating-success'>
@@ -17,26 +17,32 @@
 	        <md-slider flex ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()">
 	      	</md-slider>
 	      	<div>
-	      		<label>all</label>
+	      		<label>All Ages</label>
 	      		<label>0-17</label>
 	      		<label>18-35</label>
 	      		<label>36-55</label>
-	      		<label>56 +</label>
+	      		<label>56+</label>
 	      	</div>
       	</div>
     </div>
-    <div class='percentOfAdverse'>
+    <div class='percent-of-adverse filter-results'>
+    	<h3>Top 10 Adverse Effects:</h3>
+		<div class='adverse-bar'>
+			<div class='adverse-bar-fill' style='width:27%;'>Nausea</div><span class='adverse-percent-data'>27%</span>
+		</div>
+		<ul>
+		    <li ng-repeat="event in drugEvents | limitTo:10">
+		        {{event.event}} - {{event.count}} - {{event.percent}}
+		    </li>
+		</ul>
     </div>
+    <div class='drug-interactions filter-results'>
+	    
+		<h3>Top 10 Drug Interactions</h3>
+		<ul>
+		    <li ng-repeat="interaction in drugInteractions | limitTo:10">
+		        {{interaction.drug}} - {{interaction.interaction}}
+		    </li>
+		</ul>
+	</div>
 </div>
-<h3>Top 10 Adverse Effects:</h3>
-<ul>
-    <li ng-repeat="event in drugEvents | limitTo:10">
-        {{event.event}} - {{event.count}} - {{event.percent}}
-    </li>
-</ul>
-<h3>Top 10 Drug Interactions</h3>
-<ul>
-    <li ng-repeat="interaction in drugInteractions | limitTo:10">
-        {{interaction.drug}} - {{interaction.interaction}}
-    </li>
-</ul>

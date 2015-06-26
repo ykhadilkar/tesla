@@ -258,6 +258,9 @@ md-toolbar.md-default-theme {
 /*End header*/
 
 /*General*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
 .content {
     min-height: calc(100vh - 80px)
 }
@@ -426,11 +429,26 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
 .slider-wrapper label:nth-child(1){
   margin-left: 0;
 }
-/*Temporary*/
-.wrapper .search {
-    max-width: 900px;
+.filter-results{
+  clear: both
 }
-
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-    display: none !important;
+.adverse-bar{
+  background-color: #818182;
+  font-family: open_sansextrabold;
+  font-size: 14px;
+  color: #fff;
+  float: left;
+  width: 100%
+  
+}
+.adverse-bar-fill{
+  background-color: #ff6c00;
+  padding: 25px;  
+  float: left
+}
+.adverse-percent-data{
+  display: block;
+  float: left;
+  font-family: open_sanslight;
+  font-size: 35px;
 }
