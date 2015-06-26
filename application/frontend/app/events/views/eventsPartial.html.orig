@@ -1,6 +1,10 @@
 <div flex layout='row' layout-sm='column' class='wrapper' layout-fill>
     <div class='filters' layout='row'>
+<<<<<<< HEAD
+        <h2>Symptom</h2>
+=======
         <h2>{{drugSelected}}</h2>
+>>>>>>> 901ac962f8b5f5317635ded2e6016ad5cbb41d85
         <div class='rating-success'>
         	<div></div>
         	<div></div>
@@ -20,9 +24,15 @@
 	      		<label>All Ages</label>
 	      		<label>0-17</label>
 	      		<label>18-35</label>
+<<<<<<< HEAD
 	      		<label>36-55</label> 
 	      		<label>56+</label> 
 	      	</div>	
+=======
+	      		<label>36-55</label>
+	      		<label>56 +</label>
+	      	</div>
+>>>>>>> 901ac962f8b5f5317635ded2e6016ad5cbb41d85
       	</div>
     </div>
     <div class='percentOfAdverse'>
