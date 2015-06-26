@@ -153,7 +153,7 @@ a {
 }
 
 md-toolbar.md-default-theme {
-    background-color: #3eb6ce;
+    background-color: #ff5151;
 }
 
 .fa-bars {
@@ -171,14 +171,9 @@ md-toolbar.md-default-theme {
     font-family: open_sansextrabold, sans-serif;
     line-height: 80%;
     margin: 0;
-    font-size: 23px;
+    font-size: 32px;
     margin-right: 60px;
     margin-top: 20px
-}
-
-#logo span {
-    font-family: novecento_sans_widelight, sans-serif;
-    font-size: 23px;
 }
 
 #logo #sub-logo {
@@ -186,6 +181,7 @@ md-toolbar.md-default-theme {
     clear: both;
     display: block;
     font-size: 14px;
+    color: #fff668;
 }
 
 #header-nav {

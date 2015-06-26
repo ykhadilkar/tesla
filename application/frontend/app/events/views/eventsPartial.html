@@ -13,8 +13,17 @@
         <md-button class='female md-whiteframe-z1' aria-label='female'>
             <i class='fa fa-female fa-3x'></i>
         </md-button>
-        <md-slider flex ng-model="rating1" step="1" min="1" max="5" aria-label="rating">
-      </md-slider>
+        <div class='slider-wrapper'>
+	        <md-slider flex ng-model="rating1" step="1" min="1" max="5" aria-label="rating">
+	      	</md-slider>
+	      	<div>
+	      		<label>all</label>
+	      		<label>0-17</label>
+	      		<label>18-35</label>
+	      		<label>36-55</label> 
+	      		<label>56 +</label> 
+	      	</div>	
+      	</div>
     </div>
     <div class='percentOfAdverse'>
     </div>
