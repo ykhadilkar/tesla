@@ -233,6 +233,7 @@ md-toolbar.md-default-theme {
     padding: 30px 30px 30px 10px;
     height: 10px;
     font-size: 16px;
+    outline: none;
 }
 
 .search .md-button.md-default-theme.md-raised {

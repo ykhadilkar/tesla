@@ -1,7 +1,7 @@
 'use strict';
 
 TeslaApp.service('backendApiService', ['$http', '$q', function ($http, $q) {
-    var baseUrl = 'http://52.1.147.83:3000';
+    var baseUrl = 'http://tesla-api.devopsplatform.com:3000';
 
     var endPoints = {
         "synonym": '/symptom/synonym.json'

@@ -1,20 +1,20 @@
 <div flex layout='row' layout-sm='column' class='wrapper' layout-fill>
     <div class='filters' layout='row'>
-        <h2>Symptom</h2>
+        <h2>{{drugSelected}}</h2>
         <div class='rating-success'>
         	<div></div>
         	<div></div>
         	<div></div>
         	<div></div>
         </div>
-        <md-button class='male md-whiteframe-z1' aria-label='male'>
+        <md-button class='male md-whiteframe-z1' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
             <i class='fa fa-male fa-3x'></i>
         </md-button>
-        <md-button class='female md-whiteframe-z1' aria-label='female'>
+        <md-button class='female md-whiteframe-z1' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
             <i class='fa fa-female fa-3x'></i>
         </md-button>
         <div class='slider-wrapper'>
-	        <md-slider flex ng-model="rating1" step="1" min="1" max="5" aria-label="rating">
+	        <md-slider flex ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()">
 	      	</md-slider>
 	      	<div>
 	      		<label>All Ages</label>
@@ -28,8 +28,15 @@
     <div class='percentOfAdverse'>
     </div>
 </div>
+<h3>Top 10 Adverse Effects:</h3>
 <ul>
-    <li ng-repeat="int in interactions">
-        {{int.drug}} - {{int.interaction}}
+    <li ng-repeat="event in drugEvents | limitTo:10">
+        {{event.event}} - {{event.count}} - {{event.percent}}
+    </li>
+</ul>
+<h3>Top 10 Drug Interactions</h3>
+<ul>
+    <li ng-repeat="interaction in drugInteractions | limitTo:10">
+        {{interaction.drug}} - {{interaction.interaction}}
     </li>
 </ul>

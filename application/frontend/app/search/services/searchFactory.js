@@ -18,14 +18,17 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
 
             var synonymsPromise = backendApiService.getConditionSynonyms(symptom);
 
-            synonymsPromise.then(function (synonymResult) {
-
-                    var conditionString = '"' + symptom + '"';
-
+            var conditionString = '"' + symptom + '"';
+            synonymsPromise.then(
+                function (synonymResult) {
                     _.each(synonymResult, function (syn) {
                         conditionString = conditionString + '+"' + syn + '"'
                     });
-
+                }).catch(
+                function(error) {
+                    //Do Nothing
+                }).finally(
+                function() {
                     // Build the API search string for search by symptom
                     var drugEventSearchString = "drugindication:" + conditionString;
                     var labelSearchString = "indications_and_usage:" + conditionString;
@@ -108,11 +111,8 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                                 });
                             callback(drugResults);
                         });
-
-
-                }
-            )
-        },
+                    })
+                },
 
         /**
          *
@@ -125,17 +125,25 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
         getDrugEvents: function (drug, gender, ageMin, ageMax, callback) {
 
             var drugData = {};
-            var drugEventSearchDrug = "patient.drug.medicinalproduct:" + drug;
-            var drugEventSearchGender = "patient.patientsex:" + gender;
-            var drugEventSearchAgeGroup = "patient.patientonsetage:[" + ageMin + "+TO+" + ageMax + "]";
-            var drugEventSearchString = drugEventSearchDrug + "+AND+" + drugEventSearchGender + "+AND+" + drugEventSearchAgeGroup;
+            var drugEventSearchString = "patient.drug.medicinalproduct:" + drug;
+            console.log('1 ', drugEventSearchString);
+            if(gender != 9)
+            {
+                var drugEventSearchString =  drugEventSearchString  + "+AND+patient.patientsex:" + gender;
+            };
+            console.log('2 ', drugEventSearchString);
+            drugEventSearchString  = drugEventSearchString + "+AND+patient.patientonsetage:[" + ageMin + "+TO+" + ageMax + "]";
 
+            console.log('3 ', drugEventSearchString);
             var eventsPromise = fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
                 .searchString(drugEventSearchString).setCount('patient.reaction.reactionmeddrapt.exact'));
 
             eventsPromise.then(function (eventResult) {
                 var resultsArray = eventResult.results;
+                var totalCount = 0;
+                _.each(resultsArray, function(val){ totalCount = totalCount + val.count });
                 drugData.effectResults = resultsArray;
+                drugData.totalEvents = totalCount;
                 callback(drugData);
             });
         },
