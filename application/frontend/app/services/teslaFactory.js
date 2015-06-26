@@ -2,7 +2,7 @@
 
 TeslaApp.factory('teslaFactory', function () {
     var symptom = "";
-    var drug = "aspirin";
+    var drug = "";
 
 
     return {
@@ -14,6 +14,9 @@ TeslaApp.factory('teslaFactory', function () {
         },
         getDrug: function () {
             return drug;
+        },
+        setDrug: function (drugIn) {
+            drug = drugIn;
         }
     }
 });

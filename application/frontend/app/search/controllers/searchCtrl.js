@@ -56,6 +56,9 @@ angular.module('teslaApp.search', ['ngRoute'])
                 runSearch();
             };
 
+            $scope.clickDrug = function(drug) {
+                teslaFactory.setDrug(drug);
+            };
 
             var runSearch = function () {
 

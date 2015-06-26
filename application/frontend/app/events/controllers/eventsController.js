@@ -25,10 +25,10 @@ angular.module('teslaApp.events', ['ngRoute'])
                     $scope.genderSelected = gender;
                 }
 
-                $scope.runSearch();
+                $scope.runEventSearch();
             }
 
-            $scope.runSearch = function(){
+            $scope.runEventSearch = function(){
                 $scope.ageText = $scope.ageDesc[$scope.ageGroup-1];
 
                 var ageMin=0;
@@ -77,6 +77,14 @@ angular.module('teslaApp.events', ['ngRoute'])
                 });
             };
 
-            $scope.runSearch();
+            $scope.runInteractionSearch = function() {
+                searchFactory.getDrugInteractions($scope.drugSelected, function(results){
+                   $scope.drugInteractions = results;
+                });
+            };
+
+            $scope.runEventSearch();
+            $scope.runInteractionSearch();
+
         }]);
 
