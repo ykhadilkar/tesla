@@ -15,7 +15,7 @@ var TeslaApp = angular.module('teslaApp', [
 ]);
 // Slide out menu
 TeslaApp
-    .controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
+    .controller('MenuCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
         $scope.toggleRight = buildToggler('right');
         /**
          * Build handler to open/close a SideNav; when animation finishes

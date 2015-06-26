@@ -44,7 +44,7 @@
                 <i class='fa fa-times fa-2x'></i>
             </md-button>
         </md-card>
-        <div ng-controller="AppCtrl" id='header-nav' layout-margin>
+        <div ng-controller="MenuCtrl" id='header-nav' layout-margin>
             <i class='fa fa-bars fa-2x' ng-click="toggleRight()" class="md-primary"></i>
             <md-sidenav class=''>
                 Main menu sidenav
@@ -56,7 +56,7 @@
         </div>
     </div>
 </md-toolbar>
-<div ng-controller="AppCtrl" layout="column">
+<div ng-controller="MenuCtrl" layout="column">
     <section layout="row" flex>
         <md-sidenav class="md-sidenav-right md-whiteframe-z2 md-closed" md-component-id="right">
             <md-toolbar class="md-theme-light">
