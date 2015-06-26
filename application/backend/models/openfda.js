@@ -8,41 +8,41 @@ var OpenFda = function () {
     this.apiKey = 'E4ZOf76Q248IRnZ2107BhDYK0GrvPUCxFbL9BHvU';
 };
 
-OpenFda.prototype.search = function search(entity, relationship, search, count, limit, skip ) {
+OpenFda.prototype.search = function search(entity, relationship, search, count, limit, skip) {
     var deferred = Q.defer();
 
-    if ( entity !== 'drug' && entity !== 'device' && entity !== 'food' ) {
-        deferred.reject(new Error('Invalid OpenFda Api entity: '+entity));
+    if (entity !== 'drug' && entity !== 'device' && entity !== 'food') {
+        deferred.reject(new Error('Invalid OpenFda Api entity: ' + entity));
     }
 
-    if ( entity === 'drug' && (relationship !== 'event' && relationship !== 'label' && relationship !== 'enforcement') ) {
+    if (entity === 'drug' && (relationship !== 'event' && relationship !== 'label' && relationship !== 'enforcement')) {
         deferred.reject(new Error('Invalid OpenFda Api entity drug relationship'));
     }
 
-    if ( entity === 'device' && (relationship !== 'event' && relationship !== 'enforcement') ) {
+    if (entity === 'device' && (relationship !== 'event' && relationship !== 'enforcement')) {
         deferred.reject(new Error('Invalid OpenFda Api entity device relationship'));
     }
 
-    if ( entity === 'food' && relationship !== 'enforcement' ) {
+    if (entity === 'food' && relationship !== 'enforcement') {
         deferred.reject(new Error('Invalid OpenFda Api entity food relationship'));
     }
 
     var uri = this.provider + entity + '/' + relationship + '.json?api_key=' + this.apiKey;
 
-    if ( search ) {
-        uri += '&search='+search;
+    if (search) {
+        uri += '&search=' + search;
     }
 
-    if ( count ) {
-        uri += '&count='+count;
+    if (count) {
+        uri += '&count=' + count;
     }
 
-    if ( limit ) {
-        uri += '&limit='+limit;
+    if (limit) {
+        uri += '&limit=' + limit;
     }
 
-    if ( skip ) {
-        uri += '&skip='+skip;
+    if (skip) {
+        uri += '&skip=' + skip;
     }
 
     Wreck.get(uri, function (err, res, payload) {

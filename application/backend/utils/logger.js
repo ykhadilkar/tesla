@@ -9,10 +9,10 @@ var logger = new winston.Logger({
     exitOnError: false
 });
 
-if ( process.env === 'production' ) {
-    logger.add(winston.transports.File,{
+if (process.env === 'production') {
+    logger.add(winston.transports.File, {
         level: 'error',
-        filename: logDirectory+'/error.log',
+        filename: logDirectory + '/error.log',
         handleExceptions: true,
         json: true,
         maxsize: 5242880, // 5MB
@@ -21,9 +21,9 @@ if ( process.env === 'production' ) {
         prettyPrint: false
     });
 } else {
-    logger.add(winston.transports.File,{
+    logger.add(winston.transports.File, {
         level: 'info',
-        filename: logDirectory+'/everything.log',
+        filename: logDirectory + '/everything.log',
         handleExceptions: true,
         json: true,
         maxsize: 5242880, // 5MB
@@ -32,7 +32,7 @@ if ( process.env === 'production' ) {
         prettyPrint: false
     });
 
-    logger.add(winston.transports.Console,{
+    logger.add(winston.transports.Console, {
         level: 'debug',
         handleExceptions: true,
         json: false,

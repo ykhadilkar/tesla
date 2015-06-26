@@ -4,7 +4,8 @@ var Fizz = require('../models/fizz');
 var logger = require('../utils/logger');
 
 
-var SymptomController = function() {};
+var SymptomController = function () {
+};
 
 SymptomController.prototype.search = function search(request, reply) {
     var data = Fizz.search(request.url.query.search);

@@ -19,7 +19,7 @@ exports.endpoints = [
             handler: symptomController.autocomplete
         }
     },
-	{
+    {
         method: 'GET',
         path: '/drug/event.json',
         config: {
@@ -30,21 +30,21 @@ exports.endpoints = [
         method: 'GET',
         path: '/drug/label.json',
         config: {
-            handler:drugController.label
+            handler: drugController.label
         }
     },
     {
         method: 'GET',
         path: '/drug/enforcement.json',
         config: {
-            handler:drugController.enforcement
+            handler: drugController.enforcement
         }
     },
     {
         method: 'GET',
         path: '/device/event.json',
         config: {
-            handler:deviceController.event
+            handler: deviceController.event
         }
     },
     {
@@ -58,14 +58,14 @@ exports.endpoints = [
         method: 'GET',
         path: '/food/enforcement.json',
         config: {
-            handler:foodController.enforcement
+            handler: foodController.enforcement
         }
     },
     {
         method: 'GET',
         path: '/',
         config: {
-            handler:homeController.routes
+            handler: homeController.routes
         }
     },
 ];

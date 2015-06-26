@@ -72,9 +72,9 @@ describe('OpenFDA Model Test', function () {
     it("checks search", function (done) {
         var result = OpenFDA.search(validEntities.entity, validEntities.relationship, 'search', 'count', 1, 3);
         expect(result).to.exist();
-        result.done(function(value){
+        result.done(function (value) {
             expec(value).to.be.instanceof(Object);
-        }, function(reason){
+        }, function (reason) {
             throw new Error(reason);
         });
         done();

@@ -6,7 +6,7 @@ var logger = require('../utils/logger');
 
 var Fizz = function () {
     this.client = new elasticsearch.Client({
-        host: (process.env.TEXTDB_1_ENV_TUTUM_SERVICE_HOSTNAME || '127.0.0.1' )+':9200',
+        host: (process.env.TEXTDB_1_ENV_TUTUM_SERVICE_HOSTNAME || '127.0.0.1' ) + ':9200',
         log: {
             type: 'file',
             level: 'error',
@@ -47,7 +47,7 @@ Fizz.prototype.autocomplete = function autocomplete(query) {
         }
     }).then(function (resp) {
         var result = [];
-        for ( var i = 0, count = resp.hits.hits.length; i<count; i++ ) {
+        for (var i = 0, count = resp.hits.hits.length; i < count; i++) {
             result.push(resp.hits.hits[i]._source.synonym);
         }
         return result;
