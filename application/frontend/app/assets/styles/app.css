@@ -400,7 +400,13 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
     background-color: #f5f5f5;
     padding: 15px;
 }
-
+.filters button{
+  color: #3758b7;
+  border: 1px solid #3758b7;
+  border-radius: 0;
+  width: 70px;
+  height: 70px;
+}
 /*Temporary*/
 .wrapper .search {
     max-width: 900px;

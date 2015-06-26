@@ -1,13 +1,20 @@
 <div flex layout='row' layout-sm='column' class='wrapper' layout-fill>
     <div class='filters' layout='row'>
         <h2>Symptum</h2>
-        <md-button>
-            Male
+        <div class='rating-success'>
+        	<div></div>
+        	<div></div>
+        	<div></div>
+        	<div></div>
+        </div>
+        <md-button class='male md-whiteframe-z1' aria-label='male'>
+            <i class='fa fa-male fa-3x'></i>
         </md-button>
-        <md-button>
-            Female
+        <md-button class='female md-whiteframe-z1' aria-label='female'>
+            <i class='fa fa-female fa-3x'></i>
         </md-button>
-        <md-slider flex md-descrete ng-model='' step='1' min='1' max='5' arial-label='age group'></md-slider>
+        <md-slider flex ng-model="rating1" step="1" min="1" max="5" aria-label="rating">
+      </md-slider>
     </div>
     <div class='percentOfAdverse'>
     </div>
