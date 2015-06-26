@@ -5,8 +5,8 @@ var Lab = require('lab');
 var lab = exports.lab = Lab.script();
 var server = require('../server');
 
-lab.experiment("Basic HTTP Tests", function(done) {
-    // test drug enforcement end point
+lab.experiment("Basic HTTP Tests", function() {
+    // test home end point
     lab.test("Main endpoint /", function(done) {
         var options = {
             method: "GET",
@@ -21,4 +21,4 @@ lab.experiment("Basic HTTP Tests", function(done) {
             done();                                                     // done() callback is required to end the test.
         });
     });
-})
+});

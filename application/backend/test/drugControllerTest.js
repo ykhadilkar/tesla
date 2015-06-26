@@ -5,7 +5,7 @@ var Lab = require('lab');
 var lab = exports.lab = Lab.script();
 var server = require('../server');
 
-lab.experiment("Basic HTTP Tests", function(done) {
+lab.experiment("Basic HTTP Tests", function() {
     // test drug events end point
     lab.test("Main endpoint /drug/event.json", function(done) {
         var options = {

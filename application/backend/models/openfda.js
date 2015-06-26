@@ -15,15 +15,15 @@ OpenFda.prototype.search = function search(entity, relationship, search, count, 
         deferred.reject(new Error('Invalid OpenFda Api entity: '+entity));
     }
 
-    if ( relationship === 'drug' && (relationship !== 'event' || relationship !== 'label' || relationship !== 'enforcement') ) {
+    if ( entity === 'drug' && (relationship !== 'event' && relationship !== 'label' && relationship !== 'enforcement') ) {
         deferred.reject(new Error('Invalid OpenFda Api entity drug relationship'));
     }
 
-    if ( relationship === 'device' && (relationship !== 'event' || relationship !== 'enforcement') ) {
+    if ( entity === 'device' && (relationship !== 'event' && relationship !== 'enforcement') ) {
         deferred.reject(new Error('Invalid OpenFda Api entity device relationship'));
     }
 
-    if ( relationship === 'food' && relationship !== 'enforcement' ) {
+    if ( entity === 'food' && relationship !== 'enforcement' ) {
         deferred.reject(new Error('Invalid OpenFda Api entity food relationship'));
     }
 

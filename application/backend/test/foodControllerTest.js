@@ -1,13 +1,11 @@
-/**
- * Created by ykhadilkar on 6/23/15.
- */
 "use strict";
+
 var Code = require('code');   // assertion library
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
 var server = require('../server');
 
-lab.experiment("Basic HTTP Tests", function(done) {
+lab.experiment("Basic HTTP Tests", function() {
     // test food end point
     lab.test("Main endpoint /food/enforcement.json", function(done) {
         var options = {
