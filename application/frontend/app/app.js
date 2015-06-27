@@ -8,11 +8,11 @@ var TeslaApp = angular.module('teslaApp', [
     'ngMaterial',
     'config',
     'teslaApp.home',
-    'teslaApp.search',
     'teslaApp.events',
     'angulartics',
     'angulartics.google.analytics'
 ]);
+
 // Slide out menu
 TeslaApp
     .controller('MenuCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {

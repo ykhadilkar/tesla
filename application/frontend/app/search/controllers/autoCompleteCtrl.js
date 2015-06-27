@@ -1,0 +1,44 @@
+TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scope', '$location', '$timeout', '$q', '$log',
+    function (teslaFactory, searchFactory, $scope, $location, $timeout, $q, $log) {
+        var self = this;
+        self.simulateQuery = true;
+        self.isDisabled    = false;
+        self.querySearch   = querySearch;
+        self.selectedItemChange = selectedItemChange;
+        self.searchTextChange   = searchTextChange;
+
+        function querySearch (query) {
+            //make sure query not null before performing ajax (autocomplete)
+            if(query){
+                var deferred = $q.defer();
+                //call autocomplete
+                searchFactory.autoComplete(query)
+                    .then(function(data){
+                        //re-struscture data for ngAutocomplete
+                        deferred.resolve(data.map( function (synonym) {
+                            return {
+                                value: synonym,
+                                display: synonym.toLowerCase(),
+                            };
+                        }));
+                    });
+
+                return deferred.promise;
+            }
+            //important to clear list items when the term is null/empty
+            return [];
+        }
+
+        function searchTextChange(text) {
+            $log.info('Text changed to ' + text);
+        }
+
+        function selectedItemChange(item) {
+            //save term in teslaFactory for search page purposes
+            teslaFactory.setSymptom(item);
+
+            //submit form to search result
+
+            $log.info('Item changed to ' + JSON.stringify(item));
+        }
+}]);

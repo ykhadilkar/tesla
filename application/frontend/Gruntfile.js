@@ -41,7 +41,7 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
-              BACKEND_API: 'http://tesla.local:3000/',
+              BACKEND_API: 'http://tesla.local:3000',
             }
           }
         },
