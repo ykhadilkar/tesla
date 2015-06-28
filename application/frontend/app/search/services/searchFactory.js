@@ -209,6 +209,22 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                 })// rxNormApiService.getDrugInteractions
             })//rxNormApiService.getDrugInfo
         } // getDrugInteractions
+        ,
+        /**
+         * AutoCompleete synonyms
+         * 
+         * @param string term
+         * @returns {$q@call;defer.promise}
+         */
+        autoComplete: function(term){
+
+            //build API Query
+            var oParam = {
+                "search": term,
+            };
+
+            return backendApiService.autoComplete(oParam);
+        },
     };
 }]);
 
