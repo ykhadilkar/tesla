@@ -1,5 +1,5 @@
 <div flex layout='column' layout-sm='column' class='wrapper' layout-fill>
-    <div class='filters' layout='row'>
+    <div class='filters' layout='row' layout-sm='column'>
         <h2>{{drugSelected}}</h2>
         <div class='rating-success'>
         	<div></div>
@@ -7,12 +7,14 @@
         	<div></div>
         	<div></div>
         </div>
-        <md-button class='male md-whiteframe-z1' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
-            <i class='fa fa-male fa-3x'></i>
-        </md-button>
-        <md-button class='female md-whiteframe-z1' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
-            <i class='fa fa-female fa-3x'></i>
-        </md-button>
+        <div>
+        	<md-button class='male md-whiteframe-z1' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
+            	<i class='fa fa-male fa-3x'></i>
+        	</md-button>
+        	<md-button class='female md-whiteframe-z1' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
+            	<i class='fa fa-female fa-3x'></i>
+        	</md-button>
+        </div>
         <div class='slider-wrapper'>
 	        <md-slider flex ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()">
 	      	</md-slider>
@@ -26,10 +28,18 @@
       	</div>
     </div>
     <div class='percent-of-adverse filter-results'>
-    	<h3>Top 10 Adverse Effects:</h3>
+    	<h3>% of all top adverse events</h3>
+    	<p>*345 Subjects Were Involved in the Trials</p>
 		<div class='adverse-bar'>
-			<div class='adverse-bar-fill' style='width:27%;'>Nausea</div><span class='adverse-percent-data'>27%</span>
+			<div class='adverse-bar-fill orange' style='width:47%;'>Nausea</div><span class='adverse-percent-data'>47%</span>
 		</div>
+		<div class='adverse-bar'>
+			<div class='adverse-bar-fill green' style='width:27%;'>Dry Mouth</div><span class='adverse-percent-data'>27%</span>
+		</div>
+		<div class='adverse-bar'>
+			<div class='adverse-bar-fill purple' style='width:14%;'>Cramps</div><span class='adverse-percent-data'>14%</span>
+		</div>
+		<md-button class='md-whiteframe-z1'>SEE ALL</md-button>
 		<ul>
 		    <li ng-repeat="event in drugEvents | limitTo:10">
 		        {{event.event}} - {{event.count}} - {{event.percent}}
