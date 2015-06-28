@@ -144,7 +144,10 @@ md-sidenav md-list {
     border-color: #dddede;  
     padding:40px 30px 0 30px;
 }
-
+.home .wrapper{
+  background-color: transparent;
+  padding: 0;
+}
 #content {
     overflow: hidden;
 }
@@ -316,7 +319,7 @@ md-toolbar.md-default-theme {
     /*width: 650px;*/
     border: 0;
     float: left;
-    padding: 30px 30px 30px 10px;
+    padding: 22px 30px 30px 10px;
     height: 10px;
     font-size: 16px;
     outline: none;
@@ -340,7 +343,14 @@ md-toolbar.md-default-theme {
 .md-button.md-default-theme.md-raised:not([disabled]):focus {
     background-color: rgba(26, 35, 126, 0.8);
 }
-
+.search-content{
+  margin-top: 14px;
+  width: 642px;
+}
+.search .md-whiteframe-z1{
+  padding: 15px;
+  height: 70px;
+}
 /*End header*/
 
 /*Home page*/
