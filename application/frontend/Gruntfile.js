@@ -32,7 +32,7 @@ module.exports = function (grunt) {
         options: {
           space: '  ',
           wrap: '"use strict";\n\n {%= __ngModule %}',
-          name: 'config',
+          name: 'config'
         },
         // Environment targets
         dev: {
@@ -41,7 +41,7 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
-              BACKEND_API: 'http://tesla.local:3000',
+              BACKEND_API: 'http://localhost:3000'
             }
           }
         },
@@ -51,8 +51,7 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
-              BACKEND_API: 'http://tesla-api.devopsplatform.com',
-//              BACKEND_API: 'http://tesla-web.devopsplatform.com:3000',
+              BACKEND_API: 'http://tesla-api.devopsplatform.com'
             }
           }
         },
@@ -62,10 +61,10 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
-              BACKEND_API: 'Hello test',
+              BACKEND_API: 'Hello test'
             }
           }
-        },
+        }
     },
     // Watches files for changes and runs tasks based on the changed files
         watch: {
