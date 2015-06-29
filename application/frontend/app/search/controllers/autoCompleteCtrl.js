@@ -14,13 +14,17 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
                 //call autocomplete
                 searchFactory.autoComplete(query)
                     .then(function (data) {
-                        //re-struscture data for ngAutocomplete
-                        deferred.resolve(data.map(function (synonym) {
-                            return {
-                                value: synonym,
-                                display: synonym.toLowerCase()
-                            };
-                        }));
+                        if (!data) {
+                            deferred.reject('empty response');
+                        } else {
+                            //re-structure data for ngAutocomplete
+                            deferred.resolve(data.map(function (synonym) {
+                                return {
+                                    value: synonym,
+                                    display: synonym.toLowerCase()
+                                };
+                            }));
+                        }
                     });
 
                 return deferred.promise;

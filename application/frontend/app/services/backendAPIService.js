@@ -5,7 +5,7 @@ TeslaApp.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $htt
 
     var endPoints = {
         "synonym": '/symptom.json',
-        "autocomplete": '/symptom/autocomplete.json',
+        "autocomplete": '/symptom/autocomplete.json'
     };
 
     this.endpoints = endPoints;
@@ -36,15 +36,15 @@ TeslaApp.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $htt
 
      /**
      * Autocomplete API (Backend)
-     * 
+     *
      * oParam:{
      *  'param1': 'val1',
      *  'paramN': 'valN',
      *  ...
      * }
-     * 
-     * @param object oParam
-     * @returns {$q@call;defer.promise}
+     *
+     * @param oParam
+     //* @returns {$q@call;defer.promise}
      */
     this.autoComplete = function (oParam) {
         return apiCall(endPoints.autocomplete, oParam);
