@@ -7,7 +7,7 @@ HomeController.prototype.routes = function event(request, reply) {
     reply({
         'endpoints': [
             '/symptom.json',
-            '/symptom/synonym.json',
+            '/symptom/autocomplete.json',
             '/drug/event.json',
             '/drug/label.json',
             '/drug/enforcement.json',
