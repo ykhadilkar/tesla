@@ -35,10 +35,26 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
 
         function selectedItemChange(item) {
             //save term in teslaFactory for search page purposes
-            teslaFactory.setSymptom(item);
+            teslaFactory.setSymptom(item.value);
 
             //submit form to search result
+            $scope.factorySymptom = item.value;
 
             $log.info('Item changed to ' + JSON.stringify(item));
         }
+
+        //user hit enter and submit form
+        $scope.submitSearch = function(event) {
+            alert(11);
+
+            if ($location.path() === '/search') {
+                searchFactory.getDrugsBySymptom(teslaFactory.getSymptom(), function (results) {
+                    $scope.drugResults = results;
+                });
+            } else {
+                $location.path('/search');
+            }
+
+            event.preventDefault();
+        };
 }]);

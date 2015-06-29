@@ -49,7 +49,7 @@
 
         <div ng-controller="autoCompleteCtrl as ctrl" layout="column">
             <md-content class='search-content'>
-              <form ng-submit="$event.preventDefault()">
+              <form ng-submit="submitSearch($event)">
                 <md-autocomplete
                     ng-disabled="ctrl.isDisabled"
                     md-no-cache="ctrl.noCache"
@@ -72,7 +72,7 @@
               </form>
             </md-content>
           </div>
-        
+
         <div ng-controller="MenuCtrl" id='header-nav' layout-margin>
             <i class='fa fa-bars fa-2x' ng-click="toggleRight()" class="md-primary"></i>
             <md-sidenav class=''>

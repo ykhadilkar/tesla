@@ -4,7 +4,7 @@ TeslaApp.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $htt
     var baseUrl = ENV.BACKEND_API;
 
     var endPoints = {
-        "synonym": '/symptom/synonym.json',
+        "synonym": '/symptom.json',
         "autocomplete": '/symptom/autocomplete.json',
     };
 
