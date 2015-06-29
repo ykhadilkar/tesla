@@ -43,8 +43,8 @@ TeslaApp.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $htt
      *  ...
      * }
      *
-     * @param oParam
-     //* @returns {$q@call;defer.promise}
+     * @param object oParam
+     * @returns {$q@call;defer.promise}
      */
     this.autoComplete = function (oParam) {
         return apiCall(endPoints.autocomplete, oParam);

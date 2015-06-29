@@ -34,6 +34,12 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
         }
 
         function searchTextChange(text) {
+            //save term in teslaFactory for search page purposes
+            teslaFactory.setSymptom(text);
+
+            //submit form to search result
+            $scope.factorySymptom = text;
+
             $log.info('Text changed to ' + text);
         }
 
@@ -56,7 +62,7 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
 
         //user hit enter and submit form
         $scope.submitSearch = function (event) {
-            $location.path('/search').search('q',teslaFactory.getSymptom());
+            $location.path('/search').search('q', teslaFactory.getSymptom());
 
             event.preventDefault();
         };
