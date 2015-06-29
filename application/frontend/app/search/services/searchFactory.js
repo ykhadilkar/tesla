@@ -13,10 +13,10 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             // Initialize an empty array to store the promises for the 2 OpenFDA API calls. These can be run in parallel.
             var promises = [];
 
-            // Build the API search string for label search for usage
-            var labelSearchString = "indications_and_usage:" + symptom;
+            // Build the API search string for backend
+            var oParam = {"search": symptom};
 
-            var synonymsPromise = backendApiService.getConditionSynonyms(symptom);
+            var synonymsPromise = backendApiService.getConditionSynonyms(oParam);
 
             var conditionString = '"' + symptom + '"';
             synonymsPromise.then(
