@@ -54,8 +54,9 @@ TeslaApp.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiServi
             runSearch();
         };
 
-        $scope.clickDrug = function(drug) {
-            teslaFactory.setDrug(drug);
+        $scope.clickDrug = function(result) {
+            teslaFactory.setDrug(result.drug);
+            teslaFactory.setDrugEventCount(result.eventCount);
         };
 
         var runSearch = function () {
@@ -67,5 +68,7 @@ TeslaApp.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiServi
             }
 
         };
+
+        runSearch();
 
 }]);

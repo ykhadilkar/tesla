@@ -45,7 +45,6 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
 
         //user hit enter and submit form
         $scope.submitSearch = function(event) {
-            alert(11);
 
             if ($location.path() === '/search') {
                 searchFactory.getDrugsBySymptom(teslaFactory.getSymptom(), function (results) {

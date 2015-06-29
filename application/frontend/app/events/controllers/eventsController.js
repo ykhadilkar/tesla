@@ -14,6 +14,7 @@ angular.module('teslaApp.events', ['ngRoute'])
             // When the search page is initiated, grab the symptom search term from the teslaFactory
             $scope.factorySymptom = teslaFactory.getSymptom();
             $scope.drugSelected = teslaFactory.getDrug();
+            $scope.drugEventCount = teslaFactory.getDrugEventCount();
 
             $scope.genderButtonClick = function(gender){
                 if(gender == $scope.genderSelected)
@@ -64,7 +65,9 @@ angular.module('teslaApp.events', ['ngRoute'])
                     var totalEvents = eventResults.totalEvents;
                     var eventArray = [];
                     angular.forEach(eventResults.effectResults, function(eventResult){
-                        var effectPercent = eventResult.count / eventResults.totalEvents;
+                        console.log(eventResult, $scope.drugEventCount);
+                        var effectPercent = eventResult.count / $scope.drugEventCount * 100;
+                        effectPercent = effectPercent.toFixed(2)
 
                         var lower = eventResult.term.toLowerCase();
                         var effectString = lower.replace(/(^| )(\w)/g, function(x) {
