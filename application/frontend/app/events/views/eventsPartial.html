@@ -28,26 +28,15 @@
       	</div>
     </div>
     <div class='percent-of-adverse filter-results'>
-    	<h3>% of all top adverse events</h3>
-    	<p>*345 Subjects Were Involved in the Trials</p>
-		<div class='adverse-bar'>
-			<div class='adverse-bar-fill orange' style='width:47%;'>Nausea</div><span class='adverse-percent-data'>47%</span>
-		</div>
-		<div class='adverse-bar'>
-			<div class='adverse-bar-fill green' style='width:27%;'>Dry Mouth</div><span class='adverse-percent-data'>27%</span>
-		</div>
-		<div class='adverse-bar'>
-			<div class='adverse-bar-fill purple' style='width:14%;'>Cramps</div><span class='adverse-percent-data'>14%</span>
+    	<h3>Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
+    	<!-- <p>*345 Subjects Were Involved in the Trials</p> -->
+		<div class='adverse-bar' ng-repeat="event in drugEvents | limitTo:10">
+			<div class='adverse-bar-fill' ng-class="{orange: $index % 2 == 0, green: $index % 2 == 1}" style='width:{{event.percent}}%;'>{{event.event}}</div><span class='adverse-percent-data'>{{event.percent }}%</span>
 		</div>
 		<md-button class='md-whiteframe-z1'>SEE ALL</md-button>
-		<ul>
-		    <li ng-repeat="event in drugEvents | limitTo:10">
-		        {{event.event}} - {{event.count}} - {{event.percent}}
-		    </li>
-		</ul>
     </div>
     <div class='drug-interactions filter-results'>
-	    
+
 		<h3>Top 10 Drug Interactions</h3>
 		<ul>
 		    <li ng-repeat="interaction in drugInteractions | limitTo:10">

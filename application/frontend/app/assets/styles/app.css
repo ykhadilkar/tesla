@@ -141,7 +141,7 @@ md-sidenav md-list {
     background-color: #fff;
     border-left: 1px;
     border-right: 1px;
-    border-color: #dddede;  
+    border-color: #dddede;
     padding:40px 30px 0 30px;
 }
 .home .wrapper{
@@ -297,6 +297,10 @@ md-toolbar.md-default-theme {
 #header-nav a .bold {
     font-family: novecento_sans_wide_bookbold, sans-serif;
     display: block;
+}
+
+#header-nav i{
+    outline: none;
 }
 
 .fa-search {
@@ -504,7 +508,7 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
   margin-bottom:30px;
 }
 .adverse-bar-fill{
-  padding: 25px;  
+  padding: 25px;
   float: left
 }
 .orange{

@@ -15,7 +15,8 @@ var TeslaApp = angular.module('teslaApp', [
 
 // Slide out menu
 TeslaApp
-    .controller('MenuCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
+    .controller('MenuCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 
+    function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
         $scope.toggleRight = buildToggler('right');
         /**
          * Build handler to open/close a SideNav; when animation finishes
@@ -30,12 +31,13 @@ TeslaApp
                     });
             }, 300);
         }
-    })
-    .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    }])
+    .controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', 
+    function ($scope, $timeout, $mdSidenav, $log) {
         $scope.close = function () {
             $mdSidenav('right').close()
                 .then(function () {
                     $log.debug("close RIGHT is done");
                 });
         };
-    });
+    }]);
