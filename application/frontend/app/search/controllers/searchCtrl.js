@@ -68,6 +68,4 @@ TeslaApp.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiServi
 
         };
 
-        runSearch();
-
 }]);
