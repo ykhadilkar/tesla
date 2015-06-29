@@ -2,23 +2,23 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
     function (teslaFactory, searchFactory, $scope, $location, $timeout, $q, $log) {
         var self = this;
         self.simulateQuery = true;
-        self.isDisabled    = false;
-        self.querySearch   = querySearch;
+        self.isDisabled = false;
+        self.querySearch = querySearch;
         self.selectedItemChange = selectedItemChange;
-        self.searchTextChange   = searchTextChange;
+        self.searchTextChange = searchTextChange;
 
-        function querySearch (query) {
+        function querySearch(query) {
             //make sure query not null before performing ajax (autocomplete)
-            if(query){
+            if (query) {
                 var deferred = $q.defer();
                 //call autocomplete
                 searchFactory.autoComplete(query)
-                    .then(function(data){
+                    .then(function (data) {
                         //re-struscture data for ngAutocomplete
-                        deferred.resolve(data.map( function (synonym) {
+                        deferred.resolve(data.map(function (synonym) {
                             return {
                                 value: synonym,
-                                display: synonym.toLowerCase(),
+                                display: synonym.toLowerCase()
                             };
                         }));
                     });
@@ -44,8 +44,7 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
         }
 
         //user hit enter and submit form
-        $scope.submitSearch = function(event) {
-
+        $scope.submitSearch = function (event) {
             if ($location.path() === '/search') {
                 searchFactory.getDrugsBySymptom(teslaFactory.getSymptom(), function (results) {
                     $scope.drugResults = results;
@@ -56,4 +55,4 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
 
             event.preventDefault();
         };
-}]);
+    }]);
