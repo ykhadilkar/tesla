@@ -31,18 +31,6 @@
         <a href='/#/'><h1 id='logo'>Manna<img src='assets/svg/logo.svg'><span id='sub-logo'>powered by <b>FDA
             Open</b></span></h1></a>
 
-
-        <!--md-card class='search' layout='row' hide-sm flex='66' ng-controller="SearchCtrl">
-            <span><i class='fa fa-search fa-lg'></i></span>
-            <input type="search" autofocus="autofocus" placeholder="{{symptom}}" ng-model="formSymptom"
-                   ng-keypress="onSearchKeypress($event)" flex='79'>
-
-            </input>
-            <md-button ng-click="xClick()">
-                <i class='fa fa-times fa-2x'></i>
-            </md-button>
-        </md-card-->
-
         <div ng-controller="autoCompleteCtrl as ctrl" layout="column">
             <md-content class='search-content'>
                 <form ng-submit="submitSearch($event)">
