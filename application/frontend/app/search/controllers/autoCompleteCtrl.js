@@ -38,6 +38,9 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
         }
 
         function selectedItemChange(item) {
+            if (!('value' in item)) {
+                return;
+            }
             //save term in teslaFactory for search page purposes
             teslaFactory.setSymptom(item.value);
 
@@ -54,7 +57,7 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
                     $scope.drugResults = results;
                 });
             } else {
-                $location.path('/search');
+                $location.path('/search').search('q',teslaFactory.getSymptom());
             }
 
             event.preventDefault();
