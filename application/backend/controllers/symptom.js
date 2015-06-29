@@ -8,7 +8,11 @@ var SymptomController = function () {
 };
 
 SymptomController.prototype.search = function search(request, reply) {
-    var data = Fizz.search(request.url.query.search);
+    if (request.url.query.search != undefined) {
+        var data = Fizz.search(request.url.query.search);
+    }else{
+        var data = {};
+    }
     reply(data);
 };
 
