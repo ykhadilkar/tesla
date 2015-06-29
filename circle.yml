@@ -24,7 +24,7 @@ general:
 notify:
   webhooks:
     # auto deploy nginx frontend
-    - url: https://dashboard.tutum.co/api/v1/service/33f7ae14-2bc8-40d0-804a-8febf2984baf/trigger/88e8a003-add5-43e6-9bd3-d7a1f7ad02d0/call/
+    - url: https://dashboard.tutum.co/api/v1/service/fcc070d2-63f4-42ea-a890-cefc75047f7e/trigger/c190d5d8-c004-4eb0-935d-ff9211e13e87/call/
 
 dependencies:
   pre:
