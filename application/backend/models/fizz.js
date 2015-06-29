@@ -18,16 +18,20 @@ var Fizz = function () {
 Fizz.prototype.search = function search(query) {
     return this.client.search({
         index: 'medical',
-        type: 'symptom',
+        type: 'synonym',
         body: {
             query: {
                 term: {
-                    symptom: query.toUpperCase()
+                    synonym: query.toUpperCase()
                 }
             }
         }
     }).then(function (resp) {
-        return resp.hits;
+        var result = [];
+        for (var i = 0, count = resp.hits.hits.length; i < count; i++) {
+            result.push(resp.hits.hits[i]._source.term);
+        }
+        return result;
     }, function (err) {
         logger.error(err);
         return null;
