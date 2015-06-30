@@ -5,7 +5,8 @@ angular.module('teslaApp').config(['$routeProvider',
         $routeProvider.
             when('/', {
                 templateUrl: 'home/views/homePartial.html',
-                controller: 'HomeCtrl'
+                controller: 'HomeCtrl',
+                class: 'home' // custom directive
             }).
             when('/search', {
                 templateUrl: 'search/views/searchPartial.html',
