@@ -55,14 +55,14 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
             $scope.factorySymptom = item.value;
 
             //submit search result on item selected
-            $location.path('/search').search('q', item.value);
+            $location.path('/search').search('q', item.value.toLowerCase());
 
             $log.info('Item changed to ' + JSON.stringify(item));
         }
 
         //user hit enter and submit form
         $scope.submitSearch = function (event) {
-            $location.path('/search').search('q', teslaFactory.getSymptom());
+            $location.path('/search').search('q', teslaFactory.getSymptom().toLowerCase());
 
             event.preventDefault();
         };
