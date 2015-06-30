@@ -7,6 +7,16 @@ TeslaApp.factory('teslaFactory', function () {
 
 
     return {
+        /**
+         * Escape special character that would break the elastic search
+         * and encode special character
+         * 
+         * @param String Query
+         * @returns String Query
+         */
+        elasticQueryString: function(query){
+            return encodeURIComponent(query.replace(/([\/\!\*\+\&\|\(\)\[\]\{\}\^\~\?\:\"\'])/g, "+"));
+        },
         getSymptom: function () {
             return symptom;
         },
@@ -26,4 +36,4 @@ TeslaApp.factory('teslaFactory', function () {
             drugEventCount = drugEventCountIn;
         }
     }
-    });
+});

@@ -9,20 +9,19 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
          * @param callback
          */
         getDrugsBySymptom: function (symptom, callback) {
-
             // Initialize an empty array to store the promises for the 2 OpenFDA API calls. These can be run in parallel.
             var promises = [];
 
             // Build the API search string for backend
-            var oParam = {"search": symptom};
+            var oParam = {"search": teslaFactory.elasticQueryString(symptom)};
 
             var synonymsPromise = backendApiService.getConditionSynonyms(oParam);
 
-            var conditionString = '"' + symptom + '"';
+            var conditionString = '"' + teslaFactory.elasticQueryString(symptom) + '"';
             synonymsPromise.then(
                 function (synonymResult) {
                     _.each(synonymResult, function (syn) {
-                        conditionString = conditionString + '+"' + syn + '"'
+                        conditionString = conditionString + '+"' + teslaFactory.elasticQueryString(syn) + '"'
                     });
                 }).catch(
                 function(error) {
