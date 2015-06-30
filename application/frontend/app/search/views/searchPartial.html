@@ -1,33 +1,17 @@
 <div flex layout='row' layout-sm='column' class='wrapper' layout-fill>
     <md-content flex id='left-column' layout='column'>
         <div id='results'>
-            <md-card class='result' layout-padding ng-repeat="result in drugResults">
+            <md-content class='result' ng-repeat="result in drugResults">
                 <div class='results-header'>
-                    <h2><a href="/#/events" ng-click="clickDrug(result)">{{result.drug}}</a></h2>
+                    <h2><a href="/#/events" ng-click="clickDrug(result)">{{result.drug}}</a></h2><span>- Top 5 Brands</span>
                 </div>
                 <div class='results-body'>
-                    Adverse Events : {{result.eventCount}}
+                    <md-button ng-repeat="brand in result.popularBrands | limitTo:5" class='md-whiteframe-z1'>{{brand}}</md-button>
                 </div>
-                <div>
-                    Top 5 Popular Brands :
-                    <ul>
-                        <li ng-repeat="brand in result.popularBrands | limitTo:5">{{brand}}</li>
-                    </ul>
+                <div class='adverse-number'>
+                    <h3>{{result.eventCount}}</h3>
+                    <span>Adverse<br>Reactions</span>
                 </div>
-            </md-card>
-            <md-content class='result'>
-                Please wait...
-                <!--<div class='results-header'>-->
-                    <!--<h2>Allopurinol</h2><span>- Top 5 Brands</span>-->
-                <!--</div>-->
-                <!--<div class='results-body'>-->
-                    <!--<md-button class='md-whiteframe-z1'>Zyloprim</md-button>-->
-                    <!--<md-button class='md-whiteframe-z1'>Zyloprim</md-button>-->
-                <!--</div>-->
-                <!--<div class='adverse-number'>-->
-                    <!--<h3>1,800</h3>-->
-                    <!--<span>Adverse<br>Reactions</span>-->
-                <!--</div>-->
             </md-content>
         </div>
     </md-content>
