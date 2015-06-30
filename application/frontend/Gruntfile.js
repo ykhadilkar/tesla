@@ -41,7 +41,9 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
-              BACKEND_API: 'http://localhost:3000'
+              BACKEND_API: 'http://localhost:3000',
+              FDA_API: 'https://api.fda.gov',
+              RXNORM_API: 'http://rxnav.nlm.nih.gov/REST',
             }
           }
         },
@@ -51,7 +53,9 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
-              BACKEND_API: 'http://tesla-api.devopsplatform.com'
+              BACKEND_API: 'http://tesla-api.devopsplatform.com',
+              FDA_API: 'https://api.fda.gov',
+              RXNORM_API: 'http://rxnav.nlm.nih.gov/REST',
             }
           }
         },
@@ -61,7 +65,9 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
-              BACKEND_API: 'Hello test'
+              BACKEND_API: 'http://localhost:3000',
+              FDA_API: 'https://api.fda.gov',
+              RXNORM_API: 'http://rxnav.nlm.nih.gov/REST',
             }
           }
         }

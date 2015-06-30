@@ -1,7 +1,7 @@
 'use strict';
 
-TeslaApp.service('fdaApiService', ['$http', '$q', function ($http, $q) {
-    var baseUrl = 'https://api.fda.gov';
+TeslaApp.service('fdaApiService', ['ENV', '$http', '$q', function (ENV, $http, $q) {
+    var baseUrl = ENV.FDA_API;
 
     var apiKey = 'MQcYBmlcJ41XLzrsgZyaRGlpDwEgm80uWtvxtAUi';  //  free api key
     var apiPrefix = '?api_key=' + apiKey;

@@ -1,7 +1,7 @@
 'use strict';
 
-TeslaApp.service('rxNormApiService', ['$http', '$q', function ($http, $q) {
-    var baseUrl = 'http://rxnav.nlm.nih.gov/REST';
+TeslaApp.service('rxNormApiService', ['ENV', '$http', '$q', function (ENV, $http, $q) {
+    var baseUrl = ENV.RXNORM_API;
 
     var endPoints = {
         'drugInfo': '/drugs?',
