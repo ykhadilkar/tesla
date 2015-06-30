@@ -426,6 +426,7 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
 .results-header {
     background-color: #d8eae5;
     padding: 10px;
+    height: 35px;
 }
 
 .results-header h2 {
@@ -434,22 +435,50 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
     margin: 0;
     text-transform: capitalize;
     color: #3e5ba9;
+    float: left
 }
-
+.results-header span{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: open_sanslight;
+    color: #3758b7;
+}
 .results-body {
     background-color: #f5f5f5;
     padding: 15px;
+    min-height: 60px;
+    margin-bottom:20px;
 }
 .result{
   width: 80%;
+  overflow: visible;;
   position: relative;
 }
 .adverse-number{
   background-color: #3eb6ce;
   border-radius: 100%;
   position: absolute;
-  right: 0;
+  right: -67px;
   top: 0;
+  width: 145px;
+  height: 145px;
+  color:#fff;
+  font-family: open_sansextrabold;
+
+}
+.adverse-number h3{
+  font-family: open_sanslight;
+  font-size: 37px;
+  color: #fff;
+  margin:0;
+  margin:25px 0 0 25px;
+}
+.adverse-number span{
+  margin: 0px 0 0 38px;
+  display: inline-block;
+  text-align: center;
 }
 .filters{
   margin-bottom: 20px;
