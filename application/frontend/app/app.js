@@ -15,7 +15,5 @@ var TeslaApp = angular.module('teslaApp', [
     'services',
     'controllers',
     'directives',
-    'angularSpinner',
-    'angulartics',
-    'angulartics.google.analytics'
+    'angularSpinner'
 ]);
