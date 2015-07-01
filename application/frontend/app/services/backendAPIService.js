@@ -1,6 +1,6 @@
 'use strict';
 
-services.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $http, $q) {
+TeslaApp.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $http, $q) {
     var baseUrl = ENV.BACKEND_API;
 
     var endPoints = {

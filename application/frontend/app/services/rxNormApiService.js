@@ -1,6 +1,6 @@
 'use strict';
 
-services.service('rxNormApiService', ['ENV', '$http', '$q', function (ENV, $http, $q) {
+TeslaApp.service('rxNormApiService', ['ENV', '$http', '$q', function (ENV, $http, $q) {
     var baseUrl = ENV.RXNORM_API;
 
     var endPoints = {

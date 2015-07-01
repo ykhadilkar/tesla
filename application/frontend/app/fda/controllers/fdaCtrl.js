@@ -1,7 +1,6 @@
 'use strict';
 
-
-controllers.controller('FdaCtrl', ['fdaApiService', '$scope', '$q', function (fdaApiService, $scope, $q) {
+TeslaApp.controller('FdaCtrl', ['fdaApiService', '$scope', '$q', function (fdaApiService, $scope, $q) {
     var promises = [];
 
     promises.push(fdaApiService.getApiStatus());

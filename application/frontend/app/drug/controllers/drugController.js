@@ -1,6 +1,6 @@
 'use strict';
 
-controllers.controller('EventsCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope', '$location',
+TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope', '$location',
     function (teslaFactory, searchFactory, fdaApiService, $scope, $location) {
 
         // Default to All Ages
@@ -8,6 +8,7 @@ controllers.controller('EventsCtrl', ['teslaFactory', 'searchFactory', 'fdaApiSe
         $scope.genderSelected = 9;
         // Set Age Group Text Values
         $scope.ageDesc = ['All Ages', '0-17', '18-35', '36-55', '56+'];
+        $scope.drugSelected = $location.search().drugName;
 
         if (!$scope.drugSelected) {
             var drug = $location.search()['drug'];

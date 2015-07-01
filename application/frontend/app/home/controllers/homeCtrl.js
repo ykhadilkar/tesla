@@ -1,7 +1,9 @@
 'use strict';
 
-controllers.controller('HomeCtrl', ['$scope', function ($scope) {
+TeslaApp.controller('HomeCtrl', ['$scope', 'usSpinnerService', function ($scope, usSpinnerService) {
 
     $scope.symptom = "My Symptom";
     $scope.drug = "";
+    
+    usSpinnerService.stop('spinner');
 }]);

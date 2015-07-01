@@ -1,6 +1,6 @@
 'use strict';
 
-controllers
+TeslaApp
     .controller('MenuCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log',
         function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
             $scope.toggleRight = buildToggler('right');

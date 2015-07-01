@@ -1,6 +1,6 @@
 'use strict';
 
-services.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backendApiService', 'teslaFactory', '$q',
+TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backendApiService', 'teslaFactory', '$q',
     function (fdaApiService, rxNormApiService, backendApiService, teslaFactory, $q) {
 
     return {

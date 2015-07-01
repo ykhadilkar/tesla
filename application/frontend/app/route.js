@@ -16,9 +16,9 @@ TeslaApp.config(['$routeProvider', 'usSpinnerConfigProvider',
                 templateUrl: 'fda/views/fda.html',
                 controller: 'FdaCtrl'
             }).
-            when('/events', {
-                templateUrl: 'events/views/eventsPartial.html',
-                controller: 'EventsCtrl'
+            when('/drug', {
+                templateUrl: 'drug/views/drugPartial.html',
+                controller: 'DrugCtrl'
             }).
             when('/about', {
                 templateUrl: 'about/views/about.html'

@@ -1,6 +1,6 @@
 'use strict';
 
-services.factory('teslaFactory', function () {
+TeslaApp.factory('teslaFactory', function () {
     var symptom = "";
     var drug = "";
     var drugEventCount = 0;

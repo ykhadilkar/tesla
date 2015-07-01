@@ -1,6 +1,6 @@
 'use strict';
 
-directives.directive('classRoute', ['$rootScope', function($rootScope) {
+TeslaApp.directive('classRoute', ['$rootScope', function($rootScope) {
     return function(scope, elem, attr) {
         var previous = '';
         $rootScope.$on('$routeChangeSuccess', function(event, currentRoute) {
