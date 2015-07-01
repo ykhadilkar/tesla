@@ -2,7 +2,7 @@
     <md-content flex id='left-column' layout='column'>
         <div id='results'>
             <h1>{{ factorySymptom }}</h1>
-            <md-content class='result' ng-repeat="result in drugResults">
+            <md-content class='result' ng-repeat="result in drugResults | orderBy:'+drug'">
                 <div class='results-header'>
                     <h2><a href="/#/events?drug={{result.drug}}&count={{result.eventCount}}" ng-click="clickDrug(result)">{{result.drug}}</a></h2><span>- Top 5 Brands</span>
                 </div>

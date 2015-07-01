@@ -27,7 +27,6 @@ h3{
 .footer {
     height: 94px;
     background-color: #444;
-    padding-top: 30px
 }
 
 .footer .wrapper {
@@ -155,7 +154,6 @@ md-sidenav md-list {
 }
 .home .wrapper{
   background-color: transparent;
-  padding: 0;
 }
 #content {
     overflow: hidden;
@@ -488,7 +486,8 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
   font-size: 37px;
   color: #fff;
   margin:0;
-  margin:25px 0 0 42px;
+  margin:19px 0 0 0;
+  text-align: center;
 }
 .adverse-number span{
   margin: 0px 0 0 38px;
@@ -498,6 +497,12 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
 .filters{
   margin-bottom: 20px;
 }
+.filters-wrapper{
+  float: right;
+}
+.filters-button-wrapper{
+  float: left;
+}
 .filters button{
   color: #3758b7;
   border: 1px solid #3758b7;
@@ -505,10 +510,18 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
   width: 70px;
   height: 70px;
 }
+.filters button.active{
+  color: #6e6e6e;
+  border-color: #6e6e6e;
+}
+.slider-wrapper{
+  float: right;
+}
 .slider-wrapper label{
   margin-left: 10px;
   font-family: open_sanslight_italic;
   color: #808181;
+  white-space: nowrap;
 }
 .slider-wrapper label.selected{
   color:#3758b7;
@@ -553,7 +566,11 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
 }
 .adverse-bar-fill{
   padding: 25px;
-  float: left
+  float: left;
+  white-space: nowrap;
+}
+.adverse-fill-wrapper{
+  float: left;
 }
 .orange{
   background-color: #ff6c00;
