@@ -24,10 +24,10 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                         conditionString = conditionString + '+"' + teslaFactory.elasticQueryString(syn) + '"'
                     });
                 }).catch(
-                function(error) {
+                function (error) {
                     //Do Nothing
                 }).finally(
-                function() {
+                function () {
                     // Build the API search string for search by symptom
                     var drugEventSearchString = "drugindication:" + conditionString;
                     var labelSearchString = "indications_and_usage:" + conditionString;
@@ -110,8 +110,8 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                                 });
                             callback(drugResults);
                         });
-                    })
-                },
+                })
+        },
 
         /**
          *
@@ -126,12 +126,12 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             var drugData = {};
             var drugEventSearchString = "patient.drug.medicinalproduct:" + drug;
             console.log('1 ', drugEventSearchString);
-            if(gender != 9)
-            {
-                var drugEventSearchString =  drugEventSearchString  + "+AND+patient.patientsex:" + gender;
-            };
+            if (gender != 9) {
+                var drugEventSearchString = drugEventSearchString + "+AND+patient.patientsex:" + gender;
+            }
+            ;
             console.log('2 ', drugEventSearchString);
-            drugEventSearchString  = drugEventSearchString + "+AND+patient.patientonsetage:[" + ageMin + "+TO+" + ageMax + "]";
+            drugEventSearchString = drugEventSearchString + "+AND+patient.patientonsetage:[" + ageMin + "+TO+" + ageMax + "]";
 
             console.log('3 ', drugEventSearchString);
             var eventsPromise = fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
@@ -140,7 +140,9 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             eventsPromise.then(function (eventResult) {
                 var resultsArray = eventResult.results;
                 var totalCount = 0;
-                _.each(resultsArray, function(val){ totalCount = totalCount + val.count });
+                _.each(resultsArray, function (val) {
+                    totalCount = totalCount + val.count
+                });
                 drugData.effectResults = resultsArray;
                 drugData.totalEvents = totalCount;
                 callback(drugData);
@@ -161,23 +163,20 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             recallsPromise.then(function (eventResult) {
                 var resultsArray = eventResult.results;
                 drugData.effectResults = resultsArray;
+                drugData.meta = eventResult.meta;
                 callback(drugData);
             });
         },
+
         /**
          *
          * @param symptom
          * @param callback
          */
         getConditionSynonyms: function (symptom, callback) {
-            backendApiService.getConditionSynonyms(symptom).then(results)
-            {
-                console.log('inCtrlbackend :');
-                console.log(results);
-
+            backendApiService.getConditionSynonyms(symptom).then(function (results) {
                 callback(results);
-            }
-
+            });
         },
 
         /**
@@ -211,19 +210,17 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
         ,
         /**
          * AutoCompleete synonyms
-         * 
+         *
          * @param string term
          * @returns {$q@call;defer.promise}
          */
-        autoComplete: function(term){
-
+        autoComplete: function (term) {
             //build API Query
             var oParam = {
-                "search": term,
+                "search": term
             };
-
             return backendApiService.autoComplete(oParam);
-        },
+        }
     };
 }]);
 

@@ -80,6 +80,13 @@ angular.module('teslaApp.events', ['ngRoute'])
                 });
             };
 
+            $scope.runRecallsSearch = function() {
+                searchFactory.getDrugRecalls($scope.drugSelected, function (drugData) {
+                    $scope.drugEffectResults = drugData.effectResults;
+                    $scope.drugRecallsMeta = drugData.meta;
+                });
+            };
+
             $scope.runInteractionSearch = function() {
                 searchFactory.getDrugInteractions($scope.drugSelected, function(results){
                    $scope.drugInteractions = results;
@@ -87,6 +94,7 @@ angular.module('teslaApp.events', ['ngRoute'])
             };
 
             $scope.runEventSearch();
+            $scope.runRecallsSearch();
             $scope.runInteractionSearch();
 
         }]);
