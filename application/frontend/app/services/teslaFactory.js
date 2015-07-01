@@ -10,12 +10,12 @@ TeslaApp.factory('teslaFactory', function () {
         /**
          * Escape special character that would break the elastic search
          * and encode special character
-         * 
-         * @param String Query
-         * @returns String Query
+         *
+         * @param String query
+         * @returns String
          */
         elasticQueryString: function(query){
-            return encodeURIComponent(query.replace(/([\/\!\*\+\&\|\(\)\[\]\{\}\^\~\?\:\"\'])/g, "+"));
+            return encodeURIComponent(query.replace(/([\/!\*\+&\|\(\)\[\]{}\^~\?:"'])/g, "+"));
         },
         getSymptom: function () {
             return symptom;

@@ -42,7 +42,7 @@ angular.module('teslaApp.events', ['ngRoute'])
                 }
 
                 $scope.runEventSearch();
-            }
+            };
 
             $scope.runEventSearch = function(){
                 $scope.ageText = $scope.ageDesc[$scope.ageGroup-1];
@@ -81,7 +81,7 @@ angular.module('teslaApp.events', ['ngRoute'])
                     var eventArray = [];
                     angular.forEach(eventResults.effectResults, function(eventResult){
                         var effectPercent = eventResult.count / $scope.drugEventCount * 100;
-                        effectPercent = effectPercent.toFixed(2)
+                        effectPercent = effectPercent.toFixed(2);
 
                         var lower = eventResult.term.toLowerCase();
                         var effectString = lower.replace(/(^| )(\w)/g, function(x) {

@@ -15,7 +15,7 @@ var TeslaApp = angular.module('teslaApp', [
 
 // Slide out menu
 TeslaApp
-    .controller('MenuCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 
+    .controller('MenuCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log',
     function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
         $scope.toggleRight = buildToggler('right');
         /**
@@ -32,7 +32,7 @@ TeslaApp
             }, 300);
         }
     }])
-    .controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', 
+    .controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log',
     function ($scope, $timeout, $mdSidenav, $log) {
         $scope.close = function () {
             $mdSidenav('right').close()
@@ -41,7 +41,7 @@ TeslaApp
                 });
         };
     }])
-    .directive('classRoute', ['$rootScope', '$route', function($rootScope, $route) {
+    .directive('classRoute', ['$rootScope', function($rootScope) {
         return function(scope, elem, attr) {
           var previous = '';
           $rootScope.$on('$routeChangeSuccess', function(event, currentRoute) {

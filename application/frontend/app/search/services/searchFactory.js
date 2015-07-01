@@ -126,10 +126,9 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             var drugData = {};
             var drugEventSearchString = "patient.drug.medicinalproduct:" + drug;
             console.log('1 ', drugEventSearchString);
-            if (gender != 9) {
-                var drugEventSearchString = drugEventSearchString + "+AND+patient.patientsex:" + gender;
-            }
-            ;
+            //if (gender != 9) {
+            //    var drugEventSearchString = drugEventSearchString + "+AND+patient.patientsex:" + gender;
+            //}
             console.log('2 ', drugEventSearchString);
             drugEventSearchString = drugEventSearchString + "+AND+patient.patientonsetage:[" + ageMin + "+TO+" + ageMax + "]";
 
@@ -161,8 +160,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                 .searchString(drugRecallsSearchString));
 
             recallsPromise.then(function (eventResult) {
-                var resultsArray = eventResult.results;
-                drugData.effectResults = resultsArray;
+                drugData.effectResults = eventResult.results;
                 drugData.meta = eventResult.meta;
                 callback(drugData);
             });
@@ -204,8 +202,8 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
 
                     callback(finalInteractions);
 
-                })// rxNormApiService.getDrugInteractions
-            })//rxNormApiService.getDrugInfo
+                }); // rxNormApiService.getDrugInteractions
+            }); //rxNormApiService.getDrugInfo
         } // getDrugInteractions
         ,
         /**

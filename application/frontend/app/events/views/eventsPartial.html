@@ -35,14 +35,15 @@
 		<div class='adverse-bar' ng-repeat="event in drugEvents | limitTo:10">
 			<div class='adverse-fill-wrapper'>
 				<div class='adverse-bar-fill' ng-class="{orange: $index % 2 == 0, green: $index % 2 == 1}" style='width:{{event.percent}}%;'>{{event.event}}</div>
-			</div<span class='adverse-percent-data'>{{event.percent }}%</span>
+			</div>
+            <span class='adverse-percent-data'>{{event.percent }}%</span>
 		</div>
 		<md-button class='md-whiteframe-z1'>SEE ALL</md-button>
     </div>
     <div class='drug-recalls filter-results'>
 
 		<h3>Recalls Over Time*: {{drugRecallsMeta.results.total}}</h3>
-		
+
 	</div>
     <div class='drug-interactions filter-results'>
 
