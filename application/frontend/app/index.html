@@ -28,10 +28,10 @@
         <!-- <md-button class="menu" hide-gt-sm aria-label="Show User List">
             <md-icon md-svg-icon="menu" ></md-icon>
         </md-button> -->
-        <a href='/#/'><h1 id='logo'>Manna<img src='assets/svg/logo.svg'><span id='sub-logo'>powered by <b>FDA
+        <a href='/#/' flex='33'><h1 id='logo'>Manna<img src='assets/svg/logo.svg'><span id='sub-logo'>powered by <b>FDA
             Open</b></span></h1></a>
 
-        <div ng-controller="autoCompleteCtrl as ctrl" layout="column">
+        <div ng-controller="autoCompleteCtrl as ctrl" layout="column" class='search-wrapper' flex='64'>
             <md-content class='search-content'>
                 <form ng-submit="submitSearch($event)">
                     <md-autocomplete
