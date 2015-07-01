@@ -58,6 +58,8 @@ module.exports = function(config) {
       'bower_components/angulartics/src/angulartics-woopra.js',
       'bower_components/angulartics/src/angulartics-marketo.js',
       'bower_components/angulartics/src/angulartics-intercom.js',
+      'bower_components/spin.js/spin.js',
+      'bower_components/angular-spinner/angular-spinner.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/**/*.js',
