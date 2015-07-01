@@ -11,6 +11,21 @@ angular.module('teslaApp.events', ['ngRoute'])
             // Set Age Group Text Values
             $scope.ageDesc = ['All Ages', '0-17', '18-35', '36-55', '56+'];
 
+            if (!$scope.drugSelected) {
+                var drug = $location.search()['drug'];
+                if (drug) {
+                    $scope.drugSelected = drug;
+                    teslaFactory.setDrug(drug);
+                }
+            }
+            if (!$scope.drugEventCount) {
+                var count = $location.search()['count'];
+                if (count) {
+                    $scope.drugEventCount = count;
+                    teslaFactory.setDrugEventCount(count);
+                }
+            }
+
             // When the search page is initiated, grab the symptom search term from the teslaFactory
             $scope.factorySymptom = teslaFactory.getSymptom();
             $scope.drugSelected = teslaFactory.getDrug();
@@ -65,7 +80,6 @@ angular.module('teslaApp.events', ['ngRoute'])
                     var totalEvents = eventResults.totalEvents;
                     var eventArray = [];
                     angular.forEach(eventResults.effectResults, function(eventResult){
-                        console.log(eventResult, $scope.drugEventCount);
                         var effectPercent = eventResult.count / $scope.drugEventCount * 100;
                         effectPercent = effectPercent.toFixed(2)
 
