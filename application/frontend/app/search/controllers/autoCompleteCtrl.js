@@ -48,7 +48,7 @@ TeslaApp.controller('autoCompleteCtrl',
             //save term in teslaFactory for search page purposes
             teslaFactory.setSymptom(text);
 
-            $scope.loadDrugsBySymptom(text);
+            //$scope.loadDrugsBySymptom(text);
 
             $log.info('Text changed to ' + text);
         }
@@ -89,6 +89,7 @@ TeslaApp.controller('autoCompleteCtrl',
         $scope.setSelectedDrug = function(){
             teslaFactory.setDrug($scope.drug.drug);
             teslaFactory.setDrugEventCount($scope.drug.eventCount);
+
             //goto to drug page
             $location.path('/drug').search({'drugName':$scope.drug.drug,count:$scope.drug.eventCount});
         };
