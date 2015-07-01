@@ -1,6 +1,6 @@
 'use strict';
 
-TeslaApp.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $http, $q) {
+services.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $http, $q) {
     var baseUrl = ENV.BACKEND_API;
 
     var endPoints = {
@@ -15,15 +15,15 @@ TeslaApp.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $htt
         console.log('In Backend API apiCall');
         var deferred = $q.defer();
 
-        $http.get(baseUrl + endpoint, {params:oParam})
-        .success(function (data) {
-            console.log('in API Call Success');
-            console.log(data);
-            deferred.resolve(data);
-        }).error(function (data, status) {
-            deferred.reject(data);
-            console.log(status + ": could not get api data. Reason: " + data);
-        });
+        $http.get(baseUrl + endpoint, {params: oParam})
+            .success(function (data) {
+                console.log('in API Call Success');
+                console.log(data);
+                deferred.resolve(data);
+            }).error(function (data, status) {
+                deferred.reject(data);
+                console.log(status + ": could not get api data. Reason: " + data);
+            });
 
         return deferred.promise;
     };
@@ -34,7 +34,7 @@ TeslaApp.service('backendApiService', ['ENV', '$http', '$q', function (ENV, $htt
         return apiCall(endPoints.synonym, condition);
     };
 
-     /**
+    /**
      * Autocomplete API (Backend)
      *
      * oParam:{

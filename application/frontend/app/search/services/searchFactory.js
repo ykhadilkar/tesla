@@ -1,6 +1,6 @@
 'use strict';
 
-TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backendApiService', 'teslaFactory', '$q',
+services.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backendApiService', 'teslaFactory', '$q',
     function (fdaApiService, rxNormApiService, backendApiService, teslaFactory, $q) {
 
     return {
@@ -111,7 +111,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
 
                                 });
                             callbackSuccess(drugResults);
-                        }, 
+                        },
                         function(error)
                         {
                             callbackError(error);
