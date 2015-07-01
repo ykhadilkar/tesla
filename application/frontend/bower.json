@@ -18,7 +18,8 @@
     "n3-line-chart": "^1.1.0",
     "html5-boilerplate": "~5.2.0",
     "underscore": "~1.8.3",
-    "angulartics": "*"
+    "angulartics": "*",
+    "angular-spinner": "*"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.1"
