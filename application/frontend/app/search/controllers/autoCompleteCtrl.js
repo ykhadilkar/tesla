@@ -12,9 +12,12 @@ controllers.controller('autoCompleteCtrl',
                 self.searchTextChange($location.search().q);
             }
 
-            if ('/' == $location.path()) {
-                self.searchText = '';
-            }
+            //  Clear search query if we go to main page
+            $scope.$on("$routeChangeStart", function(){
+                if ('/' == $location.path()) {
+                    self.searchText = '';
+                }
+            });
 
             function querySearch(query) {
                 //make sure query not null before performing ajax (autocomplete)
