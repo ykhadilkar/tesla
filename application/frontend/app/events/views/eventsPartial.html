@@ -1,29 +1,31 @@
 <div flex layout='column' layout-sm='column' class='wrapper' layout-fill>
     <div class='filters' layout='row' layout-sm='column'>
-        <h2>{{drugSelected}}</h2>
+        <h2 flex>{{drugSelected}}</h2>
         <div class='rating-success'>
         	<div></div>
         	<div></div>
         	<div></div>
         	<div></div>
         </div>
-        <div>
-        	<md-button class='male md-whiteframe-z1' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
-            	<i class='fa fa-male fa-3x'></i>
-        	</md-button>
-        	<md-button class='female md-whiteframe-z1' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
-            	<i class='fa fa-female fa-3x'></i>
-        	</md-button>
-        </div>
-        <div class='slider-wrapper'>
-	        <md-slider flex ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()">
-	      	</md-slider>
-	      	<div>
-	      		<label>All Ages</label>
-	      		<label>0-17</label>
-	      		<label>18-35</label>
-	      		<label>36-55</label>
-	      		<label>56+</label>
+        <div class='filters-wrapper' flex>
+	        <div class='filters-button-wrapper'>
+	        	<md-button class='male md-whiteframe-z1' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
+	            	<i class='fa fa-male fa-3x'></i>
+	        	</md-button>
+	        	<md-button class='female md-whiteframe-z1' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
+	            	<i class='fa fa-female fa-3x'></i>
+	        	</md-button>
+	        </div>
+	        <div class='slider-wrapper'>
+		        <md-slider flex ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()">
+		      	</md-slider>
+		      	<div layout='row'>
+		      		<label flex='20'>All Ages</label>
+		      		<label flex='20'>0-17</label>
+		      		<label flex='20'>18-35</label>
+		      		<label flex='20'>36-55</label>
+		      		<label flex='20'>56+</label>
+		      	</div>
 	      	</div>
       	</div>
     </div>
@@ -31,7 +33,9 @@
     	<h3>Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
     	<!-- <p>*345 Subjects Were Involved in the Trials</p> -->
 		<div class='adverse-bar' ng-repeat="event in drugEvents | limitTo:10">
-			<div class='adverse-bar-fill' ng-class="{orange: $index % 2 == 0, green: $index % 2 == 1}" style='width:{{event.percent}}%;'>{{event.event}}</div><span class='adverse-percent-data'>{{event.percent }}%</span>
+			<div class='adverse-fill-wrapper'>
+				<div class='adverse-bar-fill' ng-class="{orange: $index % 2 == 0, green: $index % 2 == 1}" style='width:{{event.percent}}%;'>{{event.event}}</div>
+			</div<span class='adverse-percent-data'>{{event.percent }}%</span>
 		</div>
 		<md-button class='md-whiteframe-z1'>SEE ALL</md-button>
     </div>
@@ -45,7 +49,8 @@
 		<h3>Top 10 Drug Interactions</h3>
 		<ul>
 		    <li ng-repeat="interaction in drugInteractions | limitTo:10">
-		        {{interaction.drug}} - {{interaction.interaction}}
+		        {{interaction.drug}}
+		        <!-- - {{interaction.interaction}} -->
 		    </li>
 		</ul>
 	</div>
