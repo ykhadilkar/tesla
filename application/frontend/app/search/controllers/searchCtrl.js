@@ -1,7 +1,7 @@
 'use strict';
 
-TeslaApp.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope',
-    function (teslaFactory, searchFactory, fdaApiService, $scope) {
+TeslaApp.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope', '$location', 'usSpinnerService',
+    function (teslaFactory, searchFactory, fdaApiService, $scope, $location, usSpinnerService) {
         // When the search page is initiated, grab the symptom search term from the teslaFactory
         $scope.factorySymptom = teslaFactory.getSymptom();
 
@@ -20,13 +20,22 @@ TeslaApp.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiServi
         };
 
         var runSearch = function () {
+            //load spinner
+            usSpinnerService.spin('spinner');
 
             if ($scope.formSymptom) {
                 searchFactory.getDrugsBySymptom($scope.formSymptom, function (results) {
                     console.log('results returned');
                     console.log(results);
                     $scope.drugResults = results;
-                    $scope.noDrugResults = Boolean(!results);
+
+                    usSpinnerService.stop('spinner');
+                }, function(result){
+                    if(result.error.message === 'No matches found!') {
+                        usSpinnerService.stop('spinner');
+                        
+                        //show no result found
+                    }
                 });
             }
         };

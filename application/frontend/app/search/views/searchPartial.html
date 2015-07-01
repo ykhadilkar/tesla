@@ -14,34 +14,11 @@
                     <span>Adverse<br>Reactions</span>
                 </div>
             </md-content>
+            <md-content class='result' ng-show="!drugResults.length">
+                <div class='results-body'>
+                    No result found.
+                </div>
+            </md-content>
         </div>
     </md-content>
-    <!-- <div ng-controller='AppCtrl'>
-        <md-button ng-click='toggleRight()' hide-gt-md>
-            Open
-        </md-button>
-        <md-card>
-            <md-sidenav layout-padding layout-fill class='md-sidenav-right md-whiteframe-z2' md-component-id='right' md-is-locked-open='$mdMedia("gt-md")' flex id='sidebar'>Sidebar
-                <md-content ng-controller='RightCtrl'>
-                    <md-button ng-click='close()' class='md-primary' hide-gt-md>
-                        Close
-                    </md-button>
-                    <div id='accordion'>
-                        <h3>SET ASIDES</h3>
-                        <div>
-                            <md-checkbox class='md-primary'>test</md-checkbox>
-                            <md-checkbox class='md-primary'>test 2</md-checkbox>
-                            <md-checkbox class='md-primary'>test 3</md-checkbox>
-                            <md-checkbox class='md-primary'>test 4</md-checkbox>
-                        </div>
-                        <h3>Sort Drugs by:</h3>
-                        <div>
-                          <div layout="row">Safest<md-switch ng-model="sortResultsBySafe" aria-label="Sort Results By"></md-switch>Most Effective</div>
-                          <div layout="row">Safest<md-slider flex min="0" max="1" ng-model="sortBySlider"></md-slider>Most Effective</div>
-                        </div>
-                    </div>
-                </md-content>
-            </md-sidenav>
-        </md-card>
-    </div> -->
 </div>

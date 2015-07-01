@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('teslaApp').config(['$routeProvider',
-    function ($routeProvider) {
+TeslaApp.config(['$routeProvider', 'usSpinnerConfigProvider',
+    function ($routeProvider, usSpinnerConfigProvider) {
         $routeProvider.
             when('/', {
                 templateUrl: 'home/views/homePartial.html',
@@ -23,4 +23,7 @@ angular.module('teslaApp').config(['$routeProvider',
             otherwise({
                 redirectTo: '/'
             });
+
+            //customizing spinner
+            usSpinnerConfigProvider.setDefaults({color: 'black', radius:30, width:12, length: 25});
     }]);

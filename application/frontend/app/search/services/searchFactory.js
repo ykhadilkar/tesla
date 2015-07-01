@@ -7,9 +7,10 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
         /**
          *
          * @param symptom
-         * @param callback
+         * @param callbackSuccess
+         * @param callbackError
          */
-        getDrugsBySymptom: function (symptom, callback) {
+        getDrugsBySymptom: function (symptom, callbackSuccess, callbackError) {
             // Initialize an empty array to store the promises for the 2 OpenFDA API calls. These can be run in parallel.
             var promises = [];
 
@@ -109,7 +110,11 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                                     });
 
                                 });
-                            callback(drugResults);
+                            callbackSuccess(drugResults);
+                        }, 
+                        function(error)
+                        {
+                            callbackError(error);
                         });
                 })
         },

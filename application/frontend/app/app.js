@@ -7,6 +7,7 @@ var TeslaApp = angular.module('teslaApp', [
     'ngAria',
     'ngMaterial',
     'config',
+    'angularSpinner',
     'teslaApp.home',
     'teslaApp.events',
     'angulartics',
