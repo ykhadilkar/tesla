@@ -8,6 +8,4 @@ var TeslaApp = angular.module('teslaApp', [
     'ngMaterial',
     'config',
     'angularSpinner',
-    'angulartics',
-    'angulartics.google.analytics'
 ]);
