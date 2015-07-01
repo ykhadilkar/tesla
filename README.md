@@ -57,9 +57,8 @@
 - grunt serve
 
 ##### **Backend**
-- brew install mongodb
 - npm install
-- Start mongodb
+- Start elasticsearch
 - Run node app.js
 
 ####  **License**
