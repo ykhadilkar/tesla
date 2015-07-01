@@ -4,7 +4,8 @@ html, body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    background-color: #f1f3f4;
+    background-color: transparent;
+
 }
 
 md-card {
@@ -26,6 +27,7 @@ h3{
 .footer {
     height: 94px;
     background-color: #444;
+    padding-top: 30px
 }
 
 .footer .wrapper {
