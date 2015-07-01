@@ -52,15 +52,16 @@
 
 ####**Installation Instructions**
 
-##### **Frontend**
-- cd application/frontend
-- bower install
-- grunt serve
-
 ##### **Backend**
 - cd application/backend
 - npm install
 - Start elasticsearch
-- Run node app.js
+- node server.js
+
+##### **Frontend**
+- cd application/frontend
+- npm install
+- bower install
+- grunt serve
 
 ####  **License**
