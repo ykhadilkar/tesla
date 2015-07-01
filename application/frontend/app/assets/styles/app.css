@@ -47,7 +47,7 @@ b {
 }
 
 #content {
-    margin-top: 100px;
+    margin: 100px auto;
     opacity: .8;
     padding-bottom: 75px;
 }
@@ -271,7 +271,8 @@ md-toolbar.md-default-theme {
     margin: 0;
     font-size: 32px;
     margin-right: 60px;
-    margin-top: 20px
+    margin-top: 20px;
+    width: 100%;
 }
 #logo img{
   width: 33px;
@@ -290,7 +291,7 @@ md-toolbar.md-default-theme {
   font-family: open_sansextrabold_italic
 }
 #header-nav {
-    margin-top: 20px
+    margin-top: 28px
 }
 
 #header-nav a {
@@ -319,9 +320,11 @@ md-toolbar.md-default-theme {
 .header-wrapper md-card{
   border: 1px solid #8fb0c6;
 }
+.search-wrapper{
+  width: 100%;
+}
 .search {
     height: 100%;
-    max-width: 640px;
 }
 
 .search md-input-container {
@@ -358,7 +361,7 @@ md-toolbar.md-default-theme {
 }
 .search-content{
   margin-top: 14px;
-  width: 642px;
+  width: 100%
 }
 .search .md-whiteframe-z1{
   padding: 15px;
