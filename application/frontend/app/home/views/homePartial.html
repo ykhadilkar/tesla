@@ -39,15 +39,18 @@
                             </form>
                         </md-content>
 
-                        <div layout="column" layout-align="center center" style="padding:40px">
-                            <div layout="column" layout-align="center center" style="height: 100px;">
-                              <md-select ng-model="drug" ng-change="setSelectedDrug()" style="min-width: 200px;">
-                                <md-select-label>{{ drug ? drug.drug : 'List of drugs' }}</md-select-label>
-                                <md-option ng-value="drug" ng-repeat="drug in drugResults">{{drug.drug}}</md-option>
-                              </md-select>
-                            </div>
-                        </div>
-
+                        <md-content ng-show="drugResults">
+                            <md-list>
+                                <md-subheader class="md-no-sticky">List of drugs</md-subheader>
+                                <md-list-item class="md-2-line" ng-repeat="drug in drugResults" ng-click="setSelectedDrug(drug)">
+                                    <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
+                                    <div class="md-list-item-text">
+                                        <h3>{{ drug.drug }}</h3>
+                                        <p>Some info</p>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
+                        </md-content>
                     </div>
                 </div>
             </md-content>
