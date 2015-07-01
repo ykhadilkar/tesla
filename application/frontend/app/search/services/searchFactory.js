@@ -1,6 +1,7 @@
 'use strict';
 
-TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backendApiService', 'teslaFactory', '$q', function (fdaApiService, rxNormApiService, backendApiService, teslaFactory, $q) {
+TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backendApiService', 'teslaFactory', '$q',
+    function (fdaApiService, rxNormApiService, backendApiService, teslaFactory, $q) {
 
     return {
         /**
@@ -71,8 +72,8 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                                     var brandNames = [];
                                     angular.forEach(rxDataSets, function (rxDataset) {
 
-                                        console.log('DataSet');
-                                        console.log(rxDataset);
+                                        //console.log('DataSet');
+                                        //console.log(rxDataset);
                                         var drug = rxDataset.drugGroup.name;
 
                                         // Grab the full list of brands returned from RXNorm available for this substance.

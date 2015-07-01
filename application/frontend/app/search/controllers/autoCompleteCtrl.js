@@ -7,6 +7,13 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
         self.selectedItemChange = selectedItemChange;
         self.searchTextChange = searchTextChange;
 
+        if ('/search' == $location.path()) {
+            var query = $location.search()['q'];
+            if (query) {
+                self.searchTextChange(query);
+            }
+        }
+
         function querySearch(query) {
             //make sure query not null before performing ajax (autocomplete)
             if (query) {
@@ -34,6 +41,7 @@ TeslaApp.controller('autoCompleteCtrl', ['teslaFactory', 'searchFactory', '$scop
         }
 
         function searchTextChange(text) {
+            self.searchText = text;
             //save term in teslaFactory for search page purposes
             teslaFactory.setSymptom(text);
 

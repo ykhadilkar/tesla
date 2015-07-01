@@ -31,27 +31,24 @@ angular.module('teslaApp.events', ['ngRoute'])
             $scope.drugSelected = teslaFactory.getDrug();
             $scope.drugEventCount = teslaFactory.getDrugEventCount();
 
-            $scope.genderButtonClick = function(gender){
-                if(gender == $scope.genderSelected)
-                {
+            $scope.genderButtonClick = function (gender) {
+                if (gender == $scope.genderSelected) {
                     $scope.genderSelected = 9;
-                }
-                else
-                {
+                } else {
                     $scope.genderSelected = gender;
                 }
 
                 $scope.runEventSearch();
             };
 
-            $scope.runEventSearch = function(){
-                $scope.ageText = $scope.ageDesc[$scope.ageGroup-1];
+            $scope.runEventSearch = function () {
+                $scope.ageText = $scope.ageDesc[$scope.ageGroup - 1];
 
-                var ageMin=0;
-                var ageMax=150;
+                var ageMin = 0;
+                var ageMax = 150;
 
                 // translate
-                switch($scope.ageGroup) {
+                switch ($scope.ageGroup) {
                     case 1:
                         // Defaults are fine, do nothing
                         break;
@@ -74,36 +71,36 @@ angular.module('teslaApp.events', ['ngRoute'])
                         ageMin = 0;
                         ageMax = 150;
                         break;
-                };//switch
+                };
 
-                searchFactory.getDrugEvents($scope.drugSelected, $scope.genderSelected, ageMin, ageMax, function(eventResults){
-                    var totalEvents = eventResults.totalEvents;
+                searchFactory.getDrugEvents($scope.drugSelected, $scope.genderSelected, ageMin, ageMax, function (eventResults) {
+                    //var totalEvents = eventResults.totalEvents;
                     var eventArray = [];
-                    angular.forEach(eventResults.effectResults, function(eventResult){
+                    angular.forEach(eventResults.effectResults, function (eventResult) {
                         var effectPercent = eventResult.count / $scope.drugEventCount * 100;
                         effectPercent = effectPercent.toFixed(2);
 
                         var lower = eventResult.term.toLowerCase();
-                        var effectString = lower.replace(/(^| )(\w)/g, function(x) {
+                        var effectString = lower.replace(/(^| )(\w)/g, function (x) {
                             return x.toUpperCase();
                         });
 
-                       eventArray.push({'event':effectString, 'count':eventResult.count, 'percent':effectPercent });
+                        eventArray.push({'event': effectString, 'count': eventResult.count, 'percent': effectPercent});
                     });
                     $scope.drugEvents = eventArray;
                 });
             };
 
-            $scope.runRecallsSearch = function() {
+            $scope.runRecallsSearch = function () {
                 searchFactory.getDrugRecalls($scope.drugSelected, function (drugData) {
                     $scope.drugEffectResults = drugData.effectResults;
                     $scope.drugRecallsMeta = drugData.meta;
                 });
             };
 
-            $scope.runInteractionSearch = function() {
-                searchFactory.getDrugInteractions($scope.drugSelected, function(results){
-                   $scope.drugInteractions = results;
+            $scope.runInteractionSearch = function () {
+                searchFactory.getDrugInteractions($scope.drugSelected, function (results) {
+                    $scope.drugInteractions = results;
                 });
             };
 
