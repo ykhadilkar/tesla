@@ -20,6 +20,9 @@ TeslaApp.config(['$routeProvider', 'usSpinnerConfigProvider',
                 templateUrl: 'events/views/eventsPartial.html',
                 controller: 'EventsCtrl'
             }).
+            when('/about', {
+                templateUrl: 'about/views/about.html'
+            }).
             otherwise({
                 redirectTo: '/'
             });

@@ -87,7 +87,6 @@ services.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                                             });
                                         }
 
-
                                         var popularBrands = _.chain(brandNames)
                                             .countBy()
                                             .pairs()
