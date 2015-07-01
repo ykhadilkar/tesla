@@ -8,15 +8,17 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         $scope.genderSelected = 9;
         // Set Age Group Text Values
         $scope.ageDesc = ['All Ages', '0-17', '18-35', '36-55', '56+'];
-        $scope.drugSelected = $location.search().drugName;
 
+        //if drug is not scope try to get it from URL
         if (!$scope.drugSelected) {
-            var drug = $location.search()['drug'];
+            var drug = $location.search()['drugName'];
             if (drug) {
                 $scope.drugSelected = drug;
                 teslaFactory.setDrug(drug);
             }
         }
+
+        //if event count is not scope try to get it from URL
         if (!$scope.drugEventCount) {
             var count = $location.search()['count'];
             if (count) {
@@ -75,8 +77,21 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             searchFactory.getDrugEvents($scope.drugSelected, $scope.genderSelected, ageMin, ageMax, function (eventResults) {
                 //var totalEvents = eventResults.totalEvents;
                 var eventArray = [];
+                var total = 0;
+                var count = 0;
+                var keepGoing = true;
                 angular.forEach(eventResults.effectResults, function (eventResult) {
-                    var effectPercent = eventResult.count / $scope.drugEventCount * 100;
+                    if (keepGoing) {
+                        if (count == 10){
+                            keepGoing = false;
+                        }
+                        total = total + eventResult.count;
+                    }
+                    count++;
+                });
+
+                angular.forEach(eventResults.effectResults, function (eventResult) {
+                    var effectPercent = eventResult.count / total * 100;
                     effectPercent = effectPercent.toFixed(2);
 
                     var lower = eventResult.term.toLowerCase();

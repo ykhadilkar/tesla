@@ -4,7 +4,7 @@
             <h1>{{ factorySymptom }}</h1>
             <md-content class='result' ng-repeat="result in drugResults">
                 <div class='results-header'>
-                    <h2><a href="/#/events?drug={{result.drug}}&count={{result.eventCount}}" ng-click="clickDrug(result)">{{result.drug}}</a></h2><span>- Top 5 Brands</span>
+                    <h2><a href="/#/events?drugName={{result.drug}}&count={{result.eventCount}}" ng-click="clickDrug(result)">{{result.drug}}</a></h2><span>- Top 5 Brands</span>
                 </div>
                 <div class='results-body'>
                     <md-button ng-repeat="brand in result.popularBrands | limitTo:5" class='md-whiteframe-z1'>{{brand}}</md-button>

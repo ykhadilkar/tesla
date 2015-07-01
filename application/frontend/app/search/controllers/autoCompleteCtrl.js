@@ -88,8 +88,8 @@ TeslaApp.controller('autoCompleteCtrl',
         //set selected drug
         $scope.setSelectedDrug = function(){
             teslaFactory.setDrug($scope.drug.drug);
-
+            teslaFactory.setDrugEventCount($scope.drug.eventCount);
             //goto to drug page
-            $location.path('/drug').search('drugName', $scope.drug.drug);
+            $location.path('/drug').search({'drugName':$scope.drug.drug,count:$scope.drug.eventCount});
         };
     }]);
