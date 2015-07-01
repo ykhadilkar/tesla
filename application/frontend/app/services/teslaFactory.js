@@ -1,6 +1,6 @@
 'use strict';
 
-TeslaApp.factory('teslaFactory', function () {
+services.factory('teslaFactory', function () {
     var symptom = "";
     var drug = "";
     var drugEventCount = 0;
@@ -14,7 +14,7 @@ TeslaApp.factory('teslaFactory', function () {
          * @param String query
          * @returns String
          */
-        elasticQueryString: function(query){
+        elasticQueryString: function (query) {
             return encodeURIComponent(query.replace(/([\/!\*\+&\|\(\)\[\]{}\^~\?:"'])/g, "+"));
         },
         getSymptom: function () {

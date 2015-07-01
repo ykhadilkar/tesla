@@ -1,6 +1,6 @@
 'use strict';
 
-TeslaApp.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope', '$location', 'usSpinnerService',
+controllers.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope', '$location', 'usSpinnerService',
     function (teslaFactory, searchFactory, fdaApiService, $scope, $location, usSpinnerService) {
         // When the search page is initiated, grab the symptom search term from the teslaFactory
         $scope.factorySymptom = teslaFactory.getSymptom();
@@ -33,7 +33,7 @@ TeslaApp.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiServi
                 }, function(result){
                     if(result.error.message === 'No matches found!') {
                         usSpinnerService.stop('spinner');
-                        
+
                         //show no result found
                     }
                 });
