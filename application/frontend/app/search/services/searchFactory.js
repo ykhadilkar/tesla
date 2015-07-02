@@ -193,6 +193,9 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
 
             rxNormApiService.getRxCUI(rxNormApiService.queryBuilder()
                 .searchString(rxNormSearchString)).then(function (rxNormResults) {
+                if(typeof rxNormResults.idGroup.rxnormId === 'undefined') {
+                    return;
+                }
                 var rxcui = rxNormResults.idGroup.rxnormId[0];
 
                 var interactionSearchString = 'rxcui=' + rxcui;
