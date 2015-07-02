@@ -329,7 +329,7 @@ md-toolbar.md-default-theme {
 }
 
 .search-wrapper {
-    width: 415px;
+    /*width: 415px;*/
 }
 
 .search {
@@ -425,9 +425,16 @@ md-toolbar.md-default-theme {
   clear: both;
   float: left;
   margin-top: 10px;
+  width: 100%;
 }
 .search-form .fa{
   margin:10px;
+}
+.search-form md-select{
+  padding: 0
+}
+.search-form .md-select-label{
+  width: 100%;
 }
 /*End Home Page*/
 
