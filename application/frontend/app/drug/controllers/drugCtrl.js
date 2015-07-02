@@ -72,7 +72,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
                     ageMin = 0;
                     ageMax = 150;
                     break;
-            };
+            }
 
             searchFactory.getDrugEvents($scope.drugSelected, $scope.genderSelected, ageMin, ageMax, function (eventResults) {
                 //var totalEvents = eventResults.totalEvents;

@@ -12,10 +12,10 @@ TeslaApp.controller('FdaCtrl', ['fdaApiService', '$scope', '$q', function (fdaAp
 
     // When both OpenFDA API calls are complete, execute the remainder of the code.
     $q.all(promises).then(
-        function (datas) {
-            $scope.apiStatus = datas[0];
-            $scope.drugRecalls = datas[1];
-            $scope.reports2004 = datas[2].results;
+        function (data) {
+            $scope.apiStatus = data[0];
+            $scope.drugRecalls = data[1];
+            $scope.reports2004 = data[2].results;
         }
     );
 }]);
