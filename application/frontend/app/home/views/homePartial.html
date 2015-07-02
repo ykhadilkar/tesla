@@ -15,7 +15,7 @@
                 <div ng-controller="autoCompleteCtrl as ctrl">
                     <div class='' layout='column' flex='64'>
                         <md-content class='search-content'>
-                            <form ng-submit="loadDrugsBySymptom($event)" class='search-form' layout='row'>
+                            <form ng-submit="loadDrugsBySymptom(ctrl.searchText)" class='search-form' layout='row'>
                               <md-content class='search-wrapper' layout='row' flex='40'>
                                 <md-autocomplete
                                     ng-disabled="ctrl.isDisabled"
@@ -38,7 +38,7 @@
                                         No matches found for "{{ctrl.searchText}}".
                                     </md-not-found>
                                 </md-autocomplete>
-                                <md-button class='search-submit' flex='33'>Search</md-button>
+                                  <md-button class='search-submit' flex='33'>Search</md-button>
                               </md-content>
                               <i class='fa fa-arrow-circle-right fa-2x' flex='10'></i>
                               <md-select-x flex='40'>
