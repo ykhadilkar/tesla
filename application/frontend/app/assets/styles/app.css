@@ -146,7 +146,7 @@ md-sidenav md-list {
 /* Primary content area */
 .wrapper {
     position: relative;
-    max-width: 960px;
+    max-width: 1350px;
     margin: 0 auto;
     width: 100%;
     background-color: #fff;
@@ -569,6 +569,7 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
 }
 
 .slider-wrapper {
+    padding-top: 20px;
     float: right;
 }
 
