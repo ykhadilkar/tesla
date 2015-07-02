@@ -6,7 +6,6 @@
         </md-card> -->
         <div flex layout="row" layout-fill>
             <md-content id="content">
-                <p>Discover <b>Effective Drugs</b> <br>for you and your family</p>
                 <!-- <md-button class="share" md-no-ink ng-click="ul.share($event)" aria-label="Share">
                   <md-icon md-svg-icon="share"></md-icon>
                 </md-button> -->
@@ -16,7 +15,10 @@
                 <div ng-controller="autoCompleteCtrl as ctrl">
                     <div layout="column" class='' flex='64'>
                         <md-content class='search-content'>
-                            <form ng-submit="loadDrugsBySymptom($event)">
+                        <div class='step'>1</div>
+                        <h4>I am Suffereing From:</h4>
+                            <form ng-submit="loadDrugsBySymptom($event)" class='search-form'>
+                              <md-content class='search-wrapper'>
                                 <md-autocomplete
                                     ng-disabled="ctrl.isDisabled"
                                     md-no-cache="ctrl.noCache"
@@ -36,6 +38,8 @@
                                         No matches found for "{{ctrl.searchText}}".
                                     </md-not-found>
                                 </md-autocomplete>
+                                <md-button class='search-submit'>Search</md-button>
+                              </md-content>
                             </form>
                         </md-content>
 
@@ -50,6 +54,9 @@
                                     </div>
                                 </md-list-item>
                             </md-list>
+                        </md-content>
+                        <md-content>
+                           <p>Discover <b>Effective Drugs</b> <br>for you and your family</p>
                         </md-content>
                     </div>
                 </div>
