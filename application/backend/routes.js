@@ -5,6 +5,7 @@ var deviceController = require('./controllers/device');
 var foodController = require('./controllers/food');
 var symptomController = require('./controllers/symptom');
 var homeController = require('./controllers/home');
+var productController = require('./controllers/product');
 var goodRxController = require('./controllers/goodrx');
 
 exports.endpoints = [
@@ -66,6 +67,9 @@ exports.endpoints = [
     },
     {
         method: 'GET',
+        path: '/product/search.json',
+        config: {
+            handler: productController.search
         path: '/goodrx/fair-price.json',
         config: {
             handler: goodRxController.fairprice

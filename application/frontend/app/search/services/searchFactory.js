@@ -233,6 +233,21 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             });
         },
         /**
+         * get product from pillBox API (backend)
+         * 
+         * @param String prodCode
+         * @param Fn callbackSuccess
+         * @param Fn callbackError
+         * @returns {$q@call;defer.promise}
+         */
+        getPillBoxProduct: function(prodCode){
+            var oParam = {
+                "prodcode": prodCode,
+            };
+
+            return backendApiService.getProduct(oParam);
+        },
+        /**
          * AutoCompleete synonyms
          *
          * @param string term

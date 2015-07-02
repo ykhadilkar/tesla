@@ -37,6 +37,7 @@ module.exports = function(config) {
       'bower_components/underscore/underscore.js',
       'bower_components/spin.js/spin.js',
       'bower_components/angular-spinner/angular-spinner.js',
+      'bower_components/x2js/xml2json.min.js',
       'bower_components/d3/d3.js',
       'bower_components/nvd3/nv.d3.js',
       'bower_components/angular-nvd3/dist/angular-nvd3.min.js',
