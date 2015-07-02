@@ -41,25 +41,11 @@
                                   <md-button class='search-submit' flex='33'>Search</md-button>
                               </md-content>
                               <i class='fa fa-arrow-circle-right fa-2x' flex='10'></i>
-                              <md-select-x flex='40'>
-                                <md-option-x>Select a Drug</md-option-x>
-                              </md-select-x>
+                              <md-select placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)" flex='40'>
+                                <md-option ng-value="drug" ng-repeat="drug in drugResults">{{ drug.drug }}</md-option>
+                              </md-select>
                             </form>
                         </md-content>
-                       
-                        <md-content ng-show="drugResults">
-                            <md-list>
-                                <md-subheader class="md-no-sticky">List of drugs</md-subheader>
-                                <md-list-item class="md-2-line" ng-repeat="drug in drugResults" ng-click="setSelectedDrug(drug)">
-                                    <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
-                                    <div class="md-list-item-text">
-                                        <h3>{{ drug.drug }}</h3>
-                                        <p>Some info</p>
-                                    </div>
-                                </md-list-item>
-                            </md-list>
-                        </md-content>
-                        
                     </div>
                     <md-content>
                            <p>Discover <b>Effective Drugs</b> <br>for you and your family</p>
