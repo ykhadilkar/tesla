@@ -21,7 +21,7 @@ TeslaApp.config(['$routeProvider', 'usSpinnerConfigProvider',
                 controller: 'DrugCtrl'
             }).
             when('/product', {
-                templateUrl: 'drug/views/productPartial.html',
+                templateUrl: 'product/views/productPartial.html',
                 controller: 'ProductCtrl'
             }).
             when('/about', {
