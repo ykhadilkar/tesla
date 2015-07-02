@@ -1,27 +1,7 @@
 <md-content flex layout='row' layout-sm='column' class='wrapper' layout-fill layout-padding layout-margin>
     <div id='central-col' class='filters' layout="column" flex="75" layout-fill layout-padding layout-margin>
         <h1 flex>{{drugSelected}}</h1>
-        <div class='filters-wrapper' flex layout="row" layout-margin layout-sm="column" layout-fill layout-padding layout-margin>
-	        <div class='filters-button-wrapper' layout-padding layout-margin>
-	        	<md-button class='male md-whiteframe-z1' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
-	            	<i class='fa fa-male fa-3x'></i>
-	        	</md-button>
-	        	<md-button class='female md-whiteframe-z1' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
-	            	<i class='fa fa-female fa-3x'></i>
-	        	</md-button>
-	        </div>
-	        <div class='slider-wrapper'>
-		        <md-slider ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()">
-		      	</md-slider>
-		      	<div layout='row'>
-		      		<label flex='20'>All Ages</label>
-		      		<label flex='20'>0-17</label>
-		      		<label flex='20'>18-35</label>
-		      		<label flex='20'>36-55</label>
-		      		<label flex='20'>56+</label>
-		      	</div>
-	      	</div>
-      	</div>
+
         <div class='percent-of-adverse filter-results'>
             <h3>Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
             <!-- <p>*345 Subjects Were Involved in the Trials</p> -->
@@ -30,6 +10,27 @@
                 <nvd3 options='options' data='data'></nvd3>
             </div>
             <md-button class='md-whiteframe-z1'>SEE ALL</md-button>
+        </div>
+        <div class='filters-wrapper' flex layout="row" layout-margin layout-sm="column" layout-fill layout-padding layout-margin>
+            <div class='filters-button-wrapper' layout-padding layout-margin>
+                <md-button class='male md-whiteframe-z1' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
+                    <i class='fa fa-male fa-3x'></i>
+                </md-button>
+                <md-button class='female md-whiteframe-z1' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
+                    <i class='fa fa-female fa-3x'></i>
+                </md-button>
+            </div>
+            <div class='slider-wrapper'>
+                <md-slider ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()">
+                </md-slider>
+                <div layout='row'>
+                    <label flex='20'>All Ages</label>
+                    <label flex='20'>0-17</label>
+                    <label flex='20'>18-35</label>
+                    <label flex='20'>36-55</label>
+                    <label flex='20'>56+</label>
+                </div>
+            </div>
         </div>
         <div class='drug-recalls filter-results'>
 
