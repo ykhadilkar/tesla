@@ -142,14 +142,20 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                 .searchString(drugEventSearchString).setCount('patient.reaction.reactionmeddrapt.exact'));
 
             eventsPromise.then(function (eventResult) {
-                var resultsArray = eventResult.results;
-                var totalCount = 0;
-                _.each(resultsArray, function (val) {
-                    totalCount = totalCount + val.count
+
+                var countPromise = fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
+                    .searchString(drugEventSearchString));
+
+                countPromise.then(function (countResult) {
+                    var resultsArray = eventResult.results;
+                    var totalCount = 0;
+                    _.each(resultsArray, function (val) {
+                        totalCount = totalCount + val.count
+                    });
+                    drugData.effectResults = resultsArray;
+                    drugData.totalEvents = countResult.meta.results.total;
+                    callback(drugData);
                 });
-                drugData.effectResults = resultsArray;
-                drugData.totalEvents = totalCount;
-                callback(drugData);
             });
         },
 

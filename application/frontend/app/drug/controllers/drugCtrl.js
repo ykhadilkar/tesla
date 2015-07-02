@@ -19,13 +19,13 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         }
 
         //if event count is not scope try to get it from URL
-        if (!$scope.drugEventCount) {
-            var count = $location.search()['count'];
-            if (count) {
-                $scope.drugEventCount = count;
-                teslaFactory.setDrugEventCount(count);
-            }
-        }
+        //if (!$scope.drugEventCount) {
+        //    var count = $location.search()['count'];
+        //    if (count) {
+        //        $scope.drugEventCount = count;
+        //        teslaFactory.setDrugEventCount(count);
+        //    }
+        //}
 
         // When the search page is initiated, grab the symptom search term from the teslaFactory
         $scope.factorySymptom = teslaFactory.getSymptom();
@@ -80,18 +80,18 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
                 var total = 0;
                 var count = 0;
                 var keepGoing = true;
-                angular.forEach(eventResults.effectResults, function (eventResult) {
-                    if (keepGoing) {
-                        if (count == 10){
-                            keepGoing = false;
-                        }
-                        total = total + eventResult.count;
-                    }
-                    count++;
-                });
+                //angular.forEach(eventResults.effectResults, function (eventResult) {
+                //    if (keepGoing) {
+                //        if (count == 10){
+                //            keepGoing = false;
+                //        }
+                //        total = total + eventResult.count;
+                //    }
+                //    count++;
+                //});
 
                 angular.forEach(eventResults.effectResults, function (eventResult) {
-                    var effectPercent = eventResult.count / total * 100;
+                    var effectPercent = eventResult.count / eventResults.totalEvents * 100;
                     effectPercent = effectPercent.toFixed(2);
 
                     var lower = eventResult.term.toLowerCase();
@@ -101,6 +101,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
 
                     eventArray.push({'event': effectString, 'count': eventResult.count, 'percent': effectPercent});
                 });
+                $scope.drugEventCount = eventResults.totalEvents;
                 $scope.drugEvents = eventArray;
             });
         };
@@ -134,7 +135,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         };
 
         /**
-         * 
+         *
          * @param object product
          * @returns void
          */
