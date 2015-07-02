@@ -406,7 +406,7 @@ md-toolbar.md-default-theme {
 .home #content .md-button {
     font-family: open_sansextrabold;
     font-size: 17px;
-    padding: 0px 36px;
+    padding: 0px 26px;
     background-color: #3758b7;
     color: #fff;
     opacity: 1;
@@ -417,9 +417,9 @@ md-toolbar.md-default-theme {
 .search-content h4{
   float: left;
   margin:0 10px;
-  font-family: open_sanslight;
-  color: #a2a2a2;
-  font-size: 22px;
+  font-family: open_sansextrabold;
+  color: #525252;
+  font-size: 14px;
 }
 .search-form{
   clear: both;
@@ -429,12 +429,18 @@ md-toolbar.md-default-theme {
 }
 .search-form .fa{
   margin:10px;
+  color: #09b063;
+  display: block;
+  padding: 10px 0 0 10px;
 }
 .search-form md-select{
   padding: 0
 }
 .search-form .md-select-label{
   width: 100%;
+}
+md-autocomplete-wrap{
+  height: 50px;
 }
 /*End Home Page*/
 
