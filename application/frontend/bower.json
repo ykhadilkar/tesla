@@ -18,7 +18,7 @@
     "html5-boilerplate": "~5.2.0",
     "underscore": "~1.8.3",
     "angular-spinner": "*",
-    "x2js": "*"
+    "x2js": "*",
     "angular-nvd3": "^0.1.1"
   },
   "devDependencies": {

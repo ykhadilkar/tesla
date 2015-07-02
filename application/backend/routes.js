@@ -70,6 +70,10 @@ exports.endpoints = [
         path: '/product/search.json',
         config: {
             handler: productController.search
+            }
+    },
+    {
+        method: 'GET',
         path: '/goodrx/fair-price.json',
         config: {
             handler: goodRxController.fairprice
