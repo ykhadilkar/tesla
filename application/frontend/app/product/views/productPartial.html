@@ -1,5 +1,8 @@
         <h1>{{ product.openfda.brand_name[0] }}</h1>
         <hr />
+        <div ng-show="imageID">
+            <img src="http://pillbox.nlm.nih.gov/assets/small/{{imageID}}.jpg" />
+        </div>
         <p>indications_and_usage:<p>
         <p>{{ product.indications_and_usage[0] }}</p>
         <hr />
