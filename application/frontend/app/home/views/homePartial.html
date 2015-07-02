@@ -13,11 +13,11 @@
                     Browse Drugs
                 </md-button-->
                 <div ng-controller="autoCompleteCtrl as ctrl">
-                    <div layout="column" class='' flex='64'>
+                    <div class='' layout='column' flex='64'>
                         <md-content class='search-content'>
-                        <h4>I am Suffereing From:</h4>
-                            <form ng-submit="loadDrugsBySymptom($event)" class='search-form'>
-                              <md-content class='search-wrapper'>
+                          <h4>I am Suffering From:</h4>
+                            <form ng-submit="loadDrugsBySymptom($event)" class='search-form' layout='row'>
+                              <md-content class='search-wrapper' layout='row'>
                                 <md-autocomplete
                                     ng-disabled="ctrl.isDisabled"
                                     md-no-cache="ctrl.noCache"
@@ -29,7 +29,7 @@
                                     md-item-text="item.display"
                                     md-min-length="2"
                                     placeholder="Search..."
-                                    class='search'
+                                    md-menu-class='search'
                                     flex='66'>
                                     <md-item-template>
                                         <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
@@ -40,10 +40,14 @@
                                 </md-autocomplete>
                                 <md-button class='search-submit' flex='33'>Search</md-button>
                               </md-content>
+                              <i class='fa fa-arrow-circle-right fa-2x'></i>
+                              <md-select>
+                                <md-option>Select a Drug</md-option>
+                              </md-select>
                             </form>
                         </md-content>
-
-                        <md-content ng-show="drugResults">
+                       
+                        <md-se ng-show="drugResults">
                             <md-list>
                                 <md-subheader class="md-no-sticky">List of drugs</md-subheader>
                                 <md-list-item class="md-2-line" ng-repeat="drug in drugResults" ng-click="setSelectedDrug(drug)">
@@ -55,10 +59,11 @@
                                 </md-list-item>
                             </md-list>
                         </md-content>
-                        <md-content>
+                        
+                    </div>
+                    <md-content>
                            <p>Discover <b>Effective Drugs</b> <br>for you and your family</p>
                         </md-content>
-                    </div>
                 </div>
             </md-content>
         </div>

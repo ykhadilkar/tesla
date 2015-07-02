@@ -253,7 +253,8 @@ a {
 }
 
 md-toolbar.md-default-theme {
-    background-color: #09b063;
+    background-color: #47d091;
+    border-bottom: 1px solid #238f5d;
 }
 
 .fa-bars {
@@ -369,7 +370,7 @@ md-toolbar.md-default-theme {
 }
 
 .search-content {
-    height: 70px;
+    height: 76px;
     width: 100%;
     background-color: #f4f4f4;
     padding: 25px;
@@ -377,7 +378,6 @@ md-toolbar.md-default-theme {
 }
 
 .search .md-whiteframe-z1 {
-    padding: 15px;
     height: 50px;
     background-color: #fff;
     border: 1px solid #e4e4e4;
@@ -386,29 +386,33 @@ md-toolbar.md-default-theme {
 /*End header*/
 
 /*Home page*/
-.home {
+/*.home {
     background: url(../images/background.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}*/
+.home body{
+  background-color: #47d091
 }
-
 .home p {
     font-size: 5vw;
     font-family: open_sanslight;
-    color: #12c36a;
+    color: #fff;
     line-height: 100%;
 }
 
 .home #content .md-button {
     font-family: open_sansextrabold;
     font-size: 17px;
-    padding: 0px 50px;
+    padding: 0px 36px;
     background-color: #3758b7;
     color: #fff;
     opacity: 1;
     margin:0;
+    border-radius: 0;
+    height: 50px;
 }
 .search-content h4{
   float: left;
@@ -421,6 +425,9 @@ md-toolbar.md-default-theme {
   clear: both;
   float: left;
   margin-top: 10px;
+}
+.search-form .fa{
+  margin:10px;
 }
 /*End Home Page*/
 
