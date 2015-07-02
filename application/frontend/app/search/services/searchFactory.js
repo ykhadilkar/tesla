@@ -54,7 +54,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                             // Remove terms we know are not really drug names.
                             mergedDrugList = _.without(mergedDrugList, 'acid', 'sodium', 'sulfate', 'calcium', 'unspecified');
 
-                            console.log('filteredMergedDrugList : ', mergedDrugList);
+                            //console.log('filteredMergedDrugList : ', mergedDrugList);
 
                             // Initialize array to store the promises from each RXNorm API Call
                             var RXNormPromises = [];
@@ -130,14 +130,14 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
 
             var drugData = {};
             var drugEventSearchString = "patient.drug.medicinalproduct:" + drug;
-            console.log('1 ', drugEventSearchString);
+            //console.log('1 ', drugEventSearchString);
             //if (gender != 9) {
             //    var drugEventSearchString = drugEventSearchString + "+AND+patient.patientsex:" + gender;
             //}
-            console.log('2 ', drugEventSearchString);
+            //console.log('2 ', drugEventSearchString);
             drugEventSearchString = drugEventSearchString + "+AND+patient.patientonsetage:[" + ageMin + "+TO+" + ageMax + "]";
 
-            console.log('3 ', drugEventSearchString);
+            //console.log('3 ', drugEventSearchString);
             var eventsPromise = fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
                 .searchString(drugEventSearchString).setCount('patient.reaction.reactionmeddrapt.exact'));
 
