@@ -48,8 +48,6 @@ TeslaApp.controller('autoCompleteCtrl',
             //save term in teslaFactory for search page purposes
             teslaFactory.setSymptom(text);
 
-            //$scope.loadDrugsBySymptom(text);
-
             $log.info('Text changed to ' + text);
         }
 
@@ -60,6 +58,7 @@ TeslaApp.controller('autoCompleteCtrl',
 
             //save term in teslaFactory for search page purposes
             teslaFactory.setSymptom(item.value);
+            self.searchText = item.value;
 
             $scope.loadDrugsBySymptom(item.value);
 
