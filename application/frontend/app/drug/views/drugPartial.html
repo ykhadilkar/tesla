@@ -25,11 +25,9 @@
         <div class='percent-of-adverse filter-results'>
             <h3>Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
             <!-- <p>*345 Subjects Were Involved in the Trials</p> -->
-            <div class='adverse-bar' ng-repeat="event in drugEvents | limitTo:10">
-                <div class='adverse-fill-wrapper'>
-                    <div class='adverse-bar-fill' ng-class="{orange: $index % 2 == 0, green: $index % 2 == 1}" style='width:{{event.percent}}%;'>{{event.event}}</div>
-                </div>
-                <span class='adverse-percent-data'>{{event.percent }}%</span>
+
+            <div>
+                <nvd3 options='options' data='data'></nvd3>
             </div>
             <md-button class='md-whiteframe-z1'>SEE ALL</md-button>
         </div>
