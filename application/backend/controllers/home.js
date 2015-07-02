@@ -14,7 +14,11 @@ HomeController.prototype.routes = function event(request, reply) {
             '/device/event.json',
             '/device/enforcement.json',
             '/food/enforcement.json',
-            '/food/enforcement.json'
+            '/goodrx/fair-price.json',
+            '/goodrx/low-price.json',
+            '/goodrx/compare-price.json',
+            '/goodrx/drug-info.json',
+            '/goodrx/drug-search.json'
         ]
     })
 };

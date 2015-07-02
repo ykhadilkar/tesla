@@ -1,8 +1,11 @@
+"use strict";
+
 var drugController = require('./controllers/drug');
 var deviceController = require('./controllers/device');
 var foodController = require('./controllers/food');
 var symptomController = require('./controllers/symptom');
 var homeController = require('./controllers/home');
+var goodRxController = require('./controllers/goodrx');
 
 exports.endpoints = [
     {
@@ -63,9 +66,44 @@ exports.endpoints = [
     },
     {
         method: 'GET',
+        path: '/goodrx/fair-price.json',
+        config: {
+            handler: goodRxController.fairprice
+        }
+    },
+    {
+        method: 'GET',
+        path: '/goodrx/low-price.json',
+        config: {
+            handler: goodRxController.lowprice
+        }
+    },
+    {
+        method: 'GET',
+        path: '/goodrx/compare-price.json',
+        config: {
+            handler: goodRxController.compareprice
+        }
+    },
+    {
+        method: 'GET',
+        path: '/goodrx/drug-info.json',
+        config: {
+            handler: goodRxController.druginfo
+        }
+    },
+    {
+        method: 'GET',
+        path: '/goodrx/drug-search.json',
+        config: {
+            handler: goodRxController.drugsearch
+        }
+    },
+    {
+        method: 'GET',
         path: '/',
         config: {
             handler: homeController.routes
         }
-    },
+    }
 ];

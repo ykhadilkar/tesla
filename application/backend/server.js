@@ -1,3 +1,5 @@
+"use strict";
+
 var Hapi = require('hapi');
 var Routes = require('./routes');
 var Config = require('./config');
