@@ -1,6 +1,17 @@
 <div flex layout='column' layout-sm='column' class='wrapper' layout-fill>
     <div class='filters' layout='row' layout-sm='column'>
         <h2 flex>{{drugSelected}}</h2>
+        <div>
+            <md-list>
+                <md-subheader class="md-no-sticky">Lists of products</md-subheader>
+                <md-divider></md-divider>
+                <md-list-item ng-click="gotoProduct(product)" ng-repeat="product in products | limitTo:10">
+                  <md-icon md-svg-icon="cached"></md-icon>
+                  <p>{{ product.openfda.brand_name[0] }}</p>
+                </md-list-item>
+                <md-divider></md-divider>
+              </md-list>
+        </div>
         <div class='rating-success'>
         	<div></div>
         	<div></div>

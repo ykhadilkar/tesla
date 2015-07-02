@@ -45,10 +45,10 @@ TeslaApp.service('fdaApiService', ['ENV', '$http', '$q', function (ENV, $http, $
         this.search = '';
     };
 
-    //fdaQueryBuilder.prototype.setLimit = function (num) {
-    //  this.limit = num;
-    //  return this;
-    //};
+    fdaQueryBuilder.prototype.setLimit = function (num) {
+      this.limit = num;
+      return this;
+    };
 
     fdaQueryBuilder.prototype.setOffset = function (num) {
         this.offset = num;
@@ -60,10 +60,10 @@ TeslaApp.service('fdaApiService', ['ENV', '$http', '$q', function (ENV, $http, $
         return this;
     };
 
-    //fdaQueryBuilder.prototype.setCountExact = function (countField) {
-    //  this.count = countField + '.exact';
-    //  return this;
-    //};
+    fdaQueryBuilder.prototype.setCountExact = function (countField) {
+      this.count = countField + '.exact';
+      return this;
+    };
 
     fdaQueryBuilder.prototype.searchString = function (str) {
         this.search = str;

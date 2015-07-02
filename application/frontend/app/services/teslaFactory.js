@@ -3,6 +3,7 @@
 TeslaApp.factory('teslaFactory', function () {
     var symptom = "";
     var drug = "";
+    var product = "";
     var drugEventCount = 0;
 
 
@@ -28,6 +29,12 @@ TeslaApp.factory('teslaFactory', function () {
         },
         setDrug: function (drugIn) {
             drug = drugIn;
+        },
+        getProduct: function () {
+            return product;
+        },
+        setProduct: function (productIn) {
+            product = productIn;
         },
         getDrugEventCount: function () {
             return drugEventCount;

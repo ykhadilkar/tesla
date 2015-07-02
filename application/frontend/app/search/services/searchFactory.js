@@ -215,6 +215,24 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
         } // getDrugInteractions
         ,
         /**
+         * get drug labels
+         * @param string drug
+         * @return void
+         */
+        getDrugLabels: function(drug, callback){
+            var drugData = {};
+            var drugLabelSearchString = "substance_name:" + teslaFactory.elasticQueryString(drug);
+            var labelsPromise = fdaApiService.getDrugLabel(fdaApiService.queryBuilder()
+                .searchString(drugLabelSearchString)
+                .setLimit(50)
+            );
+
+            //brand_name
+            labelsPromise.then(function (labelResult) {
+                callback(labelResult);
+            });
+        },
+        /**
          * AutoCompleete synonyms
          *
          * @param string term

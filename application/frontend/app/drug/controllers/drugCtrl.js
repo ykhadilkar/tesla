@@ -1,7 +1,7 @@
 'use strict';
 
-TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope', '$location',
-    function (teslaFactory, searchFactory, fdaApiService, $scope, $location) {
+TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope', '$location', 'usSpinnerService',
+    function (teslaFactory, searchFactory, fdaApiService, $scope, $location, usSpinnerService) {
 
         // Default to All Ages
         $scope.ageGroup = 0;
@@ -118,9 +118,39 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             });
         };
 
+        $scope.runLabelsSearch = function () {
+            searchFactory.getDrugLabels($scope.drugSelected, function (data) {
+                var aBrandNames = [];
+
+//                _.each(data.results, function(oVal){
+//                    aBrandNames.push(oVal.openfda.brand_name[0]);
+//                });
+
+                //get only unique values case-sensitive
+                $scope.products = _.uniq(data.results, false, function(oObject){
+                    return oObject.openfda.brand_name[0].toLowerCase();
+                });
+            });
+        };
+
+        /**
+         * 
+         * @param object product
+         * @returns void
+         */
+        $scope.gotoProduct = function(product) {
+            //show spinner
+            usSpinnerService.spin('spinner');
+            //store product into tesla factory
+            teslaFactory.setProduct(product);
+            //goto to product page
+            $location.path('/product').search({'brandName': product.openfda.brand_name});
+        };
+
         $scope.runEventSearch();
         $scope.runRecallsSearch();
         $scope.runInteractionSearch();
+        $scope.runLabelsSearch();
 
     }]);
 
