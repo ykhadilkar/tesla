@@ -368,8 +368,8 @@ md-toolbar.md-default-theme {
 }
 
 .search-content {
-    height: 76px;
-    width: 100%;
+    /*height: 76px;*/
+    width: 91%;
     background-color: #f4f4f4;
     padding: 25px;
     overflow: visible;
@@ -388,10 +388,11 @@ md-toolbar.md-default-theme {
   background-color: #47d091
 }
 .home p {
-    font-size: 5vw;
+    font-size: 6vw;
     font-family: open_sanslight;
     color: #fff;
     line-height: 100%;
+    text-align: center;
 }
 
 .home #content .md-button {
