@@ -52,64 +52,72 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                             var mergedDrugList = _.intersection(eventDrugList, labelDrugList);
 
                             // Remove terms we know are not really drug names.
-                            mergedDrugList = _.without(mergedDrugList, 'acid', 'sodium', 'sulfate', 'calcium', 'unspecified');
-
-                            console.log('filteredMergedDrugList : ', mergedDrugList);
-
-                            // Initialize array to store the promises from each RXNorm API Call
-                            var RXNormPromises = [];
-
-                            angular.forEach(mergedDrugList, function (drug) {
-
-                                var rxNormSearchString = 'name=' + drug;
-
-                                RXNormPromises.push(rxNormApiService.getDrugInfo(rxNormApiService.queryBuilder()
-                                    .searchString(rxNormSearchString)));
-                            });
+                            mergedDrugList = _.without(mergedDrugList, 'acid', 'sodium', 'sulfate', 'calcium', 'hydrochloride', 'unspecified');
 
                             var drugResults = [];
-                            $q.all(RXNormPromises).then(
-                                function (rxDataSets) {
-                                    var brandNames = [];
-                                    angular.forEach(rxDataSets, function (rxDataset) {
 
-                                        //console.log('DataSet');
-                                        //console.log(rxDataset);
-                                        var drug = rxDataset.drugGroup.name;
-
-                                        // Grab the full list of brands returned from RXNorm available for this substance.
-                                        if (!_.isUndefined(rxDataset.drugGroup.conceptGroup)) {
-                                            var groupArray = rxDataset.drugGroup.conceptGroup[2].conceptProperties;
-                                            var groupNames = _.pluck(groupArray, 'name');
-                                            angular.forEach(groupNames, function (value) {
-                                                var words = value.match(/[^[\]]+(?=])/g);
-                                                brandNames.push(words[0]);
-                                            });
-                                        }
-
-                                        var popularBrands = _.chain(brandNames)
-                                            .countBy()
-                                            .pairs()
-                                            .sortBy(function (c) {
-                                                return -c[1]
-                                            })
-                                            .map(function (c) {
-                                                return c[0]
-                                            })
-                                            .value();
-
-
-                                        var matchedRecord = _.findWhere(eventDrugs, {"term": drug});
-                                        var drugCap = drug.charAt(0).toUpperCase() + drug.slice(1);
-                                        drugResults.push({
-                                            "drug": drugCap,
-                                            "eventCount": matchedRecord.count,
-                                            "popularBrands": popularBrands
-                                        });
+                            angular.forEach(mergedDrugList, function(drug){
+                                    drugResults.push({
+                                        "drug": drug
                                     });
+                            });
 
-                                });
                             callbackSuccess(drugResults);
+
+                            //// Initialize array to store the promises from each RXNorm API Call
+                            //var RXNormPromises = [];
+
+                            //angular.forEach(mergedDrugList, function (drug) {
+                            //
+                            //    var rxNormSearchString = 'name=' + drug;
+                            //
+                            //    RXNormPromises.push(rxNormApiService.getDrugInfo(rxNormApiService.queryBuilder()
+                            //        .searchString(rxNormSearchString)));
+                            //});
+
+                            //
+                            //$q.all(RXNormPromises).then(
+                            //    function (rxDataSets) {
+                            //        var brandNames = [];
+                            //        angular.forEach(rxDataSets, function (rxDataset) {
+                            //
+                            //            //console.log('DataSet');
+                            //            //console.log(rxDataset);
+                            //            var drug = rxDataset.drugGroup.name;
+                            //
+                            //            // Grab the full list of brands returned from RXNorm available for this substance.
+                            //            if (!_.isUndefined(rxDataset.drugGroup.conceptGroup)) {
+                            //                var groupArray = rxDataset.drugGroup.conceptGroup[2].conceptProperties;
+                            //                var groupNames = _.pluck(groupArray, 'name');
+                            //                angular.forEach(groupNames, function (value) {
+                            //                    var words = value.match(/[^[\]]+(?=])/g);
+                            //                    brandNames.push(words[0]);
+                            //                });
+                            //            }
+                            //
+                            //            var popularBrands = _.chain(brandNames)
+                            //                .countBy()
+                            //                .pairs()
+                            //                .sortBy(function (c) {
+                            //                    return -c[1]
+                            //                })
+                            //                .map(function (c) {
+                            //                    return c[0]
+                            //                })
+                            //                .value();
+                            //
+                            //
+                            //            var matchedRecord = _.findWhere(eventDrugs, {"term": drug});
+                            //            var drugCap = drug.charAt(0).toUpperCase() + drug.slice(1);
+                            //            drugResults.push({
+                            //                "drug": drugCap,
+                            //                "eventCount": matchedRecord.count,
+                            //                "popularBrands": popularBrands
+                            //            });
+                            //        });
+                            //
+                            //    });
+                            //callbackSuccess(drugResults);
                         },
                         function(error)
                         {
