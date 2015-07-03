@@ -27,13 +27,13 @@
             <!-- <p>*345 Subjects Were Involved in the Trials</p> -->
 
             <div>
-                <nvd3 options='options' data='data'></nvd3>
+                <nvd3 options='adverseEventsChartOptions' data='data'></nvd3>
             </div>
         </div>
 
         <div class='drug-recalls filter-results'>
 
-            <h3>Recalls Over Time*: {{drugRecallsMeta.results.total}}</h3>
+            <nvd3 options='recallChartOptions' data='drugRecallsData'></nvd3>
 
         </div>
         <div class='drug-interactions filter-results' layout="column" flex>
