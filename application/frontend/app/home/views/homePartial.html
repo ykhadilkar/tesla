@@ -15,7 +15,7 @@
                 <div ng-controller="autoCompleteCtrl as ctrl">
                     <div class='' layout='column'>
                         <md-content class='search-content'>
-                            <form ng-submit="loadDrugsBySymptom(ctrl.searchText)" class='search-form' layout='row' layout-sm='column'>
+                            <form ng-submit="loadDrugsBySymptom(ctrl.searchText)" class='search-form' layout='row' layout-md='column'>
                               <div flex='48' layout='column'>
                                 <h4>I am Suffering from:</h4>
                                 <md-content class='search-wrapper' layout='row'>
@@ -43,7 +43,7 @@
                                     <md-button class='search-submit' flex='33'>Search</md-button>
                                 </md-content>
                               </div>
-                              <i class='fa fa-arrow-circle-right fa-2x' flex='5' hide-sm></i>
+                              <i class='fa fa-arrow-circle-right fa-2x' flex='5' hide-md></i>
                               <div flex='46' layout='column'>
                                 <h4>And I want to know more about:</h4>
                                 <md-select placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)">
