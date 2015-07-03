@@ -175,7 +175,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
          */
         getDrugRecalls: function (drug, callback) {
             var drugData = {};
-            var drugRecallsSearchString = "product_description:" + drug;
+            var drugRecallsSearchString = "product_description:" + drug + "&count=report_date";
             var recallsPromise = fdaApiService.getDrugRecall(fdaApiService.queryBuilder()
                 .searchString(drugRecallsSearchString));
 

@@ -79,7 +79,6 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
                 var eventArray = [];
                 var count = 0;
                 var keepGoing = true;
-
                 angular.forEach(eventResults.effectResults, function (eventResult) {
                     if (keepGoing) {
                         if (count == 9) {
@@ -98,7 +97,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
                 $scope.drugEvents = eventArray;
                 $scope.data = [
                     {
-                        key: "Cumulative Return",
+                        key: "Adverse Events",
                         values: eventArray
                     }
                 ];
@@ -109,6 +108,22 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             searchFactory.getDrugRecalls($scope.drugSelected, function (drugData) {
                 $scope.drugEffectResults = drugData.effectResults;
                 $scope.drugRecallsMeta = drugData.meta;
+                var recallsData = [];
+                var time = 0;
+                var count = 0;
+                var pattern = /(\d{4})(\d{2})(\d{2})/;
+                angular.forEach(drugData.effectResults, function (drugEffectResult) {
+                    time = new Date(drugEffectResult.time.replace(pattern, '$1-$2-$3'));
+                    count = drugEffectResult.count;
+                    recallsData.push({time:time, count:count});
+                });
+
+                $scope.drugRecallsData = [
+                    {
+                        key: "Recalls",
+                        values: recallsData
+                    }
+                ];
             });
         };
 
@@ -121,11 +136,6 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         $scope.runLabelsSearch = function () {
             searchFactory.getDrugLabels($scope.drugSelected, function (data) {
                 var aBrandNames = [];
-
-//                _.each(data.results, function(oVal){
-//                    aBrandNames.push(oVal.openfda.brand_name[0]);
-//                });
-
                 //get only unique values case-sensitive
                 $scope.products = _.uniq(data.results, false, function (oObject) {
                     return oObject.openfda.brand_name[0].toLowerCase();
@@ -151,8 +161,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         $scope.runRecallsSearch();
         $scope.runInteractionSearch();
         $scope.runLabelsSearch();
-
-        $scope.options = {
+        $scope.adverseEventsChartOptions = {
             chart: {
                 //color: ["#004529","#006837","#238443","#41ab5d","#78c679","#addd8e","#d9f0a3","#f7fcb9","#ffffe5"],
                 type: 'discreteBarChart',
@@ -185,5 +194,41 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
                 }
             }
         };
+        $scope.recallChartOptions = {
+            chart: {
+                type: 'lineChart',
+                forceY:([0]),
+                height: 350,
+                margin : {
+                    top: 20,
+                    right: 20,
+                    bottom: 60,
+                    left: 50
+                },
+                x: function(d){return d.time;},
+                y: function(d){return d.count;},
+                showValues: true,
+                valueFormat: function(d){
+                    return d3.format(',.0f')(d);
+                },
+                transitionDuration: 500,
+                xAxis: {
+                    axisLabel: 'X Axis',
+                    tickFormat: function(d) {
+                        return d3.time.format('%x')(new Date(d))
+                    },
+                    rotateLabels: 50,
+                    showMaxMin: false
+                },
+                yAxis: {
+                    axisLabel: 'Y Axis',
+                    axisLabelDistance: 35,
+                    tickFormat: function(d){
+                        return d3.format(',.0f')(d);
+                    },
+                    showMaxMin: true
+                },
+                tooltips:true
+            }
+        };
     }]);
-
