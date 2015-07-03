@@ -8,4 +8,5 @@ var TeslaApp = angular.module('teslaApp', [
     'ngMaterial',
     'config',
     'angularSpinner',
+    'nvd3'
 ]);

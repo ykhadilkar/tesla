@@ -19,13 +19,13 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         }
 
         //if event count is not scope try to get it from URL
-        //if (!$scope.drugEventCount) {
-        //    var count = $location.search()['count'];
-        //    if (count) {
-        //        $scope.drugEventCount = count;
-        //        teslaFactory.setDrugEventCount(count);
-        //    }
-        //}
+        if (!$scope.drugEventCount) {
+            var count = $location.search()['count'];
+            if (count) {
+                $scope.drugEventCount = count;
+                teslaFactory.setDrugEventCount(count);
+            }
+        }
 
         // When the search page is initiated, grab the symptom search term from the teslaFactory
         $scope.factorySymptom = teslaFactory.getSymptom();
@@ -77,32 +77,31 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             searchFactory.getDrugEvents($scope.drugSelected, $scope.genderSelected, ageMin, ageMax, function (eventResults) {
                 //var totalEvents = eventResults.totalEvents;
                 var eventArray = [];
-                var total = 0;
                 var count = 0;
                 var keepGoing = true;
-                //angular.forEach(eventResults.effectResults, function (eventResult) {
-                //    if (keepGoing) {
-                //        if (count == 10){
-                //            keepGoing = false;
-                //        }
-                //        total = total + eventResult.count;
-                //    }
-                //    count++;
-                //});
 
                 angular.forEach(eventResults.effectResults, function (eventResult) {
-                    var effectPercent = eventResult.count / eventResults.totalEvents * 100;
-                    effectPercent = effectPercent.toFixed(2);
+                    if (keepGoing) {
+                        if (count == 9) {
+                            keepGoing = false;
+                        }
 
-                    var lower = eventResult.term.toLowerCase();
-                    var effectString = lower.replace(/(^| )(\w)/g, function (x) {
-                        return x.toUpperCase();
-                    });
+                        var lower = eventResult.term.toLowerCase();
+                        var effectString = lower.replace(/(^| )(\w)/g, function (x) {
+                            return x.toUpperCase();
+                        });
 
-                    eventArray.push({'event': effectString, 'count': eventResult.count, 'percent': effectPercent});
+                        eventArray.push({'label': effectString, 'value': eventResult.count});
+                        count++;
+                    }
                 });
-                $scope.drugEventCount = eventResults.totalEvents;
                 $scope.drugEvents = eventArray;
+                $scope.data = [
+                    {
+                        key: "Cumulative Return",
+                        values: eventArray
+                    }
+                ];
             });
         };
 
@@ -128,7 +127,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
 //                });
 
                 //get only unique values case-sensitive
-                $scope.products = _.uniq(data.results, false, function(oObject){
+                $scope.products = _.uniq(data.results, false, function (oObject) {
                     return oObject.openfda.brand_name[0].toLowerCase();
                 });
             });
@@ -139,7 +138,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
          * @param object product
          * @returns void
          */
-        $scope.gotoProduct = function(product) {
+        $scope.gotoProduct = function (product) {
             //show spinner
             usSpinnerService.spin('spinner');
             //store product into tesla factory
@@ -153,5 +152,38 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         $scope.runInteractionSearch();
         $scope.runLabelsSearch();
 
+        $scope.options = {
+            chart: {
+                //color: ["#004529","#006837","#238443","#41ab5d","#78c679","#addd8e","#d9f0a3","#f7fcb9","#ffffe5"],
+                type: 'discreteBarChart',
+                height: 500,
+                margin: {
+                    top: 20,
+                    right: 20,
+                    bottom: 60,
+                    left: 55
+                },
+                x: function (d) {
+                    return d.label;
+                },
+                y: function (d) {
+                    return d.value;
+                },
+                tooltips: false,
+                showValues: true,
+                valueFormat: function (d) {
+                    return d3.format(',.0f')(d);
+                },
+                transitionDuration: 1000,
+                yAxis: {
+                    axisLabel: 'No. of adverse events',
+                    axisLabelDistance: 28,
+                    tickFormat: d3.format(',.0f')
+                },
+                xAxis: {
+                    rotateLabels: 25
+                }
+            }
+        };
     }]);
 

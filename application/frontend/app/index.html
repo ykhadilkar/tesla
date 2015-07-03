@@ -14,6 +14,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -28,8 +29,12 @@
         <!-- <md-button class="menu" hide-gt-sm aria-label="Show User List">
             <md-icon md-svg-icon="menu" ></md-icon>
         </md-button> -->
-        <a href='/#/' flex='33'><h1 id='logo'>Manna<img src='assets/svg/logo.svg'><span id='sub-logo'>powered by <b>FDA
+        <a href='/#/' flex='33'><h1 id='logo'>VelociRx<img src='assets/svg/logo.svg'><span id='sub-logo'>powered by <b>FDA
             Open</b></span></h1></a>
+        <md-content flex='66'>
+            <md-button flex href='#/'><span class='bold'>HOME</span></md-button>
+            <md-button flex href='#/about'><span class='bold'>FAQs</span></md-button>
+        </md-content>
 
         <!--<div ng-controller="autoCompleteCtrl as ctrl" layout="column" class='search-wrapper' flex='64'>-->
             <!--<md-content class='search-content'>-->
@@ -69,11 +74,11 @@
         </div> -->
     </div>
 </md-toolbar>
-<div ng-controller="MenuCtrl" layout="column">
+<!-- <div ng-controller="MenuCtrl" layout="column">
     <section layout="row" flex>
         <md-sidenav class="md-sidenav-right md-whiteframe-z2 md-closed" md-component-id="right">
             <md-toolbar class="md-theme-light">
-                <h1 class="md-toolbar-tools">Manna</h1>
+                <h1 class="md-toolbar-tools">VelociRX</h1>
             </md-toolbar>
             <md-content ng-controller="RightCtrl" layout-padding align="left">
                 <ul class="nav sidebar-nav">
@@ -93,7 +98,7 @@
             </md-content>
         </md-sidenav>
     </section>
-</div>
+</div> -->
 <!--   <md-card class='search' layout='row'>
         <input type='search' placeholder="Search ..."></input>
         <md-button class='md-raised'>SEARCH</md-button>
@@ -130,12 +135,13 @@
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-<script src="bower_components/d3/d3.js"></script>
-<script src="bower_components/moment/moment.js"></script>
-<script src="bower_components/n3-line-chart/build/line-chart.min.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/spin.js/spin.js"></script>
 <script src="bower_components/angular-spinner/angular-spinner.js"></script>
+<script src="bower_components/x2js/xml2json.min.js"></script>
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/nvd3/nv.d3.js"></script>
+<script src="bower_components/angular-nvd3/dist/angular-nvd3.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

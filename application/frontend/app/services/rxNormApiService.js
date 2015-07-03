@@ -21,7 +21,7 @@ TeslaApp.service('rxNormApiService', ['ENV', '$http', '$q', function (ENV, $http
                 deferred.resolve(data);
             }).error(function (data, status) {
                 deferred.reject(data);
-                console.log(status + ": could not get api data. Reason: " + data);
+                //console.log(status + ": could not get api data. Reason: " + data);
             });
         return deferred.promise;
     };
@@ -53,7 +53,7 @@ TeslaApp.service('rxNormApiService', ['ENV', '$http', '$q', function (ENV, $http
     };
 
     this.getRxCUI = function (query) {
-        console.log('inRXCall ' + query);
+        //console.log('inRXCall ' + query);
         return apiCall(endPoints.rxcui, query);
     };
 

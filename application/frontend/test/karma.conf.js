@@ -34,12 +34,13 @@ module.exports = function(config) {
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
-      'bower_components/d3/d3.js',
-      'bower_components/moment/moment.js',
-      'bower_components/n3-line-chart/build/line-chart.min.js',
       'bower_components/underscore/underscore.js',
       'bower_components/spin.js/spin.js',
       'bower_components/angular-spinner/angular-spinner.js',
+      'bower_components/x2js/xml2json.min.js',
+      'bower_components/d3/d3.js',
+      'bower_components/nvd3/nv.d3.js',
+      'bower_components/angular-nvd3/dist/angular-nvd3.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/**/*.js',
@@ -81,7 +82,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_INFO
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {

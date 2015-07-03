@@ -54,6 +54,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                             // Remove terms we know are not really drug names.
                             mergedDrugList = _.without(mergedDrugList, 'acid', 'sodium', 'sulfate', 'calcium', 'hydrochloride', 'unspecified');
 
+                            //console.log('filteredMergedDrugList : ', mergedDrugList);
                             var drugResults = [];
 
                             angular.forEach(mergedDrugList, function(drug){
@@ -138,14 +139,14 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
 
             var drugData = {};
             var drugEventSearchString = "patient.drug.medicinalproduct:" + drug;
-            console.log('1 ', drugEventSearchString);
+            //console.log('1 ', drugEventSearchString);
             //if (gender != 9) {
             //    var drugEventSearchString = drugEventSearchString + "+AND+patient.patientsex:" + gender;
             //}
-            console.log('2 ', drugEventSearchString);
+            //console.log('2 ', drugEventSearchString);
             drugEventSearchString = drugEventSearchString + "+AND+patient.patientonsetage:[" + ageMin + "+TO+" + ageMax + "]";
 
-            console.log('3 ', drugEventSearchString);
+            //console.log('3 ', drugEventSearchString);
             var eventsPromise = fdaApiService.getDrugEvent(fdaApiService.queryBuilder()
                 .searchString(drugEventSearchString).setCount('patient.reaction.reactionmeddrapt.exact'));
 
@@ -245,6 +246,21 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             labelsPromise.then(function (labelResult) {
                 callback(labelResult);
             });
+        },
+        /**
+         * get product from pillBox API (backend)
+         *
+         * @param String prodCode
+         * @param Fn callbackSuccess
+         * @param Fn callbackError
+         * @returns {$q@call;defer.promise}
+         */
+        getPillBoxProduct: function(prodCode){
+            var oParam = {
+                "prodcode": prodCode,
+            };
+
+            return backendApiService.getProduct(oParam);
         },
         /**
          * AutoCompleete synonyms
