@@ -44,15 +44,13 @@ md-content{
     margin-left: 15px;
 }
 
-.git {
-
-}
-
 b, 
 .bold {
     font-family: open_sansbold;
 }
-
+i{
+    font-family: open_sansitalic;
+}
 /*#footer {
     background-color: #444;
     max-height: 60px;
@@ -386,13 +384,6 @@ md-toolbar.md-default-theme {
 /*End header*/
 
 /*Home page*/
-/*.home {
-    background: url(../images/background.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}*/
 .home body{
   background-color: #47d091
 }
@@ -439,8 +430,52 @@ md-toolbar.md-default-theme {
 .search-form .md-select-label{
   width: 100%;
 }
-md-autocomplete-wrap{
+.autocomplete,
+.autocomplete .md-whiteframe-z1{
   height: 50px;
+}
+.autocomplete .md-whiteframe-z1{
+  padding: 6px;
+  border: 1px solid #dedede;
+}
+.personas{
+  padding-top: 60px;
+  height: 400px;
+}
+.persona{
+  height: 100px;
+  position: relative;
+}
+.persona img{
+  position: absolute;
+  top:-60px;
+}
+.persona.left img{
+  left: 0
+}
+.persona.right img{
+  right: 0
+}
+.persona.left span{
+  margin-left: 186px;
+  clear: both;
+  display: block;
+  color: #fff;
+}
+.persona.right span{
+  text-align: right;
+  display: block;
+  color: #fff;
+}
+.persona.right .quote{
+  float: right;
+  margin-right: 180px;
+}
+.quote{
+  font-size: 18px;
+}
+b.name{
+  font-family: open_sansextrabold;
 }
 /*End Home Page*/
 
@@ -471,20 +506,30 @@ md-select.md-default-theme .md-select-label,
 md-select.md-default-theme:not([disabled]):focus .md-select-label {
     border: 0;
 }
-
+.md-select-label{
+  background-color: #b7b7b7;
+}
+.md-select-label .md-select-icon{
+    width: 20px;
+}
 .md-select-label .md-select-icon:after {
     font-family: 'FontAwesome';
     content: '\f107';
-    font-size: 26px;
-    color: #3758b7;
+    padding: 3px;
+    color: #b7b7b7;
+    background-color: #fff;
+    border-radius: 100%;
 }
 
 .md-select-label span {
-    color: #3758b7;
-    font-family: open_sansextrabold;
-    font-size: 12px;
+    font-family: open_sanslight;
+    color: #fff;
+    font-size: 22px;
+    padding: 9px;
 }
-
+md-option{
+  background-color: #fff;
+}
 .results-header {
     background-color: #d8eae5;
     padding: 10px;
