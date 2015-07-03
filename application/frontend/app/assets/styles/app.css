@@ -294,7 +294,9 @@ md-toolbar.md-default-theme {
 #sub-logo b {
     font-family: open_sansextrabold_italic
 }
-
+.nav-container{
+  text-align: right;
+}
 #header-nav {
     margin-top: 28px
 }
@@ -409,7 +411,7 @@ md-toolbar.md-default-theme {
 }
 .search-content h4{
   float: left;
-  margin:0 10px;
+  margin:10px 0;
   font-family: open_sansextrabold;
   color: #525252;
   font-size: 14px;
@@ -421,10 +423,10 @@ md-toolbar.md-default-theme {
   width: 100%;
 }
 .search-form .fa{
-  margin:10px;
+  margin:50px 0px 0 15px;
   color: #09b063;
   display: block;
-  padding: 10px 0 0 10px;
+  
 }
 .search-form md-select{
   padding: 0
