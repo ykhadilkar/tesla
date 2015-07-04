@@ -62,6 +62,7 @@
 - cd application/frontend
 - npm install
 - bower install
+- cd app/
 - grunt serve
 
 ####  **License**

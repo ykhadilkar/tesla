@@ -144,7 +144,8 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         };
 
         /**
-         *
+         * go to product page
+         * 
          * @param object product
          * @returns void
          */
@@ -154,7 +155,21 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             //store product into tesla factory
             teslaFactory.setProduct(product);
             //goto to product page
-            $location.path('/product').search({'brandName': product.openfda.brand_name});
+            $location.path('/product').search({'brandName': product.openfda.brand_name, 'splID': product.openfda.spl_id[0]});
+        };
+
+        /**
+         * go to interaction page
+         * 
+         * @returns void
+         */
+        $scope.gotoInteraction = function () {
+            //show spinner
+            usSpinnerService.spin('spinner');
+            //store drugname into tesla factory
+            teslaFactory.setDrug($scope.drugSelected);
+            //goto to product page
+            $location.path('/interaction').search({'drugName': $scope.drugSelected});
         };
 
         $scope.runEventSearch();
