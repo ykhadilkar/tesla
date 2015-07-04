@@ -291,7 +291,7 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= appConfig.dist %>/{,*/}*.html'],
+      html: ['<%= appConfig.dist %>/{,*/}*.html', '<%= appConfig.dist %>/{,*/}/views/*.html'],
       css: ['<%= appConfig.dist %>/assets/styles/*.css'],
       js: ['<%= appConfig.dist %>/assets/scripts/*.js'],
       options: {
