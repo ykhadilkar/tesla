@@ -58,7 +58,7 @@ TeslaApp.controller('autoCompleteCtrl',
 
             //save term in teslaFactory for search page purposes
             teslaFactory.setSymptom(item.value);
-            self.searchText = item.value;
+            self.searchText = item.display;
 
             $scope.loadDrugsBySymptom(item.value);
 
