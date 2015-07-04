@@ -1,6 +1,6 @@
 <md-content flex layout='row' layout-sm='column' class='wrapper' layout-fill layout-padding layout-margin>
     <div id='central-col' class='filters' layout="column" flex="75" layout-fill layout-padding layout-margin>
-        <h1 flex>{{drugSelected}}</h1>
+        <h1 flex>Displaying Results for <b>{{drugSelected}}</b></h1>
         <div class='filters-wrapper' flex layout="row" layout-margin layout-sm="column" layout-fill layout-padding layout-margin>
             <div class='filters-button-wrapper' layout-padding layout-margin>
                 <md-button class='male md-whiteframe-z1' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
@@ -13,7 +13,7 @@
             <div class='slider-wrapper'>
                 <md-slider ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()">
                 </md-slider>
-                <div layout='row'>
+                <div layout='row' class='slider-label-wrapper'>
                     <label flex='20'>All Ages</label>
                     <label flex='20'>0-17</label>
                     <label flex='20'>18-35</label>
@@ -37,20 +37,15 @@
 
         </div>
         <div class='drug-interactions filter-results' layout="column" flex>
-
-            <h3>Top 10 Drug Interactions</h3>
-
-                <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
-
-                    <md-grid-tile md-rowspan="2" md-colspan="2" md-colspan-sm="1" ng-repeat="interaction in drugInteractions | limitTo:6">
-                        <md-grid-tile-header>
-                            <h3>{{interaction.drug}}</h3>
-                        </md-grid-tile-header>
-                        {{ interaction.interaction | limitTo: 100 }}{{interaction.interaction.length > 400 ? '...' : ''}}
+            <h3>Top 10 Drug Interactions</h3>  
+            <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="5:4" md-row-height="2:2" md-gutter="20px" md-gutter-gt-sm="8px" flex='33'>
+                    <md-grid-tile md-rowspan="2" md-colspan="2" md-colspan-sm="1" ng-repeat="interaction in drugInteractions | limitTo:6" class='md-whiteframe-z1' layout-padding>
+                            <md-grid-tile-header>
+                                <h3>{{interaction.drug}}</h3>
+                            </md-grid-tile-header>
+                            {{ interaction.interaction | limitTo: 100 }}{{interaction.interaction.length > 400 ? '...' : ''}}
                     </md-grid-tile>
-
-                </md-grid-list>
-
+            </md-grid-list>
         </div>
     </div>
     <div id="right-col" layout='column' flex="25">

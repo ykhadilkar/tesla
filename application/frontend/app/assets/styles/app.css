@@ -606,9 +606,19 @@ md-option{
 .filters {
     margin-bottom: 20px;
 }
-
+.filters h1{
+  font-family: open_sanslight;
+  color: #989898;
+  font-size: 24px;
+}
+.filters h1 b{
+  text-transform: capitalize;
+  color: #575757;
+}
 .filters-wrapper {
     float: right;
+    border-top: 1px solid #e2e2e2;
+    margin-top: 0;
 }
 
 .filters-button-wrapper {
@@ -618,28 +628,36 @@ md-option{
 .filters button {
     color: #3758b7;
     border: 1px solid #3758b7;
-    border-radius: 0;
-    width: 70px;
-    height: 70px;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    font-size: 10px;
+    padding-top: 5px; 
 }
 
 .filters button.active {
-    color: #6e6e6e;
-    border-color: #6e6e6e;
+    color: #fff;
+    border-color: #3758b7;
+    background-color: #3758b7;
 }
-
+md-slider{
+  width: 200px
+}
 .slider-wrapper {
     padding-top: 20px;
     float: right;
 }
 
 .slider-wrapper label {
-    margin-left: 10px;
+    margin-left: 7px;
     font-family: open_sanslight_italic;
     color: #808181;
     white-space: nowrap;
 }
-
+.slider-label-wrapper{
+  margin-left: -17px;
+}
 .slider-wrapper label.selected {
     color: #3758b7;
 }
@@ -650,8 +668,6 @@ md-option{
 
 .filter-results {
     clear: both;
-    background-color: #eff3f7;
-    border: solid 1px #d8e1e9;
     padding: 30px 40px;
     margin-bottom: 20px;
 }
