@@ -230,7 +230,7 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
         } // getDrugInteractions
         ,
         /**
-         * get drug labels
+         * get drug labels (items) by substance_name
          * @param string drug
          * @return void
          */
@@ -240,6 +240,24 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             var labelsPromise = fdaApiService.getDrugLabel(fdaApiService.queryBuilder()
                 .searchString(drugLabelSearchString)
                 .setLimit(50)
+            );
+
+            //brand_name
+            labelsPromise.then(function (labelResult) {
+                callback(labelResult);
+            });
+        },
+        /**
+         * get drug label by spl_id
+         * @param string splID
+         * @return void
+         */
+        getDrugLabel: function(splID, callback){
+            var drugData = {};
+            var drugLabelSearchString = "spl_id:" + teslaFactory.elasticQueryString(splID);
+            var labelsPromise = fdaApiService.getDrugLabel(fdaApiService.queryBuilder()
+                .searchString(drugLabelSearchString)
+                .setLimit(1)
             );
 
             //brand_name

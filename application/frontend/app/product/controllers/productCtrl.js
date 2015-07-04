@@ -4,15 +4,10 @@ TeslaApp.controller('ProductCtrl', ['teslaFactory', 'searchFactory', '$scope', '
     function (teslaFactory, searchFactory, $scope, $location, usSpinnerService) {
         $scope.product = teslaFactory.getProduct();
 
-        //make sure we have product otherwise direct to home
-        if(!$scope.product) {
-            //redirect home
-            $location.path('/');
-            //we can make a call fdaApi to reload product based on Q param given in url
-        }
-
         //get product from PillBox by prodCode
-        searchFactory.getPillBoxProduct($scope.product.openfda.product_ndc[0]).then(
+        $scope.getProductImage = function()
+        {
+            searchFactory.getPillBoxProduct($scope.product.openfda.product_ndc[0]).then(
             function(data) {
                 var x2js = new X2JS(); 
                 var jsonObj = x2js.xml_str2json( data );
@@ -24,9 +19,36 @@ TeslaApp.controller('ProductCtrl', ['teslaFactory', 'searchFactory', '$scope', '
                 }
             },
             function(error) {
+            }).finally(function() {
+                //stop spinner
+                usSpinnerService.stop('spinner');
+            });
+        }
+
+        //make sure we have product otherwise direct to home
+        if(!$scope.product) {
+            if(!$location.search()['splID']) {
+                //redirect home
+                $location.path('/');
             }
-        ).finally(function() {
-            //stop spinner
-            usSpinnerService.stop('spinner');
-        });
+
+            //load spinner
+            usSpinnerService.spin('spinner');
+
+            //get product(API Call)
+            searchFactory.getDrugLabel($location.search()['splID'], function(data){
+                if(data.results.length > 0) {
+                    $scope.product = data.results[0];
+
+                    //get product image
+                    $scope.getProductImage();
+                } else {
+                    //redirect home: product not found
+                    $location.path('/');
+                }
+            });
+        } else {
+            //get product picture
+            $scope.getProductImage();
+        }
 }]);
