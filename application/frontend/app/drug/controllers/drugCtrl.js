@@ -155,7 +155,13 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             //store product into tesla factory
             teslaFactory.setProduct(product);
             //goto to product page
-            $location.path('/product').search({'brandName': product.openfda.brand_name, 'splID': product.openfda.spl_id[0]});
+            $location.path('/product').search(
+            {
+                'drugName': $scope.drugSelected,
+                'brandName': product.openfda.brand_name, 
+                'splID': product.openfda.spl_id[0],
+                'symptom': $location.search()['symptom'],
+            });
         };
 
         /**
@@ -169,7 +175,11 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             //store drugname into tesla factory
             teslaFactory.setDrug($scope.drugSelected);
             //goto to product page
-            $location.path('/interaction').search({'drugName': $scope.drugSelected});
+            $location.path('/interaction').search(
+            {
+                'drugName': $scope.drugSelected,
+                'symptom': $location.search()['symptom'],
+            });
         };
 
         $scope.runEventSearch();

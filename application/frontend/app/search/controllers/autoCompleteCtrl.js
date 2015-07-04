@@ -7,13 +7,46 @@ TeslaApp.controller('autoCompleteCtrl',
         self.querySearch = querySearch;
         self.selectedItemChange = selectedItemChange;
         self.searchTextChange = searchTextChange;
+        var symptom = (teslaFactory.getSymptom()) ? teslaFactory.getSymptom().toLowerCase() : '';
+        symptom = (!symptom) ? $location.search()['symptom'] : symptom;
+        var drug = (teslaFactory.getDrug()) ? teslaFactory.getDrug().toLowerCase() : '';
+        drug = (!drug) ? $location.search()['drugName'] : drug;
 
-        if ('/search' == $location.path()) {
-                self.searchTextChange($location.search().q);
+        //Populating drugs based on Autocomplete
+        $scope.loadDrugsBySymptom = function (symptom) {
+            if (symptom) {
+                //load spinner
+                usSpinnerService.spin('spinner');
+
+                //get drugs and populate dropdown list
+                searchFactory.getDrugsBySymptom(symptom, function (results) {
+                    $scope.drugResults = results;
+
+                    //select current drug in dropdown list
+                    if(drug) {
+                        _.find($scope.drugResults, function(oVal){
+                            if(drug === oVal.drug) {
+                                $scope.drug = oVal;
+                            }
+                        });
+                    }
+    
+                    usSpinnerService.stop('spinner');
+                }, function(result){
+                    if(result.error.message === 'No matches found!') {
+                        usSpinnerService.stop('spinner');
+                        $scope.drugResults = [];
+                    }
+                });
             }
+        };
 
-            if ('/' == $location.path()) {
-                self.searchText = '';
+        //set symptom in autocomplete field
+        if(!self.searchText) {
+            self.searchText = symptom;
+
+            //load drugs to populate dropdown
+            $scope.loadDrugsBySymptom(symptom);
         }
 
         function querySearch(query) {
@@ -65,31 +98,17 @@ TeslaApp.controller('autoCompleteCtrl',
             $log.info('Item changed to ' + JSON.stringify(item));
         }
 
-        //Populating drugs based on Autocomplete
-        $scope.loadDrugsBySymptom = function (symptom) {
-            if (symptom) {
-                //load spinner
-                usSpinnerService.spin('spinner');
-
-                //get drugs and populate dropdown list
-                searchFactory.getDrugsBySymptom(symptom, function (results) {
-                    $scope.drugResults = results;
-                    usSpinnerService.stop('spinner');
-                }, function(result){
-                    if(result.error.message === 'No matches found!') {
-                        usSpinnerService.stop('spinner');
-                        $scope.drugResults = [];
-                    }
-                });
-            }
-        };
-
         //set selected drug
         $scope.setSelectedDrug = function(drug){
             teslaFactory.setDrug(drug.drug);
             teslaFactory.setDrugEventCount(drug.eventCount);
 
             //goto to drug page
-            $location.path('/drug').search({'drugName':drug.drug,count:drug.eventCount});
+            $location.path('/drug').search(
+            {
+                'symptom': self.searchText,
+                'drugName': drug.drug,
+                'count': drug.eventCount
+            });
         };
     }]);

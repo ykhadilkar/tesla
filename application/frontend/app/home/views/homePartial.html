@@ -1,85 +1,33 @@
 <div class=''>
     <div class='wrapper'>
-        <!-- <md-card class='search' layout='row' flex>
-          <input type='search' placeholder="Search ..." ng-model="formSymptom" flex='71' layout-fill></input>
-          <md-button class='md-raised' ng-click="onHomeSearchClick()" layout-fill>SEARCH</md-button>
-        </md-card> -->
         <div flex layout="row" layout-fill>
             <md-content id="content">
-                <!-- <md-button class="share" md-no-ink ng-click="ul.share($event)" aria-label="Share">
-                  <md-icon md-svg-icon="share"></md-icon>
-                </md-button> -->
-                <!--md-button>
-                    Browse Drugs
-                </md-button-->
-                <div ng-controller="autoCompleteCtrl as ctrl">
-                    <div class='' layout='column'>
-                        <md-content class='search-content'>
-                            <form ng-submit="loadDrugsBySymptom(ctrl.searchText)" class='search-form' layout='row' layout-md='column'>
-                              <div flex='48' layout='column'>
-                                <h4>I am Suffering from:</h4>
-                                <md-content class='search-wrapper' layout='row'>
-                                  <md-autocomplete
-                                      ng-disabled="ctrl.isDisabled"
-                                      md-no-cache="ctrl.noCache"
-                                      md-selected-item="ctrl.selectedItem"
-                                      md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
-                                      md-search-text="ctrl.searchText"
-                                      md-selected-item-change="ctrl.selectedItemChange(item)"
-                                      md-items="item in ctrl.querySearch(ctrl.searchText)"
-                                      md-item-text="item.display"
-                                      md-min-length="2"
-                                      placeholder="Headache, Teething, High Blood Pressure ..."
-                                      class='autocomplete'
-                                      flex='66'
-                                      layout-fill>
-                                      <md-item-template layout-fill>
-                                          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
-                                      </md-item-template>
-                                      <md-not-found>
-                                          No matches found for "{{ctrl.searchText}}".
-                                      </md-not-found>
-                                  </md-autocomplete>
-                                    <md-button class='search-submit' flex='33'>Search</md-button>
-                                </md-content>
-                              </div>
-                              <i class='fa fa-arrow-circle-right fa-2x' flex='5' hide-md></i>
-                              <div flex='46' layout='column'>
-                                <h4>And I want to know more about:</h4>
-                                <md-select placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)">
-                                  <md-option ng-value="drug" ng-repeat="drug in drugResults">{{ drug.drug }}</md-option>
-                                </md-select>
-                              </div>
-                            </form>
-                        </md-content>
+                <md-content>
+                   <p>Discover the <b>right drugs</b> <br>for you and your family</p>
+                </md-content>
+                <md-content class='personas' layout='column' hide-sm>
+                  <div class='persona left'>
+                    <img src='assets/images/amanda.png'>
+                    <div class='quote'>
+                      <span class=''>&#8220;<b>I am taking<br>Gabapentin</b> for Nerve pain&#8221;</span>
+                      <span class='person'><b class='name'>Amanda</b> - <i>45 Year Old</i></span>
                     </div>
-                    <md-content>
-                       <p>Discover the <b>right drugs</b> <br>for you and your family</p>
-                    </md-content>
-                    <md-content class='personas' layout='column' hide-sm>
-                      <div class='persona left'>
-                        <img src='assets/images/amanda.png'>
-                        <div class='quote'>
-                          <span class=''>&#8220;<b>I am taking<br>Gabapentin</b> for Nerve pain&#8221;</span>
-                          <span class='person'><b class='name'>Amanda</b> - <i>45 Year Old</i></span>
-                        </div>
-                      </div>
-                      <div class='persona right'>
-                        <div class='quote'>
-                          <span class=''>&#8220;<b>I am taking<br>Metformin</b> for Type 2 diabetes&#8221;</span>
-                          <span class='person'><b class='name'>Chris<b> - <i>84 Year Old</i></span>
-                        </div>
-                        <img src='assets/images/chris.png'>
-                      </div>
-                      <div class='persona left'>
-                        <img src='assets/images/david.png'>
-                        <div class='quote'>
-                          <span class=''>&#8220;<b>I am taking<br>Metformin</b> for Type 2 diabetes&#8221;</span>
-                          <span class='person'><b class='name'>David</b> - <i>64 Year Old</i></span>
-                        </div>
-                      </div>
-                    </md-content>
-                </div>
+                  </div>
+                  <div class='persona right'>
+                    <div class='quote'>
+                      <span class=''>&#8220;<b>I am taking<br>Metformin</b> for Type 2 diabetes&#8221;</span>
+                      <span class='person'><b class='name'>Chris<b> - <i>84 Year Old</i></span>
+                    </div>
+                    <img src='assets/images/chris.png'>
+                  </div>
+                  <div class='persona left'>
+                    <img src='assets/images/david.png'>
+                    <div class='quote'>
+                      <span class=''>&#8220;<b>I am taking<br>Metformin</b> for Type 2 diabetes&#8221;</span>
+                      <span class='person'><b class='name'>David</b> - <i>64 Year Old</i></span>
+                    </div>
+                  </div>
+                </md-content>
             </md-content>
         </div>
     </div>
