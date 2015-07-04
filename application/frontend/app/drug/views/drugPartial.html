@@ -38,7 +38,7 @@
         </div>
         <div class='drug-interactions filter-results' layout="column" flex>
 
-            <h3>Top 10 Drug Interactions</h3>
+            <h3>Top 6 Drug Interactions</h3>
 
                 <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
 
@@ -46,10 +46,16 @@
                         <md-grid-tile-header>
                             <h3>{{interaction.drug}}</h3>
                         </md-grid-tile-header>
-                        {{ interaction.interaction | limitTo: 100 }}{{interaction.interaction.length > 400 ? '...' : ''}}
+                        {{ interaction.interaction | limitTo: 100 }}{{interaction.interaction.length > 100 ? '...' : ''}}
                     </md-grid-tile>
 
                 </md-grid-list>
+
+            <div ng-show="!drugInteractions.length">
+                No drug interaction found for {{ drugSelected }}.
+            </div>
+
+            <md-button ng-show="drugInteractions.length" class="md-raised md-primary" ng-click="gotoInteraction()">See more</md-button>
 
         </div>
     </div>

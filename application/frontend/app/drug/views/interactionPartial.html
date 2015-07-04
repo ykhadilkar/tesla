@@ -1,0 +1,20 @@
+<md-content flex layout='row' layout-sm='column' class='wrapper' layout-fill layout-padding layout-margin>
+    <div class='drug-interactions filter-results' layout="column" flex>
+        <h3>Drug Interactions: {{ drugSelected }}</h3>
+
+        <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+
+            <md-grid-tile md-rowspan="2" md-colspan="2" md-colspan-sm="1" ng-repeat="interaction in drugInteractions">
+                <md-grid-tile-header>
+                    <h3>{{interaction.drug}}</h3>
+                </md-grid-tile-header>
+                {{ interaction.interaction }}
+            </md-grid-tile>
+
+        </md-grid-list>
+        
+        <div ng-show="!drugInteractions.length">
+            No drug interaction found for {{ drugSelected }}.
+        </div>
+    </div>
+</md-content>
