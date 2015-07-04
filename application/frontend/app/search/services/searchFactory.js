@@ -216,12 +216,15 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
                 var interactionSearchString = 'rxcui=' + rxcui;
                 rxNormApiService.getDrugInteractions(interactionSearchString).then(function (intResults) {
                     var finalInteractions = [];
-                    angular.forEach(intResults.interactionTypeGroup[0].interactionType[0].interactionPair, function (intPair) {
-                        var intDescription = intPair.description;
+    
+                    if(typeof intResults.interactionTypeGroup !== 'undefined') {
+                        angular.forEach(intResults.interactionTypeGroup[0].interactionType[0].interactionPair, function (intPair) {
+                            var intDescription = intPair.description;
 
-                        var intDrug = intPair.interactionConcept[1].minConceptItem.name;
-                        finalInteractions.push({'drug': intDrug, 'interaction': intDescription});
-                    });
+                            var intDrug = intPair.interactionConcept[1].minConceptItem.name;
+                            finalInteractions.push({'drug': intDrug, 'interaction': intDescription});
+                        });
+                    }
 
                     callback(finalInteractions);
 
