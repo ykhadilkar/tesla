@@ -38,6 +38,7 @@ md-content{
     text-align: center;
     background-color: #444;
     width: 320px;
+    padding:0;
 }
 
 .footer .wrapper a {
@@ -733,4 +734,9 @@ md-slider{
     font-size: 35px;
     margin-top: 10px;
     margin-left: 20px;
+}
+/*End Search Results*/
+/*Prodcut Page*/
+.row{
+  border-bottom: 1px solid #d7d7d7;
 }
