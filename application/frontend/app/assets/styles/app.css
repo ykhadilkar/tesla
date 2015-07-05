@@ -741,8 +741,23 @@ md-slider{
 }
 /*End Search Results*/
 /*Prodcut Page*/
+.pill-image{
+  position: absolute;
+  right: 50px;
+  border-radius: 100%;
+  margin-left: -105px;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+}
+.pill-image img{
+  width: 70px;
+}
 .row{
   border-bottom: 1px solid #d7d7d7;
+}
+md-tabs[md-border-bottom] md-tabs-wrapper{
+  border: 0;
 }
 .drug-tabs .md-tab{
   border-radius: 0;

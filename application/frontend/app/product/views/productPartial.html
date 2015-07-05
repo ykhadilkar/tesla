@@ -1,12 +1,12 @@
     <div id='wrapper' layout-padding>
         <h1>{{ product.openfda.brand_name[0] }}</h1>
+        <div ng-show="imageID" class='pill-image' hide-sm>
+            <!-- <img src="http://pillbox.nlm.nih.gov/assets/small/{{imageID}}.jpg" /> -->
+            <img src="assets/images/yeoman.png" />
+        </div>
         <md-tabs md-border-bottom class='align-left drug-tabs'>
             <!-- Tab One -->
             <md-tab class='tabs md-active' label='Drug Details'>
-                <div ng-show="imageID" class='pill-image'>
-                    <img src="http://pillbox.nlm.nih.gov/assets/small/{{imageID}}.jpg" />
-                </div>
-                <hr />
                 <div layout-padding flex layout='column'>
                     <md-content flex layout='row' layout-sm='column' class='row' layout-fill>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
