@@ -140,9 +140,10 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
             var drugData = {};
             var drugEventSearchString = "patient.drug.medicinalproduct:" + drug;
             //console.log('1 ', drugEventSearchString);
-            //if (gender != 9) {
-            //    var drugEventSearchString = drugEventSearchString + "+AND+patient.patientsex:" + gender;
-            //}
+            if (gender !== 9) {
+                var drugEventSearchString = drugEventSearchString + "+AND+patient.patientsex:" + gender;
+            }
+
             //console.log('2 ', drugEventSearchString);
             drugEventSearchString = drugEventSearchString + "+AND+patient.patientonsetage:[" + ageMin + "+TO+" + ageMax + "]";
 
