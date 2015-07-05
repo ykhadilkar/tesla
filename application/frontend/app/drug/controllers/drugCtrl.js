@@ -160,7 +160,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
                 'drugName': $scope.drugSelected,
                 'brandName': product.openfda.brand_name, 
                 'splID': product.openfda.spl_id[0],
-                'symptom': $location.search()['symptom'],
+                'symptom': $location.search()['symptom']
             });
         };
 
@@ -178,7 +178,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             $location.path('/interaction').search(
             {
                 'drugName': $scope.drugSelected,
-                'symptom': $location.search()['symptom'],
+                'symptom': $location.search()['symptom']
             });
         };
 
@@ -238,7 +238,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
                 },
                 transitionDuration: 500,
                 xAxis: {
-                    axisLabel: 'X Axis',
+                    axisLabel: 'Date',
                     tickFormat: function(d) {
                         return d3.time.format('%x')(new Date(d))
                     },
@@ -246,7 +246,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
                     showMaxMin: false
                 },
                 yAxis: {
-                    axisLabel: 'Y Axis',
+                    axisLabel: 'No. of recalls',
                     axisLabelDistance: 35,
                     tickFormat: function(d){
                         return d3.format(',.0f')(d);
