@@ -744,3 +744,28 @@ md-slider{
 .row{
   border-bottom: 1px solid #d7d7d7;
 }
+.drug-tabs .md-tab{
+  border-radius: 0;
+  background-color: #47d091;
+  border-bottom: solid 3px #47d091;
+  color: #fff;
+  height: 50px;
+  width: 235px;
+  margin: 0;
+  font-family: open_sansextrabold;
+  margin-left: 1px;
+}
+.drug-tabs .md-tab.md-active{
+  background-color: #e9eaea;
+  color: #423f3f;
+}
+/*Cant find a left align class*/
+.md-center-tabs md-pagination-wrapper.md-center-tabs{
+  margin: 0;
+  position: absolute;
+  left: 0;
+}
+md-tabs md-ink-bar{
+  color: #47d091;
+  background-color: #47d091;
+}

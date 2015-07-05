@@ -1,121 +1,128 @@
     <div id='wrapper' layout-padding>
         <h1>{{ product.openfda.brand_name[0] }}</h1>
-        <hr />
-        <div ng-show="imageID">
-            <img src="http://pillbox.nlm.nih.gov/assets/small/{{imageID}}.jpg" />
-        </div>
-        <div layout-padding flex layout='column'>
-            <md-content flex layout='row' layout-sm='column' class='row' layout-fill>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Indications and Usage</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.indications_and_usage[0] }}</p>
-                    </md-card>
-                </md-content>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Stop Use</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.stop_use[0] }}</p>
-                    </md-card>
-                </md-content>
-            </md-content>
-            <md-content flex layout='row' layout-sm='column' class='row'>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Keep Out of Reach of Children</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.keep_out_of_reach_of_children[0] }}</p>
-                    </md-card>
-                </md-content>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Ask Doctor</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.ask_doctor[0] }}</p>
-                    </md-card>
-                </md-content>
-            </md-content>
-            <md-content flex layout='row' layout-sm='column' class='row'>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Questions</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.questions[0] }}</p>
-                    </md-card>
-                </md-content>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Dosage and Administration</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.dosage_and_administration[0] }}</p>
-                    </md-card>
-                </md-content>
-            </md-content>
-            <md-content flex layout='row' layout-sm='column' class='row'>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Purpose</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.purpose[0] }}</p>
-                    </md-card>
-                </md-content>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Storage and Handling</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.storage_and_handling[0] }}</p>
-                    </md-card>
-                </md-content>
-            </md-content>
-            <md-content flex layout='row' layout-sm='column' class='row'>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Do Not Use</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.do_not_use[0] }}</p>
-                    </md-card>
-                </md-content>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Pregnancy or Breast Feeding</h3>
-                    <md-card>
-                        <p>{{ product.pregnancy_or_breast_feeding[0] }}</p>
-                    </md-card>
-                </md-content>
-            </md-content>
-            <md-content flex layout='row' layout-sm='column' class='row'>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Active Ingredient</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.active_ingredient[0] }}</p>
-                    </md-card>
-                </md-content>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Inactive Ingredient</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.inactive_ingredient[0] }}</p>
-                    </md-card>
-                </md-content>
-            </md-content>
-            <md-content flex layout='row' layout-sm='column' class='row'>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Manufacturer Name</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.openfda.manufacturer_name[0] }}</p>
-                    </md-card>                
-                </md-content>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Route</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.openfda.route[0] }}</p>
-                    </md-card>
-                </md-content>
-            </md-content>
-            <md-content flex layout='row' layout-sm='column' class='row'>                
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>Warnings</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.warnings[0] }}</p>
-                    </md-card>
-                </md-content>
-                <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
-                    <h3>When Using</h3>
-                    <md-card layout-fill>
-                        <p>{{ product.when_using[0] }}</p>
-                    </md-card>
-                </md-content>
-            </div>
-        </div>
+        <md-tabs md-border-bottom class='align-left drug-tabs'>
+            <!-- Tab One -->
+            <md-tab class='tabs md-active' label='Drug Details'>
+                <div ng-show="imageID" class='pill-image'>
+                    <img src="http://pillbox.nlm.nih.gov/assets/small/{{imageID}}.jpg" />
+                </div>
+                <hr />
+                <div layout-padding flex layout='column'>
+                    <md-content flex layout='row' layout-sm='column' class='row' layout-fill>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Indications and Usage</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.indications_and_usage[0] }}</p>
+                            </md-card>
+                        </md-content>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Stop Use</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.stop_use[0] }}</p>
+                            </md-card>
+                        </md-content>
+                    </md-content>
+                    <md-content flex layout='row' layout-sm='column' class='row'>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Keep Out of Reach of Children</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.keep_out_of_reach_of_children[0] }}</p>
+                            </md-card>
+                        </md-content>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Ask Doctor</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.ask_doctor[0] }}</p>
+                            </md-card>
+                        </md-content>
+                    </md-content>
+                    <md-content flex layout='row' layout-sm='column' class='row'>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Questions</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.questions[0] }}</p>
+                            </md-card>
+                        </md-content>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Dosage and Administration</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.dosage_and_administration[0] }}</p>
+                            </md-card>
+                        </md-content>
+                    </md-content>
+                    <md-content flex layout='row' layout-sm='column' class='row'>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Purpose</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.purpose[0] }}</p>
+                            </md-card>
+                        </md-content>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Storage and Handling</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.storage_and_handling[0] }}</p>
+                            </md-card>
+                        </md-content>
+                    </md-content>
+                    <md-content flex layout='row' layout-sm='column' class='row'>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Do Not Use</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.do_not_use[0] }}</p>
+                            </md-card>
+                        </md-content>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Pregnancy or Breast Feeding</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.pregnancy_or_breast_feeding[0] }}</p>
+                            </md-card>
+                        </md-content>
+                    </md-content>
+                    <md-content flex layout='row' layout-sm='column' class='row'>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Active Ingredient</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.active_ingredient[0] }}</p>
+                            </md-card>
+                        </md-content>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Inactive Ingredient</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.inactive_ingredient[0] }}</p>
+                            </md-card>
+                        </md-content>
+                    </md-content>
+                    <md-content flex layout='row' layout-sm='column' class='row'>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Manufacturer Name</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.openfda.manufacturer_name[0] }}</p>
+                            </md-card>                
+                        </md-content>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Route</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.openfda.route[0] }}</p>
+                            </md-card>
+                        </md-content>
+                    </md-content>
+                    <md-content flex layout='row' layout-sm='column' class='row'>                
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>Warnings</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.warnings[0] }}</p>
+                            </md-card>
+                        </md-content>
+                        <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                            <h3>When Using</h3>
+                            <md-card layout-fill flex>
+                                <p>{{ product.when_using[0] }}</p>
+                            </md-card>
+                        </md-content>
+                    </div>
+                </div>
+                </md-tab>
+            <!-- Tab Two -->
+            <md-tab class='tabs' label='Adverse Events'>Adverse Events</md-tab>
+        </md-tabs>
     </div>
