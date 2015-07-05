@@ -162,13 +162,13 @@ md-sidenav md-list {
     padding: 0;
 }
 #content {
+    width: 100%;
     overflow: hidden;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 75px;
     margin: 0 auto;
 }
-
+.home #content{
+  width: auto
+}
 #content .md-button.share {
     background-color: transparent;
     border: none;
@@ -374,7 +374,7 @@ md-toolbar.md-default-theme {
 .search-content {
     /*height: 76px;*/
     /*width: 91%;*/
-    background-color: #f4f4f4;
+    background-color: #fff;
     padding: 25px;
     overflow: visible;
 }
@@ -399,7 +399,7 @@ md-toolbar.md-default-theme {
     text-align: center;
 }
 
-.home #content .md-button {
+.search-submit {
     font-family: open_sansextrabold;
     font-size: 17px;
     padding: 0px 26px;
@@ -442,6 +442,10 @@ md-toolbar.md-default-theme {
 .autocomplete .md-whiteframe-z1{
   padding: 6px;
   border: 1px solid #dedede;
+}
+.autocomplete .md-whiteframe-z1 button{
+  position: absolute;
+  right: 0
 }
 .personas{
   padding-top: 60px;

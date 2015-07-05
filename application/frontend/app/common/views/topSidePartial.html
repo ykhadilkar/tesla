@@ -1,50 +1,48 @@
-<div class=''>
-    <div class='wrapper'>
-        <div flex layout="row" layout-fill>
-            <md-content id="content">
-                <div ng-controller="autoCompleteCtrl as ctrl">
-                    <div class='' layout='column'>
-                        <md-content class='search-content'>
-                            <form ng-submit="loadDrugsBySymptom(ctrl.searchText)" class='search-form' layout='row' layout-md='column'>
-                              <div flex='48' layout='column'>
-                                <h4>I am Suffering from:</h4>
-                                <md-content class='search-wrapper' layout='row'>
-                                  <md-autocomplete
-                                      ng-disabled="ctrl.isDisabled"
-                                      md-no-cache="ctrl.noCache"
-                                      md-selected-item="ctrl.selectedItem"
-                                      md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
-                                      md-search-text="ctrl.searchText"
-                                      md-selected-item-change="ctrl.selectedItemChange(item)"
-                                      md-items="item in ctrl.querySearch(ctrl.searchText)"
-                                      md-item-text="item.display"
-                                      md-min-length="2"
-                                      placeholder="Headache, Teething, High Blood Pressure ..."
-                                      class='autocomplete'
-                                      flex='66'
-                                      layout-fill>
-                                      <md-item-template layout-fill>
-                                          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
-                                      </md-item-template>
-                                      <md-not-found>
-                                          No matches found for "{{ctrl.searchText}}".
-                                      </md-not-found>
-                                  </md-autocomplete>
-                                    <md-button class='search-submit' flex='33'>Search</md-button>
-                                </md-content>
-                              </div>
-                              <i class='fa fa-arrow-circle-right fa-2x' flex='5' hide-md></i>
-                              <div flex='46' layout='column'>
-                                <h4>And I want to know more about:</h4>
-                                <md-select placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)">
-                                  <md-option ng-value="drug" ng-repeat="drug in drugResults">{{ drug.drug }}</md-option>
-                                </md-select>
-                              </div>
-                            </form>
-                        </md-content>
-                    </div>
+<div class=''> 
+    <div flex layout="row" layout-fill>
+        <md-content id="content" flex='80'>
+            <div ng-controller="autoCompleteCtrl as ctrl">
+                <div class='' layout='column'>
+                    <md-content class='search-content'>
+                        <form ng-submit="loadDrugsBySymptom(ctrl.searchText)" class='search-form' layout-gt-md='row' layout='column'>
+                          <div flex='48' layout='column'>
+                            <h4>I am Suffering from:</h4>
+                            <md-content class='search-wrapper' layout='row'>
+                              <md-autocomplete
+                                  ng-disabled="ctrl.isDisabled"
+                                  md-no-cache="ctrl.noCache"
+                                  md-selected-item="ctrl.selectedItem"
+                                  md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                                  md-search-text="ctrl.searchText"
+                                  md-selected-item-change="ctrl.selectedItemChange(item)"
+                                  md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                  md-item-text="item.display"
+                                  md-min-length="2"
+                                  placeholder="Headache, Teething, High Blood Pressure ..."
+                                  class='autocomplete'
+                                  flex='66'
+                                  layout-fill>
+                                  <md-item-template layout-fill>
+                                      <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                  </md-item-template>
+                                  <md-not-found>
+                                      No matches found for "{{ctrl.searchText}}".
+                                  </md-not-found>
+                              </md-autocomplete>
+                                <md-button class='search-submit' flex='33'>Search</md-button>
+                            </md-content>
+                          </div>
+                          <i class='fa fa-arrow-circle-right fa-2x' flex='5' hide-md></i>
+                          <div flex='46' layout='column'>
+                            <h4>And I want to know more about:</h4>
+                            <md-select placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)">
+                              <md-option ng-value="drug" ng-repeat="drug in drugResults">{{ drug.drug }}</md-option>
+                            </md-select>
+                          </div>
+                        </form>
+                    </md-content>
                 </div>
-            </md-content>
-        </div>
+            </div>
+        </md-content>
     </div>
 </div>
