@@ -33,7 +33,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         $scope.drugEventCount = teslaFactory.getDrugEventCount();
 
         $scope.genderButtonClick = function (gender) {
-            if (gender == $scope.genderSelected) {
+            if (gender === $scope.genderSelected) {
                 $scope.genderSelected = 9;
             } else {
                 $scope.genderSelected = gender;
