@@ -188,7 +188,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         $scope.runLabelsSearch();
         $scope.adverseEventsChartOptions = {
             chart: {
-                //color: ["#004529","#006837","#238443","#41ab5d","#78c679","#addd8e","#d9f0a3","#f7fcb9","#ffffe5"],
+                color: ["#004529","#006837","#238443","#41ab5d","#78c679","#addd8e","#d9f0a3","#d9f0a4","#f7fcb9","#ffffe5"],
                 type: 'discreteBarChart',
                 height: 500,
                 margin: {
@@ -222,6 +222,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         $scope.recallChartOptions = {
             chart: {
                 type: 'lineChart',
+                color: ["#004529"],
                 forceY:([0]),
                 height: 350,
                 margin : {
