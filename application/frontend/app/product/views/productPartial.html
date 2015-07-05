@@ -9,13 +9,13 @@
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Indications and Usage</h3>
                     <md-card layout-fill>
-                        <p>{{ product.indications_and_usage[0] }}</p>
+                        <p>{{ (product.indications_and_usage[0]) ? product.indications_and_usage[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Stop Use</h3>
                     <md-card layout-fill>
-                        <p>{{ product.stop_use[0] }}</p>
+                        <p>{{ (product.stop_use[0]) ? product.stop_use[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
             </md-content>
@@ -23,13 +23,13 @@
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Keep Out of Reach of Children</h3>
                     <md-card layout-fill>
-                        <p>{{ product.keep_out_of_reach_of_children[0] }}</p>
+                        <p>{{ (product.keep_out_of_reach_of_children[0]) ? product.keep_out_of_reach_of_children[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Ask Doctor</h3>
                     <md-card layout-fill>
-                        <p>{{ product.ask_doctor[0] }}</p>
+                        <p>{{ (product.ask_doctor[0]) ? product.ask_doctor[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
             </md-content>
@@ -37,13 +37,13 @@
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Questions</h3>
                     <md-card layout-fill>
-                        <p>{{ product.questions[0] }}</p>
+                        <p>{{ (product.questions[0]) ? product.questions[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Dosage and Administration</h3>
                     <md-card layout-fill>
-                        <p>{{ product.dosage_and_administration[0] }}</p>
+                        <p>{{ (product.dosage_and_administration[0]) ? product.dosage_and_administration[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
             </md-content>
@@ -51,13 +51,13 @@
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Purpose</h3>
                     <md-card layout-fill>
-                        <p>{{ product.purpose[0] }}</p>
+                        <p>{{ (product.purpose[0]) ? product.purpose[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Storage and Handling</h3>
                     <md-card layout-fill>
-                        <p>{{ product.storage_and_handling[0] }}</p>
+                        <p>{{ (product.storage_and_handling[0]) ? product.storage_and_handling[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
             </md-content>
@@ -65,13 +65,13 @@
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Do Not Use</h3>
                     <md-card layout-fill>
-                        <p>{{ product.do_not_use[0] }}</p>
+                        <p>{{ (product.do_not_use[0]) ? product.do_not_use[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Pregnancy or Breast Feeding</h3>
                     <md-card>
-                        <p>{{ product.pregnancy_or_breast_feeding[0] }}</p>
+                        <p>{{ (product.pregnancy_or_breast_feeding[0]) ? product.pregnancy_or_breast_feeding[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
             </md-content>
@@ -79,13 +79,13 @@
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Active Ingredient</h3>
                     <md-card layout-fill>
-                        <p>{{ product.active_ingredient[0] }}</p>
+                        <p>{{ (product.active_ingredient[0]) ? product.active_ingredient[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Inactive Ingredient</h3>
                     <md-card layout-fill>
-                        <p>{{ product.inactive_ingredient[0] }}</p>
+                        <p>{{ (product.inactive_ingredient[0]) ? product.inactive_ingredient[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
             </md-content>
@@ -93,13 +93,13 @@
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Manufacturer Name</h3>
                     <md-card layout-fill>
-                        <p>{{ product.openfda.manufacturer_name[0] }}</p>
+                        <p>{{ (product.openfda.manufacturer_name[0]) ? product.openfda.manufacturer_name[0] : 'N/A' }}</p>
                     </md-card>                
                 </md-content>
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Route</h3>
                     <md-card layout-fill>
-                        <p>{{ product.openfda.route[0] }}</p>
+                        <p>{{ (product.openfda.route[0]) ? product.openfda.route[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
             </md-content>
@@ -107,13 +107,13 @@
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>Warnings</h3>
                     <md-card layout-fill>
-                        <p>{{ product.warnings[0] }}</p>
+                        <p>{{ (product.warnings[0]) ? product.warnings[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
                 <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                     <h3>When Using</h3>
                     <md-card layout-fill>
-                        <p>{{ product.when_using[0] }}</p>
+                        <p>{{ (product.when_using[0]) ? product.when_using[0] : 'N/A' }}</p>
                     </md-card>
                 </md-content>
             </div>
