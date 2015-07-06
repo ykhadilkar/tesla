@@ -219,6 +219,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         $scope.recallChartOptions = {
             chart: {
                 type: 'lineChart',
+                showLegend: false,
                 color: ["#004529"],
                 forceY:([0]),
                 height: 350,
