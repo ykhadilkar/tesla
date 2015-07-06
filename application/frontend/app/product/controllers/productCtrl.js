@@ -146,11 +146,12 @@ TeslaApp.controller('ProductCtrl', ['teslaFactory', 'searchFactory', '$scope', '
         $scope.drugRecallChartOptions = {
             chart: {
                 type: 'lineChart',
+                showLegend: false,
                 color: ["#004529"],
                 forceY:([0]),
                 height: 350,
                 margin : {
-                    top: 20,
+                    top: 80,
                     right: 20,
                     bottom: 60,
                     left: 50
