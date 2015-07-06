@@ -162,7 +162,7 @@ md-sidenav md-list {
     padding: 0;
 }
 #content {
-    width: 100%;
+    max-width: 1340px;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -259,9 +259,8 @@ a {
 
 /*Header*/
 .header-wrapper {
-    max-width: 960px;
+    max-width: 1340px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 #logo {
@@ -272,6 +271,7 @@ a {
     margin-right: 60px;
     margin-top: 7px;
     width: 100%;
+    min-width: 245px;
 }
 
 #logo img {
@@ -518,7 +518,7 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
   background-color: #b7b7b7;
 }
 .md-select-label .md-select-icon{
-    width: 19px;
+    width: 17px;
 }
 .md-select-label .md-select-icon:after {
     font-family: 'FontAwesome';
@@ -787,11 +787,13 @@ button, select, html, textarea, input {
 .md-display-1 {
   font-weight: 300;
   letter-spacing: -1px;
+  color: #575757;
 }
 .md-headline {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -.5px;
+  color: #767676;
 }
 .md-title, .md-toolbar-tools {
   font-weight: 700;
