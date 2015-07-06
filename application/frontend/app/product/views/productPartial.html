@@ -233,7 +233,6 @@
             <!-- Tab Two -->
             <md-tab class='tabs' label='Adverse Events'>
                 <p class="md-subhead">The FDA has registered the following adverse Events for {{ product.openfda.brand_name[0] }}</p>
-                <div>
                 <div ng-if="data == undefined">
                     <p>No Data Available</p>
                 </div>
@@ -244,7 +243,6 @@
             <!-- Tab Three -->
             <md-tab class='tabs' label='Recalls'>
                 <p class="md-subhead">The FDA has registered the following recalls for {{ product.openfda.brand_name[0] }}</p>
-                <div>
                 <div ng-if="drugRecallsData == undefined">
                     <p>No Data Available</p>
                 </div>
