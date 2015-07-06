@@ -649,30 +649,6 @@ md-option{
     border-color: #3758b7;
     background-color: #3758b7;
 }
-md-slider{
-  /*width: 200px*/
-}
-.slider-wrapper {
-    padding-top: 20px;
-    float: right;
-}
-
-.slider-wrapper label {
-    margin-left: 7px;
-    font-family: open_sanslight_italic;
-    color: #808181;
-    white-space: nowrap;
-}
-.slider-label-wrapper{
-  margin-left: -17px;
-}
-.slider-wrapper label.selected {
-    color: #3758b7;
-}
-
-.slider-wrapper label:nth-child(1) {
-    margin-left: 0;
-}
 
 .filter-results {
     clear: both;
@@ -786,4 +762,29 @@ md-tabs[md-border-bottom] md-tabs-wrapper{
 md-tabs md-ink-bar{
   color: #47d091;
   background-color: #47d091;
+}
+
+/************************************
+ * Drugs Page
+ ************************************/
+
+/* Female/Male Buttons*/
+/*=========================*/
+
+/* Button Icons*/
+.drugs-page  .md-fab.md-primary i{
+  margin-top: 11px;
+}
+
+/* Button Active State*/
+.drugs-page  .md-fab.md-primary.active{
+  background-color: transparent;
+  box-shadow: none;
+}
+.drugs-page  .md-fab.md-primary.active i{
+  color: #3758b7;
+}
+.drugs-page  .md-fab.md-primary.active:hover{
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }

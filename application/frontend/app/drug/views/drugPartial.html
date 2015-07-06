@@ -1,4 +1,4 @@
-<md-content>
+<md-content class="drugs-page">
 
   <section layout="column" layout-gt-md="row" layout-padding>
 
@@ -64,9 +64,6 @@
                 <h4 class="md-title">{{interaction.drug}}</h4>
                 <p>{{ interaction.interaction | limitTo: 100 }}{{interaction.interaction.length > 100 ? '...' : ''}}</p>
               </md-card-content>
-              <div class="md-actions" layout="row" layout-align="end center">
-                <md-button class="md-primary">Read more</md-button>
-              </div>
             </md-card>
           </div>
         </div>
