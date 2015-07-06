@@ -771,7 +771,7 @@ md-tabs md-ink-bar{
 /* Female/Male Buttons*/
 /*=========================*/
 
-/* Button Icons*/
+/* Vertical center icons*/
 .drugs-page  .md-fab.md-primary i{
   margin-top: 11px;
 }
@@ -787,4 +787,14 @@ md-tabs md-ink-bar{
 .drugs-page  .md-fab.md-primary:not(.active):hover{
   background-color: white;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+/* Slider labels
+/*=========================*/
+.drugs-page label{
+  font-family: open_sansitalic;
+}
+.drugs-page label.active{
+  color: #3758b7;
+  font-family: open_sansextrabold_italic;
 }
