@@ -432,6 +432,9 @@ md-toolbar.md-default-theme {
 .search-form md-select{
   padding: 0
 }
+.search-form md-select.active .md-select-label{
+  background-color: #3758b7;
+}
 .search-form .md-select-label{
   width: 100%;
 }
@@ -632,7 +635,7 @@ md-option{
 
 .filters button {
     color: #3758b7;
-    border: 1px solid #3758b7;
+    /*border: 1px solid #3758b7;*/
     border-radius: 100%;
     width: 45px;
     height: 45px;
