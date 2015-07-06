@@ -1,3 +1,66 @@
+/************
+ * Regular
+ ************/
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/assets/fonts/OpenSans-Regular-webfont.eot');
+    src: url('/assets/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+    url('/assets/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+    url('/assets/fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/************
+ * Bold
+ ************/
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/assets/fonts/OpenSans-Bold-webfont.eot');
+    src: url('/assets/fonts/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/OpenSans-Bold-webfont.woff') format('woff'),
+    url('/assets/fonts/OpenSans-Bold-webfont.ttf') format('truetype'),
+    url('/assets/fonts/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/************
+ * Italic
+ ************/
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/assets/fonts/OpenSans-Italic-webfont.eot');
+    src: url('/assets/fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/OpenSans-Italic-webfont.woff') format('woff'),
+    url('/assets/fonts/OpenSans-Italic-webfont.ttf') format('truetype'),
+    url('/assets/fonts/OpenSans-Italic-webfont.svg#open_sansregular') format('svg');
+    font-weight: 400;
+    font-style: italic;
+
+}
+
+/************
+ * Light
+ ************/
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/assets/fonts/OpenSans-Light-webfont.eot');
+    src: url('/assets/fonts/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/OpenSans-Light-webfont.woff') format('woff'),
+    url('/assets/fonts/OpenSans-Light-webfont.ttf') format('truetype'),
+    url('/assets/fonts/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+
+
+
+
+
 @font-face {
     font-family: 'open_sansregular';
     src: url('/assets/fonts/OpenSans-Regular-webfont.eot');

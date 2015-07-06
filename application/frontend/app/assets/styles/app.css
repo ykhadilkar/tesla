@@ -46,7 +46,7 @@ md-content{
     margin-left: 15px;
 }
 
-b, 
+b,
 .bold {
     font-family: open_sansbold;
 }
@@ -427,10 +427,13 @@ md-toolbar.md-default-theme {
   margin:50px 0px 0 15px;
   color: #09b063;
   display: block;
-  
+
 }
 .search-form md-select{
   padding: 0
+}
+.search-form md-select.active .md-select-label{
+  background-color: #3758b7;
 }
 .search-form .md-select-label{
   width: 100%;
@@ -632,13 +635,13 @@ md-option{
 
 .filters button {
     color: #3758b7;
-    border: 1px solid #3758b7;
+    /*border: 1px solid #3758b7;*/
     border-radius: 100%;
     width: 45px;
     height: 45px;
     min-width: 45px;
     font-size: 10px;
-    padding-top: 5px; 
+    padding-top: 5px;
 }
 
 .filters button.active {
@@ -647,7 +650,7 @@ md-option{
     background-color: #3758b7;
 }
 md-slider{
-  width: 200px
+  /*width: 200px*/
 }
 .slider-wrapper {
     padding-top: 20px;

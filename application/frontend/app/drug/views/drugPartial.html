@@ -1,74 +1,92 @@
-<md-content flex layout='row' layout-sm='column' class='wrapper' layout-fill layout-padding layout-margin>
-    <div id='central-col' class='filters' layout="column" flex="75" layout-fill layout-padding layout-margin>
-        <h1 flex>{{drugSelected}}</h1>
-        <div class='filters-wrapper' flex layout="row" layout-margin layout-sm="column" layout-fill layout-padding layout-margin>
-            <div class='filters-button-wrapper' layout-padding layout-margin>
-                <md-button class='male md-whiteframe-z1' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
-                    <i class='fa fa-male fa-3x'></i>
-                </md-button>
-                <md-button class='female md-whiteframe-z1' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
-                    <i class='fa fa-female fa-3x'></i>
-                </md-button>
+<md-content>
+
+  <section layout="column" layout-gt-md="row" layout-padding>
+
+    <!--Left column -->
+    <div flex="100" flex-gt-md="55" offset-gt-sm="10">
+      <section layout="column">
+        <!-- Page title -->
+        <h2 class="md-display-1">Displaying Results for <strong>{{drugSelected}}</strong></h2>
+
+        <md-divider></md-divider>
+
+        <div layout="column" layout-gt-sm="row" layout-padding layout-margin>
+          <!-- Male and female buttons -->
+          <div layout="row" layout-align="center center">
+            <md-button class='md-fab md-primary' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
+                <md-icon md-svg-src="assets/svg/male.svg"></md-icon>
+            </md-button>
+            <md-button class='md-fab md-primary' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
+                <md-icon md-svg-src="assets/svg/female.svg"></md-icon>
+            </md-button>
+          </div>
+          <div flex>
+            <!-- Age slider -->
+            <md-slider class="md-primary" ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()"></md-slider>
+            <div layout='row'>
+                <label flex='20'><strong>All Ages</strong></label>
+                <label flex='20'>0-17</label>
+                <label flex='20'>18-35</label>
+                <label flex='20'>36-55</label>
+                <label flex='20'>56+</label>
             </div>
-            <div class='slider-wrapper'>
-                <md-slider ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()">
-                </md-slider>
-                <div layout='row'>
-                    <label flex='20'>All Ages</label>
-                    <label flex='20'>0-17</label>
-                    <label flex='20'>18-35</label>
-                    <label flex='20'>36-55</label>
-                    <label flex='20'>56+</label>
-                </div>
-            </div>
+          </div>
         </div>
-        <div class='percent-of-adverse filter-results'>
-            <h3>Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
-            <!-- <p>*345 Subjects Were Involved in the Trials</p> -->
+      </section>
 
-            <div>
-                <nvd3 options='adverseEventsChartOptions' data='data'></nvd3>
-            </div>
+      <!-- Charts -->
+      <section layout="column">
+        <h3 class="md-headline">Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
+        <nvd3 options='adverseEventsChartOptions' data='data'></nvd3>
+        <nvd3 options='recallChartOptions' data='drugRecallsData'></nvd3>
+      </section>
+
+      <md-divider></md-divider>
+
+      <!-- Drug interactions cards -->
+      <section layout="column">
+        <h3 class="md-headline">Drug Interactions</h3>
+
+        <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+          <div flex="100" flex-gt-sm="50" ng-repeat="interaction in drugInteractions | limitTo:4">
+            <md-card>
+              <md-card-content>
+                <h4 class="md-title">{{interaction.drug}}</h4>
+                <p>{{ interaction.interaction | limitTo: 100 }}{{interaction.interaction.length > 100 ? '...' : ''}}</p>
+              </md-card-content>
+              <div class="md-actions" layout="row" layout-align="end center">
+                <md-button class="md-primary">Read more</md-button>
+              </div>
+            </md-card>
+          </div>
         </div>
 
-        <div class='drug-recalls filter-results'>
-
-            <nvd3 options='recallChartOptions' data='drugRecallsData'></nvd3>
-
+        <div ng-show="!drugInteractions.length">
+          No drug interaction found for {{ drugSelected }}.
         </div>
-        <div class='drug-interactions filter-results' layout="column" flex>
 
-            <h3>Top 6 Drug Interactions</h3>
-
-                <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
-
-                    <md-grid-tile md-rowspan="2" md-colspan="2" md-colspan-sm="1" ng-repeat="interaction in drugInteractions | limitTo:6">
-                        <md-grid-tile-header>
-                            <h3>{{interaction.drug}}</h3>
-                        </md-grid-tile-header>
-                        {{ interaction.interaction | limitTo: 100 }}{{interaction.interaction.length > 100 ? '...' : ''}}
-                    </md-grid-tile>
-
-                </md-grid-list>
-
-            <div ng-show="!drugInteractions.length">
-                No drug interaction found for {{ drugSelected }}.
-            </div>
-
-            <md-button ng-show="drugInteractions.length" class="md-raised md-primary" ng-click="gotoInteraction()">See more</md-button>
-
+        <div layout="row" layout-align="end end">
+          <md-button ng-show="drugInteractions.length" class="md-primary" ng-click="gotoInteraction()">See all</md-button>
         </div>
+
+      </section>
     </div>
-    <div id="right-col" layout='column' flex="25">
+
+    <!--Right column -->
+    <div flex="100" flex-gt-md="25" class="md-whiteframe-z1">
+      <!-- Drug brands -->
+      <section>
+        <md-subheader class="md-no-sticky">Drugs containing this ingredient</md-subheader>
         <md-list>
-            <p class="md-no-sticky">To learn more about specific {{drugSelected}} products, choose from the following brands:</p>
-            <md-divider></md-divider>
-            <md-list-item ng-click="gotoProduct(product)" ng-repeat="product in products | limitTo:10">
-                <p>{{ product.openfda.brand_name[0] }}</p>
-                <md-divider></md-divider>
-            </md-list-item>
-            <md-divider></md-divider>
+          <md-list-item ng-click="gotoProduct(product)" ng-repeat="product in products | limitTo:10">
+            <p>{{ product.openfda.brand_name[0] }}</p>
+            <md-icon class="md-accent" md-svg-src="assets/svg/play.svg"></md-icon>
+            <md-divider ng-if="!$last"></md-divider>
+          </md-list-item>
         </md-list>
+      </section>
     </div>
-</md-content>
 
+  </section>
+
+</md-content>

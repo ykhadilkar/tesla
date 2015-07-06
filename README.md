@@ -6,7 +6,26 @@
 
 ##### ***– A Prototype Tool Developed for GSA 18F by REI Systems, Inc. –***
 
-**VelociRx** provides data from [open.fda.gov](http://open.fda.gov) about the safety of alternative drugs/devices in a way that consumers and health care providers find easy to access as they choose drugs to prescribe or purchase. (It allows search based upon a health condition or symptom, indication of need, or drug name – rather than requiring that the user know the drug name.)
+**VelociRx** assists users finding the most relevant medical information from [open.fda.gov](http://open.fda.gov) regarding medications used to treat various conditions.  It provides brief analytics of side-effects associated reported adverse events with breakdowns by age and gender.  Additionally, the volume of drug recalls over time is reported, with a list of drug interactions and their respective effects.  Finally, users can drill down on individual drugs where they find a wealth of information at their fingertips.
+
+### Design Approach
+
+Our approach for developing a user-centric design for VelociRx focused on delivering an application with the most value for our projected users via a clean, multi-platform, intuitive interface.  We defined a target audience through defining personas of users.  We selected a representative user group composed of individuals with a diverse age, and gender background. Through videotaped interviews and survey questions, we compiled data regarding the challenges people have with finding helpful FDA medication data. Analysis of characteristics of users was conducted via a card sorting exercise to group users into persona types to better understand the target audience.
+
+The development team then grouped application topic/focus-areas via a card sorting exercise to ensure the user interface delivered relevant information in an order that best met user and application expectations.
+We then developed objectives for our application, features needed to meet those goals, and defined approaches to deliver those features.  First, hand-drawn, white-board wireframes were used to communicate and revise ideas in a rapid, iterative fashion.  Candidate feature implementations were further defined using Balsamiq for wider review.  Finally, finished mockups were developed using Adobe Photoshop to communicate a very clear common vision to the team for the look and feel of the application.
+
+As the application was developed during sprints, three demonstrations were conducted with the original representative user group as well as a wider group of stakeholders. The product owner facilitated a targeted discussion to extract the most relevant feedback to drive user stories for subsequent sprints. 
+
+### Development Approach
+Our team selected and configured the required supporting infrastructure based on 18F project requirements.  This included GitHub version control, Slack team for communication, Trello for Agile planning, Docker containers, Circle CI for continuous integration, Coveralls for unit testing coverage monitoring, Tutum for automated container deployment, and AWS for hosting.  Our team selected a generic project codename of “Tesla” as a placeholder to the eventual name.
+
+Next the team selected relevant application technologies. For the frontend, AngularJS with the Material Framework to provide a modern user experience with well-tested UI components.  Bower was selected over Yoeman for package management more flexible on implementation approach which we hoped would save time. NodeJS with the Grunt task-runner was selected as the backend application language to provide lightweight and JavaScript centric design allowing developers to easily task switch between the backend and front-end. HAPI was selected as a framework to also speed development. Using our initial analysis of the relatively unstructured data, we selected Elastic Search and MongoDB for data storage. Later we discarded MongoDB as unnecessary.
+
+Using data from the interview process, the VelociRx product owner defined a list of feature goals. Via a planning poker card sorting exercise, the development team and the product owner prioritized features based on quantitate estimates of delivered value and implementation complexity.
+
+Selecting relevant data sources proved to be a challenge. Instead of providing only a slick interface to the OpenFDA API, we viewed it as a requirement to mashup OpenFDA data with other data as a way of providing true value to the user
+[VoxHealth](http://voxhealth.org) to provide a list of synonyms for drug indicators.  We ingested this data into a locally hosted instance of Elastic Search to provide improved usability for search auto-complete functionality. [National Library of Medicine RxNorm](http://www.nlm.nih.gov/research/umls/rxnorm) for pill image and drug interactions. A wide variety of other data sources were analyzed, reviewed and even implemented before being withdrawn from the final application. The reasons for not using some of the other data sets included: incomplete data, incompatibility with existing data, or data that led users to inaccurate conclusions.  This data included sources from GoodRx and others.
 
 
 ####**DESIGN CRITERIA:**
