@@ -35,7 +35,7 @@
                           <i class='fa fa-arrow-circle-right fa-2x' flex='5' hide-md hide-sm></i>
                           <div flex='46' layout='column'>
                             <h4>And I want to know more about:</h4>
-                            <md-select placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)" id="drugSelector">
+                            <md-select ng-class="{'active': drugResults.length >0}" placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)" id="drugSelector">
                               <md-option ng-value="drug" ng-repeat="drug in drugResults">{{ drug.drug }}</md-option>
                             </md-select>
                           </div>
