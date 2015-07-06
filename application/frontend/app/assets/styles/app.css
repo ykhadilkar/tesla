@@ -371,7 +371,7 @@ a {
 
 .search-content {
     background-color: #fff;
-    padding: 25px 0;
+    padding: 25px;
     overflow: visible;
 }
 
@@ -429,8 +429,11 @@ a {
   padding: 0;
   height: 49px; 
 }
-.search-form md-select.active .md-select-label{
+.search-form md-select.active{
   background-color: #3758b7;
+}
+.search-form md-select.active .md-select-label{
+  background-color: transparent;
 }
 .search-form .md-select-label{
   padding-bottom: 10px;
