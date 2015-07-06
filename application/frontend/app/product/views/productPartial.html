@@ -11,13 +11,23 @@
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Indications and Usage</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.indications_and_usage[0] }}</p>
+                                <div ng-if="product.indications_and_usage == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.indications_and_usage != undefined">
+                                    <p>{{ product.indications_and_usage[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Stop Use</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.stop_use[0] }}</p>
+                                <div ng-if="product.stop_use == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.stop_use != undefined">
+                                    <p>{{ product.stop_use[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                     </md-content>
@@ -25,13 +35,23 @@
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Keep Out of Reach of Children</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.keep_out_of_reach_of_children[0] }}</p>
+                                <div ng-if="product.keep_out_of_reach_of_children == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.keep_out_of_reach_of_children != undefined">
+                                    <p>{{ product.keep_out_of_reach_of_children[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Ask Doctor</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.ask_doctor[0] }}</p>
+                                <div ng-if="product.ask_doctor == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.ask_doctor != undefined">
+                                    <p>{{ product.ask_doctor[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                     </md-content>
@@ -39,13 +59,23 @@
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Questions</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.questions[0] }}</p>
+                                <div ng-if="product.questions == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.questions != undefined">
+                                    <p>{{ product.questions[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Dosage and Administration</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.dosage_and_administration[0] }}</p>
+                                <div ng-if="product.dosage_and_administration == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.dosage_and_administration != undefined">
+                                    <p>{{ product.dosage_and_administration[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                     </md-content>
@@ -53,13 +83,23 @@
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Purpose</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.purpose[0] }}</p>
+                                <div ng-if="product.purpose == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.purpose != undefined">
+                                    <p>{{ product.purpose[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Storage and Handling</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.storage_and_handling[0] }}</p>
+                                <div ng-if="product.storage_and_handling == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.storage_and_handling != undefined">
+                                    <p>{{ product.storage_and_handling[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                     </md-content>
@@ -67,13 +107,23 @@
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Do Not Use</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.do_not_use[0] }}</p>
+                                <div ng-if="product.do_not_use == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.do_not_use != undefined">
+                                    <p>{{ product.do_not_use[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Pregnancy or Breast Feeding</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.pregnancy_or_breast_feeding[0] }}</p>
+                                <div ng-if="product.pregnancy_or_breast_feeding == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.pregnancy_or_breast_feeding != undefined">
+                                    <p>{{ product.pregnancy_or_breast_feeding[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                     </md-content>
@@ -81,13 +131,23 @@
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Active Ingredient</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.active_ingredient[0] }}</p>
+                                <div ng-if="product.active_ingredient == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.active_ingredient != undefined">
+                                    <p>{{ product.active_ingredient[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Inactive Ingredient</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.inactive_ingredient[0] }}</p>
+                                <div ng-if="product.inactive_ingredient == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.inactive_ingredient != undefined">
+                                    <p>{{ product.inactive_ingredient[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                     </md-content>
@@ -95,13 +155,23 @@
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Manufacturer Name</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.openfda.manufacturer_name[0] }}</p>
+                                <div ng-if="product.openfda.manufacturer_name == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.openfda.manufacturer_name != undefined">
+                                    <p>{{ product.openfda.manufacturer_name[0] }}</p>
+                                </div>
                             </md-card>                
                         </md-content>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Route</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.openfda.route[0] }}</p>
+                                <div ng-if="product.openfda.route == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.openfda.route != undefined">
+                                    <p>{{ product.openfda.route[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                     </md-content>
@@ -109,13 +179,23 @@
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Warnings</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.warnings[0] }}</p>
+                                <div ng-if="product.warnings == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.warnings != undefined">
+                                    <p>{{ product.warnings[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>When Using</h3>
                             <md-card layout-fill flex>
-                                <p>{{ product.when_using[0] }}</p>
+                                <div ng-if="product.when_using == undefined">
+                                    <p>No Data Found</p>
+                                </div>
+                                <div ng-if="product.when_using != undefined">
+                                    <p>{{ product.when_using[0] }}</p>
+                                </div>
                             </md-card>
                         </md-content>
                     </div>
