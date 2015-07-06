@@ -383,13 +383,7 @@ a {
 .home body{
   background-color: #47d091
 }
-.home p {
-    font-size: 6vw;
-    font-family: open_sanslight;
-    color: #fff;
-    line-height: 100%;
-    text-align: center;
-}
+
 
 .search-submit {
     font-family: open_sansextrabold;
@@ -822,8 +816,26 @@ md-card .md-title{
 /************************************
  * Toolbar
  ************************************/
- md-toolbar.md-accent{
+md-toolbar.md-accent{
   border-bottom: 1px solid #238f5d;
+}
+/* Remove bottom border in homepage */
+.home md-toolbar.md-accent{
+  border-bottom: none;
+}
+
+ /************************************
+  * Home Page
+  ************************************/
+
+/* Title */
+/*=========================*/
+ .home p {
+     font-size: 6vw;
+     font-family: open_sanslight;
+     color: #fff;
+     line-height: 100%;
+     text-align: center;
  }
 
 
