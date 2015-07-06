@@ -26,9 +26,7 @@
 
 <md-toolbar class="md-accent" layout="row" ng-cloak>
     <div class='header-wrapper' layout='row' flex>
-        <!-- <md-button class="menu" hide-gt-sm aria-label="Show User List">
-            <md-icon md-svg-icon="menu" ></md-icon>
-        </md-button> -->
+       
         <a href='/#/' flex='33'><h1 id='logo'>VelociRx<img src='assets/svg/logo.svg'><span id='sub-logo'>Drug Safety Evolved</b></span></h1></a>
         <md-content flex='66' class='nav-container'>
             <md-button flex href='#/'><span class='bold'>HOME</span></md-button>
@@ -36,73 +34,9 @@
             <md-button flex href='#/about'><span class='bold'>About</span></md-button>
         </md-content>
 
-        <!--<div ng-controller="autoCompleteCtrl as ctrl" layout="column" class='search-wrapper' flex='64'>-->
-            <!--<md-content class='search-content'>-->
-                <!--<form ng-submit="submitSearch($event)">-->
-                    <!--<md-autocomplete-->
-                        <!--ng-disabled="ctrl.isDisabled"-->
-                        <!--md-no-cache="ctrl.noCache"-->
-                        <!--md-selected-item="ctrl.selectedItem"-->
-                        <!--md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"-->
-                        <!--md-search-text="ctrl.searchText"-->
-                        <!--md-selected-item-change="ctrl.selectedItemChange(item)"-->
-                        <!--md-items="item in ctrl.querySearch(ctrl.searchText)"-->
-                        <!--md-item-text="item.display"-->
-                        <!--md-min-length="2"-->
-                        <!--placeholder="Search..."-->
-                        <!--class='search'>-->
-                        <!--<md-item-template>-->
-                            <!--<span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>-->
-                        <!--</md-item-template>-->
-                        <!--<md-not-found>-->
-                            <!--No matches found for "{{ctrl.searchText}}".-->
-                        <!--</md-not-found>-->
-                    <!--</md-autocomplete>-->
-                <!--</form>-->
-            <!--</md-content>-->
-        <!--</div>-->
-
-        <!-- <div ng-controller="MenuCtrl" id='header-nav' layout-margin>
-            <i class='fa fa-bars fa-2x md-primary' ng-click="toggleRight()"></i>
-            <md-sidenav>
-                Main menu sidenav
-            </md-sidenav>
-            <md-button flex href='#/search'>Browse by Category</md-button>
-            <md-button flex href='#/events'>Browse by <span class='bold'>NAICS</span></md-button>
-            <md-button flex href='#/'>Explore by <span class='bold'>RESOURCES</span></md-button>
-
-        </div> -->
     </div>
 </md-toolbar>
-<!-- <div ng-controller="MenuCtrl" layout="column">
-    <section layout="row" flex>
-        <md-sidenav class="md-sidenav-right md-whiteframe-z2 md-closed" md-component-id="right">
-            <md-toolbar class="md-theme-light">
-                <h1 class="md-toolbar-tools">VelociRX</h1>
-            </md-toolbar>
-            <md-content ng-controller="RightCtrl" layout-padding align="left">
-                <ul class="nav sidebar-nav">
 
-                    <li class="dropdown">
-                        <md-button flex href='#/'><span class='bold'>HOME</span></md-button>
-                    </li>
-                    <li class="dropdown">
-                        <md-button flex href='#/about'><span class='bold'>ABOUT</span></md-button>
-                    </li>
-                    <li class="dropdown">
-                        <md-button ng-click="close()" class="md-primary">
-                            Close Sidenav Right
-                        </md-button>
-                    </li>
-                </ul>
-            </md-content>
-        </md-sidenav>
-    </section>
-</div> -->
-<!--   <md-card class='search' layout='row'>
-        <input type='search' placeholder="Search ..."></input>
-        <md-button class='md-raised'>SEARCH</md-button>
-    </md-card> --!>
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
