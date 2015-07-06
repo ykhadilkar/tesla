@@ -3,13 +3,13 @@
   <section layout="column" layout-gt-md="row" layout-padding>
 
     <!--Left column -->
-    <div flex="100" flex-gt-md="55" offset-gt-sm="10">
+    <div flex="100" flex-gt-md="75">
 
       <section layout="column">
 
         <!-- Page title -->
         <h2 class="md-display-1" style="margin-bottom: 0; margin-top: 0;">
-          <strong style="font-family:open_sansbold; text-transform: capitalize">{{drugSelected}}</strong>
+          <strong>{{drugSelected}}</strong>
         </h2>
         <p class="md-subhead">
           If you are currently taking or considering taking <span style="text-transform: capitalize">{{drugSelected}}</span>,
@@ -67,7 +67,7 @@
       <section layout="column">
         <h3 class="md-headline">{{drugSelected}} is known to interact with the following drugs</h3>
 
-        <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <div layout="row" layout-sm="column" layout-align="start start" layout-wrap>
           <div flex="100" flex-gt-sm="50" ng-repeat="interaction in drugInteractions | limitTo:4">
             <md-card>
               <md-card-content>

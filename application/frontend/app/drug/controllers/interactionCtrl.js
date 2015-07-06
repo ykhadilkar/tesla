@@ -22,4 +22,9 @@ TeslaApp.controller('InteractionCtrl', ['teslaFactory', 'searchFactory', '$scope
             //stop spinner
             usSpinnerService.stop('spinner');
         });
+
+        //for mobile: show selected drug intereaction
+        $scope.showDrugInteraction = function(drugInteraction) {
+            $scope.selectedDrugInteraction = drugInteraction;
+        };
 }]);
