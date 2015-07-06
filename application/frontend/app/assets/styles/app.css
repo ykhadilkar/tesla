@@ -787,6 +787,13 @@ button, select, html, textarea, input {
   font-weight: 700;
   text-transform: capitalize;
 }
+.md-display-3 {
+  letter-spacing: -1px;
+}
+.md-display-3 strong{
+  font-family: Open Sans;
+  font-weight: 700;
+}
 .md-headline {
   font-weight: 700;
   text-transform: uppercase;
@@ -823,18 +830,18 @@ md-toolbar.md-accent{
   border-bottom: none;
 }
 
- /************************************
-  * Home Page
-  ************************************/
+/************************************
+* Home Page
+************************************/
 
-/* Title */
+/* Page Title */
 /*=========================*/
- .home p {
-     font-size: 6vw;
-     font-family: open_sanslight;
-     color: #fff;
-     line-height: 100%;
-     text-align: center;
+.home p {
+  font-size: 6vw;
+  font-family: open_sanslight;
+  color: #fff;
+  line-height: 100%;
+  text-align: center;
  }
 
 
