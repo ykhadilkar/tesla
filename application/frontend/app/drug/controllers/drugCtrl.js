@@ -1,7 +1,7 @@
 'use strict';
 
-TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope', '$location', 'usSpinnerService',
-    function (teslaFactory, searchFactory, fdaApiService, $scope, $location, usSpinnerService) {
+TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService', '$scope', '$location', 'usSpinnerService', '$mdSidenav',
+    function (teslaFactory, searchFactory, fdaApiService, $scope, $location, usSpinnerService, $mdSidenav) {
 
         // Default to All Ages
         $scope.ageGroup = 0;
@@ -31,6 +31,10 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
         $scope.factorySymptom = teslaFactory.getSymptom();
         $scope.drugSelected = teslaFactory.getDrug();
         $scope.drugEventCount = teslaFactory.getDrugEventCount();
+
+        $scope.openLeftMenu = function() {
+          $mdSidenav('left').toggle();
+        };
 
         $scope.genderButtonClick = function (gender) {
             if (gender === $scope.genderSelected) {
@@ -145,7 +149,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
 
         /**
          * go to product page
-         * 
+         *
          * @param object product
          * @returns void
          */
@@ -158,7 +162,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             $location.path('/product').search(
             {
                 'drugName': $scope.drugSelected,
-                'brandName': product.openfda.brand_name, 
+                'brandName': product.openfda.brand_name,
                 'splID': product.openfda.spl_id[0],
                 'symptom': $location.search()['symptom']
             });
@@ -166,7 +170,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
 
         /**
          * go to interaction page
-         * 
+         *
          * @returns void
          */
         $scope.gotoInteraction = function () {
