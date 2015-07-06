@@ -425,13 +425,17 @@ a {
   margin:50px 0px 0 15px;
   color: #09b063;
   display: block;
-
+  padding-left: 15px;
 }
 .search-form md-select{
-  padding: 0
+  padding: 0;
+  height: 49px; 
 }
 .search-form md-select.active .md-select-label{
   background-color: #3758b7;
+}
+.search-form .md-select-label{
+  padding-bottom: 10px;
 }
 .search-form .md-select-label{
   width: 100%;
@@ -535,7 +539,7 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
     font-family: open_sanslight;
     color: #fff;
     font-size: 22px;
-    padding: 9px;
+    padding: 0 9px;
 }
 md-option{
   background-color: #fff;
