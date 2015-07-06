@@ -1,29 +1,42 @@
-<md-content flex layout='row' layout-sm='column' class='wrapper' layout-fill layout-padding layout-margin>
-    <div class='drug-interactions filter-results' layout="column" flex>
-        <h3>Drug Interactions: {{ drugSelected }}</h3>
+<md-content>
 
-        <div layout="column" layout-fill style="margin-bottom: 32px; background: white;">
-            <md-whiteframe class="md-whiteframe-z3" layout layout-align="center center">
-                <md-input-container flex>
-                    <label>Filter</label>
-                    <input ng-model="keyword" />
-                </md-input-container>
-            </md-whiteframe>
-        </div>
+  <section layout="column" layout-gt-sm="row" layout-padding>
 
-        <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+   <div flex-gt-sm="80" offset-gt-sm="10">
+     <!-- Page title -->
+     <h2 class="md-display-1">
+       Drug Interactions: <strong style="font-family:open_sansbold; text-transform: capitalize">{{ drugSelected }}</strong>
+     </h2>
 
-            <md-grid-tile md-rowspan="2" md-colspan="2" md-colspan-sm="1" ng-repeat="interaction in drugInteractions | filter:keyword">
-                <md-grid-tile-header>
-                    <h3>{{interaction.drug}}</h3>
-                </md-grid-tile-header>
-                {{ interaction.interaction }}
-            </md-grid-tile>
+     <!-- Filter input -->
+     <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center">
+       <md-input-container>
+           <label>Filter</label>
+           <input ng-model="keyword" />
+       </md-input-container>
+     </md-whiteframe>
 
-        </md-grid-list>
-        
-        <div ng-show="!drugInteractions.length">
-            No drug interaction found for {{ drugSelected }}.
-        </div>
-    </div>
+
+     <!-- Interaction Cards -->
+     <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+       <div flex="100" flex-gt-sm="100" flex-gt-md="50" flex-gt-lg="33" ng-repeat="interaction in drugInteractions | filter:keyword">
+         <md-card>
+           <md-card-content>
+             <h4 class="md-title">{{interaction.drug}}</h4>
+             <p>{{ interaction.interaction }}</p>
+           </md-card-content>
+         </md-card>
+       </div>
+     </div>
+
+     <!-- Not found message -->
+     <div ng-show="!drugInteractions.length">
+       No drug interaction found for  <span style="text-transform: capitalize">{{ drugSelected}}</span>.
+     </div>
+
+   </div>
+
+
+  </section>
+
 </md-content>
