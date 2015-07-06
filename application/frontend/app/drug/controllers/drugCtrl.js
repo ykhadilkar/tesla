@@ -4,7 +4,7 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
     function (teslaFactory, searchFactory, fdaApiService, $scope, $location, usSpinnerService, $mdSidenav) {
 
         // Default to All Ages
-        $scope.ageGroup = 0;
+        $scope.ageGroup = 1;
         $scope.genderSelected = 9;
         // Set Age Group Text Values
         $scope.ageDesc = ['All Ages', '0-17', '18-35', '36-55', '56+'];
