@@ -1,5 +1,4 @@
     <div class='wrapper' layout-padding>
-        <h1>{{ product.openfda.brand_name[0] }}</h1>
         <div ng-show="imageID" class='pill-image' hide-sm>
             <img src="http://pillbox.nlm.nih.gov/assets/small/{{imageID}}.jpg" />
         </div>
@@ -7,6 +6,8 @@
             <!-- Tab One -->
             <md-tab class='tabs md-active' label='Drug Details'>
                 <div hide-sm show-gt-sm layout-padding flex layout='column'>
+                    <p class="md-subhead">Label information for {{ product.openfda.brand_name[0] }}</p>
+                    <div></div>
                     <md-content flex layout='row' layout-sm='column' class='row' layout-fill>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Indications and Usage</h3>
@@ -161,7 +162,7 @@
                                 <div ng-if="product.openfda.manufacturer_name != undefined">
                                     <p>{{ product.openfda.manufacturer_name[0] }}</p>
                                 </div>
-                            </md-card>                
+                            </md-card>
                         </md-content>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Route</h3>
@@ -175,7 +176,7 @@
                             </md-card>
                         </md-content>
                     </md-content>
-                    <md-content flex layout='row' layout-sm='column' class='row'>                
+                    <md-content flex layout='row' layout-sm='column' class='row'>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Warnings</h3>
                             <md-card layout-fill flex>
@@ -231,12 +232,14 @@
             </md-tab>
             <!-- Tab Two -->
             <md-tab class='tabs' label='Adverse Events'>
+                <p class="md-subhead">The FDA has registered the following adverse Events for {{ product.openfda.brand_name[0] }}</p>
                 <div>
                     <nvd3 options='adverseDrugEventsChartOptions' data='data'></nvd3>
                 </div>
             </md-tab>
             <!-- Tab Three -->
             <md-tab class='tabs' label='Recalls'>
+                <p class="md-subhead">The FDA has registered the following recalls for {{ product.openfda.brand_name[0] }}</p>
                 <div>
                     <nvd3 options='drugRecallChartOptions' data='drugRecallsData'></nvd3>
                 </div>
