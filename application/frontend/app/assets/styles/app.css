@@ -25,7 +25,7 @@ md-content{
 }
 .content {
     min-height: calc(100vh - 80px);
-    max-width: 1280px;
+    max-width: 1024px;
     margin: 0 auto;
 }
 
@@ -152,7 +152,7 @@ md-sidenav md-list {
     border-right: 1px;
     border-color: #dddede;
     padding: 40px 30px 0 30px;
-    max-width: 1280px;
+    max-width: 1024px;
 }
 
 .home .wrapper {
@@ -160,7 +160,7 @@ md-sidenav md-list {
     padding: 0;
 }
 #content {
-    max-width: 1280px;
+    max-width: 1024px;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -257,7 +257,7 @@ a {
 
 /*Header*/
 .header-wrapper {
-    max-width: 1280px;
+    max-width: 1024px;
     margin: 0 auto;
 }
 
@@ -367,7 +367,7 @@ a {
 
 .search-content {
     background-color: #fff;
-    padding: 25px 0;
+    padding: 0 0 25px 0;
     overflow: visible;
 }
 .search .md-whiteframe-z1 {
@@ -382,13 +382,7 @@ a {
 .home body{
   background-color: #47d091
 }
-.home p {
-    font-size: 6vw;
-    font-family: open_sanslight;
-    color: #fff;
-    line-height: 100%;
-    text-align: center;
-}
+
 
 .search-submit {
     font-family: open_sansextrabold;
@@ -793,6 +787,13 @@ button, select, html, textarea, input {
   font-weight: 700;
   text-transform: capitalize;
 }
+.md-display-3 {
+  letter-spacing: -1px;
+}
+.md-display-3 strong{
+  font-family: Open Sans;
+  font-weight: 700;
+}
 .md-headline {
   font-weight: 700;
   text-transform: uppercase;
@@ -821,9 +822,31 @@ md-card .md-title{
 /************************************
  * Toolbar
  ************************************/
- md-toolbar.md-accent{
+md-toolbar.md-accent{
   border-bottom: 1px solid #238f5d;
- }
+}
+/* Remove bottom border in homepage */
+.home md-toolbar.md-accent{
+  border-bottom: none;
+}
+
+/************************************
+* Home Page
+************************************/
+
+/* Page Title */
+/*=========================*/
+.home .md-display-3 {
+  font-size: 24px;
+  line-height: 24px;
+  transition: all 0.2s;
+}
+@media (min-width: 600px) {
+  .home .md-display-3 {
+    font-size: 56px;
+    line-height: 56px;
+   }
+}
 
 
 /************************************
