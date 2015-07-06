@@ -7,3 +7,11 @@
 
 ga('create', 'UA-17367410-55', 'auto');
 ga('send', 'pageview');
+
+function expandSelector(selector) {
+    try{
+        angular.element(document.querySelector('#' + selector)).triggerHandler('click')
+    } catch(err) {
+        console.log('can\'t expand that select');
+    }
+};

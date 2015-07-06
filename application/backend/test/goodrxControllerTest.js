@@ -5,9 +5,9 @@ var Lab = require('lab');
 var lab = exports.lab = Lab.script();
 var server = require('../server');
 
-lab.experiment("Testing GoodRX Controller", function () {
+lab.experiment("Testing GoodRX Controller", {timeout: 3000}, function () {
 
-    lab.test("drug-info endpoint /goodrx/drug-info.json", function (done) {
+    lab.test("drug-info endpoint", function (done) {
         var options = {
             method: "GET",
             url: "/goodrx/drug-info.json?name=aspirin"
@@ -21,7 +21,7 @@ lab.experiment("Testing GoodRX Controller", function () {
         });
     });
 
-    lab.test("drug-info endpoint /goodrx/fair-price.json", function (done) {
+    lab.test("fair-price endpoint", function (done) {
         var options = {
             method: "GET",
             url: "/goodrx/fair-price.json?name=motrin"
@@ -36,7 +36,7 @@ lab.experiment("Testing GoodRX Controller", function () {
         });
     });
 
-    lab.test("drug-info endpoint /goodrx/low-price.json", function (done) {
+    lab.test("low-price endpoint", function (done) {
         var options = {
             method: "GET",
             url: "/goodrx/low-price.json?name=motrin"
@@ -51,7 +51,7 @@ lab.experiment("Testing GoodRX Controller", function () {
         });
     });
 
-    lab.test("drug-info endpoint /goodrx/compare-price.json", function (done) {
+    lab.test("compare-price endpoint", function (done) {
         var options = {
             method: "GET",
             url: "/goodrx/compare-price.json?name=motrin"
@@ -66,7 +66,7 @@ lab.experiment("Testing GoodRX Controller", function () {
         });
     });
 
-    lab.test("drug-info endpoint /goodrx/drug-search.json", function (done) {
+    lab.test("drug-search endpoint", function (done) {
         var options = {
             method: "GET",
             url: "/goodrx/drug-search.json?query=motrin"

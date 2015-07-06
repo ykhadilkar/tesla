@@ -29,8 +29,10 @@ TeslaApp.controller('autoCompleteCtrl',
                                 $scope.drug = oVal;
                             }
                         });
+                    } else {
+                        expandSelector('drugSelector');
                     }
-    
+
                     usSpinnerService.stop('spinner');
                 }, function(result){
                     if(result.error.message === 'No matches found!') {
