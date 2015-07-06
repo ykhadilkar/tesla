@@ -787,11 +787,13 @@ button, select, html, textarea, input {
 .md-display-1 {
   font-weight: 300;
   letter-spacing: -1px;
+  color: #575757;
 }
 .md-headline {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -.5px;
+  color: #767676;
 }
 .md-title, .md-toolbar-tools {
   font-weight: 700;
