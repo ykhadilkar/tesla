@@ -10,7 +10,7 @@ var TeslaApp = angular.module('teslaApp', [
     'angularSpinner',
     'nvd3'
 ])
-.config(function($mdThemingProvider) {
+.config(['$mdThemingProvider', function($mdThemingProvider) {
   // Extend the teal theme with different color
   var reiTealMap = $mdThemingProvider.extendPalette('teal', {
     'A400': '47d091'
@@ -23,4 +23,4 @@ var TeslaApp = angular.module('teslaApp', [
     .accentPalette('reiTeal',{
       'default': 'A400'
     });
-});
+}]);
