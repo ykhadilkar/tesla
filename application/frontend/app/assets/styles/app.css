@@ -27,6 +27,7 @@ md-content{
     min-height: calc(100vh - 80px);
     max-width: 1024px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer {
@@ -153,6 +154,7 @@ md-sidenav md-list {
     border-color: #dddede;
     padding: 40px 30px 0 30px;
     max-width: 1024px;
+    padding: 0 20px;
 }
 
 .home .wrapper {
@@ -163,6 +165,7 @@ md-sidenav md-list {
     max-width: 1024px;
     overflow: hidden;
     margin: 0 auto;
+    padding: 0 20px;
 }
 .home #content{
   width: auto
@@ -259,6 +262,7 @@ a {
 .header-wrapper {
     max-width: 1024px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 #logo {
