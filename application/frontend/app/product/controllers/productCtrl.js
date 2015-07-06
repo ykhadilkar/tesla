@@ -53,7 +53,6 @@ TeslaApp.controller('ProductCtrl', ['teslaFactory', 'searchFactory', '$scope', '
         }
 
         //adverse events
-
         $scope.runEventSearchByProduct = function () {
             var brandName = $location.search()['brandName'];
             searchFactory.getDrugEventsByBrandName(brandName, function (eventResults) {
@@ -85,11 +84,35 @@ TeslaApp.controller('ProductCtrl', ['teslaFactory', 'searchFactory', '$scope', '
                 ];
             });
         }
+        $scope.runRecallsSearchByProduct = function () {
+            var brandName = $location.search()['brandName'];
+            searchFactory.getDrugRecalls("", brandName, function (drugData) {
+                $scope.drugEffectResults = drugData.effectResults;
+                $scope.drugRecallsMeta = drugData.meta;
+                var recallsData = [];
+                var time = 0;
+                var count = 0;
+                var pattern = /(\d{4})(\d{2})(\d{2})/;
+                angular.forEach(drugData.effectResults, function (drugEffectResult) {
+                    time = new Date(drugEffectResult.time.replace(pattern, '$1-$2-$3'));
+                    count = drugEffectResult.count;
+                    recallsData.push({time:time, count:count});
+                });
+
+                $scope.drugRecallsData = [
+                    {
+                        key: "Recalls",
+                        values: recallsData
+                    }
+                ];
+            });
+        }
         $scope.runEventSearchByProduct();
+        $scope.runRecallsSearchByProduct();
         $scope.adverseEvent = "Adverse events from controller";
         $scope.adverseDrugEventsChartOptions = {
             chart: {
-                color: ["#004529","#006837","#238443","#41ab5d","#78c679","#addd8e","#d9f0a3","#d9f0a4","#f7fcb9","#ffffe5"],
+                color: ["#004529","#006837","#238443","#41ab5d","#78c679","#addd8e","#d9f0a3","#d9f0a4","#f7fcb9","#f7fcb7"],
                 type: 'discreteBarChart',
                 height: 500,
                 margin: {
@@ -118,6 +141,44 @@ TeslaApp.controller('ProductCtrl', ['teslaFactory', 'searchFactory', '$scope', '
                 xAxis: {
                     rotateLabels: 25
                 }
+            }
+        };
+        $scope.drugRecallChartOptions = {
+            chart: {
+                type: 'lineChart',
+                color: ["#004529"],
+                forceY:([0]),
+                height: 350,
+                margin : {
+                    top: 20,
+                    right: 20,
+                    bottom: 60,
+                    left: 50
+                },
+                x: function(d){return d.time;},
+                y: function(d){return d.count;},
+                showValues: true,
+                valueFormat: function(d){
+                    return d3.format(',.0f')(d);
+                },
+                transitionDuration: 500,
+                xAxis: {
+                    axisLabel: 'Date',
+                    tickFormat: function(d) {
+                        return d3.time.format('%x')(new Date(d))
+                    },
+                    rotateLabels: 50,
+                    showMaxMin: false
+                },
+                yAxis: {
+                    axisLabel: 'No. of recalls',
+                    axisLabelDistance: 35,
+                    tickFormat: function(d){
+                        return d3.format(',.0f')(d);
+                    },
+                    showMaxMin: true
+                },
+                tooltips:true
             }
         };
 }]);

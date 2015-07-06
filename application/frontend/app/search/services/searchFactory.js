@@ -199,9 +199,15 @@ TeslaApp.factory('searchFactory', ['fdaApiService', 'rxNormApiService', 'backend
              * @param drug
              * @param callback
              */
-            getDrugRecalls: function (drug, callback) {
+            getDrugRecalls: function (drug, brandName, callback) {
                 var drugData = {};
-                var drugRecallsSearchString = "product_description:" + drug + "&count=report_date";
+
+                if(drug != undefined && drug != "") {
+                    var drugRecallsSearchString = "product_description:" + drug + "&count=report_date";
+                } else if(brandName != undefined && brandName != ""){
+                    var drugRecallsSearchString = "brand_name:" + brandName + "&count=report_date";
+                }
+
                 var recallsPromise = fdaApiService.getDrugRecall(fdaApiService.queryBuilder()
                     .searchString(drugRecallsSearchString));
 
