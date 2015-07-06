@@ -152,9 +152,9 @@ TeslaApp.controller('ProductCtrl', ['teslaFactory', 'searchFactory', '$scope', '
                 height: 350,
                 margin : {
                     top: 80,
-                    right: 20,
+                    right: 80,
                     bottom: 60,
-                    left: 50
+                    left: 80
                 },
                 x: function(d){return d.time;},
                 y: function(d){return d.count;},
