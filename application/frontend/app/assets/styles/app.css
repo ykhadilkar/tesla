@@ -776,15 +776,15 @@ md-tabs md-ink-bar{
   margin-top: 11px;
 }
 
-/* Button Active State*/
-.drugs-page  .md-fab.md-primary.active{
+/* Button Normal State*/
+.drugs-page  .md-fab.md-primary:not(.active){
   background-color: transparent;
   box-shadow: none;
 }
-.drugs-page  .md-fab.md-primary.active i{
+.drugs-page  .md-fab.md-primary:not(.active) i{
   color: #3758b7;
 }
-.drugs-page  .md-fab.md-primary.active:hover{
+.drugs-page  .md-fab.md-primary:not(.active):hover{
   background-color: white;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
