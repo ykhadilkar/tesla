@@ -325,7 +325,7 @@ a {
 }
 
 .search-wrapper {
-    /*width: 415px;*/
+    background-color: #fff;
 }
 
 .search {
@@ -370,7 +370,6 @@ a {
     padding: 25px 0;
     overflow: visible;
 }
-
 .search .md-whiteframe-z1 {
     height: 50px;
     background-color: #fff;
