@@ -1,0 +1,57 @@
+/************
+ * General
+ ************/
+body{
+  /*TODO: use http://typerendering.com/*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+strong, b{
+  font-weight: 700;
+}
+
+/************
+ * Defaults
+ ************/
+button, select, html, textarea, input {
+  font-family: Open Sans, RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/************
+ * Headings
+ ************/
+.md-display-1 {
+  font-weight: 300;
+  letter-spacing: -.5px;
+}
+.md-headline {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -.5px;
+}
+.md-title, .md-toolbar-tools {
+  font-weight: 700;
+  letter-spacing: 0em;
+}
+
+/************
+ * Buttons
+ ************/
+.md-button {
+  font-weight: 700;
+}
+
+/************
+ * Card
+ ************/
+md-card .md-title{
+  margin-top: 0;
+}
+
+/************
+ * Toolbar
+ ************/
+ md-toolbar.md-accent{
+  border-bottom: 1px solid #238f5d;
+ }
