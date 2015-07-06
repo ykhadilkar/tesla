@@ -231,13 +231,19 @@
             </md-tab>
             <!-- Tab Two -->
             <md-tab class='tabs' label='Adverse Events'>
-                <div>
+                <div ng-if="data == undefined">
+                    <p>No Data Available</p>
+                </div>
+                <div ng-if="data != undefined">
                     <nvd3 options='adverseDrugEventsChartOptions' data='data'></nvd3>
                 </div>
             </md-tab>
             <!-- Tab Three -->
             <md-tab class='tabs' label='Recalls'>
-                <div>
+                <div ng-if="drugRecallsData == undefined">
+                    <p>No Data Available</p>
+                </div>
+                <div ng-if="drugRecallsData != undefined">
                     <nvd3 options='drugRecallChartOptions' data='drugRecallsData'></nvd3>
                 </div>
             </md-tab>
