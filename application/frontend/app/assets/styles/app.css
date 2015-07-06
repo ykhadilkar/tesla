@@ -25,6 +25,7 @@ md-content{
 }
 .content {
     min-height: calc(100vh - 80px);
+    max-width: 1340px;
 
 }
 
@@ -155,6 +156,7 @@ md-sidenav md-list {
     border-right: 1px;
     border-color: #dddede;
     padding: 40px 30px 0 30px;
+    max-width: 1340px;
 }
 
 .home .wrapper {
