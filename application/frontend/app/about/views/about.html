@@ -10,6 +10,12 @@
             <p>VelociRX leverages the openFDA project, which makes the FDA's database of adverse drug reactions and drug recalls open
             and available to the public. When a VelociRX user performs a search, that search is done directly against the FDA's latest registry,
             so the data is always up to date.</p>
+            <p>How does VelociRX determine which drugs to show for a given condition? The VelociRX team has compiled a list of synonyms for common medical
+            conditions and keep a list in the VelociRX database. When a user enters a condition, such as "high blood pressure", in the site the
+            system checks to see if there are medical synonyms registered for this condition. In the "high blood pressure" example, VelociRX
+            actually searches for "high blood pressure", "hypertension", "HBP", or "HBT" when checking with FDA. This allows to truly capture all events and
+            recalls for a condition, despite whether they are registered by a consumer using layman terms or a physician using medical terms. The medical synonyms
+            for this feature were pulled from the <a href="http://voxhealth.org/">voxhealth.org</a></p>
             <p>For more information about the FDA's publicly available data, visit <a href="https://open.fda.gov/">open.fda.gov</a></p>
             <h3>National Institute of Health</h3>
             <p>VelociRX leverages National Library of Medicine's drug interactions API to retrieve known drug interactions between two types of drugs.
