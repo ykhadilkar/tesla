@@ -46,7 +46,7 @@ md-content{
     margin-left: 15px;
 }
 
-b, 
+b,
 .bold {
     font-family: open_sansbold;
 }
@@ -427,7 +427,7 @@ md-toolbar.md-default-theme {
   margin:50px 0px 0 15px;
   color: #09b063;
   display: block;
-  
+
 }
 .search-form md-select{
   padding: 0
@@ -641,7 +641,7 @@ md-option{
     height: 45px;
     min-width: 45px;
     font-size: 10px;
-    padding-top: 5px; 
+    padding-top: 5px;
 }
 
 .filters button.active {
@@ -650,7 +650,7 @@ md-option{
     background-color: #3758b7;
 }
 md-slider{
-  width: 200px
+  /*width: 200px*/
 }
 .slider-wrapper {
     padding-top: 20px;
