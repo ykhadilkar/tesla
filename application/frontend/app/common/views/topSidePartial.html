@@ -23,7 +23,7 @@
                                   flex='66'
                                   layout-fill>
                                   <md-item-template layout-fill>
-                                      <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                      <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i" style="text-transform: capitalize">{{item.display}}</span>
                                   </md-item-template>
                                   <md-not-found>
                                       No matches found for "{{ctrl.searchText}}".
@@ -36,7 +36,7 @@
                           <div flex='46' layout='column'>
                             <h4>And I want to know more about:</h4>
                             <md-select ng-class="{'active': drugResults.length >0}" placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)" id="drugSelector">
-                              <md-option ng-value="drug" ng-repeat="drug in drugResults">{{ drug.drug }}</md-option>
+                              <md-option ng-value="drug" ng-repeat="drug in drugResults" style="text-transform: capitalize">{{ drug.drug }}</md-option>
                             </md-select>
                           </div>
                         </form>
