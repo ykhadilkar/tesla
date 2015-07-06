@@ -24,19 +24,19 @@
             <!-- Age slider -->
             <md-slider class="md-primary" ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()"></md-slider>
             <div layout='row'>
-                <label flex='20' layout="column" layout-align="start start">
+                <label ng-class="{'active': ageGroup === 1}" flex='20' layout="column" layout-align="start start">
                   <span><strong>All Ages</strong></span>
                 </label>
-                <label flex='20' layout="column" layout-align="center start">
+                <label ng-class="{'active': ageGroup === 2}" flex='20' layout="column" layout-align="center start">
                   <span>0-17</span>
                 </label>
-                <label flex='20' layout="column" layout-align="center center">
+                <label ng-class="{'active': ageGroup === 3}" flex='20' layout="column" layout-align="center center">
                   <span>18-35</span>
                 </label>
-                <label flex='20' layout="column" layout-align="center end">
+                <label  ng-class="{'active': ageGroup === 4}" flex='20' layout="column" layout-align="center end">
                   <span>36-55</span>
                 </label>
-                <label flex='20' layout="column" layout-align="center end">
+                <label  ng-class="{'active': ageGroup === 5}" flex='20' layout="column" layout-align="center end">
                   <span>56+</span>
                 </label>
             </div>

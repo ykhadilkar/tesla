@@ -18,15 +18,6 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
             }
         }
 
-        //if event count is not scope try to get it from URL
-        if (!$scope.drugEventCount) {
-            var count = $location.search()['count'];
-            if (count) {
-                $scope.drugEventCount = count;
-                teslaFactory.setDrugEventCount(count);
-            }
-        }
-
         // When the search page is initiated, grab the symptom search term from the teslaFactory
         $scope.factorySymptom = teslaFactory.getSymptom();
         $scope.drugSelected = teslaFactory.getDrug();
@@ -105,6 +96,8 @@ TeslaApp.controller('DrugCtrl', ['teslaFactory', 'searchFactory', 'fdaApiService
                         values: eventArray
                     }
                 ];
+
+                $scope.drugEventCount = eventResults.totalEvents;
             });
         };
 

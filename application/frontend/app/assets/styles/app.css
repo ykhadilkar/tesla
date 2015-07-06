@@ -279,8 +279,8 @@ md-toolbar.md-default-theme {
 }
 
 #logo img {
-    width: 33px;
-    height: 33px;
+    width: 93px;
+    /*height: 33px;*/
     margin-bottom: -15px;
     margin-left: 5px;
 }
@@ -522,7 +522,7 @@ md-select.md-default-theme:not([disabled]):focus .md-select-label {
   background-color: #b7b7b7;
 }
 .md-select-label .md-select-icon{
-    width: 20px;
+    width: 19px;
 }
 .md-select-label .md-select-icon:after {
     font-family: 'FontAwesome';
