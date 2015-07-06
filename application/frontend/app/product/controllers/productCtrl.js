@@ -51,4 +51,73 @@ TeslaApp.controller('ProductCtrl', ['teslaFactory', 'searchFactory', '$scope', '
             //get product picture
             $scope.getProductImage();
         }
+
+        //adverse events
+
+        $scope.runEventSearchByProduct = function () {
+            var brandName = $location.search()['brandName'];
+            searchFactory.getDrugEventsByBrandName(brandName, function (eventResults) {
+                //var totalEvents = eventResults.totalEvents;
+                var eventArray = [];
+                var count = 0;
+                var keepGoing = true;
+                angular.forEach(eventResults.effectResults, function (eventResult) {
+                    if (keepGoing) {
+                        if (count == 9) {
+                            keepGoing = false;
+                        }
+
+                        var lower = eventResult.term.toLowerCase();
+                        var effectString = lower.replace(/(^| )(\w)/g, function (x) {
+                            return x.toUpperCase();
+                        });
+
+                        eventArray.push({'label': effectString, 'value': eventResult.count});
+                        count++;
+                    }
+                });
+                $scope.drugEvents = eventArray;
+                $scope.data = [
+                    {
+                        key: "Adverse Events",
+                        values: eventArray
+                    }
+                ];
+            });
+        }
+        $scope.runEventSearchByProduct();
+        $scope.adverseEvent = "Adverse events from controller";
+        $scope.adverseDrugEventsChartOptions = {
+            chart: {
+                color: ["#004529","#006837","#238443","#41ab5d","#78c679","#addd8e","#d9f0a3","#d9f0a4","#f7fcb9","#ffffe5"],
+                type: 'discreteBarChart',
+                height: 500,
+                margin: {
+                    top: 20,
+                    right: 20,
+                    bottom: 60,
+                    left: 55
+                },
+                x: function (d) {
+                    return d.label;
+                },
+                y: function (d) {
+                    return d.value;
+                },
+                tooltips: false,
+                showValues: true,
+                valueFormat: function (d) {
+                    return d3.format(',.0f')(d);
+                },
+                transitionDuration: 1000,
+                yAxis: {
+                    axisLabel: 'No. of adverse events',
+                    axisLabelDistance: 28,
+                    tickFormat: d3.format(',.0f')
+                },
+                xAxis: {
+                    rotateLabels: 25
+                }
+            }
+        };
 }]);
