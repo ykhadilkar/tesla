@@ -4,14 +4,23 @@
 
     <!--Left column -->
     <div flex="100" flex-gt-md="55" offset-gt-sm="10">
+
       <section layout="column">
+
         <!-- Page title -->
-        <h2 class="md-display-1"><strong style="font-family:open_sansbold; text-transform: capitalize">{{drugSelected}}</strong></h2>
-          <p><strong>If you are currently taking or considering taking <span style="text-transform: capitalize">{{drugSelected}}</span>, you can learn more about potential harmful side effects, recent recalls, and harmful drug interactions below</strong></p>
+        <h2 class="md-display-1" style="margin-bottom: 0; margin-top: 0;">
+          <strong style="font-family:open_sansbold; text-transform: capitalize">{{drugSelected}}</strong>
+        </h2>
+        <p class="md-subhead">
+          If you are currently taking or considering taking <span style="text-transform: capitalize">{{drugSelected}}</span>,
+          you can learn more about potential harmful side effects, recent recalls, and harmful drug interactions below
+        </p>
 
         <md-divider></md-divider>
 
-        <div layout="column" layout-gt-sm="row" layout-padding layout-margin>
+        <h3 class="md-headline" style="margin-bottom: 10px;">Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
+
+        <div layout="column" layout-gt-sm="row">
           <!-- Male and female buttons -->
           <div layout="row" layout-align="center center">
             <md-button class='md-fab md-primary' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
@@ -47,7 +56,6 @@
 
       <!-- Charts -->
       <section layout="column">
-        <h3 class="md-headline">Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
         <nvd3 options='adverseEventsChartOptions' data='data'></nvd3>
         <h3 class="md-headline">The FDA has registered the following recalls for {{drugSelected}}:</h3>
         <nvd3 options='recallChartOptions' data='drugRecallsData'></nvd3>
