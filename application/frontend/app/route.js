@@ -31,6 +31,9 @@ TeslaApp.config(['$routeProvider', 'usSpinnerConfigProvider',
             when('/about', {
                 templateUrl: 'about/views/about.html'
             }).
+            when('/faqs', {
+                templateUrl: 'about/views/faqs.html'
+            }).
             otherwise({
                 redirectTo: '/'
             });
