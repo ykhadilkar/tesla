@@ -53,6 +53,18 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
+              BACKEND_API: 'http://velocirx-api.devopsplatform.com',
+              FDA_API: 'https://api.fda.gov',
+              RXNORM_API: 'http://rxnav.nlm.nih.gov/REST',
+            }
+          }
+        },
+        staging: {
+          options: {
+            dest: '<%= appConfig.app %>/assets/scripts/config.js'
+          },
+          constants: {
+            ENV: {
               BACKEND_API: 'http://tesla-api.devopsplatform.com',
               FDA_API: 'https://api.fda.gov',
               RXNORM_API: 'http://rxnav.nlm.nih.gov/REST',
@@ -499,6 +511,10 @@ module.exports = function (grunt) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
+    
+    if (target === 'staging') {
+      return grunt.task.run(['staging', 'connect:dist:keepalive']);
+    }
 
     grunt.task.run([
       'ngconstant:dev',
@@ -530,6 +546,26 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'ngconstant:dist',
+    'clean:dist',
+    'wiredep',
+    'includeSource:server', //important to make index.html ready in .tmp with js/css included through include-source
+    'useminPrepare',
+    'concurrent:dist',
+    'autoprefixer',
+    'concat',
+    'ngAnnotate',
+    'copy:dist',
+    'includeSource:dist',
+    'cdnify',
+    'cssmin',
+    'uglify',
+    'filerev',
+    'usemin',
+    'htmlmin'
+  ]);
+  
+  grunt.registerTask('staging', [
+    'ngconstant:staging',
     'clean:dist',
     'wiredep',
     'includeSource:server', //important to make index.html ready in .tmp with js/css included through include-source
