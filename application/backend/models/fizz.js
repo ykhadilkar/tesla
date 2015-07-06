@@ -47,7 +47,11 @@ Fizz.prototype.autocomplete = function autocomplete(query) {
                 prefix: {
                     synonym: query.toUpperCase()
                 }
-            }
+            },
+            sort: [
+                {synonym: 'asc'},
+                '_score'
+            ]
         }
     }).then(function (resp) {
         var result = [];
