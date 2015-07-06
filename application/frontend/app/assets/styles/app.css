@@ -367,7 +367,7 @@ a {
 
 .search-content {
     background-color: #fff;
-    padding: 25px 0;
+    padding: 0 0 25px 0;
     overflow: visible;
 }
 .search .md-whiteframe-z1 {
