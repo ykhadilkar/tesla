@@ -92,9 +92,9 @@ module.exports = function (grunt) {
       },
       js: {
         files: [
-            '<%= appConfig.app %>/assets/scripts/{,*/}/{,*/}*.js', 
-            '<%= appConfig.app %>/{,*/}/{,*/}*.js', 
-            '<%= appConfig.app %>/{,*/}*.js', 
+            '<%= appConfig.app %>/assets/scripts/{,*/}/{,*/}*.js',
+            '<%= appConfig.app %>/{,*/}/{,*/}*.js',
+            '<%= appConfig.app %>/{,*/}*.js',
             '<%= appConfig.app %>/*.js'
         ],
         tasks: ['newer:jshint:all'],
@@ -482,14 +482,14 @@ module.exports = function (grunt) {
     //Include dynamically JS/CSS into index.html page
     includeSource: {
       options: {
-        // Task-specific options go here. 
+        // Task-specific options go here.
         basePath: 'app',
         baseUrl: '/',
         templates: {
           html: {
             js: '<script src="{filePath}"></script>',
             css: '<link rel="stylesheet" type="text/css" href="{filePath}" />',
-          },    
+          },
         },
       },
       server: {
@@ -498,7 +498,7 @@ module.exports = function (grunt) {
         }
       },
       dist: {
-        // Target-specific file lists and/or options go here. 
+        // Target-specific file lists and/or options go here.
         files: {
           '<%= appConfig.dist %>/index.html': '.tmp/index.html' //important to write index.html into .tmp after include-source add js/css
         }
