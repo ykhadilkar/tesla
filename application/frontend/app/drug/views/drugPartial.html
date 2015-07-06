@@ -83,10 +83,10 @@
     </div>
 
     <!--Right column -->
-    <div flex="100" flex-gt-md="25" class="md-whiteframe-z1">
+    <div flex="100" flex-gt-md="25">
       <!-- Drug brands -->
       <section>
-        <md-subheader class="md-no-sticky">Drugs containing this ingredient</md-subheader>
+        <md-subheader class="md-no-sticky" style="background-color:#e9eaea;">Drugs containing this ingredient</md-subheader>
         <md-list>
           <md-list-item ng-click="gotoProduct(product)" ng-repeat="product in products | limitTo:10">
             <p>{{ product.openfda.brand_name[0] }}</p>
