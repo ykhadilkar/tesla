@@ -182,4 +182,20 @@ TeslaApp.controller('ProductCtrl', ['teslaFactory', 'searchFactory', '$scope', '
                 tooltips:true
             }
         };
+
+        //mobile: show only selected label info
+        $scope.showLabelInfo = function(oLabelInfo) {
+            oLabelInfo = JSON.parse(oLabelInfo);
+            if($scope.product.hasOwnProperty(oLabelInfo.key)){
+                $scope.selectedLabelInfo = {
+                    'title': oLabelInfo.val,
+                    'text': $scope.product[oLabelInfo.key][0]
+                };
+            } else if($scope.product.openfda.hasOwnProperty(oLabelInfo.key)){
+                $scope.selectedLabelInfo = {
+                    'title': oLabelInfo.val,
+                    'text': $scope.product.openfda[oLabelInfo.key][0]
+                };
+            }
+        };
 }]);

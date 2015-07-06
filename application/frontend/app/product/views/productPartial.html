@@ -6,7 +6,7 @@
         <md-tabs md-border-bottom class='align-left drug-tabs'>
             <!-- Tab One -->
             <md-tab class='tabs md-active' label='Drug Details'>
-                <div layout-padding flex layout='column'>
+                <div hide-sm show-gt-sm layout-padding flex layout='column'>
                     <md-content flex layout='row' layout-sm='column' class='row' layout-fill>
                         <md-content flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
                             <h3>Indications and Usage</h3>
@@ -119,7 +119,36 @@
                             </md-card>
                         </md-content>
                     </div>
-                </md-tab>
+
+                <!-- Mobile -->
+                <div show-sm hide-gt-sm layout-padding flex layout='column'>
+                    <md-select placeholder="Select a Label Info" ng-model="oLabelInfo" ng-change="showLabelInfo(oLabelInfo)">
+                        <md-option value='{"key":"indications_and_usage","val":"Indications and Usage"}'>Indications and Usage</md-option>
+                        <md-option value='{"key":"stop_use","val":"Stop Use"}'>Stop Use</md-option>
+                        <md-option value='{"key":"keep_out_of_reach_of_children","val":"Keep Out of Reach of Children"}'>Keep Out of Reach of Children</md-option>
+                        <md-option value='{"key":"ask_doctor","val":"Ask Doctor"}'>Ask Doctor</md-option>
+                        <md-option value='{"key":"questions","val":"Questions"}'>Questions</md-option>
+                        <md-option value='{"key":"dosage_and_administration","val":"Dosage and Administration"}'>Dosage and Administration</md-option>
+                        <md-option value='{"key":"purpose","val":"Purpose"}'>Purpose</md-option>
+                        <md-option value='{"key":"storage_and_handling","val":"Storage and Handling"}'>Storage and Handling</md-option>
+                        <md-option value='{"key":"do_not_use","val":"Do Not Use"}'>Do Not Use</md-option>
+                        <md-option value='{"key":"pregnancy_or_breast_feeding","val":"Pregnancy or Breast Feeding"}'>Pregnancy or Breast Feeding</md-option>
+                        <md-option value='{"key":"active_ingredient","val":"Active Ingredient"}'>Active Ingredient</md-option>
+                        <md-option value='{"key":"inactive_ingredient","val":"Inactive Ingredient"}'>Inactive Ingredient</md-option>
+                        <md-option value='{"key":"manufacturer_name","val":"Manufacturer Name"}'>Manufacturer Name</md-option>
+                        <md-option value='{"key":"route","val":"Route"}'>Route</md-option>
+                        <md-option value='{"key":"warnings","val":"Warnings"}'>Warnings</md-option>
+                        <md-option value='{"key":"when_using","val":"When Using"}'>When Using</md-option>
+                    </md-select>
+
+                    <md-content ng-show="selectedLabelInfo" flex='50' flex-sm='100' layout-padding layout-fill flex layout='column'>
+                        <h3>{{ selectedLabelInfo.title }}</h3>
+                        <md-card layout-fill flex>
+                            <p>{{ selectedLabelInfo.text }}</p>
+                        </md-card>
+                    </md-content>
+                </div>
+            </md-tab>
             <!-- Tab Two -->
             <md-tab class='tabs' label='Adverse Events'>
                 <div>
