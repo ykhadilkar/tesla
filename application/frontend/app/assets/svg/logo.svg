@@ -2,12 +2,24 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="211.764px" height="212.712px" viewBox="0 0 211.764 212.712" enable-background="new 0 0 211.764 212.712"
-	 xml:space="preserve">
-<polygon fill="#FFFFFF" points="47.719,63.498 63.388,47.828 85.594,70.034 85.594,0 0.001,0 0.001,85.593 69.815,85.593 "/>
-<polygon fill="#FFFFFF" points="148.266,47.719 163.936,63.388 141.729,85.594 211.764,85.594 211.764,0 126.17,0 126.17,69.815 "/>
-<polygon fill="#FFFFFF" points="164.045,149.214 148.376,164.884 126.17,142.678 126.17,212.712 211.763,212.712 211.763,127.119 
-	141.948,127.119 "/>
-<polygon fill="#FFFFFF" points="63.498,164.994 47.828,149.325 70.034,127.119 0,127.119 0,212.711 85.593,212.711 85.593,142.897 
-	"/>
+	 width="206.25px" height="87.449px" viewBox="0 0 206.25 87.449" enable-background="new 0 0 206.25 87.449" xml:space="preserve">
+<polygon fill="#FFFFFF" points="19,0 0,15 2.5,19.5 18,20 26,16 25.834,1.333 "/>
+<g>
+	<path fill="#FFFFFF" d="M27.5,1.5c0,0,0.176,15.872,0.5,16.5c16,31,36,25,36,25l4.5-12.5L27.5,1.5z"/>
+	<path fill="#FFFFFF" d="M45,7.65c9.224,5.366,12,12.5,12,12.5L29.5,0.65C36.146,2.399,36.236,2.552,45,7.65"/>
+	<path fill="#FFFFFF" d="M57.677,20.247l11.49,8.419l11,0.335l30-17c0,0-25.917,2.582-29.667,3.125
+		C75.156,15.896,57.677,20.247,57.677,20.247"/>
+	<polygon fill="#FFFFFF" points="112.96,12.442 83.908,28.919 96,29.184 	"/>
+	<polygon fill="#FFFFFF" points="70.334,30.87 63.049,51 82.883,40.166 92.717,31.375 	"/>
+	<polygon fill="#FFFFFF" points="62.83,45.667 61.58,50.292 51.33,50.292 50.08,52.792 49.58,47.792 	"/>
+	<polygon fill="#FFFFFF" points="84.833,41.665 66.832,51.167 95,52.499 	"/>
+	<polygon fill="#FFFFFF" points="86.217,40.198 95.217,50.2 95.092,31.741 	"/>
+	<path fill="#FFFFFF" d="M115,12.75L98.652,29.136l29.483-1.734L206.25,72.5c0,0-44-33-51.75-38.25s-14.25-14-23-17
+		S115,12.75,115,12.75"/>
+	<polygon fill="#FFFFFF" points="97.351,31.087 96.25,86.75 117.25,55.625 126.617,29.786 	"/>
+	<polygon fill="#FFFFFF" points="128.75,31.25 122.282,48.864 203.25,73 	"/>
+	<path fill="#FFFFFF" d="M114.25,84.75c0,0,13.167-9.75,15.417-15.75s2.666-14.667,2.666-14.667L121,50L114.25,84.75z"/>
+	<polygon fill="#FFFFFF" points="113.367,80.949 112.367,84.949 107.867,85.449 	"/>
+	<polygon fill="#FFFFFF" points="94.617,81.449 94.617,87.449 87.617,86.449 	"/>
+</g>
 </svg>
