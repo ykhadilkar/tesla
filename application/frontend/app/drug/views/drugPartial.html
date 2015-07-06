@@ -6,7 +6,8 @@
     <div flex="100" flex-gt-md="55" offset-gt-sm="10">
       <section layout="column">
         <!-- Page title -->
-        <h2 class="md-display-1">Displaying Results for <strong style="font-family:open_sansbold;">{{drugSelected}}</strong></h2>
+        <h2 class="md-display-1"><strong style="font-family:open_sansbold; text-transform: capitalize">{{drugSelected}}</strong></h2>
+          <p><strong>If you are currently taking or considering taking <span style="text-transform: capitalize">{{drugSelected}}</span>, you can learn more about potential harmful side effects, recent recalls, and harmful drug interactions below</strong></p>
 
         <md-divider></md-divider>
 
@@ -48,6 +49,7 @@
       <section layout="column">
         <h3 class="md-headline">Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
         <nvd3 options='adverseEventsChartOptions' data='data'></nvd3>
+        <h3 class="md-headline">The FDA has registered the following recalls for {{drugSelected}}:</h3>
         <nvd3 options='recallChartOptions' data='drugRecallsData'></nvd3>
       </section>
 
@@ -55,7 +57,7 @@
 
       <!-- Drug interactions cards -->
       <section layout="column">
-        <h3 class="md-headline">Drug Interactions</h3>
+        <h3 class="md-headline">{{drugSelected}} is known to interact with the following drugs</h3>
 
         <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
           <div flex="100" flex-gt-sm="50" ng-repeat="interaction in drugInteractions | limitTo:4">
@@ -69,7 +71,7 @@
         </div>
 
         <div ng-show="!drugInteractions.length">
-          No drug interaction found for {{ drugSelected }}.
+          No drug interaction found for  <span style="text-transform: capitalize">{{ drugSelected}}</span>.
         </div>
 
         <div layout="row" layout-align="end end">
@@ -83,7 +85,7 @@
     <div flex="100" flex-gt-md="25">
       <!-- Drug brands -->
       <section>
-        <md-subheader class="md-no-sticky" style="background-color:#e9eaea;">Drugs containing this ingredient</md-subheader>
+        <md-subheader class="md-no-sticky" style="background-color:#e9eaea;">Read the labels of specific <span style="text-transform: capitalize">{{ drugSelected}}</span> brands:</md-subheader>
         <md-list>
           <md-list-item ng-click="gotoProduct(product)" ng-repeat="product in products | limitTo:10">
             <p>{{ product.openfda.brand_name[0] }}</p>
