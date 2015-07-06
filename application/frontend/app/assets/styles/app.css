@@ -441,10 +441,10 @@ a {
 }
 .personas{
   padding-top: 60px;
-  height: 400px;
+  height: 500px;
 }
 .persona{
-  height: 100px;
+  height: 130px;
   position: relative;
 }
 .persona img{
