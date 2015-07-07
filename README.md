@@ -49,19 +49,19 @@ Selecting relevant data sources proved to be a challenge. Instead of providing o
  
  h. Our VelociRx prototype operates on PC, tablet and smartphones using responsive design with modern browsers including Safari, FireFox, Chrome, and IE9+.
  
- i. We used six modern open source technologies, including: AngularJS (frontend), Node.js (backend), Bower (package management), Grunt (task runner), Elastic Search (search), Chef (deployment), and HAPI (API).
+ i. We more than nine modern open source technologies, including: AngularJS, Node.js, Bower, Grunt, ElasticSearch, Docker, Jasmine, Karma, and HAPI.
  
- j. We deployed VelociRx on Amazon Web Services (AWS), at https://VelociRx.reisys.com. 
+ j. We deployed [VelociRx](https://VelociRx.reisys.com) on Amazon Web Services (AWS). 
  
  k. We performed unit tests for code at every check-in using Jasmine and Karma. Results are visible on the main page of our GitHub repository.
  
- l. REI set up and used continuous integration to automate tests (using Circle CI), and continuously deployed our code on AWS. As can be observed in the History of our GitHub repository, we made hundreds of deployments prior to the RFQ closing date.
+ l. REI deployed continuous integration to automate tests (using CircleCI), and continuously deployed our code on AWS. As can be observed both GitHub and CircleCI archives, we made hundreds of deployments prior to the RFQ closing date.
  
  m. REI set up and used configuration management (evidenced by our GitHub repository).
  
- n. REI set up and used CloudWatch for continuous monitoring, within AWS.
+ n. REI configured and used Vaddy.net for applicaiton continuous security monitoring and Nessus cronjobs for OS monitoring, within AWS.
  
- o. REI deployed the VelociRx prototype in a Docker container using Tutum.
+ o. REI deployed the VelociRx prototype in a Docker containers using Tutum.
  
  p. Installation Instructions
 
@@ -88,13 +88,13 @@ Frontend
 
 4.	Agile. We used three agile, iterative sprints to design, develop, and refine/implement VelociRx.
 
-5.	Budget to support delivery – We initially estimated effort required, and dedicated four full-time staff and six additional part-time specialists for eight business days, plus four hours each from six user panelists. Upon learning of GSA’s due date extension, we elected to further enhance VelociRx, and thus added six business days of effort for our four full-time staff, plus one additional meeting for the six part-time specialists, We paid approximately $500 for Amazon Web Services hosting. 
+5.	Budget to support delivery – We initially estimated effort required, and dedicated four full-time staff and six additional part-time specialists for eight business days, plus four hours each from six user panelists. Upon learning of GSA’s due date extension, we elected to further enhance VelociRx, and thus added six business days of effort for our four full-time staff, plus one additional meeting for the six part-time specialists, We paid approximately $200 for Amazon Web Services hosting.
 
 6.	One leader. Bob Weber is accountable as our Product Owner.
 
 7.	Experienced team. We brought designers and developers each with over 12 years’ experience (save one), plus an SME with 25+ years pharma industry experience.
 
-8.	Modern technology – see criteria I above.
+8.	Modern technology – see criteria i above.
 
 9.	Flexible hosting – see criteria j and p above.
 
@@ -110,4 +110,4 @@ Frontend
 •	See criteria p above.
 
 ####**License**
-•	[The MIT License] 
+•	[The MIT License](http://opensource.org/licenses/MIT)
