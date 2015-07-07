@@ -886,6 +886,11 @@ md-toolbar.md-accent{
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
+/* Adding padding to md-card content */
+.drugs-page md-card{
+  padding: 15px;
+}
+
 /* Slider labels
 /*=========================*/
 .drugs-page label{
