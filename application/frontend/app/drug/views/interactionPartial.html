@@ -27,7 +27,7 @@
         </div>
 
         <div show-sm hide-gt-sm>
-            <md-select placeholder="Select a Drug Interaction" ng-model="drugInteraction" ng-change="showDrugInteraction(drugInteraction)">
+            <md-select placeholder="Select a Drug Interaction" ng-model="drugInteraction" ng-change="showDrugInteraction(drugInteraction)" class="content-select">
                 <md-option ng-value="drugInteraction" ng-repeat="drugInteraction in drugInteractions | filter:keyword">{{ drugInteraction.drug }}</md-option>
             </md-select>
             <div ng-show="selectedDrugInteraction" flex="100" flex-gt-sm="100" flex-gt-md="50" flex-gt-lg="33">

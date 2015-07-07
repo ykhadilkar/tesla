@@ -39,7 +39,7 @@ md-content{
 .footer .wrapper {
     text-align: center;
     background-color: #444;
-    width: 320px;
+    width: 133px;
     padding:0;
 }
 
@@ -416,7 +416,7 @@ a {
   margin:50px 0px 0 15px;
   color: #09b063;
   display: block;
-  padding-left: 15px;
+  padding-left: 7px;
 }
 .search-form md-select{
   padding: 0;
@@ -712,7 +712,7 @@ md-option{
     margin-left: 20px;
 }
 /*End Search Results*/
-/*Prodcut Page*/
+/*Product Page*/
 .pill-image{
   position: absolute;
   right: 50px;
@@ -756,7 +756,12 @@ md-tabs md-ink-bar{
   color: #47d091;
   background-color: #47d091;
 }
-
+.content-select .md-select-label{
+  height: 40px;
+  padding-bottom: 10px;
+  width: 100%;
+  background-color: #3758b7;
+}
 
 /************************************
  * General

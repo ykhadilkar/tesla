@@ -65,16 +65,22 @@ Selecting relevant data sources proved to be a challenge. Instead of providing o
  
  p. Installation Instructions
 
+Prerequisites
+- nodejs
+- bower installed globally on nodejs
+- grunt and grunt-cli installed globally nodejs
+
 Backend
 - cd application/backend
 - npm install
 - Start elasticsearch
 - node server.js
+
 Frontend
 - cd application/frontend
 - npm install
 - bower install
-- cd app/
+- cd app
 - grunt serve
 
  q. VelociRx and its underlying platforms are all openly licensed and are available free of charge. VelociRx itself is available under The [MIT License](http://opensource.org/licenses/MIT).

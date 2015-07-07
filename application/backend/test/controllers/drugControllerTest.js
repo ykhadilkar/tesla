@@ -3,7 +3,7 @@
 var Code = require('code');   // assertion library
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
-var server = require('../server');
+var server = require('../../server');
 
 lab.experiment("Basic HTTP Tests", function () {
     // test drug events end point
