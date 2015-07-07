@@ -65,6 +65,11 @@ Selecting relevant data sources proved to be a challenge. Instead of providing o
  
  p. Installation Instructions
 
+Prerequisites
+- nodejs
+- bower installed globally on nodejs
+- grunt and grunt-cli installed globally nodejs
+
 Backend
 - cd application/backend
 - npm install
