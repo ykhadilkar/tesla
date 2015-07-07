@@ -21,7 +21,7 @@ TeslaApp.controller('autoCompleteCtrl',
                 //get drugs and populate dropdown list
                 searchFactory.getDrugsBySymptom(symptom, function (results) {
                     $scope.drugResults = results;
-
+                    $scope.showNoMatchFound = false;
                     //select current drug in dropdown list
                     if(drug) {
                         _.find($scope.drugResults, function(oVal){
@@ -38,6 +38,9 @@ TeslaApp.controller('autoCompleteCtrl',
                     if(result.error.message === 'No matches found!') {
                         usSpinnerService.stop('spinner');
                         $scope.drugResults = [];
+                        $scope.showNoMatchFound = true;
+                    }else{
+                        $scope.showNoMatchFound = false;
                     }
                 });
             }

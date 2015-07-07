@@ -38,6 +38,9 @@
                             <md-select ng-class="{'active': drugResults.length >0}" placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)" id="drugSelector" ng-disabled="!drugResults.length">
                               <md-option ng-value="drug" ng-repeat="drug in drugResults" style="text-transform: capitalize">{{ drug.drug }}</md-option>
                             </md-select>
+                            <div ng-if="showNoMatchFound">
+                              <h4><div ng-message="fail">No match found</div></h4>
+                            </div>
                           </div>
                         </form>
                     </md-content>
