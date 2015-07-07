@@ -39,7 +39,7 @@ md-content{
 .footer .wrapper {
     text-align: center;
     background-color: #444;
-    width: 320px;
+    width: 133px;
     padding:0;
 }
 
@@ -287,7 +287,7 @@ a {
     font-family: open_sansitalic;
     clear: both;
     display: block;
-    font-size: 11px;
+    font-size: 16px;
 }
 
 #sub-logo b {
@@ -387,7 +387,12 @@ a {
   background-color: #47d091
 }
 
-
+.autocomplete input#input-1{
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 22px;
+  color: #525252;
+}
 .search-submit {
     font-family: open_sansextrabold;
     font-size: 17px;
