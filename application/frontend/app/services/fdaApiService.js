@@ -5,8 +5,6 @@ TeslaApp.service('fdaApiService', ['ENV', '$http', '$q', function (ENV, $http, $
 
     var apiKey = 'MQcYBmlcJ41XLzrsgZyaRGlpDwEgm80uWtvxtAUi';  //  free api key
     var apiPrefix = '?api_key=' + apiKey;
-    //  /drug/event.json?search=headache';
-
 
     var endPoints = {
         "apiStatus": '/status',
@@ -27,13 +25,11 @@ TeslaApp.service('fdaApiService', ['ENV', '$http', '$q', function (ENV, $http, $
         if ('object' == typeof query) {
             query = query.build();
         }
-        //console.log(query);
         var deferred = $q.defer();
         $http.get(baseUrl + endpoint + apiPrefix + query).success(function (data) {
             deferred.resolve(data);
-        }).error(function (data, status) {
+        }).error(function (data) {
             deferred.reject(data);
-            //console.log(status + ": could not get api data. Reason: " + data);
         });
         return deferred.promise;
     };

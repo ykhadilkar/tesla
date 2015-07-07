@@ -1,6 +1,5 @@
 'use strict';
 
-
 describe('DrugCtrl', function () {
     var scope,
         controller;
