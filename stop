@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "stopping ElasticSearch . . ."
+docker kill velocirx-textdb >/dev/null 2>&1
+docker rm velocirx-textdb >/dev/null 2>&1
+
+echo "stopping nginx reverse proxy frontend . . ."
+docker kill velocirx-lb >/dev/null 2>&1
+docker rm velocirx-lb >/dev/null 2>&1
+
+echo "stopping VelociRx backend Nodejs API . . ."
+docker kill velocirx-backend >/dev/null 2>&1
+docker rm velocirx-backend >/dev/null 2>&1
+
+echo "stopping VelociRx frontend Nginx AngularJS . . ."
+docker kill velocirx-frontend >/dev/null 2>&1
+docker rm velocirx-frontend >/dev/null 2>&1
+
+echo "Everything is stopped."
