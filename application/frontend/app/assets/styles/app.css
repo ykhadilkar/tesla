@@ -1,0 +1,896 @@
+html, body {
+    font-family: open_sansregular, sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+
+}
+
+md-card {
+    background-color: #fff;
+}
+
+/*General*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+h3 {
+    font-family: open_sansextrabold;
+}
+md-content{
+  background-color: transparent;
+}
+.content {
+    min-height: calc(100vh - 80px);
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer {
+    height: 50px;
+    background-color: #444;
+    padding:20px;
+}
+
+.footer .wrapper {
+    text-align: center;
+    background-color: #444;
+    width: 320px;
+    padding:0;
+}
+
+.footer .wrapper a {
+    color: #ddd;
+    margin-left: 15px;
+}
+
+b,
+.bold {
+    font-family: open_sansbold;
+}
+i{
+    font-family: open_sansitalic;
+}
+/*#footer {
+    background-color: #444;
+    max-height: 60px;
+    clear: both;
+}*/
+
+#results-info button.md-button {
+    border-radius: 0;
+    border: solid 1px #9a9a9a;
+    font-family: open_sansextrabold;
+    font-size: 12px;
+    color: #7a7a7a;
+    margin: 0 10px;
+}
+
+#results-info button.md-button span {
+    color: #7a7a7a;
+}
+
+#results-info button.md-button.active {
+    border: solid 1px #5a75c4;
+    color: #5a75c4;
+}
+
+#results-info button.md-button.active span {
+    color: #3758b7;
+}
+
+#results-info .md-button.md-default-theme.md-raised:not([disabled]):hover,
+#results-info .md-button.md-default-theme.md-raised:not([disabled]):focus {
+    background-color: rgba(250, 250, 250, 1);
+}
+
+md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked .md-icon {
+    background-color: rgba(26, 35, 126, 0.8);
+}
+
+md-slider.md-default-theme .md-thumb:after {
+    background-color: #3758b7;
+    border-color: #3758b7;
+}
+
+md-slider.md-default-theme .md-track.md-track-fill {
+    background-color: #3758b7;
+}
+
+md-slider .md-focus-ring {
+    border-color: #ff5151;
+}
+
+/*End general*/
+/* Toolbar area */
+
+.menu {
+    background-color: transparent;
+    border: none;
+    height: 38px;
+    margin: 16px;
+    width: 36px;
+}
+
+md-toolbar h1 {
+    margin: auto;
+}
+
+
+.header-wrapper a:visited {
+    color: #fff
+}
+
+/* Sidenav area */
+
+md-list .md-button {
+    color: inherit;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+}
+
+md-list .md-button.selected {
+    color: #03a9f4;
+}
+
+md-sidenav md-list {
+    padding: 0px 0px 8px 0px;
+}
+
+/* Primary content area */
+.wrapper {
+    position: relative;
+    max-width: 1350px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #fff;
+    border-left: 1px;
+    border-right: 1px;
+    border-color: #dddede;
+    padding: 40px 30px 0 30px;
+    max-width: 1024px;
+    padding: 0 20px;
+}
+
+.home .wrapper {
+    background-color: transparent;
+    padding: 0;
+}
+#content {
+    max-width: 1024px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.home #content{
+  width: auto
+}
+#content .md-button.share {
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    margin: 8px auto 16px 0;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+#content md-icon.avatar {
+    margin-top: 10px;
+}
+
+#content .md-button.share > md-icon {
+    fill: black;
+    width: 36px;
+    height: 36px;
+}
+
+md-button.menuBtn > md-icon {
+    fill: white;
+    width: 24px;
+    height: 24px;
+}
+
+#content .md-button.share:active > md-icon {
+    background-color: #dadada;
+    border-radius: 75%;
+    padding: 4px;
+    transition: all 100ms ease-out 30ms;
+}
+
+#content img {
+    display: block;
+    height: auto;
+    max-width: 500px;
+}
+
+/* Utils */
+
+.content-wrapper {
+    position: relative;
+}
+
+/* Typography support coming in 0.8.0 */
+
+md-toolbar h1 {
+    font-size: 1.250em;
+    font-weight: 400;
+}
+
+.avatar {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0px;
+    vertical-align: middle;
+    zoom: 0.70;
+    transform: translateZ(0);
+    -webkit-transform: scale(0.70);
+    -moz-transform: scale(0.70);
+}
+
+md-bottom-sheet md-icon {
+    margin-right: 20px;
+}
+
+span.name {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-left: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.fa-bars {
+    cursor: pointer;
+}
+
+/*Header*/
+.header-wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#logo {
+    font-family: open_sansextrabold, sans-serif;
+    line-height: 70%;
+    margin: 0;
+    font-size: 32px;
+    margin-right: 60px;
+    margin-top: 7px;
+    width: 100%;
+    min-width: 245px;
+}
+
+#logo img {
+    width: 93px;
+    /*height: 33px;*/
+    margin-bottom: -15px;
+    margin-left: 5px;
+}
+
+#logo #sub-logo {
+    font-family: open_sansitalic;
+    clear: both;
+    display: block;
+    font-size: 11px;
+}
+
+#sub-logo b {
+    font-family: open_sansextrabold_italic
+}
+.nav-container{
+  text-align: right;
+}
+#header-nav {
+    margin-top: 28px
+}
+
+#header-nav a {
+    font-family: aleolightitalic, serif;
+    font-size: 12px;
+    float: left;
+    color: #fff;
+    width: 100px;
+    text-align: left;
+    white-space: normal;
+}
+
+#header-nav a .bold {
+    font-family: novecento_sans_wide_bookbold, sans-serif;
+    display: block;
+}
+
+#header-nav i {
+    outline: none;
+}
+
+.fa-search {
+    color: #ccc;
+    padding: 25px 0 25px 13px;
+}
+
+.header-wrapper md-card {
+    border: 1px solid #8fb0c6;
+}
+
+.search-wrapper {
+    background-color: #fff;
+}
+
+.search {
+    height: 100%;
+}
+
+.search md-input-container {
+    padding: 0;
+}
+
+.search input[type='search'] {
+    /*width: 650px;*/
+    border: 0;
+    float: left;
+    padding: 22px 30px 30px 10px;
+    height: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search .md-button.md-default-theme.md-raised {
+    width: 220px;
+    background-color: #1a237e;
+    color: #fff;
+    float: right;
+    border-radius: 0;
+    height: 70px;
+    margin: 0;
+}
+
+.fa-times {
+    color: #455c96;
+}
+
+.md-button.md-default-theme.md-raised:not([disabled]):hover,
+.md-button.md-default-theme.md-raised:not([disabled]):focus {
+    background-color: rgba(26, 35, 126, 0.8);
+}
+
+.search-content {
+    background-color: #fff;
+    padding: 0 0 25px 0;
+    overflow: visible;
+}
+.search .md-whiteframe-z1 {
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #e4e4e4;
+}
+
+/*End header*/
+
+/*Home page*/
+.home body{
+  background-color: #47d091
+}
+
+
+.search-submit {
+    font-family: open_sansextrabold;
+    font-size: 17px;
+    padding: 0px 26px;
+    background-color: #3758b7;
+    color: #fff;
+    opacity: 1;
+    margin:0;
+    border-radius: 0;
+    height: 50px;
+}
+.search-content h4{
+  float: left;
+  margin:10px 0;
+  font-family: open_sansextrabold;
+  color: #525252;
+  font-size: 14px;
+}
+.search-form{
+  clear: both;
+  float: left;
+  margin-top: 10px;
+  width: 100%;
+}
+.search-form .fa{
+  margin:50px 0px 0 15px;
+  color: #09b063;
+  display: block;
+  padding-left: 15px;
+}
+.search-form md-select{
+  padding: 0;
+  height: 49px;
+}
+.search-form md-select.active .md-select-label{
+  background-color: #3758b7;
+}
+.search-form .md-select-label{
+  padding-bottom: 10px;
+}
+.search-form .md-select-label{
+  width: 100%;
+}
+.autocomplete,
+.autocomplete .md-whiteframe-z1{
+  height: 50px;
+}
+.autocomplete .md-whiteframe-z1{
+  padding: 6px;
+  border: 1px solid #dedede;
+}
+.autocomplete .md-whiteframe-z1 button{
+  position: absolute;
+  right: 0
+}
+.personas{
+  padding-top: 60px;
+  height: 500px;
+}
+.persona{
+  height: 130px;
+  position: relative;
+}
+.persona img{
+  position: absolute;
+  top:-60px;
+}
+.persona.left img{
+  left: 0
+}
+.persona.right img{
+  right: 0
+}
+.persona.left span{
+  margin-left: 186px;
+  clear: both;
+  display: block;
+  color: #fff;
+}
+.persona.right span{
+  text-align: right;
+  display: block;
+  color: #fff;
+}
+.persona.right .quote{
+  float: right;
+  margin-right: 180px;
+}
+.quote{
+  font-size: 18px;
+}
+b.name{
+  font-family: open_sansextrabold;
+}
+/*End Home Page*/
+
+/*Search results*/
+#results-info {
+    position: relative;
+    margin: 7px;
+}
+
+#results-info #dropdown-wrapper {
+    border: solid 1px #3758b7;
+}
+
+#results-info #dropdown-wrapper md-select {
+    padding: 6px 20px 12px;
+
+}
+
+.results-body .md-button {
+    border-radius: 0;
+    border: #2797ad;
+    background-color: #3eb6ce;
+    font-family: open_sansbold;
+    color: #fff
+}
+
+md-select.md-default-theme .md-select-label,
+md-select.md-default-theme:not([disabled]):focus .md-select-label {
+    border: 0;
+}
+.md-select-label{
+  background-color: #b7b7b7;
+}
+.md-select-label .md-select-icon{
+    width: 17px;
+}
+.md-select-label .md-select-icon:after {
+    font-family: 'FontAwesome';
+    content: '\f107';
+    padding: 3px;
+    color: #b7b7b7;
+    background-color: #fff;
+    border-radius: 100%;
+}
+
+.md-select-label span {
+    font-family: open_sanslight;
+    color: #fff;
+    font-size: 22px;
+    padding: 0 9px;
+}
+md-option{
+  background-color: #fff;
+}
+.results-header {
+    background-color: #d8eae5;
+    padding: 10px;
+    height: 35px;
+}
+
+.results-header h2 {
+    font-family: open_sansextrabold;
+    font-size: 26px;
+    margin: 0;
+    text-transform: capitalize;
+    color: #3e5ba9;
+    float: left
+}
+
+.results-header span {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: open_sanslight;
+    color: #3758b7;
+}
+
+.results-header a {
+    color: #3758b7;
+}
+
+.results-body {
+    background-color: #f5f5f5;
+    padding: 15px;
+    min-height: 60px;
+    margin-bottom: 20px;
+}
+
+.result {
+    width: 80%;
+    overflow: visible;
+    position: relative;
+}
+
+.adverse-number {
+    background-color: #3eb6ce;
+    border-radius: 100%;
+    position: absolute;
+    right: -67px;
+    top: 0;
+    width: 145px;
+    height: 145px;
+    color: #fff;
+    font-family: open_sansextrabold;
+
+}
+
+.adverse-number h3 {
+    font-family: open_sanslight;
+    font-size: 37px;
+    color: #fff;
+    margin: 0;
+    margin: 19px 0 0 0;
+    text-align: center;
+}
+
+.adverse-number span {
+    margin: 0px 0 0 38px;
+    display: inline-block;
+    text-align: center;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+.filters h1{
+  font-family: open_sanslight;
+  color: #989898;
+  font-size: 24px;
+}
+.filters h1 b{
+  text-transform: capitalize;
+  color: #575757;
+}
+.filters-wrapper {
+    float: right;
+    border-top: 1px solid #e2e2e2;
+    margin-top: 0;
+}
+
+.filters-button-wrapper {
+    float: left;
+}
+
+.filters button {
+    color: #3758b7;
+    /*border: 1px solid #3758b7;*/
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    font-size: 10px;
+    padding-top: 5px;
+}
+
+.filters button.active {
+    color: #fff;
+    border-color: #3758b7;
+    background-color: #3758b7;
+}
+
+.filter-results {
+    clear: both;
+    padding: 30px 40px;
+    margin-bottom: 20px;
+}
+
+.filter-results h3 {
+    display: block;
+    float: left;
+}
+
+.filter-results p {
+    float: right;
+    font-family: open_sanslight_italic;
+}
+
+.filter-results .md-button {
+    border: 1px solid #4362bb;
+    border-radius: 0;
+    background-color: #fff;
+    width: 88px;
+    margin: 0 auto;
+    color: #3758b7;
+    font-family: open_sansextrabold;
+    clear: both;
+    display: block;
+}
+
+.adverse-bar {
+    background-color: #818182;
+    font-family: open_sansextrabold;
+    font-size: 14px;
+    color: #fff;
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.adverse-bar-fill {
+    padding: 25px;
+    float: left;
+    white-space: nowrap;
+}
+
+.adverse-fill-wrapper {
+    float: left;
+}
+
+.orange {
+    background-color: #ff6c00;
+}
+
+.green {
+    background-color: #73c8aa;
+}
+
+.purple {
+    background-color: #e61df3;
+}
+
+.adverse-percent-data {
+    display: block;
+    float: left;
+    font-family: open_sanslight;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+/*End Search Results*/
+/*Product Page*/
+.pill-image{
+  position: absolute;
+  right: 50px;
+  border-radius: 100%;
+  margin-left: -105px;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+}
+.pill-image img{
+  width: 70px;
+}
+.row{
+  border-bottom: 1px solid #d7d7d7;
+}
+md-tabs[md-border-bottom] md-tabs-wrapper{
+  border: 0;
+}
+.drug-tabs .md-tab{
+  border-radius: 0;
+  background-color: #47d091;
+  border-bottom: solid 3px #47d091;
+  color: #fff;
+  height: 50px;
+  width: 235px;
+  margin: 0;
+  font-family: open_sansextrabold;
+  margin-left: 1px;
+}
+.drug-tabs .md-tab.md-active{
+  background-color: #e9eaea;
+  color: #423f3f;
+}
+/*Cant find a left align class*/
+.md-center-tabs md-pagination-wrapper.md-center-tabs{
+  margin: 0;
+  position: absolute;
+  left: 0;
+}
+md-tabs md-ink-bar{
+  color: #47d091;
+  background-color: #47d091;
+}
+.content-select .md-select-label{
+  height: 40px;
+  padding-bottom: 10px;
+  width: 100%;
+  background-color: #3758b7;
+}
+
+/************************************
+ * General
+ ************************************/
+body{
+  /*TODO: use http://typerendering.com/*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+strong, b{
+  font-weight: 700;
+}
+
+/************************************
+ * Defaults
+ ************************************/
+button, select, html, textarea, input {
+  font-family: Open Sans, RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/************************************
+ * Headings
+ ************************************/
+.md-display-1 {
+  font-weight: 300;
+  letter-spacing: -1px;
+  color: #575757;
+}
+.md-display-1 strong{
+  font-family: Open Sans;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.md-display-3 {
+  letter-spacing: -1px;
+}
+.md-display-3 strong{
+  font-family: Open Sans;
+  font-weight: 700;
+}
+.md-headline {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -.5px;
+  color: #767676;
+}
+.md-title, .md-toolbar-tools {
+  font-weight: 700;
+  letter-spacing: 0em;
+}
+
+/************************************
+ * Buttons
+ ************************************/
+.md-button {
+  font-weight: 700;
+}
+
+/************************************
+ * Card
+ ************************************/
+md-card .md-title{
+  margin-top: 0;
+}
+
+/************************************
+ * Toolbar
+ ************************************/
+md-toolbar.md-accent{
+  border-bottom: 1px solid #238f5d;
+}
+/* Remove bottom border in homepage */
+.home md-toolbar.md-accent{
+  border-bottom: none;
+}
+
+/************************************
+* Home Page
+************************************/
+
+/* Page Title */
+/*=========================*/
+.home .md-display-3 {
+  font-size: 24px;
+  line-height: 24px;
+  transition: all 0.2s;
+  text-align: center;
+  color: white;
+}
+@media (min-width: 600px) {
+  .home .md-display-3 {
+    font-size: 56px;
+    line-height: 56px;
+   }
+}
+
+
+/************************************
+ * Drugs Page
+ ************************************/
+
+/* Female/Male Buttons*/
+/*=========================*/
+
+/* Vertical center icons*/
+.drugs-page  .md-fab.md-primary i{
+  margin-top: 11px;
+}
+
+/* Button Normal State*/
+.drugs-page  .md-fab.md-primary:not(.active){
+  background-color: transparent;
+  box-shadow: none;
+}
+.drugs-page  .md-fab.md-primary:not(.active) i{
+  color: #3758b7;
+}
+.drugs-page  .md-fab.md-primary:not(.active):hover{
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+/* Slider labels
+/*=========================*/
+.drugs-page label{
+  font-family: open_sansitalic;
+}
+.drugs-page label.active{
+  color: #3758b7;
+  font-family: open_sansextrabold_italic;
+}

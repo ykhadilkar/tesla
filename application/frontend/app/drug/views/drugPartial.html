@@ -1,0 +1,105 @@
+<section layout="column" layout-gt-sm="row" layout-padding class="drugs-page">
+
+  <!--Left column -->
+  <div flex-gt-sm="75">
+
+    <section layout="column">
+
+      <!-- Page title -->
+      <h2 class="md-display-1" style="margin-bottom: 0; margin-top: 0;">
+        <strong>{{drugSelected}}</strong>
+      </h2>
+      <p class="md-subhead">
+        If you are currently taking or considering taking <span style="text-transform: capitalize">{{drugSelected}}</span>,
+        you can learn more about potential harmful side effects, recent recalls, and harmful drug interactions below
+      </p>
+
+      <md-divider></md-divider>
+
+      <h3 class="md-headline" style="margin-bottom: 10px;">Of the {{drugEventCount}} adverse events registered for {{drugSelected}}, these side effects occured</h3>
+
+      <div layout="column" layout-gt-sm="row">
+        <!-- Male and female buttons -->
+        <div layout="row" layout-align="center center">
+          <md-button class='md-fab md-primary' aria-label='male' ng-class="{active: genderSelected == '1'}" ng-click="genderButtonClick(1)">
+            <i class="fa fa-male fa-2x"></i>
+          </md-button>
+          <md-button class='md-fab md-primary' aria-label='female' ng-class="{active: genderSelected == '2'}" ng-click="genderButtonClick(2)">
+            <i class="fa fa-female fa-2x"></i>
+          </md-button>
+        </div>
+        <div flex>
+          <!-- Age slider -->
+          <md-slider class="md-primary" ng-model="ageGroup" step="1" min="1" max="5" aria-label="rating" ng-change="runEventSearch()"></md-slider>
+          <div layout='row'>
+              <label ng-class="{'active': ageGroup === 1}" flex='20' layout="column" layout-align="start start">
+                <span>All Ages</span>
+              </label>
+              <label ng-class="{'active': ageGroup === 2}" flex='20' layout="column" layout-align="center start">
+                <span>0-17</span>
+              </label>
+              <label ng-class="{'active': ageGroup === 3}" flex='20' layout="column" layout-align="center center">
+                <span>18-35</span>
+              </label>
+              <label  ng-class="{'active': ageGroup === 4}" flex='20' layout="column" layout-align="center end">
+                <span>36-55</span>
+              </label>
+              <label  ng-class="{'active': ageGroup === 5}" flex='20' layout="column" layout-align="center end">
+                <span>56+</span>
+              </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section layout="column">
+      <nvd3 options='adverseEventsChartOptions' data='data'></nvd3>
+      <h3 class="md-headline">The FDA has registered the following recalls for {{drugSelected}}:</h3>
+      <nvd3 options='recallChartOptions' data='drugRecallsData'></nvd3>
+    </section>
+
+    <md-divider></md-divider>
+
+    <!-- Drug interactions cards -->
+    <section layout="column">
+      <h3 class="md-headline">{{drugSelected}} is known to interact with the following drugs</h3>
+
+      <div layout="row" layout-sm="column" layout-align="start start" layout-wrap>
+        <div flex-gt-sm="50" ng-repeat="interaction in drugInteractions | limitTo:4">
+          <md-card>
+            <md-card-content>
+              <h4 class="md-title">{{interaction.drug}}</h4>
+              <p>{{ interaction.interaction | limitTo: 100 }}{{interaction.interaction.length > 100 ? '...' : ''}}</p>
+            </md-card-content>
+          </md-card>
+        </div>
+      </div>
+
+      <div ng-show="!drugInteractions.length">
+        No drug interaction found for  <span style="text-transform: capitalize">{{ drugSelected}}</span>.
+      </div>
+
+      <div layout="row" layout-align="end end">
+        <md-button ng-show="drugInteractions.length" class="md-primary" ng-click="gotoInteraction()">See all</md-button>
+      </div>
+
+    </section>
+  </div>
+
+  <!--Right column -->
+  <div flex-gt-sm="25">
+    <!-- Drug brands -->
+    <section>
+      <md-subheader class="md-no-sticky" style="background-color:#e9eaea;">Read the labels of specific <span style="text-transform: capitalize">{{ drugSelected}}</span> brands:</md-subheader>
+      <md-list>
+        <md-list-item ng-click="gotoProduct(product)" ng-repeat="product in products | limitTo:10">
+          <p>{{ product.openfda.brand_name[0] }}</p>
+          <md-icon class="md-accent" md-svg-src="assets/svg/play.svg"></md-icon>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+      </md-list>
+    </section>
+  </div>
+
+</section>

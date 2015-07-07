@@ -1,0 +1,87 @@
+<div flex layout='column' layout-sm='column' class='wrapper' layout-fill>
+    <div class='filters' layout='row' layout-sm='column'>
+        <div>
+            <h2>About VelociRX</h2>
+            <p>VelociRCX is designed to help consumers learn more about the the side effects and potentially harmful interactions
+            that can occur when taking prescription and over the counter medications. The United Stated Food and Drug Administration tracks
+            adverse reactions and recalls that are reported for drugs, both at the generic and brand specific level. This data is available
+            to the public, and VelociRX helps users examine that data in an easy-to-use way.</p>
+            <h3>Food and Drug Administration</h3>
+            <p>VelociRX leverages the openFDA project, which makes the FDA's database of adverse drug reactions and drug recalls open
+            and available to the public. When a VelociRX user performs a search, that search is done directly against the FDA's latest registry,
+            so the data is always up to date.</p>
+            <p>How does VelociRX determine which drugs to show for a given condition? The VelociRX team has compiled a list of synonyms for common medical
+            conditions and keep a list in the VelociRX database. When a user enters a condition, such as "high blood pressure", in the site the
+            system checks to see if there are medical synonyms registered for this condition. In the "high blood pressure" example, VelociRX
+            actually searches for "high blood pressure", "hypertension", "HBP",and "HBT" when checking with FDA. This helps capture all adverse events and
+            recalls for a condition, despite whether they are registered by a consumer using layman terms or a physician using medical terms. The medical synonyms
+            for this feature are provided by the <a href="http://voxhealth.org/">voxhealth.org</a></p>
+            <p>For more information about the FDA's publicly available data, visit <a href="https://open.fda.gov/">open.fda.gov</a></p>
+            <h3>National Institute of Health</h3>
+            <p>VelociRX leverages National Library of Medicine's drug interactions API to retrieve known drug interactions between two types of drugs.
+            This data is made available to the public via the RXNav API.</p>
+            <p>To learn more about NIH's RXNav service, visit <a href="http://rxnav.nlm.nih.gov/APIsOverview.html">rxnav.nlm.nih.gov/APIsOverview.html</a></p>
+            <h2>Frequently Asked Questions</h2>
+            <h3>What is the purpose of VelociRx?</h3>
+            <p>To help users find safety information for the drugs approved to treat their symptoms or condition.</p>
+            <h3>How do I use VelociRx?</h3>
+            <p>Simply begin typing your symptom or condition in the search box in the upper part of the home page.  As you type, you will
+                see suggestions to complete what you are typing.  Once you have selected one of the suggestions (or finished typing),
+                and hit Enter, you will see a list of substances, the key ingredient, in drugs that are FDA-approved to treat your symptoms or condition.
+                When you choose one of those substances, VelociRx will provide a wealth of information about that substance, including the number of adverse
+                events and recalls, brands/drugs that include the substance, and interactions with other drugs.  Feel free to drill down for more specific
+                information on a particular brand/drug, or for information specific to your gender or age grouping.</p>
+            <h3>Is there a cost to use VelociRx?</h3>
+            <p>No – VelociRx is free to use.</p>
+            <h3>Who created VelociRx?</h3>
+            <p>REI Systems created VelociRx to make data from the FDA and other sources available to the public in a convenient format.  REI created
+                VelociRx in response to a challenge issued by the US General Services Administration.</p>
+            <h3>What is an adverse event?</h3>
+            <p>An adverse event is any undesirable experience associated with the use of a medical product in a patient.</p>
+            <h3>How can I tell if an adverse event is serious?</h3>
+            <p>An adverse event is serious if it involves death, threat to life, hospitalization, disability or permanent damage,
+                congenital anomaly/birth defect, requires intervention to prevent permanent impairment or damage.  Also, see the FDA’s website:
+                <a href="http://www.fda.gov/Safety/MedWatch/HowToReport/default.htm">How to report an adverse event</a></p>
+            <h3>How does VelociRx get information about adverse events?</h3>
+            <p>VelociRx receives information about adverse events from the FDA, which receives reports of adverse events from
+                drug manufacturers (who are required to report such events), health care providers, patients and patient representatives (including
+                friends and family members).  This information is believed to be the best that is available, but is not complete because not all adverse
+                events are noticed, accurately attributed to a drug, and reported to the FDA.</p>
+            <h3>If I see an adverse event about a particular substance (e.g., acetaminophen) – how can I tell if the event relates to the brand-name drug I use
+                containing that substance (e.g., Tylenol PM)?</h3>
+            <p>When using VelociRx to view information about the substance, review the listed brand-name drugs and click on the one that you use.
+                Available adverse event, recall and other information for that brand-name drug will be presented.</p>
+            <h3>Is this information up-to-date?</h3>
+            <p>VelociRx receives updated information continuously from the FDA and other sources.  FDA’s Adverse Events Reporting System is updated daily,
+                though neither FDA nor VelociRx can ensure that actual adverse events are reported on a timely basis by the person who experiences
+                them (or by their health care provider).</p>
+            <h3>Is the information complete?</h3>
+            <p>This information is believed to be the best that is available, but is not complete because not all adverse events are noticed, accurately
+                attributed to a drug, and reported to the FDA.
+            <h3>I see a lot of adverse events – is this drug safe?</h3>
+            <p>At the moment, it isn’t possible to compare the rate of adverse events for different drugs.  To do so would require the ability to determine
+                the total number of people taking a given drug or the number of prescriptions for a given drug across the United States.  Since it is not
+                currently possible to accurately determine that volume of drug use, it is impossible to determine which drugs experience the highest rate
+                of adverse events.  The Team behind VelociRx is working on this challenge.</p>
+            <h3>Why can’t I find the drug I am taking?</h3>
+            <p>Some drugs (especially brand-names) have been registered using a different name that the name under which they are marketed.  Your drug’s
+                label will usually provide information about the substance or active ingredient(s), which you can then use to search VelociRx.</p>
+            <h3>Where can I get more information on the substance or drug I take?</h3>
+            <p>Once you have reviewed details about the specific drug on VelociRx (including numbers of adverse events, recalls and interactions), the FDA
+                provides safety information Recalls, Market Withdrawals and Safety Alerts. Information about drug efficacy and interactions is available at
+                FDA Drug Resources For Consumers. You may also subscribe to FDA Safety Alerts via FDA MedWatch.  Outside the FDA, drug information can be
+                found at <a href="http://www.drugs.com/drug_information.html">drugs.com</a>, <a href="http://www.rxlist.com/drugs/alpha_a.htm">rxlist.com</a>,
+                <a href="http://www.prescriptiondrugs.com/drugs">prescriptiondrugs.com</a>, and many other sources</p>
+            <h3>I experienced an adverse event – how can I report it?</h3>
+            <p>If this is an emergency, please call 911.  Otherwise, consult your physician or other health care provider for treatment, and to discuss potential alternative drugs.  Ask if he or she will report the adverse event.  To report the adverse event yourself, you may visit the FDA’s website: How to report an adverse event.</p>
+            <h3>I am looking for alternatives to the drug I currently use – can VelociRx help me find them?</h3>
+            <p>VelociRx can provide information that helps you and your physician identify alternatives, and that provides safety information for each alternative, including number
+                and types of adverse events, recalls, and drug interactions.  VelociRx can not, however, take into account your specific situation and health needs.
+                For that reason, consult your physician and/or other health care providers if you’d like to discuss alternatives to a prescription or over-the-counter drug that you currently use.</p>
+            <h3>If two drugs have the same number of adverse events, recalls and interactions I’d like to consider pricing information.  Will price information be available on VelociRx soon?</h3>
+            <p>Pricing information is not currently available, but we hope to make it available soon.</p>
+
+
+        </div>
+    </div>
+</div>

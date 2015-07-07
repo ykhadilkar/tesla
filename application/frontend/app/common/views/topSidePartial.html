@@ -1,0 +1,51 @@
+<div class='search-wrapper'>
+    <div flex layout="row" layout-fill>
+        <md-content id="content" flex='100'>
+            <div ng-controller="autoCompleteCtrl as ctrl">
+                <div class='' layout='column'>
+                    <md-content class='search-content'>
+                        <form ng-submit="loadDrugsBySymptom(ctrl.searchText)" class='search-form' layout-gt-md='row' layout='column'>
+                          <div flex='48' layout='column'>
+                            <h4>I am Suffering from:</h4>
+                            <md-content class='search-wrapper' layout='row'>
+                              <md-autocomplete
+                                  ng-disabled="ctrl.isDisabled"
+                                  md-no-cache="ctrl.noCache"
+                                  md-selected-item="ctrl.selectedItem"
+                                  md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                                  md-search-text="ctrl.searchText"
+                                  md-selected-item-change="ctrl.selectedItemChange(item)"
+                                  md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                  md-item-text="item.display"
+                                  md-min-length="2"
+                                  placeholder="Headache, Teething, High Blood Pressure ..."
+                                  class='autocomplete'
+                                  flex='66'
+                                  layout-fill>
+                                  <md-item-template layout-fill>
+                                      <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i" style="text-transform: capitalize">{{item.display}}</span>
+                                  </md-item-template>
+                                  <md-not-found>
+                                      No matches found for "{{ctrl.searchText}}".
+                                  </md-not-found>
+                              </md-autocomplete>
+                                <md-button class='search-submit' flex='33'>Search</md-button>
+                            </md-content>
+                          </div>
+                          <i class='fa fa-arrow-circle-right fa-2x' flex='5' hide-md hide-sm></i>
+                          <div flex='46' layout='column'>
+                            <h4>And I want to know more about:</h4>
+                            <md-select ng-class="{'active': drugResults.length >0}" placeholder="Select a Drug" ng-model="drug" ng-change="setSelectedDrug(drug)" id="drugSelector" ng-disabled="!drugResults.length">
+                              <md-option ng-value="drug" ng-repeat="drug in drugResults" style="text-transform: capitalize">{{ drug.drug }}</md-option>
+                            </md-select>
+                            <div ng-if="showNoMatchFound">
+                              <h4><div ng-message="fail">No match found</div></h4>
+                            </div>
+                          </div>
+                        </form>
+                    </md-content>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>
