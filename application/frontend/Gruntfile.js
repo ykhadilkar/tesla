@@ -53,7 +53,7 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
-              BACKEND_API: 'http://velocirx-api.devopsplatform.com',
+              BACKEND_API: 'http://velocirx-api.reisys.com',
               FDA_API: 'https://api.fda.gov',
               RXNORM_API: 'http://rxnav.nlm.nih.gov/REST',
             }
@@ -65,7 +65,7 @@ module.exports = function (grunt) {
           },
           constants: {
             ENV: {
-              BACKEND_API: 'http://tesla-api.devopsplatform.com',
+              BACKEND_API: 'http://velocirx.reisys.com',
               FDA_API: 'https://api.fda.gov',
               RXNORM_API: 'http://rxnav.nlm.nih.gov/REST',
             }
