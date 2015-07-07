@@ -28,8 +28,8 @@ Using data from the interview process, the VelociRx product owner defined a list
 Selecting relevant data sources proved to be a challenge. Instead of providing only a slick interface to the OpenFDA API, we viewed it as a requirement to mashup OpenFDA data with other data as a way of providing true value to the user
 [VoxHealth](http://voxhealth.org) to provide a list of synonyms for drug indicators.  We ingested this data into a locally hosted instance of Elastic Search to provide improved usability for search auto-complete functionality. [National Library of Medicine RxNorm](http://www.nlm.nih.gov/research/umls/rxnorm) for pill image and drug interactions. A wide variety of other data sources were analyzed, reviewed and even implemented before being withdrawn from the final application. The reasons for not using some of the other data sets included: incomplete data, incompatibility with existing data, or data that led users to inaccurate conclusions.  This data included sources from GoodRx and others.
 
-[image](https://github.com/REI-Systems/tesla/artifacts/architecture/velocirx-ci-infrastructure.jpg)
-![Continuous Integration Infrastructure & Process](https://github.com/REI-Systems/tesla/artifacts/architecture/velocirx-ci-infrastructure-icon.jpg "Continuous Integration Infrastructure & Process")
+[![click to expand](https://github.com/REI-Systems/tesla/blob/develop/artifacts/architecture/velocirx-ci-infrastructure-icon.jpg "Continuous Integration Infrastructure & Process")](https://raw.githubusercontent.com/REI-Systems/tesla/develop/artifacts/architecture/velocirx-ci-infrastructure.jpg?token=AHvNPly4ZoIXNLy0Hs-m9LunN2wjPgGmks5VpF-pwA%3D%3D)
+
 
 
 ####**RFQ POOL THREE - FULL STACK CRITERIA:**
@@ -77,7 +77,7 @@ Frontend
 - cd app/
 - grunt serve
 
- q. VelociRx and its underlying platforms are all openly licensed and are available free of charge. VelociRx itself is available under The MIT License.
+ q. VelociRx and its underlying platforms are all openly licensed and are available free of charge. VelociRx itself is available under The [MIT License](http://opensource.org/licenses/MIT).
  
 ####**REI SYSTEMS FOLLOWED THE DIGITAL SERVICES PLAYBOOK, as evidenced by:**
 1.	Understand what people need – see criteria c above.

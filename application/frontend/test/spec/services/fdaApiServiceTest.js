@@ -1,16 +1,26 @@
 'use strict';
 
 describe('fdaApiServiceTest', function () {
+    function escapeRegExp(str) {
+        return str.replace(/[\/\.\?]/g, "\\$&");
+    }
+
     var $httpBackend,
-        fdaApiServiceObj;
+        fdaApiServiceObj,
+        baseUrl;
 
     beforeEach(function () {
         module('teslaApp');
-        inject(function (_$httpBackend_, fdaApiService) {
+        inject(function (_$httpBackend_, fdaApiService, ENV) {
             $httpBackend = _$httpBackend_;
             fdaApiServiceObj = fdaApiService;
-            //$httpBackend.when('GET', 'Users/users.json').respond([{id: 1, name: 'Bob'}, {id:2, name: 'Jane'}]);
+            baseUrl = ENV.FDA_API;
         })
+    });
+
+    afterEach(function() {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
     });
 
     it("checks endpoints list", function () {
@@ -60,6 +70,40 @@ describe('fdaApiServiceTest', function () {
 
         var query = queryBuilder.build();
         expect(query).toBe('&search=someString&count=receivedate.exact&offset=9&limit=7');
+    });
+
+    it("checks apiStatus request", function () {
+        var apiUrl = new RegExp(
+            escapeRegExp(baseUrl+fdaApiServiceObj.endpoints.apiStatus)
+            +'\\?api_key=[a-z0-9]+', 'gi');
+
+        $httpBackend.when('GET', apiUrl).respond(
+            {status:'amazing'}
+        );
+        var status = false;
+        fdaApiServiceObj.getApiStatus().then(function (result) {
+            status = result;
+        });
+        $httpBackend.flush();
+
+        expect(status).toEqual({status:'amazing'});
+    });
+
+    it("checks drugRecall request", function () {
+        var apiUrl = new RegExp(
+            escapeRegExp(baseUrl+fdaApiServiceObj.endpoints.drugRecall+'?')
+            +'api_key=[a-z0-9]+&search=karmaTest', 'gi');
+
+        $httpBackend.when('GET', apiUrl).respond(
+            {recalls:'list'}
+        );
+        var status = false;
+        fdaApiServiceObj.getDrugRecall('&search=karmaTest').then(function (result) {
+            status = result;
+        });
+        $httpBackend.flush();
+
+        expect(status).toEqual({recalls:'list'});
     });
 
 });
