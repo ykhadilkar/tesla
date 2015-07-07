@@ -34,20 +34,35 @@ Selecting relevant data sources proved to be a challenge. Instead of providing o
 
 ####**RFQ POOL THREE - FULL STACK CRITERIA:**
  a. Bob Weber was assigned and accountable to lead design and development of VelociRx based on his extensive successful agile and engineering experience.
+ 
  b. Multidisciplinary collaborative team members include: Product Manager, Technical Architect, Content Strategist, Visual Designer, Business Analyst, Front-End Web Developer, Back-End Web Developers, DevOps Engineer, and SME (pharma).
+ 
  c. We convened a panel of six patient/consumer “users” to determine their highest priority desires for an application; to review potential models and provide design feedback; to test the prototype for usability (a subset); and to test/accept the final product.
+
  d. We used four “human-centered design” tools, including (1) user interviews, (2) developing personas, (3) card sorting, and (4) iterative focus group reviews.
+ 
  e. We used the Material Design open source library.
+ 
  f. Our user panelists performed usability testing, leading us, for example, to revise font colors and to re-frame the search from seeking “the most effective drug” to “the right drug for you and your family”. Videos of the panel are visible at Artifacts/UX/FeedbackSessions folder of our GitHub repository.
+ 
  g. User feedback led us to make design changes including changing the name from Manna to VelociRx and structuring the search for drug name after the search for health condition/indication. Example images of iterative changes on our agile scrum board are visible in the Artifacts/Project folder of our GitHub repository.
+ 
  h. Our VelociRx prototype operates on PC, tablet and smartphones using responsive design with modern browsers including Safari, FireFox, Chrome, and IE9+.
+ 
  i. We used six modern open source technologies, including: AngularJS (frontend), Node.js (backend), Bower (package management), Grunt (task runner), Elastic Search (search), Chef (deployment), and HAPI (API).
+ 
  j. We deployed VelociRx on Amazon Web Services (AWS), at https://VelociRx.reisys.com. 
+ 
  k. We performed unit tests for code at every check-in using Jasmine and Karma. Results are visible on the main page of our GitHub repository.
+ 
  l. REI set up and used continuous integration to automate tests (using Circle CI), and continuously deployed our code on AWS. As can be observed in the History of our GitHub repository, we made hundreds of deployments prior to the RFQ closing date.
+ 
  m. REI set up and used configuration management (evidenced by our GitHub repository).
+ 
  n. REI set up and used CloudWatch for continuous monitoring, within AWS.
+ 
  o. REI deployed the VelociRx prototype in a Docker container using Tutum.
+ 
  p. Installation Instructions
 
 Backend
@@ -66,17 +81,29 @@ Frontend
  
 ####**REI SYSTEMS FOLLOWED THE DIGITAL SERVICES PLAYBOOK, as evidenced by:**
 1.	Understand what people need – see criteria c above.
+
 2.	Address the whole experience – see criteria c, d, f and g and above.
+
 3.	Simple and intuitive – no training or instruction is needed. FAQs are available.
+
 4.	Agile. We used three agile, iterative sprints to design, develop, and refine/implement VelociRx.
+
 5.	Budget to support delivery – We initially estimated effort required, and dedicated four full-time staff and six additional part-time specialists for eight business days, plus four hours each from six user panelists. Upon learning of GSA’s due date extension, we elected to further enhance VelociRx, and thus added six business days of effort for our four full-time staff, plus one additional meeting for the six part-time specialists, We paid approximately $500 for Amazon Web Services hosting. 
+
 6.	One leader. Bob Weber is accountable as our Product Owner.
+
 7.	Experienced team. We brought designers and developers each with over 12 years’ experience (save one), plus an SME with 25+ years pharma industry experience.
+
 8.	Modern technology – see criteria I above.
+
 9.	Flexible hosting – see criteria j and p above.
+
 10.	Automate testing and deployment – see criteria k, l, m, n and o above.
+
 11.	Manage security and privacy through reusable processes – Not applicable for this prototype.
+
 12.	Use data to drive decisions – We compared alternative technologies, and discarded MongoDB because we realized that we did not need to download a National Library of Medicine “Drug Interaction” data set, but we decided that we could instead rely upon the speed of NLM’s available API – thus MongoDB’s full-fledged database was no longer needed. REI made similar data-driven, user-centric decisions at several stages of the design and development effort.
+
 13.	Default to open – see criteria q above.
 
 ####**Installation Instructions**
