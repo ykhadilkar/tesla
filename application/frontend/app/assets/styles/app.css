@@ -121,7 +121,9 @@ md-toolbar h1 {
 }
 
 
-.header-wrapper a:visited {
+.header-wrapper a:visited,
+.header-wrapper a,
+.header-wrapper a:hover {
     color: #fff
 }
 
@@ -263,6 +265,7 @@ a {
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
 #logo {

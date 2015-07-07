@@ -1,0 +1,34 @@
+#!/bin/bash
+
+echo "starting ElasticSearch . . ."
+docker kill velocirx-textdb >/dev/null 2>&1
+docker rm velocirx-textdb >/dev/null 2>&1
+docker run -d \
+           -p 9200:9200 \
+           --name velocirx-textdb velocirx/textdb
+
+echo "starting nginx reverse proxy frontend . . ."
+docker kill velocirx-lb >/dev/null 2>&1
+docker rm velocirx-lb >/dev/null 2>&1
+docker run -d \
+           -p 7002:7002 \
+           -p 2003:2003 \
+           -p 2004:2004 \
+           -v /opt/graphite \
+           --name velocirx-lb velocirx/lb
+
+echo "starting VelociRx backend Nodejs API . . ."
+docker kill velocirx-backend >/dev/null 2>&1
+docker rm velocirx-backend >/dev/null 2>&1
+docker run -d \
+           --volumes-from velocirx-backend \
+           --name velocirx-graphite velocirx/backend
+
+echo "starting VelociRx frontend Nginx AngularJS  . . ."
+docker kill velocirx-frontend >/dev/null 2>&1
+docker rm velocirx-frontend >/dev/null 2>&1
+docker run -d -p 8080:80 --name velocirx-frontend --link velocirx-graphite:velocirx-graphite-link velocirx/nginx
+
+PORT=`docker ps | grep velocirx-grafana | sed -e 's/.*://' | sed -e 's/\-.*//'`
+HOST=`/usr/bin/env | grep DOCKER_HOST | perl -pe 's/.*\/([0-9\.]+):.*/$1/'`
+echo "Everything is running, go check out http://$HOST:$PORT"

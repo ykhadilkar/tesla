@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo
+echo -e "\033[1mThis might take a little while . . . go grab a beer.\033[0m"
+echo
+sleep 3
+tput sgr0
+
+cd infrastructure/textdb
+docker build -t velocirx/textdb .
+
+cd ../../infrastructure/lb
+docker build -t velocirx/lb .
+
+cd ../../application/backend
+docker build -t velocirx/backend .
+
+cd ../../application/frontend
+docker build -t velocirx/frontend .
+
+echo; echo
+echo -e "\033[1mOk! You're ready to start VelociRx.\033[0m"
