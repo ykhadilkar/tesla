@@ -712,7 +712,7 @@ md-option{
     margin-left: 20px;
 }
 /*End Search Results*/
-/*Prodcut Page*/
+/*Product Page*/
 .pill-image{
   position: absolute;
   right: 50px;
@@ -756,7 +756,12 @@ md-tabs md-ink-bar{
   color: #47d091;
   background-color: #47d091;
 }
-
+.content-select .md-select-label{
+  height: 40px;
+  padding-bottom: 10px;
+  width: 100%;
+  background-color: #3758b7;
+}
 
 /************************************
  * General
