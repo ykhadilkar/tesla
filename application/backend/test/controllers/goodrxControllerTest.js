@@ -3,7 +3,7 @@
 var Code = require('code');   // assertion library
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
-var server = require('../server');
+var server = require('../../server');
 
 lab.experiment("Testing GoodRX Controller", {timeout: 3000}, function () {
 
