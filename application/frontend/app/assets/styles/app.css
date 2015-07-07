@@ -409,14 +409,14 @@ a {
 .search-form{
   clear: both;
   float: left;
-  margin-top: 7px;
+  margin-top: 10px;
   width: 100%;
 }
 .search-form .fa{
   margin:50px 0px 0 15px;
   color: #09b063;
   display: block;
-  padding-left: 15px;
+  padding-left: 7px;
 }
 .search-form md-select{
   padding: 0;
