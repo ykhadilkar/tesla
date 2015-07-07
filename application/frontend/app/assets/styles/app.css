@@ -34,20 +34,18 @@ md-content{
     height: 50px;
     background-color: #444;
     padding:20px;
-    text-align: center;
 }
 
 .footer .wrapper {
     text-align: center;
     background-color: #444;
-    width: 120px;
+    width: 133px;
     padding:0;
 }
 
 .footer .wrapper a {
     color: #ddd;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
 }
 
 b,
