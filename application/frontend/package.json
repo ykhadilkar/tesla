@@ -31,7 +31,7 @@
     "grunt-wiredep": "*",
     "grunt-include-source": "*",
     "grunt-ng-constant": "*",
-    "jasmine-core": "*",
+    "jasmine-core": "^2.3",
     "jshint-stylish": "*",
     "karma": "*",
     "karma-jasmine": "*",

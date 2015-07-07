@@ -1,3 +1,5 @@
+'use strict';
+
 TeslaApp.controller('autoCompleteCtrl',
     ['teslaFactory', 'searchFactory', '$scope', '$location', '$timeout', '$q', '$log', 'usSpinnerService',
         function (teslaFactory, searchFactory, $scope, $location, $timeout, $q, $log, usSpinnerService) {
