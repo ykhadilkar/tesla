@@ -4,7 +4,7 @@
         </div>
         <md-tabs md-border-bottom class='align-left drug-tabs'>
             <!-- Tab One -->
-            <md-tab class='tabs md-active' label='Drug Details'>
+            <md-tab class='tabs md-active' label='Drug Details' layout="row" flex='33'>
                 <div hide-sm show-gt-sm layout-padding flex layout='column'>
                     <p class="md-subhead">Label information for {{ product.openfda.brand_name[0] }}</p>
                     <div></div>
@@ -231,7 +231,7 @@
                 </div>
             </md-tab>
             <!-- Tab Two -->
-            <md-tab class='tabs' label='Adverse Events'>
+            <md-tab class='tabs' label='Adverse Events' flex='33'>
                 <p class="md-subhead">The FDA has registered the following adverse Events for {{ product.openfda.brand_name[0] }}</p>
                 <div ng-if="data == undefined">
                     <p>No Data Available</p>
@@ -241,7 +241,7 @@
                 </div>
             </md-tab>
             <!-- Tab Three -->
-            <md-tab class='tabs' label='Recalls'>
+            <md-tab class='tabs' label='Recalls' flex='33'>
                 <p class="md-subhead">The FDA has registered the following recalls for {{ product.openfda.brand_name[0] }}</p>
                 <div ng-if="drugRecallsData == undefined">
                     <p>No Data Available</p>
