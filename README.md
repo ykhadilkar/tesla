@@ -75,6 +75,7 @@ Backend
 - npm install
 - Start elasticsearch
 - node server.js
+
 Frontend
 - cd application/frontend
 - npm install
