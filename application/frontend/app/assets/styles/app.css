@@ -770,7 +770,6 @@ md-tabs md-ink-bar{
  * General
  ************************************/
 body{
-  /*TODO: use http://typerendering.com/*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
