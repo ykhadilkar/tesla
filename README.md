@@ -73,6 +73,7 @@ Prerequisites
 Backend
 - cd application/backend
 - npm install
+- Follow the elasticsearch data loading instructions at https://github.com/REI-Systems/tesla/tree/master/infrastructure/textdb
 - Start elasticsearch
 - node server.js
 
