@@ -4,13 +4,13 @@ describe('SearchCtrl', function () {
     var scope,
         controller;
 
-    describe('symptom is not set', function(){
+    describe('symptom is not set', function () {
         beforeEach(function () {
             module('teslaApp');
             inject(function ($rootScope, $controller, teslaFactory) {
                 scope = $rootScope.$new();
                 var mockTeslaFactory = teslaFactory;
-                spyOn(mockTeslaFactory, 'getSymptom').and.callFake(function(){
+                spyOn(mockTeslaFactory, 'getSymptom').and.callFake(function () {
                     return '';
                 });
 
@@ -26,13 +26,13 @@ describe('SearchCtrl', function () {
         });
     });
 
-    describe('symptom is set', function(){
+    describe('symptom is set', function () {
         beforeEach(function () {
             module('teslaApp');
             inject(function ($rootScope, $controller, teslaFactory) {
                 scope = $rootScope.$new();
                 var mockTeslaFactory = teslaFactory;
-                spyOn(mockTeslaFactory, 'getSymptom').and.callFake(function(){
+                spyOn(mockTeslaFactory, 'getSymptom').and.callFake(function () {
                     return 'karmache';
                 });
 

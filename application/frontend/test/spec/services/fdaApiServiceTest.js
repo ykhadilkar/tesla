@@ -1,9 +1,9 @@
 'use strict';
 
 describe('fdaApiServiceTest', function () {
-    function escapeRegExp(str) {
+    var escapeRegExp = function (str) {
         return str.replace(/[\/\.\?]/g, "\\$&");
-    }
+    };
 
     var $httpBackend,
         fdaApiServiceObj,
@@ -18,7 +18,7 @@ describe('fdaApiServiceTest', function () {
         })
     });
 
-    afterEach(function() {
+    afterEach(function () {
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
     });
@@ -74,11 +74,11 @@ describe('fdaApiServiceTest', function () {
 
     it("checks apiStatus request", function () {
         var apiUrl = new RegExp(
-            escapeRegExp(baseUrl+fdaApiServiceObj.endpoints.apiStatus)
-            +'\\?api_key=[a-z0-9]+', 'gi');
+            escapeRegExp(baseUrl + fdaApiServiceObj.endpoints.apiStatus + '?')
+            + 'api_key=[a-z0-9]+', 'gi');
 
         $httpBackend.when('GET', apiUrl).respond(
-            {status:'amazing'}
+            {status: 'amazing'}
         );
         var status = false;
         fdaApiServiceObj.getApiStatus().then(function (result) {
@@ -86,16 +86,16 @@ describe('fdaApiServiceTest', function () {
         });
         $httpBackend.flush();
 
-        expect(status).toEqual({status:'amazing'});
+        expect(status).toEqual({status: 'amazing'});
     });
 
     it("checks drugRecall request", function () {
         var apiUrl = new RegExp(
-            escapeRegExp(baseUrl+fdaApiServiceObj.endpoints.drugRecall+'?')
-            +'api_key=[a-z0-9]+&search=karmaTest', 'gi');
+            escapeRegExp(baseUrl + fdaApiServiceObj.endpoints.drugRecall + '?')
+            + 'api_key=[a-z0-9]+&search=karmaTest', 'gi');
 
         $httpBackend.when('GET', apiUrl).respond(
-            {recalls:'list'}
+            {recalls: 'list'}
         );
         var status = false;
         fdaApiServiceObj.getDrugRecall('&search=karmaTest').then(function (result) {
@@ -103,7 +103,7 @@ describe('fdaApiServiceTest', function () {
         });
         $httpBackend.flush();
 
-        expect(status).toEqual({recalls:'list'});
+        expect(status).toEqual({recalls: 'list'});
     });
 
 });

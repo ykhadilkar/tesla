@@ -25,13 +25,11 @@ TeslaApp.controller('SearchCtrl', ['teslaFactory', 'searchFactory', 'fdaApiServi
 
             if ($scope.formSymptom) {
                 searchFactory.getDrugsBySymptom($scope.formSymptom, function (results) {
-                    //console.log('results returned');
-                    //console.log(results);
                     $scope.drugResults = results;
 
                     usSpinnerService.stop('spinner');
-                }, function(result){
-                    if(result.error.message === 'No matches found!') {
+                }, function (result) {
+                    if (result.error.message === 'No matches found!') {
                         usSpinnerService.stop('spinner');
                     }
                 });
