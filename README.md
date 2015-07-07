@@ -80,7 +80,7 @@ Frontend
 - cd application/frontend
 - npm install
 - bower install
-- cd app/
+- cd app
 - grunt serve
 
  q. VelociRx and its underlying platforms are all openly licensed and are available free of charge. VelociRx itself is available under The [MIT License](http://opensource.org/licenses/MIT).
