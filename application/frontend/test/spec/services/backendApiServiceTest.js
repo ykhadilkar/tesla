@@ -1,9 +1,9 @@
 'use strict';
 
 describe('backendApiService', function () {
-    var escapeRegExp = function (str) {
-        return str.replace(/[\/\.\?]/g, "\\$&");
-    };
+    //var escapeRegExp = function (str) {
+    //    return str.replace(/[\/\.\?]/g, "\\$&");
+    //};
 
     var $httpBackend,
         backendApiServiceObj,
@@ -34,20 +34,20 @@ describe('backendApiService', function () {
         expect(backendApiServiceObj.getProduct).toEqual(jasmine.any(Function));
     });
 
-    xit("checks /symptom.json request", function () {
-        var apiUrl = new RegExp(
-            escapeRegExp(baseUrl + backendApiServiceObj.endpoints.synonym)
-            + 'karma', 'gi');
-
-        $httpBackend.when('GET', apiUrl).respond(
-            {drugInfo: 'some info'}
-        );
-        var status = false;
-        backendApiServiceObj.getConditionSynonyms('karma').then(function (result) {
-            status = result;
-        });
-        $httpBackend.flush();
-
-        expect(status).toEqual({drugInfo: 'some info'});
-    });
+    //xit("checks /symptom.json request", function () {
+    //    var apiUrl = new RegExp(
+    //        escapeRegExp(baseUrl + backendApiServiceObj.endpoints.synonym)
+    //        + 'karma', 'gi');
+    //
+    //    $httpBackend.when('GET', apiUrl).respond(
+    //        {drugInfo: 'some info'}
+    //    );
+    //    var status = false;
+    //    backendApiServiceObj.getConditionSynonyms('karma').then(function (result) {
+    //        status = result;
+    //    });
+    //    $httpBackend.flush();
+    //
+    //    expect(status).toEqual({drugInfo: 'some info'});
+    //});
 });
