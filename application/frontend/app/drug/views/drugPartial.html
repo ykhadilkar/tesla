@@ -68,10 +68,10 @@
       <div layout="row" layout-sm="column" layout-align="start start" layout-wrap>
         <div flex-gt-sm="50" ng-repeat="interaction in drugInteractions | limitTo:4">
           <md-card>
-            <md-card-content>
+            <div flex>
               <h4 class="md-title">{{interaction.drug}}</h4>
               <p>{{ interaction.interaction | limitTo: 100 }}{{interaction.interaction.length > 100 ? '...' : ''}}</p>
-            </md-card-content>
+            </div>
           </md-card>
         </div>
       </div>

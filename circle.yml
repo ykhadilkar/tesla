@@ -24,7 +24,8 @@ general:
 notify:
   webhooks:
     # auto deploy nginx frontend
-    - url: https://dashboard.tutum.co/api/v1/service/fcc070d2-63f4-42ea-a890-cefc75047f7e/trigger/c190d5d8-c004-4eb0-935d-ff9211e13e87/call/
+    # disabled temporarily due to circleci outage on July 7th
+    #- url: https://dashboard.tutum.co/api/v1/service/fcc070d2-63f4-42ea-a890-cefc75047f7e/trigger/c190d5d8-c004-4eb0-935d-ff9211e13e87/call/
 
 dependencies:
   pre:
@@ -36,18 +37,18 @@ test:
    override:
       - sh ./application/run-tests.sh
 
-     
-deployment:
-  tutum:
-    branch: develop
-    commands:
-      - docker login -e $TUTUM_EMAIL -u $TUTUM_USER -p $TUTUM_PASS tutum.co
-      - docker build -t $TUTUM_USER/application_backend ./application/backend
-      - docker tag $TUTUM_USER/application_backend tutum.co/$TUTUM_USER/application_backend
-      - docker push tutum.co/$TUTUM_USER/application_backend
-      - docker build -t $TUTUM_USER/application_frontend ./application/frontend
-      - docker tag $TUTUM_USER/application_frontend tutum.co/$TUTUM_USER/application_frontend
-      - docker push tutum.co/$TUTUM_USER/application_frontend
-      - docker build -t $TUTUM_USER/infrastructure_textdb ./infrastructure/textdb
-      - docker tag $TUTUM_USER/infrastructure_textdb tutum.co/$TUTUM_USER/infrastructure_textdb
-      - docker push tutum.co/$TUTUM_USER/infrastructure_textdb
+# disabled temporarily due to circleci outage on July 7th
+#deployment:
+#  tutum:
+#    branch: develop
+#    commands:
+#      - docker login -e $TUTUM_EMAIL -u $TUTUM_USER -p $TUTUM_PASS tutum.co
+#      - docker build -t $TUTUM_USER/application_backend ./application/backend
+#      - docker tag $TUTUM_USER/application_backend tutum.co/$TUTUM_USER/application_backend
+#      - docker push tutum.co/$TUTUM_USER/application_backend
+#      - docker build -t $TUTUM_USER/application_frontend ./application/frontend
+#      - docker tag $TUTUM_USER/application_frontend tutum.co/$TUTUM_USER/application_frontend
+#      - docker push tutum.co/$TUTUM_USER/application_frontend
+#      - docker build -t $TUTUM_USER/infrastructure_textdb ./infrastructure/textdb
+#      - docker tag $TUTUM_USER/infrastructure_textdb tutum.co/$TUTUM_USER/infrastructure_textdb
+#      - docker push tutum.co/$TUTUM_USER/infrastructure_textdb

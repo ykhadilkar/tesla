@@ -39,7 +39,6 @@ md-content{
 .footer .wrapper {
     text-align: center;
     background-color: #444;
-    width: 133px;
     padding:0;
 }
 
@@ -770,7 +769,6 @@ md-tabs md-ink-bar{
  * General
  ************************************/
 body{
-  /*TODO: use http://typerendering.com/*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -886,6 +884,11 @@ md-toolbar.md-accent{
 .drugs-page  .md-fab.md-primary:not(.active):hover{
   background-color: white;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+/* Adding padding to md-card content */
+.drugs-page md-card{
+  padding: 15px;
 }
 
 /* Slider labels
